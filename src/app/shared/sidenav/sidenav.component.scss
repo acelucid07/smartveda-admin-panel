@@ -1,0 +1,70 @@
+:host {
+    ::ng-deep{
+        mat-divider {
+            width: 85%;
+            margin: auto;
+            border-top-width: 0.13rem!important;
+            border-top-color: rgba(255,255,255,0.4)!important;
+        }
+    }
+}
+
+
+/* Sidebar Section */
+.sidebar-cont {
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 56px;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    background: #fff;
+    padding: 0;
+    box-shadow: 3px 15px 10px #707070;
+    transition: 300ms ease-in-out;
+    background-color: #151D3B;
+  }
+  .sidebar-cont .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .profile-img {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .name, .designation {
+        font-size: 0.8rem;
+        margin-top: 0.8rem;
+        color: #fff;
+    }
+  }
+  .sidebar-cont .sidebar .menu-list {
+    padding: 0 1rem;
+    margin-top: 2rem;
+    list-style: none;
+  }
+  .menu-list .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+  .menu-list .menu-item .menu-link {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 0 0 0 1rem;
+  }

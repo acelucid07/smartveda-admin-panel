@@ -1,0 +1,42 @@
+<div *ngIf="device === 'desktop'" class="sidebar-cont" [@toggleSidebar]="state">
+    <div class="sidebar">
+        <div class="profile-img"><img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
+
+        <h4 class="name">John Smith</h4>
+
+        <mat-divider></mat-divider>
+
+        <ul class="menu-list">
+        <li class="menu-item">
+            <mat-icon>account_box</mat-icon>
+            <a href="javascript:void(0)" class="menu-link profile">Profile</a>
+        </li>
+        <li class="menu-item">
+            <mat-icon>dashboard</mat-icon>
+            <a href="javascript:void(0)" class="menu-link dashboard">Dashboard</a>
+        </li>
+        <li class="menu-item">
+            <mat-icon>settings</mat-icon>
+            <a href="javascript:void(0)" class="menu-link listings">Settings</a>
+        </li>
+        </ul>
+    </div>
+</div>
+<div *ngIf="device === 'mobile'" class="sidebar-cont" [@mToggleSidebar]="state">
+    <div class="sidebar">
+      <ul class="menu-list">
+        <li class="menu-item">
+            <mat-icon>account_box</mat-icon>
+            <a href="javascript:void(0)" class="menu-link profile">Profile</a>
+        </li>
+        <li class="menu-item">
+            <mat-icon>dashboard</mat-icon>
+            <a href="javascript:void(0)" class="menu-link dashboard">Dashboard</a>
+        </li>
+        <li class="menu-item">
+            <mat-icon>settings</mat-icon>
+            <a href="javascript:void(0)" class="menu-link listings">Settings</a>
+        </li>
+      </ul>
+    </div>
+</div>

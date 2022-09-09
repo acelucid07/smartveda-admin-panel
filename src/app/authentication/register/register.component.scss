@@ -1,0 +1,86 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  width: 55%;
+  padding: 2.2rem;
+  height: 75vh;
+  border-radius: 1rem;
+  
+  form {
+    margin: 2rem 0 1rem 0;
+    
+    .btn-block {
+      font-size: 1.2rem;
+      padding: 0.25rem 0;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  p {
+    letter-spacing: 1px;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+
+  input {
+    font-size: 1rem;
+  }
+}
+
+mat-card-header {
+  justify-content: center;
+
+  mat-card-title {
+    font-size: 1.7rem;
+    color: #524b4b;
+  }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+
+  fa-icon {
+    font-size: 1.8rem;
+
+    &.facebook {
+      color: #4267B2;
+    }
+
+    &.twitter {
+      color: #1DA1F2;
+    }
+
+    &.google {
+      color: #EA4355;
+    }
+  }
+}
+
+::ng-deep{
+
+  .mat-form-field-infix {
+    border-top: none;
+    padding: 1.3em 0 1.3em 0!important;
+  }
+
+  .mat-form-field-wrapper {
+    margin-bottom: 1rem!important;
+  }
+}
+
+.signup-container {
+  margin-top: 4.8rem;
+  text-align: center;
+
+  p {
+    font-size: 1rem;
+  }
+}

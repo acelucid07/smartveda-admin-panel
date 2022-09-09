@@ -1,0 +1,20 @@
+<div class="dropdown-menu-container" #dropdown>
+  <div class="main-menu">
+    <div>
+      <span class="main-menu-btn f-btn" (click)="toggleMenu()"><mat-icon>account_circle</mat-icon></span>
+    </div>
+    <!-- <div *ngIf="profileAvatarUrl">
+      <span class="main-menu-btn f-btn" [ngStyle]="{ 'background-size': 'cover' , 'background-image': 'url(' + profileAvatarUrl + ')'}" (click)="toggleMenu()">&nbsp;</span>
+    </div> -->
+  </div>
+  <div class="sub-menu-container">
+    <ul class="menu-items" [@menu]="menuState">
+      <li class="menu-item" [ngClass]="settingsClass">
+        <a href="javascript:void(0)" class="link">Settings</a>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0)" class="link">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>

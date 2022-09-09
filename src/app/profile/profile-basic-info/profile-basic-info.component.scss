@@ -1,0 +1,124 @@
+.page-heading {
+
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        word-spacing: 0.1rem;
+    }
+}
+.basic-info-header {
+    display: flex;
+    margin: 2rem 0;
+
+    mat-label {
+        font-size: 0.9rem;
+        color: #707070;
+        font-weight: 700;
+        line-height: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .detail-heading {
+        
+        span {
+            padding: 0 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            word-spacing: 0.1rem;
+            font-size: 1.1rem;
+        }
+    }
+
+    .basic-info-profile {
+        width: 20%;
+        
+        img {
+            position: relative;
+            width: 100%;
+
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0, 0.2)
+            }
+        }
+
+        button {
+            background-color: #707070;
+            width: 100%;
+            color: #fff;
+            margin-top: 1rem;
+            letter-spacing: 2px;
+            padding: 0.25rem;
+            box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+
+            mat-icon {
+                margin-right: 0.3rem;
+            }
+
+            &:hover {
+                background-color: #f1f1f1;
+                color: #707070;
+
+                .mat-icon {
+                    color: #707070;
+                }
+            }
+        }
+    }
+
+    .basic-info-content {
+        width: 100%;
+        background-color: #ECECEC;
+        margin-left: 1rem;
+        padding: 0.5rem;
+
+        .edit-section {
+            text-align: right;
+            padding-left: 0.5rem;
+
+            button {
+                color: #ffffff;
+                background: #707070;
+                letter-spacing: 1.5px;
+                padding: 0 0.5rem;
+                margin: 0 0.5rem;
+
+                mat-icon {
+                    margin-right: 0.25rem;
+                }
+
+                &:hover {
+                    background-color: #f1f1f1;
+                    color: #707070;
+
+                    mat-icon {
+                        background-color: #f1f1f1;
+                        color: #707070;
+                    }
+                }
+            }
+        }
+
+        .sub-header-row {
+            margin-bottom: 1.25rem;
+        }
+
+        .detail-row {
+            padding: 0 1rem;
+        }
+    }
+}
+
+.edit-custom {
+    font-size: 1.3rem;
+    width: 100%;
+    height: auto;
+}
+

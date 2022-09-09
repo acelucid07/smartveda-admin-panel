@@ -1,0 +1,13 @@
+<div class="">
+    <div class="header flex-container">
+      <div class="nav-icon"><fa-icon [icon]="faBars" (click)="onToggleSidebar()"></fa-icon></div>
+      <div class="logo-custom">
+        <a routerLink="/profile">
+          LOGO
+        </a>      
+      </div>
+      <div class="dropdown-custom">
+        <app-dropdown-menu></app-dropdown-menu>
+      </div>
+    <app-sidenav #sidenav></app-sidenav>
+</div>

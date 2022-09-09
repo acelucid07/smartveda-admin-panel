@@ -1,0 +1,49 @@
+<div class="page-heading">
+    <h1 class="header-text-title">PROFILE</h1>
+</div>
+<div class="basic-info-header">
+    <div class="basic-info-profile">
+        <div><img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
+        <button mat-button color="primary"><mat-icon>camera</mat-icon>CHANGE</button>
+    </div>
+
+    <div class="basic-info-content">
+        <div class="flex-grid-container-content flex-row sub-header-row">
+            <div class="grid-row-data-item detail-heading">
+                <span class="header-text-title">Basic Details</span>
+            </div>    
+            <div class="grid-row-data-item edit-section">
+                <button mat-button color="primary" class="no-hover-effect edit-link">
+                    <mat-icon>edit</mat-icon>EDIT
+                </button>
+            </div>
+        </div>
+        <div class="flex-grid-container-content flex-row detail-row">
+            <div class="grid-row-data-item">
+                <mat-label>NAME</mat-label>
+                <div>
+                    {{profile?.name}}
+                </div>
+            </div>
+            <div class="grid-row-data-item">
+                <mat-label>ROLE</mat-label>
+                <div>
+                     {{profile?.role}}
+                </div>
+            </div>
+            <div class="grid-row-data-item">
+                <mat-label>PHONE</mat-label>
+                <div>
+                    {{profile?.phone}}
+                </div>
+            </div>
+            <div class="grid-row-data-item">
+                <mat-label>EMAIL</mat-label>
+                <div>
+                    {{profile?.email}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="login-wrapper">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>LOGIN</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <input matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <input matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-raised-button color="primary" class="btn-block" (click)="onSubmit()">Login</button>
+    </form>
+    <p><a href="javascript:void(0)">Forgot password?</a></p>
+    <div class="social-icons">
+      <a type="button" class="light-blue-text mx-2">
+        <fa-icon class="facebook" [icon]="faFacebook"></fa-icon>
+      </a>
+      <a type="button" class="light-blue-text mx-2">
+        <fa-icon class="twitter" [icon]="faTwitter"></fa-icon>
+      </a>
+      <a type="button" class="light-blue-text mx-2">
+        <fa-icon class="google" [icon]="faGoogle"></fa-icon>
+      </a>
+    </div>
+    <div class="signup-container">
+      <p>New User? <a routerLink="/signup">SIGNUP</a></p>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,65 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <div class="row">
+        <div class="col-sm-3">
+            <mat-card class="card-green">
+                <mat-card-header>
+                    <mat-card-title>
+                        <fa-icon [icon]="faMoneyBill"></fa-icon>
+                    </mat-card-title>
+                    <p>EARNINGS</p>
+                </mat-card-header>
+                <div class="card-content">
+                    <h3>34700</h3>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-sm-3">
+            <mat-card class="card-yellow">
+                <mat-card-header>
+                    <mat-card-title>
+                        <fa-icon [icon]="faMoneyBill"></fa-icon>
+                    </mat-card-title>
+                    <p>CONTACTS</p>
+                </mat-card-header>
+                <div class="card-content">
+                    <h3>150</h3>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-sm-3">
+            <mat-card class="card-red">
+                <mat-card-header>
+                    <mat-card-title>
+                        <fa-icon [icon]="faMoneyBill"></fa-icon>
+                    </mat-card-title>
+                    <p>LEADS</p>
+                </mat-card-header>
+                <div class="card-content">
+                    <h3>500</h3>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-sm-3">
+            <mat-card class="card-purple">
+                <mat-card-header>
+                    <mat-card-title>
+                        <fa-icon [icon]="faMoneyBill"></fa-icon>
+                    </mat-card-title>
+                    <p>MESSAGES</p>
+                </mat-card-header>
+                <div class="card-content">
+                    <h3>90</h3>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div class="data-grid">
+        <ag-grid-angular
+            class="ag-theme-alpine"
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+        >
+        </ag-grid-angular>
+    </div>
+</div>
