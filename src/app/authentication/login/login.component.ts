@@ -30,9 +30,14 @@ export class LoginComponent implements OnInit {
             email: email,
             password: password
         }).subscribe(res => {
-          window.open("http://localhost:4200/dashboard", "_self");
+          if(res.errors){
+            window.open("http://localhost:4200/", "_self")
+          }
+          else{
+            window.open("http://localhost:4200/dashboard", "_self");
+          }
           localStorage.setItem('_id', res.data.id);
-        }, () => window.open("http://localhost:4200/", "_self"));
+        });
 	}
 
   ngOnInit(): void {
