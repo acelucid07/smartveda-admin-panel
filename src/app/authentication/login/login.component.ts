@@ -19,15 +19,15 @@ export class LoginComponent implements OnInit {
     private authenticationService : AuthenticationService
   ) {
     this.form = this.fb.group({
-			username: ['', [Validators.required]],
+			email: ['', [Validators.required]],
 			password: ['', [Validators.required]],
 		});
    }
    onSubmit () {
-    window.open("http://localhost:4200/dashboard", "_self")
-		const { username, password } = this.form.value;
+    // window.open("http://localhost:4200/dashboard", "_self")
+		const { email, password } = this.form.value;
 		this.authenticationService.login({
-            username: username,
+            email: email,
             password: password
         }).subscribe(res => {
             localStorage.setItem('_id', res.data.id);

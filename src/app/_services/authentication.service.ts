@@ -13,7 +13,7 @@ export class AuthenticationService {
     }
     
     login(payload: Login): Observable<any>{
-        const endpointUrl = 'http://localhost:5000/login';
+        const endpointUrl = 'http://localhost:5000/adminlogin';
         return this.http.post(endpointUrl, payload);
     }
 
