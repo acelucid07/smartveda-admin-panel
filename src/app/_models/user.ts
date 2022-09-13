@@ -8,12 +8,14 @@ export interface User {
 }
 
 export interface UserGetRequestParams {
-    id: string;
-    name: string;
-    email: string;
-    role: string;
-    status: boolean;
-    createdAt: string;
-    token: string;
-    updatedAt: string;
+    data: {
+        id: string;
+        email: string;
+        role: string;
+        status: boolean;
+        createdAt: string;
+        token: string;
+        updatedAt: string;
+    };
+    message: string;
 }

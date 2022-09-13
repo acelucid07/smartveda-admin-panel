@@ -30,10 +30,12 @@ export class LoginComponent implements OnInit {
             email: email,
             password: password
         }).subscribe(res => {
+          console.log(res)
           if(res.errors){
             window.open("http://localhost:4200/", "_self")
           }
           else{
+            localStorage.setItem('token', res.token)
             window.open("http://localhost:4200/dashboard", "_self");
           }
           localStorage.setItem('_id', res.data.id);

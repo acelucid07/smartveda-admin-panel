@@ -1,29 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { ColDef } from 'ag-grid-community';
+import { Observable } from 'rxjs';
+import { UserGetRequestParams } from 'src/app/_models/user';
+import { UsersService } from 'src/app/_services/users.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+// interface UserGetRequest {
+//  data:UserGetRequestParams[],
+//  message:string
+// }
 export class DashboardComponent implements OnInit {
 
+  // user$: Observable<UserGetRequestParams>;
   sidebarSpacing: any;
+  
   faMoneyBill = faMoneyBill;
   columnDefs: ColDef[] = [
-    { field: 'make' },
-    { field: 'model' },
-    { field: 'price'}
+    { field: 'email' },
+    { field: 'role' },
+    { field: 'status'},
+    { field: 'createdAt'}
   ];
 
-  rowData = [
-      { make: 'Toyota', model: 'Celica', price: 35000 },
-      { make: 'Ford', model: 'Mondeo', price: 32000 },
-      { make: 'Porsche', model: 'Boxter', price: 72000 }
-  ];
+  rowData: any;
 
-  constructor() {
+  constructor(private userService: UsersService) {
+    this.userService.getUsers().subscribe((res: any)=>{
+      this.rowData = res.data;
+    }); // api call aysnc, if not working change to subscribe()
   }
 
   ngOnInit(): void {
