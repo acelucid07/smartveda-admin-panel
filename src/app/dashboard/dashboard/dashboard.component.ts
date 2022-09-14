@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     { field: 'role' },
     { field: 'status'},
     { field: 'createdAt'}
-  ];
+  ]; 
 
   rowData: any;
 
