@@ -22,7 +22,6 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "defaultConfiguration": "production",
           "options": {
             "outputPath": "dist/smartveda_admin",
             "index": "src/index.html",
