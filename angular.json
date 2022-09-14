@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lms-ui": {
+    "smartveda_admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -22,8 +22,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+          "defaultConfiguration": "production",
           "options": {
-            "outputPath": "dist/lms-ui",
+            "outputPath": "dist/smartveda_admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "lms-ui:build:production"
+              "browserTarget": "smartveda_admin:build:production"
             },
             "development": {
-              "browserTarget": "lms-ui:build:development"
+              "browserTarget": "smartveda_admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lms-ui:build"
+            "browserTarget": "smartveda_admin:build"
           }
         },
         "test": {
@@ -114,5 +115,5 @@
       }
     }
   },
-  "defaultProject": "lms-ui"
+  "defaultProject": "smartveda_admin"
 }
