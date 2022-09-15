@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'lms-ui'`, () => {
+  it(`should have as title 'smartveda_admin'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('lms-ui');
+    expect(app.title).toEqual('smartveda_admin');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('lms-ui app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('smartveda_admin app is running!');
   });
 });
