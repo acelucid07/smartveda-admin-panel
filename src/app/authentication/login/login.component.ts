@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faFacebook, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authenticationService : AuthenticationService
+    private authenticationService : AuthenticationService,
+    private router: Router
   ) {
     this.form = this.fb.group({
 			email: ['', [Validators.required]],
@@ -32,14 +34,13 @@ export class LoginComponent implements OnInit {
         }).subscribe(res => {
           console.log(res)
           if(res.errors){
-            window.open("http://localhost:4200/", "_self")
+            this.router.navigateByUrl("/");
           }
           else{
             localStorage.setItem('token', res.token)
-            window.open("http://localhost:4200/dashboard", "_self");
+            this.router.navigateByUrl("/dashboard");
           }
-          localStorage.setItem('_id', res.data.id);
-        });
+        }); 
 	}
 
   ngOnInit(): void {

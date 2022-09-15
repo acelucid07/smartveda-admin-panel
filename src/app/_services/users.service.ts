@@ -12,7 +12,7 @@ export class UsersService {
     getUsers(): any {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token',token) 
-        const endpointUrl = 'http://3.108.53.130:5000/users';
+        const endpointUrl = 'http://3.110.155.54:5000/users';
         return this.http.get(endpointUrl,{'headers':httpOptions}).pipe(map(res => res));
     }
    
