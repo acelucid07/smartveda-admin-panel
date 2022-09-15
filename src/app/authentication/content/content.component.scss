@@ -1,11 +1,11 @@
 .content-wrapper {
     width: 65%;
-    margin: auto;
+    margin: none;
 
     h3 {
-        color: #fff;
+        color: rgb(114, 222, 31);
         font-size: 3rem;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 3.3rem;
         letter-spacing: 0.2rem;
     }
@@ -13,8 +13,12 @@
     p {
         font-size: 1.4rem;
         font-weight: 500;
-        color: #fff;
+        color: rgb(119, 218, 44);
         line-height: 1.8rem;
+    }
+    img{
+        width: 20%;
+        height: 20%;
     }
 }
 

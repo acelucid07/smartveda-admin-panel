@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   faMoneyBill = faMoneyBill;
   columnDefs: ColDef[] = [
     { field: 'email' },
+    { field: 'phone' },
     { field: 'role' },
     { field: 'status'},
     { field: 'createdAt'}

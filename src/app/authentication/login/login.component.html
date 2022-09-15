@@ -1,19 +1,40 @@
-<div class="login-wrapper">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>LOGIN</mat-card-title>
-    </mat-card-header>
-    <form [formGroup]="form" class="example-form">
-      <mat-card-content>
-        <mat-form-field class="example-full-width" appearance="outline">
-          <input matInput placeholder="Username" formControlName="email">
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="outline">
-          <input matInput placeholder="Password" formControlName="password">
-        </mat-form-field>
-      </mat-card-content>
-      <button mat-raised-button color="primary" class="btn-block" (click)="onSubmit()">Login</button>
-    </form>
-    <p><a href="javascript:void(0)">Forgot password?</a></p>
-  </mat-card>
+<div class="container py-2 h-10 justify-content-center" style="margin-left: 15%;">
+  <app-content></app-content>
+</div>
+<div class="h-100 gradient-form">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-8">
+        <div class="card rounded-5 text-black" style="background: #b3b2b78c;">
+          <div class="row g-0">
+            <div class="col-lg-12">
+              <div class="card-body p-md-6 mx-md-4">
+
+                <div class="text-center">
+                  <img class="pt-1 mb-2 pb-1" src="../../../assets/images/Logo-03 1.png" alt="logo">
+                  <h4 class="mt-1 mb-3 pb-1">We are The Smartveda Team</h4>
+                </div>
+                <form [formGroup]="form" class="text-center">
+                  <p>Please login to your account</p>
+
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <input matInput placeholder="Username/Email" formControlName="email">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <input matInput placeholder="Password" formControlName="password">
+                  </mat-form-field>
+
+                  <div class="text-center pt-1 mb-3 pb-1">
+                    <button class="btn btn-primary btn-block pt-1 mb-3" style="width: 40%; margin-left:30%"
+                      (click)="onSubmit()">login</button>
+                    <a class="text-black" style="color: black;" href="#!">Forgot password?</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
