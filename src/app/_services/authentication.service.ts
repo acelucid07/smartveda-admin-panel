@@ -7,17 +7,17 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    
-    constructor(private http: HttpClient){
+
+    constructor(private http: HttpClient) {
 
     }
-    
-    login(payload: Login): Observable<any>{
+
+    login(payload: Login): Observable<any> {
         const endpointUrl = 'http://3.110.155.54:5000/adminlogin';
         return this.http.post(endpointUrl, payload);
     }
 
-    forgetPassword(){
+    forgetPassword() {
 
     }
 }

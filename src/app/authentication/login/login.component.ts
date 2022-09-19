@@ -34,11 +34,13 @@ export class LoginComponent implements OnInit {
         }).subscribe(res => {
           console.log(res)
           if(res.errors){
-            this.router.navigateByUrl("/");
+            this.router.navigateByUrl("/login");
           }
           else{
-            localStorage.setItem('token', res.token)
+            localStorage.setItem('token', res.token);
             this.router.navigateByUrl("/dashboard");
+            localStorage.setItem('UserData', JSON.stringify(res['body']['data']));
+            let email = localStorage.getItem('email');
           }
         }); 
 	}
