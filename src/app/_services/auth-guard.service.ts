@@ -15,9 +15,9 @@ export class AuthGuardService implements CanActivate {
     const token = window.localStorage.getItem('token');
 
     if (!token) {
+      window.localStorage.removeItem('token');
       this.router.navigate(['/']);
       return false
-    }
-    return true
+    } else return true
   }
 }

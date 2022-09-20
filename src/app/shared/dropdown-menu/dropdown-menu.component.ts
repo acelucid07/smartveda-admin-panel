@@ -59,4 +59,11 @@ export class DropdownMenuComponent implements OnInit {
       this.menuState = 'close';
     }
   }
+
+  onLogout(){
+    window.localStorage.removeItem('token');
+    localStorage.clear();
+    sessionStorage.clear();
+    this.router.navigate(['/'])
+  }
 }
