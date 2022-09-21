@@ -54,12 +54,15 @@
             </mat-card>
         </div>
     </div>
-    <div class="data-grid">
+    <div class="data-grid" ngxUiLoaderBlurred>
         <ag-grid-angular
             class="ag-theme-alpine"
             [rowData]="rowData"
             [columnDefs]="columnDefs"
+            [defaultColDef]="defaultColDef"
         >
         </ag-grid-angular>
     </div>
+    <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
 </div>
+    
