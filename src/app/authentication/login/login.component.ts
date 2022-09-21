@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faGoogle = faGoogle;
+  showPassword:boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -48,4 +49,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleShow() {
+    this.showPassword = !this.showPassword;
+  }
 }

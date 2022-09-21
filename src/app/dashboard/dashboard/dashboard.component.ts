@@ -21,12 +21,19 @@ export class DashboardComponent implements OnInit {
   
   faMoneyBill = faMoneyBill;
   columnDefs: ColDef[] = [
-    { field: 'email' },
+    { field: 'email'},
     { field: 'phone' },
     { field: 'role' },
     { field: 'status'},
     { field: 'createdAt'}
   ]; 
+
+  defaultColDef: ColDef = {
+    editable: true,
+    sortable: true,
+    filter: true,
+    resizable: true,
+  };
 
   rowData: any;
 

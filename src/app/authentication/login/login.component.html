@@ -17,10 +17,13 @@
                   <p>Please login to your account</p>
 
                   <mat-form-field class="example-full-width" appearance="outline">
-                    <input matInput placeholder="Username/Email" type="text" formControlName="email" autocomplete="off">
+                    <input matInput placeholder="Username/Email" type="text" formControlName="email" autocomplete="on">
                   </mat-form-field>
                   <mat-form-field class="example-full-width" appearance="outline">
-                    <input matInput placeholder="Password" type="password" formControlName="password" autocomplete="off">
+                    <input matInput placeholder="Password" type="password" formControlName="password" autocomplete="off" [type]="showPassword ? 'text' : 'password'">
+                    <mat-icon matSuffix (click)="toggleShow()" style="color: #3d3d3e;">
+                      {{ showPassword ? 'visibility_off' : 'visibility' }}
+                    </mat-icon>
                   </mat-form-field>
 
                   <div class="text-center pt-1 mb-3 pb-1">

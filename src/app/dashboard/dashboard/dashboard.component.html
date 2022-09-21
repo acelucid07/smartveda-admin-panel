@@ -59,7 +59,16 @@
             class="ag-theme-alpine"
             [rowData]="rowData"
             [columnDefs]="columnDefs"
+            [defaultColDef]="defaultColDef"
         >
         </ag-grid-angular>
     </div>
 </div>
+<!-- <table mat-table class="col-sm-10 mt-3 border border-1">
+    <ng-container matColumnDef="Id"  *ngFor="let data of rowData; let i=index">
+        <th mat-header-cell *matHeaderCellDef>S No.</th>
+        <td mat-cell *matCellDef>{{i+1}}</td>
+    </ng-container>
+
+</table> -->
+    
