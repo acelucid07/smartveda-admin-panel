@@ -7,7 +7,7 @@
         <button mat-button color="primary"><mat-icon>camera</mat-icon>CHANGE</button>
     </div>
 
-    <div class="basic-info-content">
+    <div class="basic-info-content" ngxUiLoaderBlurred>
         <div class="flex-grid-container-content flex-row sub-header-row">
             <div class="grid-row-data-item detail-heading">
                 <span class="header-text-title">Basic Details</span>
@@ -43,6 +43,7 @@
                     {{profile?.email}}
                 </div>
             </div>
+            <ngx-ui-loader  [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
         </div>
     </div>
 </div>

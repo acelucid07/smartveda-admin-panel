@@ -8,16 +8,24 @@
 
         <ul class="menu-list">
         <li class="menu-item">
-            <mat-icon>account_box</mat-icon>
-            <a href="javascript:void(0)" class="menu-link profile">Profile</a>
+            <mat-icon>dashboard</mat-icon>
+            <a href="/dashboard" class="menu-link dashboard">Dashboard</a>
         </li>
         <li class="menu-item">
-            <mat-icon>dashboard</mat-icon>
-            <a href="javascript:void(0)" class="menu-link dashboard">Dashboard</a>
+            <mat-icon>account_box</mat-icon>
+            <a href="/profile" class="menu-link profile">Profile</a>
         </li>
         <li class="menu-item">
             <mat-icon>settings</mat-icon>
-            <a href="javascript:void(0)" class="menu-link listings">Settings</a>
+            <a routerLink="/profile" class="menu-link listings">Settings</a>
+        </li>
+        <li class="menu-item">
+            <mat-icon>settings</mat-icon>
+            <a href="javascript:void(0)" class="menu-link listings">CRM</a>
+        </li>
+        <li class="menu-item">
+            <mat-icon>settings</mat-icon>
+            <a href="javascript:void(0)" class="menu-link listings">Sponsors</a>
         </li>
         </ul>
     </div>
