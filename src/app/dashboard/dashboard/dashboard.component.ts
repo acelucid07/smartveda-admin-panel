@@ -22,33 +22,13 @@ export class DashboardComponent implements OnInit {
   fgsType: any;
   
   faMoneyBill = faMoneyBill;
-  columnDefs: ColDef[] = [
-    { field: 'email'},
-    { field: 'phone' },
-    { field: 'role' },
-    { field: 'status'},
-    { field: 'createdAt'}
-  ]; 
+owData: any;
 
-  defaultColDef: ColDef = {
-    editable: true,
-    sortable: true,
-    filter: true,
-    resizable: true,
-  };
-
-  rowData: any;
-
-  constructor(private userService: UsersService, private ngxLoader: NgxUiLoaderService) {
-    this.userService.getUsers().subscribe((res: any)=>{
-      this.rowData = res.data;
-      this.ngxLoader.stop();
-    }); // api call aysnc, if not working change to subscribe()
-  }
+  constructor(private userService: UsersService, private ngxLoader: NgxUiLoaderService) {}
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
-    this.ngxLoader.start();
+    // this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
   }
 
@@ -57,7 +37,7 @@ export class DashboardComponent implements OnInit {
       this.sidebarSpacing = 'contracted';
     } else {
       this.sidebarSpacing = 'expanded';
+      this.ngxLoader.stop();
     }
   }
-
 }

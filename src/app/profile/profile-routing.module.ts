@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService as AuthGuard} from '../_services/auth-guard.service';
+import { CustomerListComponent } from '../customer/customer-list/customer-list.component';
+import { ProfileBasicInfoComponent } from './profile-basic-info/profile-basic-info.component';
 
 
 const routes: Routes = [
    { path: '', component: ProfileComponent, canActivate: [AuthGuard] },
+   { path: 'customer', component: CustomerListComponent, canActivate: [AuthGuard] },
+   { path: 'viewcustomer', component: ProfileBasicInfoComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

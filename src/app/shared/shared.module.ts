@@ -6,7 +6,7 @@ import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { AngularMaterialModule } from '../_modules/angular-material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, POSITION,PB_DIRECTION, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader'
-
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -19,11 +19,13 @@ import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, POSITION,PB_DIRECTION, N
     CommonModule,
     AngularMaterialModule,
     FontAwesomeModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    ButtonModule
   ],
   exports: [
     HeaderComponent,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    ButtonModule
   ]
 })
 export class SharedModule { 

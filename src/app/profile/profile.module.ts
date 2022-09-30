@@ -6,20 +6,24 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileChangePasswordComponent } from './profile-change-password/profile-change-password.component';
 import { ProfileBasicInfoComponent } from './profile-basic-info/profile-basic-info.component';
-
+import { CustomerListComponent } from '../customer/customer-list/customer-list.component';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
     ProfileChangePasswordComponent,
-    ProfileBasicInfoComponent
+    ProfileBasicInfoComponent,
+    CustomerListComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ProfileRoutingModule,
-    SharedImportsModule
+    SharedImportsModule,
+    TableModule
   ]
 })
 export class ProfileModule { }
