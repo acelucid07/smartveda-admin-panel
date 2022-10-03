@@ -10,7 +10,7 @@ export class ProfileService {
 
     }
     getProfile(id: string): Observable<UserGetRequestParams>{
-        const endpointUrl = `http://localhost:5000/user/${id}`;
+        const endpointUrl = `http://3.110.155.54:5000/user/${id}`;
         return this.http.get<UserGetRequestParams>(endpointUrl);
     }
    

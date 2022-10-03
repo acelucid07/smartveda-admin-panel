@@ -10,10 +10,12 @@ import { AngularMaterialModule } from './_modules/angular-material.module';
 import { SharedModule } from './_modules/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateCustomerComponent } from './customer/update-customer/update-customer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UpdateCustomerComponent
   ],
   imports: [
     BrowserModule,

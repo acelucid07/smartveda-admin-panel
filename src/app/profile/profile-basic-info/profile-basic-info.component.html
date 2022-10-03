@@ -1,50 +1,58 @@
-<div class="page-heading">
-    <h1 class="header-text-title">PROFILE</h1>
-</div>
-<div class="basic-info-header">
-    <div class="basic-info-profile">
-        <div><img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
-        <button mat-button color="primary"><mat-icon>camera</mat-icon>CHANGE</button>
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <div class="page-heading">
+        <h1 class="header-text-title">PROFILE</h1>
     </div>
-
-    <div class="basic-info-content" ngxUiLoaderBlurred>
-        <div class="flex-grid-container-content flex-row sub-header-row">
-            <div class="grid-row-data-item detail-heading">
-                <span class="header-text-title">Basic Details</span>
-            </div>    
-            <div class="grid-row-data-item edit-section">
-                <button mat-button color="primary" class="no-hover-effect edit-link">
-                    <mat-icon>edit</mat-icon>EDIT
-                </button>
-            </div>
+    <div class="basic-info-header">
+        <div class="basic-info-profile">
+            <div><img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
+            <button mat-button color="primary">
+                <mat-icon>camera</mat-icon>CHANGE
+            </button>
         </div>
-        <div class="flex-grid-container-content flex-row detail-row">
-            <div class="grid-row-data-item">
-                <mat-label>NAME</mat-label>
-                <div>
-                    {{profile?.name}}
+
+        <div class="basic-info-content" ngxUiLoaderBlurred>
+            <div class="flex-grid-container-content flex-row sub-header-row">
+                <div class="grid-row-data-item detail-heading">
+                    <span class="header-text-title">Basic Details</span>
+                </div>
+                <div class="grid-row-data-item edit-section">
+                    <button mat-button color="primary" class="no-hover-effect edit-link">
+                        <mat-icon>edit</mat-icon>EDIT
+                    </button>
                 </div>
             </div>
-            <div class="grid-row-data-item">
-                <mat-label>ROLE</mat-label>
-                <div>
-                     {{profile?.role}}
+            <div class="flex-grid-container-content flex-row detail-row">
+                <div class="grid-row-data-item">
+                    <mat-label>EMAIL</mat-label>
+                    <div *ngIf="profile.email != null">
+                        {{profile?.email}}
+                    </div>
+                    <div *ngIf="profile.email == null">
+                        {{"-------"}}
+                    </div>
                 </div>
-            </div>
-            <div class="grid-row-data-item">
-                <mat-label>PHONE</mat-label>
-                <div>
-                    {{profile?.phone}}
+                <div class="grid-row-data-item">
+                    <mat-label>PHONE</mat-label>
+                    <div *ngIf="profile?.phone == null">
+                        {{"-------"}}
+                    </div>
+                    <div *ngIf="profile?.phone != null">
+                        {{profile.phone}}
+                    </div>
                 </div>
-            </div>
-            <div class="grid-row-data-item">
-                <mat-label>EMAIL</mat-label>
-                <div>
-                    {{profile?.email}}
+                <div class="grid-row-data-item">
+                    <mat-label>ROLE</mat-label>
+                    <div>
+                        {{profile?.role}}
+                    </div>
                 </div>
-            </div>
-            <ngx-ui-loader  [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+                <div class="grid-row-data-item">
+                    <mat-label>STATUS</mat-label>
+                    <div>
+                        {{profile?.status}}
+                    </div>
+                </div>
         </div>
     </div>
 </div>
-
