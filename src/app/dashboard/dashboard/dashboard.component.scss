@@ -66,12 +66,9 @@ mat-card {
   overflow:auto;
   box-sizing: border-box;
 }
-.ag-theme-alpine {
-  --ag-row-width: 100%;
-  --ag-header-height: 20px;
-  --ag-header-background-color: #3148a6;
-  --ag-header-foreground-color: rgb(244, 229, 229);
-  --ag-borders: 1px solid;
-  --ag-borders-row: solid 1px;
-  --ag-odd-row-background-color: rgb(248, 243, 243) ;
+.barChart{
+  margin-left: 20% !important;
+}
+.chart{
+  margin-left: 5%;
 }
