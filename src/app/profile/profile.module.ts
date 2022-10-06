@@ -8,7 +8,6 @@ import { ProfileChangePasswordComponent } from './profile-change-password/profil
 import { ProfileBasicInfoComponent } from './profile-basic-info/profile-basic-info.component';
 import { CustomerListComponent } from '../customer/customer-list/customer-list.component';
 import { TableModule } from 'primeng/table';
-import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({

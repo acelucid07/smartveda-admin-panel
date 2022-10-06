@@ -1,59 +1,18 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
     <div class="row">
-        <div class="col-sm-3">
-            <mat-card class="card-green">
-                <mat-card-header>
-                    <mat-card-title>
-                        <fa-icon [icon]="faMoneyBill"></fa-icon>
-                    </mat-card-title>
-                    <p>EARNINGS</p>
-                </mat-card-header>
-                <div class="card-content">
-                    <h3>34700</h3>
-                </div>
-            </mat-card>
+        <div class="col barChart sm-8 mt-1 mb-5">
+            <p-chart height="400" width="70%" type="bar" [data]="barChartData" [options]="options"></p-chart>
         </div>
-        <div class="col-sm-3">
-            <mat-card class="card-yellow">
-                <mat-card-header>
-                    <mat-card-title>
-                        <fa-icon [icon]="faMoneyBill"></fa-icon>
-                    </mat-card-title>
-                    <p>CONTACTS</p>
-                </mat-card-header>
-                <div class="card-content">
-                    <h3>150</h3>
-                </div>
-            </mat-card>
+    </div>
+    <div class="row mt-2">
+        <div class="card chart col-sm-5 mt-1">
+            <p-chart height="400" type="pie" [data]="data" [options]="options"></p-chart>
         </div>
-        <div class="col-sm-3">
-            <mat-card class="card-red">
-                <mat-card-header>
-                    <mat-card-title>
-                        <fa-icon [icon]="faMoneyBill"></fa-icon>
-                    </mat-card-title>
-                    <p>LEADS</p>
-                </mat-card-header>
-                <div class="card-content">
-                    <h3>500</h3>
-                </div>
-            </mat-card>
-        </div>
-        <div class="col-sm-3">
-            <mat-card class="card-purple">
-                <mat-card-header>
-                    <mat-card-title>
-                        <fa-icon [icon]="faMoneyBill"></fa-icon>
-                    </mat-card-title>
-                    <p>MESSAGES</p>
-                </mat-card-header>
-                <div class="card-content">
-                    <h3>90</h3>
-                </div>
-            </mat-card>
+        <div class="card chart col-sm-5 mt-1">
+            <p-chart height="400" type="doughnut" [data]="doughnutData" [options]="options">
+            </p-chart>
         </div>
     </div>
     <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
 </div>
-    

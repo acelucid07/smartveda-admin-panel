@@ -7,7 +7,8 @@ import { AngularMaterialModule } from '../_modules/angular-material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, POSITION,PB_DIRECTION, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader'
 import { ButtonModule } from 'primeng/button';
-
+import { ChartModule } from 'primeng/chart';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,16 @@ import { ButtonModule } from 'primeng/button';
     AngularMaterialModule,
     FontAwesomeModule,
     NgxUiLoaderModule,
-    ButtonModule
+    ButtonModule,
+    ChartModule,
+    InputTextModule
   ],
   exports: [
     HeaderComponent,
     NgxUiLoaderModule,
-    ButtonModule
+    ButtonModule,
+    ChartModule,
+    InputTextModule
   ]
 })
 export class SharedModule { 

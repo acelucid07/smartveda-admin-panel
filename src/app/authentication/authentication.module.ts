@@ -5,7 +5,7 @@ import { SharedModule } from '../_modules/shared.module';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { ContentComponent } from './content/content.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RouterModule, ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserGetRequestParams  } from '../_models/user'
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ProfileService {
@@ -14,4 +14,10 @@ export class ProfileService {
         return this.http.get<UserGetRequestParams>(endpointUrl);
     }
    
+    updateCustomerProfile(data: UserGetRequestParams): Observable<UserGetRequestParams> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token',token) 
+        const endpointUrl = `http://3.110.155.54:5000/update/${data.id}`;
+        return this.http.put<UserGetRequestParams>(endpointUrl,data, {'headers':httpOptions});
+    }
 }

@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { UsersService } from 'src/app/_services/users.service';
 import { UserGetRequestParams } from 'src/app/_models/user';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProfileService } from 'src/app/_services/profile.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -19,10 +17,7 @@ export class CustomerListComponent implements OnInit {
   userDetails!: any;
   constructor(
     private userService:UsersService, 
-    private ngxLoader:NgxUiLoaderService, 
-    private profileService:ProfileService,
-    private router: Router,
-    private route: ActivatedRoute
+    private ngxLoader:NgxUiLoaderService
     ) {}
 
   ngOnInit(): void {
@@ -33,13 +28,5 @@ export class CustomerListComponent implements OnInit {
       this.rowData = res.data;
       this.ngxLoader.stop();
     })
-  }
-
-  onToggleSidebar(sidebarState: any) {
-    if (sidebarState === 'open') {
-      this.sidebarSpacing = 'contracted';
-    } else {
-      this.sidebarSpacing = 'expanded';
-    }
   }
 }
