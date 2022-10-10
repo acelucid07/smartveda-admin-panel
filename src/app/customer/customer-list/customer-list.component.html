@@ -1,29 +1,45 @@
-<div class="row container">
-  <div class="content-header text-center">Customers</div>
+<div class="page-heading">
+  <h1 class="header-text-title" style="margin-left: 1%;">Customers</h1>
 </div>
 <div class="card col-sm-12" style="border:none;">
-  <p-table [value]="rowData" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true" styleClass="p-datatable-striped">
-    <ng-template pTemplate="header">
+  <p-table id="customerTable" #dt [value]="customerData" 
+    [columns]="cols"
+    responsiveLayout="scroll" [paginator]="true"
+    [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+    [globalFilterFields]="['email', 'phone', 'role', 'status']"
+    styleClass="p-datatable-striped">
+    
+  <ng-template pTemplate="caption">
+    <div class="row">
+      <span class="p-input-icon-right ml-5">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" placeholder="Search keyword"/>
+      </span>
+  </div>
+    <div class="flex" style="margin-left:82%">
+        <button type="button" pButton pRipple icon="pi pi-file" (click)="downloadResource()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+        <button type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success mr-2"  pTooltip="XLSX" tooltipPosition="bottom" (click)="exportExcel()"></button>
+        <button type="button" pButton pRipple icon="pi pi-file-pdf" class="p-button-warning mr-2" pTooltip="PDF" tooltipPosition="bottom" (click)="exportPdf()"></button>
+    </div>
+  </ng-template>
+
+    <ng-template pTemplate="header" let-columns>
       <tr>
         <th>S.No</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Role</th>
-        <th>Status</th>
-        <th>CreatedAt</th>
-        <th>Option</th>
+        <th pSortableColumn="email" *ngFor="let col of columns" [ngClass]="{'d-none': !col.show}">{{col.headers}}<p-sortIcon class="p-shortIcon-right" field="email"></p-sortIcon></th>
+        <th>Options</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-i="rowIndex">
+    <ng-template pTemplate="body" let-customerData let-i="rowIndex" let-columns="columns">
       <tr>
         <td>{{i+1}}</td>
-        <td>{{rowData.email}}</td>
-        <td>{{rowData.phone}}</td>
-        <td>{{rowData.role}}</td>
-        <td>{{rowData.status}}</td>
-        <td>{{rowData.createdAt}}</td>
-        <td><button pButton type="button" styleClass="p-button-sm" label="View Customer" [routerLink]="['/customer/viewcustomer']" [queryParams]="{ id:rowData?._id }">
-        </button></td>
+        <td *ngFor="let col of columns" [ngClass]="{'d-none': !col.show}">{{customerData[col.field]}}</td>
+        <td><button class="p-button-primary" pButton type="button" icon="pi pi-eye" label="View Customer" [routerLink]="['/customer/viewcustomer']" [queryParams]="{ id:customerData?._id }" style="margin-right:10px">
+        </button>
+        <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:10px" [routerLink]="['/customer/editcustomer']" [queryParams]="{id:customerData?._id}"></button>
+        <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Customer" tooltipPosition="bottom"></button>
+      </td>
       </tr>
     </ng-template>
   </p-table>
