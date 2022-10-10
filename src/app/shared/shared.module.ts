@@ -10,6 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import {TooltipModule} from 'primeng/tooltip';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DropdownModule } from 'primeng/dropdown';
     ButtonModule,
     ChartModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    TooltipModule
   ],
   exports: [
     HeaderComponent,
@@ -33,7 +35,8 @@ import { DropdownModule } from 'primeng/dropdown';
     ButtonModule,
     ChartModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    TooltipModule
   ]
 })
 export class SharedModule { 

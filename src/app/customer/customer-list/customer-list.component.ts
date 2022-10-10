@@ -1,10 +1,11 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { UsersService } from 'src/app/_services/users.service';
 import { UserGetRequestParams } from 'src/app/_models/user';
 import * as fileSaver from 'file-saver';
 import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-customer-list',
@@ -12,6 +13,7 @@ import autoTable from 'jspdf-autotable';
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
+  @ViewChild('customerTable') table!:ElementRef;
 
   sidebarSpacing: any;
   fgsType: any;
@@ -20,8 +22,8 @@ export class CustomerListComponent implements OnInit {
   userDetails!: any;
   id: any;
   exportColumns!: any[];
-  exportHeaders!: any[];
   cols!: any[];
+  selectedcustomerData!: UserGetRequestParams[];
 
   constructor(
     private userService: UsersService,
@@ -36,15 +38,18 @@ export class CustomerListComponent implements OnInit {
       this.customerData = res.data;
       this.id = this.customerData._id;
       console.log(this.id)
+      this.customerData.map((item:UserGetRequestParams)=>{
+        item.createdAt= moment(item.createdAt).format('MMM DD, YYYY')
+      })
       this.ngxLoader.stop();
     });
 
     this.cols = [
-      { field: 'email', headers: 'Email' },
-      { field: 'phone', headers: 'Phone' },
-      { field: 'role', headers: 'Role' },
-      { field: 'status', headers: 'Status' },
-      { field: 'createdAt', headers: 'Created At' }
+      { field: 'email', show: true, headers: 'Email' },
+      { field: 'phone', show: true, headers: 'Phone' },
+      { field: 'role', show: true, headers: 'Role' },
+      { field: 'status', show: true, headers: 'Status' },
+      { field: 'createdAt', show: true, headers: 'Created At' }
     ]
     this.exportColumns = this.cols.map(col => (
       { title: col.headers, dataKey: col.field }
