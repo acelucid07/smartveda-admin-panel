@@ -20,6 +20,9 @@
                     <button mat-button color="primary" class="no-hover-effect edit-link" [routerLink]="['/customer/editcustomer']" [queryParams]="{ id:id }">
                         <mat-icon>edit</mat-icon>EDIT
                     </button>
+                    <button mat-button color="primary" class="no-hover-effect edit-link" [routerLink]="['/customer']">
+                        <mat-icon>keyboard_backspace</mat-icon>BACK
+                    </button>
                 </div>
             </div>
             <div class="flex-grid-container-content flex-row detail-row">
@@ -34,18 +37,26 @@
                 </div>
                 <div class="grid-row-data-item">
                     <mat-label>PHONE</mat-label>
-                    <div *ngIf="profile?.phone == null">
+                    <div *ngIf="profile?.phone;then profile?.phone else temp">
+                    </div>
+                    <div>
+                    <ng-template #profile.phone>
+                        {{profile?.phone}}
+                    </ng-template>
+                    <ng-template #temp>
                         {{"-------"}}
-                    </div>
-                    <div *ngIf="profile?.phone != null">
-                        {{profile.phone}}
-                    </div>
+                    </ng-template>
+                </div>
+
                 </div>
                 <div class="grid-row-data-item">
                     <mat-label>ROLE</mat-label>
-                    <div>
+                    <div *ngIf="profile?.role">
                         {{profile?.role}}
                     </div>
+                    <!-- <div *ngIf="profile?.role">
+                        {{"-------"}}
+                    </div> -->
                 </div>
                 <div class="grid-row-data-item">
                     <mat-label>STATUS</mat-label>

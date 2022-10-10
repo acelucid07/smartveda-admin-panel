@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/_services/profile.service';
 import { UserGetRequestParams  } from '../../_models/user'
-import { Observable } from 'rxjs';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { ActivatedRoute } from '@angular/router';
 

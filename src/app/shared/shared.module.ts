@@ -9,6 +9,7 @@ import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, POSITION,PB_DIRECTION, N
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
 import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -23,14 +24,16 @@ import { InputTextModule } from 'primeng/inputtext';
     NgxUiLoaderModule,
     ButtonModule,
     ChartModule,
-    InputTextModule
+    InputTextModule,
+    DropdownModule
   ],
   exports: [
     HeaderComponent,
     NgxUiLoaderModule,
     ButtonModule,
     ChartModule,
-    InputTextModule
+    InputTextModule,
+    DropdownModule
   ]
 })
 export class SharedModule { 
