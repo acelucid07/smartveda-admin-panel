@@ -7,7 +7,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileChangePasswordComponent } from './profile-change-password/profile-change-password.component';
 import { ProfileBasicInfoComponent } from './profile-basic-info/profile-basic-info.component';
 import { CustomerListComponent } from '../customer/customer-list/customer-list.component';
-import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -21,8 +20,7 @@ import { TableModule } from 'primeng/table';
     CommonModule,
     SharedModule,
     ProfileRoutingModule,
-    SharedImportsModule,
-    TableModule
+    SharedImportsModule
   ]
 })
 export class ProfileModule { }

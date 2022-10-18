@@ -6,14 +6,15 @@ import * as fileSaver from 'file-saver';
 import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import * as moment from 'moment';
-
+import { ProfileService } from 'src/app/_services/profile.service';
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
-  @ViewChild('customerTable') table!:ElementRef;
+  @ViewChild('customerTable') table!: ElementRef;
 
   sidebarSpacing: any;
   fgsType: any;
@@ -27,22 +28,16 @@ export class CustomerListComponent implements OnInit {
 
   constructor(
     private userService: UsersService,
-    private ngxLoader: NgxUiLoaderService
+    private ngxLoader: NgxUiLoaderService,
+    private profileService: ProfileService,
+    private toastr: ToastrMsgService
   ) { }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
-    this.userService.getUsers().subscribe((res: any) => {
-      this.customerData = res.data;
-      this.id = this.customerData._id;
-      console.log(this.id)
-      this.customerData.map((item:UserGetRequestParams)=>{
-        item.createdAt= moment(item.createdAt).format('MMM DD, YYYY')
-      })
-      this.ngxLoader.stop();
-    });
+    this.getCustomerList();
 
     this.cols = [
       { field: 'email', show: true, headers: 'Email' },
@@ -56,8 +51,15 @@ export class CustomerListComponent implements OnInit {
     ));
   }
 
-  onDeleteCustomer() {
-
+  onDeleteCustomer(data: UserGetRequestParams) {
+    this.profileService.deleteCustomerProfile(data).subscribe((res: UserGetRequestParams) => {
+      console.log(res),
+        this.showSuccess();
+      this.getCustomerList();
+      (error: any) => {
+        this.showError();
+      }
+    })
   }
 
   downloadResource() {
@@ -102,5 +104,25 @@ export class CustomerListComponent implements OnInit {
         fileName + "_export_" + new Date().getTime() + EXCEL_EXTENSION
       )
     })
+  }
+
+  getCustomerList() {
+    this.userService.getUsers().subscribe((res: any) => {
+      this.customerData = res.data;
+      this.id = this.customerData._id;
+      console.log(this.id)
+      this.customerData.map((item: UserGetRequestParams) => {
+        item.createdAt = moment(item.createdAt).format('MMM DD, YYYY')
+      })
+      this.ngxLoader.stop();
+    });
+  }
+
+  showSuccess() {
+    this.toastr.showSuccess('Status Updated Successfully', 'Status');
+  }
+
+  showError() {
+    this.toastr.showError('Status Not updated', 'Status');
   }
 }

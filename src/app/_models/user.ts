@@ -9,6 +9,7 @@ export interface User {
 
 export interface UserGetRequestParams {
     id: string;
+    _id: string;
     email: string;
     role: string;
     status: boolean;

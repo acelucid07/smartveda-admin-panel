@@ -1,50 +1,67 @@
 <div *ngIf="device === 'desktop'" class="sidebar-cont" [@toggleSidebar]="state">
     <div class="sidebar">
-        <div class="profile-img"><img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
+        <div class="profile-img"><img class="avatar mat-elevation-z8"
+                src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
 
         <h4 class="name">John Smith</h4>
 
         <mat-divider></mat-divider>
 
         <ul class="menu-list">
-        <li class="menu-item">
-            <mat-icon>dashboard</mat-icon>
-            <a href="/dashboard" class="menu-link dashboard">Dashboard</a>
-        </li>
-        <li class="menu-item">
-            <mat-icon>account_box</mat-icon>
-            <a href="/customer" class="menu-link profile">Profile</a>
-        </li>
-        <li class="menu-item">
-            <mat-icon>settings</mat-icon>
-            <a routerLink="/profile" class="menu-link listings">Settings</a>
-        </li>
-        <li class="menu-item">
-            <mat-icon>settings</mat-icon>
-            <a href="javascript:void(0)" class="menu-link listings">CRM</a>
-        </li>
-        <li class="menu-item">
-            <mat-icon>settings</mat-icon>
-            <a href="javascript:void(0)" class="menu-link listings">Sponsors</a>
-        </li>
+            <li class="menu-item">
+                <mat-icon>dashboard</mat-icon>
+                <a href="/dashboard" class="menu-link dashboard">Dashboard</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>account_box</mat-icon>
+                <a href="/customer" class="menu-link profile">Profile</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>shopping_cart</mat-icon>
+                <a href="/order" class="menu-link listings">Order</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>settings</mat-icon>
+                <a href="javascript:void(0)" class="menu-link listings">CRM</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>pages</mat-icon>
+                <a href="javascript:void(0)" class="menu-link listings">Catalogs</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>people</mat-icon>
+                <a href="javascript:void(0)" class="menu-link listings">Sponsors</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>dashboard</mat-icon>
+                <a href="javascript:void(0)" class="menu-link listings">Categories</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>person_add</mat-icon>
+                <a href="javascript:void(0)" class="menu-link listings">Appointment</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>business_center</mat-icon>
+                <a href="javascript:void(0)" class="menu-link listings">Marketing</a>
+            </li>
         </ul>
     </div>
 </div>
 <div *ngIf="device === 'mobile'" class="sidebar-cont" [@mToggleSidebar]="state">
     <div class="sidebar">
-      <ul class="menu-list">
-        <li class="menu-item">
-            <mat-icon>account_box</mat-icon>
-            <a href="javascript:void(0)" class="menu-link profile">Profile</a>
-        </li>
-        <li class="menu-item">
-            <mat-icon>dashboard</mat-icon>
-            <a href="javascript:void(0)" class="menu-link dashboard">Dashboard</a>
-        </li>
-        <li class="menu-item">
-            <mat-icon>settings</mat-icon>
-            <a href="javascript:void(0)" class="menu-link listings">Settings</a>
-        </li>
-      </ul>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <mat-icon>account_box</mat-icon>
+                <a href="javascript:void(0)" class="menu-link profile">Profile</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>dashboard</mat-icon>
+                <a href="javascript:void(0)" class="menu-link dashboard">Dashboard</a>
+            </li>
+            <li class="menu-item">
+                <mat-icon>settings</mat-icon>
+                <a href="javascript:void(0)" class="menu-link listings">Settings</a>
+            </li>
+        </ul>
     </div>
 </div>

@@ -5,12 +5,15 @@ import { HeaderComponent } from './header/header.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { AngularMaterialModule } from '../_modules/angular-material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, POSITION,PB_DIRECTION, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader'
+import { NgxUiLoaderModule, NgxUiLoaderConfig } from 'ngx-ui-loader'
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import {TooltipModule} from 'primeng/tooltip';
+import { TableModule } from 'primeng/table';
+import { ToastrModule } from 'ngx-toastr';
+import { AccordionModule } from 'primeng/accordion'
 
 @NgModule({
   declarations: [
@@ -27,7 +30,14 @@ import {TooltipModule} from 'primeng/tooltip';
     ChartModule,
     InputTextModule,
     DropdownModule,
-    TooltipModule
+    TooltipModule,
+    TableModule,
+    ToastrModule.forRoot({
+      timeOut: 300,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    AccordionModule
   ],
   exports: [
     HeaderComponent,
@@ -36,7 +46,10 @@ import {TooltipModule} from 'primeng/tooltip';
     ChartModule,
     InputTextModule,
     DropdownModule,
-    TooltipModule
+    TooltipModule,
+    TableModule,
+    ToastrModule,
+    AccordionModule
   ]
 })
 export class SharedModule { 

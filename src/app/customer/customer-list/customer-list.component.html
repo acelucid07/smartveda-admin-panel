@@ -38,7 +38,7 @@
         <td><button class="p-button-primary" pButton type="button" icon="pi pi-eye" label="View Customer" [routerLink]="['/customer/viewcustomer']" [queryParams]="{ id:customerData?._id }" style="margin-right:10px">
         </button>
         <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:10px" [routerLink]="['/customer/editcustomer']" [queryParams]="{id:customerData?._id}"></button>
-        <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Customer" tooltipPosition="bottom"></button>
+        <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Customer" tooltipPosition="bottom" (click)="onDeleteCustomer(customerData)"></button>
       </td>
       </tr>
     </ng-template>
