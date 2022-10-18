@@ -20,10 +20,11 @@ export class ProfileService {
         const endpointUrl = `http://3.110.155.54:5000/update/${data.id}`;
         return this.http.put<UserGetRequestParams>(endpointUrl,data, {'headers':httpOptions});
     }
-    deleteCustomerProfile(id:string): Observable<UserGetRequestParams>{
+
+    deleteCustomerProfile(data:UserGetRequestParams): Observable<UserGetRequestParams>{
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `http://3.110.155.54:5000/delete/${id}`;
-        return this.http.put<UserGetRequestParams>(endpointUrl, {'headers': httpOptions})
+        const endpointUrl = `http://3.110.155.54:5000/delete/${data._id}`;
+        return this.http.put<UserGetRequestParams>(endpointUrl, data,{'headers': httpOptions})
     }
 }
