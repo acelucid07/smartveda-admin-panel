@@ -4,13 +4,19 @@ import { ContentManagementRoutingModule } from './content-management-routing.mod
 import { CategoryComponent } from './banner/category/category.component';
 import { SubCategoryComponent } from './banner/sub-category/sub-category.component';
 import { SponsorComponent } from './banner/sponsor/sponsor.component';
+import { AddEditCategoryComponent } from './banner/add-edit-category/add-edit-category.component';
+import { AddEditSubcategoryComponent } from './banner/add-edit-subcategory/add-edit-subcategory.component';
+import { AddEditSponsorComponent } from './banner/add-edit-sponsor/add-edit-sponsor.component';
 
 
 @NgModule({
   declarations: [
     CategoryComponent,
     SubCategoryComponent,
-    SponsorComponent
+    SponsorComponent,
+    AddEditCategoryComponent,
+    AddEditSubcategoryComponent,
+    AddEditSponsorComponent
   ],
   imports: [
     CommonModule,
