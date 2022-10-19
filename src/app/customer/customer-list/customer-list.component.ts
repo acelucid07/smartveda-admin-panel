@@ -8,22 +8,20 @@ import autoTable from 'jspdf-autotable';
 import * as moment from 'moment';
 import { ProfileService } from 'src/app/_services/profile.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
+import {TABLE_HEADING} from '../../_models/table_heading'
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
-  @ViewChild('customerTable') table!: ElementRef;
-
   sidebarSpacing: any;
   fgsType: any;
   customerData!: any;
   users!: UserGetRequestParams[];
   userDetails!: any;
-  id: any;
   exportColumns!: any[];
-  cols!: any[];
+  cols!: TABLE_HEADING[];
   selectedcustomerData!: UserGetRequestParams[];
 
   constructor(
@@ -40,11 +38,11 @@ export class CustomerListComponent implements OnInit {
     this.getCustomerList();
 
     this.cols = [
-      { field: 'email', show: true, headers: 'Email' },
-      { field: 'phone', show: true, headers: 'Phone' },
-      { field: 'role', show: true, headers: 'Role' },
-      { field: 'status', show: true, headers: 'Status' },
-      { field: 'createdAt', show: true, headers: 'Created At' }
+      { field: 'email', headers: 'Email' },
+      { field: 'phone', headers: 'Phone' },
+      { field: 'role', headers: 'Role' },
+      { field: 'status', headers: 'Status' },
+      { field: 'createdAt', headers: 'Created At' }
     ]
     this.exportColumns = this.cols.map(col => (
       { title: col.headers, dataKey: col.field }
@@ -109,8 +107,6 @@ export class CustomerListComponent implements OnInit {
   getCustomerList() {
     this.userService.getUsers().subscribe((res: any) => {
       this.customerData = res.data;
-      this.id = this.customerData._id;
-      console.log(this.id)
       this.customerData.map((item: UserGetRequestParams) => {
         item.createdAt = moment(item.createdAt).format('MMM DD, YYYY')
       })

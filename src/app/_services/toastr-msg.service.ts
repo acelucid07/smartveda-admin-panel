@@ -8,15 +8,15 @@ export class ToastrMsgService {
 
   constructor(private toastrService: ToastrService) { }
 
-  showSuccess(message:any, title:any){
+  showSuccess(message:string, title:string){
     this.toastrService.success(message, title);
   }
 
-  showError(message:any, title:any) {
+  showError(message:string, title:string) {
     this.toastrService.error(message, title);
   }
 
-  showWarning(message:any, title:any) {
+  showWarning(message:string, title:string) {
     this.toastrService.warning(message, title);
   }
 }

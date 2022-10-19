@@ -9,7 +9,7 @@ import { PrimeNGConfig } from 'primeng/api'
 export class AppComponent {
   constructor(private primeNgConfig:PrimeNGConfig){}
 
-  title = 'smartveda_admin';
+  title = 'Admin_Panel';
 
   ngOnInit(){
     this.primeNgConfig.ripple = true;

@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import { order } from 'src/app/_models/order';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
+import {TABLE_HEADING} from '../../_models/table_heading'
 
 @Component({
   selector: 'app-orders',
@@ -12,8 +13,8 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 export class OrdersComponent implements OnInit {
 
   sidebarSpacing: any;
-  cols!: any[];
-  orderData:any;
+  cols!: TABLE_HEADING[];
+  orderData:order[]=[];
   fgsType: any;
 
   constructor(
@@ -28,11 +29,7 @@ export class OrdersComponent implements OnInit {
     this.sidebarSpacing = 'contracted';
     this.orderService.getOrders().subscribe((data) => {
       this.orderData = data;
-      
-      // this.orderData.map((item:order)=>{
-      //   item.deliveryDate= moment(item.deliveryDate).format('MMM DD, YYYY')
-      // })
-      this.ngxLoader.stop();
+     this.ngxLoader.stop();
     });
 
     this.cols = [

@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "smartveda_admin": {
+    "Admin_Panel": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/smartveda_admin",
+            "outputPath": "dist/Admin_Panel",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -81,10 +81,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "smartveda_admin:build:production"
+              "browserTarget": "Admin_Panel:build:production"
             },
             "development": {
-              "browserTarget": "smartveda_admin:build:development"
+              "browserTarget": "Admin_Panel:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,7 +92,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "smartveda_admin:build"
+            "browserTarget": "Admin_Panel:build"
           }
         },
         "test": {
@@ -124,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "smartveda_admin"
+  "defaultProject": "Admin_Panel"
 }
