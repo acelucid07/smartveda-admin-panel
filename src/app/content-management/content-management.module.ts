@@ -7,6 +7,7 @@ import { SponsorComponent } from './banner/sponsor/sponsor.component';
 import { AddEditCategoryComponent } from './banner/add-edit-category/add-edit-category.component';
 import { AddEditSubcategoryComponent } from './banner/add-edit-subcategory/add-edit-subcategory.component';
 import { AddEditSponsorComponent } from './banner/add-edit-sponsor/add-edit-sponsor.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AddEditSponsorComponent } from './banner/add-edit-sponsor/add-edit-spon
   ],
   imports: [
     CommonModule,
-    ContentManagementRoutingModule
+    ContentManagementRoutingModule,
+    SharedModule
   ]
 })
 export class ContentManagementModule { }

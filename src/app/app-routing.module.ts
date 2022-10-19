@@ -22,7 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'order',
-    loadChildren: () => import('./order-management/order-management.module').then(mod => mod.OrderManagementModule),
+    loadChildren: () => import('./order-management/order-management.module').then(mod => mod.OrderManagementModule)
+  },
+  {
+    path: 'crm',
+    loadChildren: () => import('./content-management/content-management.module').then(mod => mod.ContentManagementModule)
   },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
