@@ -25,4 +25,11 @@ export class CategoryComponent implements OnInit {
     ]
   }
 
+  onToggleSidebar(sidebarState: any) {
+    if (sidebarState === 'open') {
+      this.sidebarSpacing = 'contracted';
+    } else {
+      this.sidebarSpacing = 'expanded';
+    }
+  }
 }

@@ -4,7 +4,7 @@
         <h1 class="header-text-title" style="margin-left: 1%;">Customers</h1>
     </div>
     <div class="card col-sm-12" style="border:none;">
-        <p-table id="customerTable" #dt [value]="orderData" [columns]="cols" responsiveLayout="scroll"
+        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll"
             [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
             [globalFilterFields]="['email', 'phone', 'role', 'status']" styleClass="p-datatable-striped">
