@@ -17,11 +17,11 @@ export class CategoryComponent implements OnInit {
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'id', headers: 'ID' },
-      { field: 'name', headers: 'name' },
-      { field: 'image', headers: 'image' },
-      { field: 'hyperlink', headers: 'hyperlink' },
-      { field: 'position', headers: 'position' },
+      { field: 'id',show:true, headers: 'ID' },
+      { field: 'name',show:true, headers: 'name' },
+      { field: 'image',show:true, headers: 'image' },
+      { field: 'hyperlink',show:true, headers: 'hyperlink' },
+      { field: 'position',show:true, headers: 'position' },
     ]
   }
 

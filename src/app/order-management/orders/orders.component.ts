@@ -33,14 +33,14 @@ export class OrdersComponent implements OnInit {
     });
 
     this.cols = [
-      { field:'id', headers: 'Order Id'},
-      { field:'customerId', headers: 'Customer Id'},
-      { field: 'productName', headers: 'Product Name'},
-      { field: 'deliveryStatus', headers: 'Delivery Status'},
-      { field: 'deliveryDate', headers: 'Delivery Date'},
-      { field: 'price', headers: 'Price'},
-      { field: 'paymentMode', headers: 'Payment Mode'},
-      { field: 'paymentStatus', headers: 'Payment Status'}
+      { field:'id',show:true, headers: 'Order Id'},
+      { field:'customerId',show:true, headers: 'Customer Id'},
+      { field: 'productName',show:true, headers: 'Product Name'},
+      { field: 'deliveryStatus',show:true, headers: 'Delivery Status'},
+      { field: 'deliveryDate',show:true, headers: 'Delivery Date'},
+      { field: 'price',show:true, headers: 'Price'},
+      { field: 'paymentMode',show:true, headers: 'Payment Mode'},
+      { field: 'paymentStatus',show:true, headers: 'Payment Status'}
     ]
   }
 

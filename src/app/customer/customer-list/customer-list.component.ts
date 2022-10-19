@@ -38,11 +38,11 @@ export class CustomerListComponent implements OnInit {
     this.getCustomerList();
 
     this.cols = [
-      { field: 'email', headers: 'Email' },
-      { field: 'phone', headers: 'Phone' },
-      { field: 'role', headers: 'Role' },
-      { field: 'status', headers: 'Status' },
-      { field: 'createdAt', headers: 'Created At' }
+      { field: 'email',show:true, headers: 'Email' },
+      { field: 'phone', show:true,headers: 'Phone' },
+      { field: 'role',show:true, headers: 'Role' },
+      { field: 'status',show:true, headers: 'Status' },
+      { field: 'createdAt',show:true, headers: 'Created At' }
     ]
     this.exportColumns = this.cols.map(col => (
       { title: col.headers, dataKey: col.field }

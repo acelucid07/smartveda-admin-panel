@@ -17,12 +17,12 @@ export class SponsorComponent implements OnInit {
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'id', headers: 'ID' },
-      { field: 'name', headers: 'name' },
-      { field: 'email', headers: 'sponsor_email' },
-      { field: 'phone_No', headers: 'phone_No' },
-      { field: 'funding', headers: 'funding' },
-      { field: 'Address ', headers: 'Address ' },
+      { field: 'id', show:true,headers: 'ID' },
+      { field: 'name',show:true, headers: 'name' },
+      { field: 'email',show:true, headers: 'sponsor_email' },
+      { field: 'phone_No',show:true, headers: 'phone_No' },
+      { field: 'funding', show:true,headers: 'funding' },
+      { field: 'Address ',show:true, headers: 'Address ' },
     ]
   }
 

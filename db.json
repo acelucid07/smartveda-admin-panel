@@ -111,18 +111,475 @@
       "paymentStatus": "pending"
     }
   ],
-  "queries": [
+  "category": [
     {
-      "id": "122",
-      "customerId": "383749487",
-      "queryDecs": "received faulty product, wants return",
-      "createdAt": "19/10/2022"
+      "id": "1",
+      "name": "Sports & Fitness",
+      "image": "",
+      "hyperlink": "",
+      "position": "head",
+      "admin_status": "1",
+      "is_delete": "0"
     },
     {
-      "id": "1322",
-      "customerId": "3456645",
-      "queryDecs": "Size not acurate",
-      "createdAt": "13/10/2022"
+      "id": "2",
+      "name": "Electronics",
+      "image": "",
+      "hyperlink": "",
+      "position": "head",
+      "admin_status": "1",
+      "is_delete": "0"
+    },
+    {
+      "id": "3",
+      "name": "Mobiles, Tablets & More",
+      "image": "",
+      "hyperlink": "",
+      "position": "head",
+      "admin_status": "1",
+      "is_delete": "0"
+    },
+    {
+      "id": "4",
+      "name": "Men's Fashion & Accessories",
+      "image": "",
+      "hyperlink": "",
+      "position": "head",
+      "admin_status": "1",
+      "is_delete": "0"
+    },
+    {
+      "id": "5",
+      "name": "Women's Fashion & Accessories",
+      "image": "",
+      "hyperlink": "",
+      "position": "head",
+      "admin_status": "1",
+      "is_delete": "0"
+    }
+  ],
+  "sub_category": [
+  {
+    "id": "1",
+    "name": "Cricket",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "1",
+      "name":"Sports & Fitness"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Football",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "1",
+      "name":"Sports & Fitness"
+    }
+  },
+  {
+    "id": "3",
+    "name": "Yoga",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "1",
+      "name":"Sports & Fitness"
+    }
+  },
+  {
+    "id": "4",
+    "name": "Fitness Accessories",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "1",
+      "name":"Sports & Fitness"
+    }
+  },
+  {
+    "id": "5",
+    "name": "Strength Training",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "1",
+      "name":"Sports & Fitness"
+    }
+  },
+  {
+    "id": "6",
+    "name": "Televisions",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "2",
+      "name":"Electronics"
+    }
+  },
+  {
+    "id": "7",
+    "name": "Headphones",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "2",
+      "name":"Electronics"
+    }
+  },
+  {
+    "id": "8",
+    "name": "Home Entertainment Systems",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "2",
+      "name":"Electronics"
+    }
+  },
+  {
+    "id": "9",
+    "name": "Cameras and DSLR Cameras",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "2",
+      "name":"Electronics"
+    }
+  },
+  {
+    "id": "10",
+    "name": "Musical Instruments & professionals Audio",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "2",
+      "name":"Electronics"
+    }
+  },
+  {
+    "id": "11",
+    "name": "Gaming Consoles",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "2",
+      "name":"Electronics"
+    }
+  },
+  {
+    "id": "12",
+    "name": "Mobiles & Smart Phones",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "3",
+      "name":"Mobiles, Tablets & More"
+    }
+  },
+  {
+    "id": "13",
+    "name": "Cases and Covers",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "3",
+      "name":"Mobiles, Tablets & More"
+    }
+  },
+  {
+    "id": "14",
+    "name": "Screen Protectors",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "3",
+      "name":"Mobiles, Tablets & More"
+    }
+  },
+  {
+    "id": "15",
+    "name": "Power Banks",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "3",
+      "name":"Mobiles, Tablets & More"
+    }
+  },
+  {
+    "id": "16",
+    "name": "Tablets",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "3",
+      "name":"Mobiles, Tablets & More"
+    }
+  },
+  {
+    "id": "17",
+    "name": "Smart watches and Wearables",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "3",
+      "name":"Mobiles, Tablets & More"
+    }
+  },
+  {
+    "id": "18",
+    "name": "Clothings",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "4",
+      "name":"Men's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "19",
+    "name": "T-shirts and Polos",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "4",
+      "name":"Men's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "20",
+    "name": "Shirts",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "4",
+      "name":"Men's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "21",
+    "name": "Jeans",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "4",
+      "name":"Men's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "22",
+    "name": "Innerware",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "4",
+      "name":"Men's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "23",
+    "name": "Watches",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "4",
+      "name":"Men's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "24",
+    "name": "Sunglasses",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "4",
+      "name":"Men's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "25",
+    "name": "Wallets",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "4",
+      "name":"Men's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "26",
+    "name": "Clothings",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "5",
+      "name":"Women's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "27",
+    "name": "Western Wear",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "5",
+      "name":"Women's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "28",
+    "name": "Western Wear",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "5",
+      "name":"Women's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "29",
+    "name": "Ethnic Wear",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "5",
+      "name":"Women's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "30",
+    "name": "Watches",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "5",
+      "name":"Women's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "31",
+    "name": "Handbags and Clutches",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "5",
+      "name":"Women's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "32",
+    "name": "Jewellery",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "5",
+      "name":"Women's Fashion & Accessories"
+    }
+  },
+  {
+    "id": "33",
+    "name": "Shoes",
+    "image": "",
+    "hyperlink": "",
+    "parent_category": {
+      "id": "5",
+      "name":"Women's Fashion & Accessories"
+    }
+  }
+],
+  "sponsors": [
+    {
+      "id": "1",
+      "name": "qwg",
+      "email": "qwg@test.com",
+      "phone": "1234325",
+      "funding": "$233424",
+      "address": {
+        "city": "asdfas",
+        "street": "fdsf",
+        "landmark": "sdfs",
+        "state": "fds",
+        "zip": "4324324",
+        "country": "gfsgd"
+      }      
+    },
+    {
+      "id": "2",
+      "name": "fdg",
+      "email": "fdg@test.com",
+      "phone": "123423325",
+      "funding": "$233",
+      "address": {
+        "city": "asdfas",
+        "street": "fdsf",
+        "landmark": "sdfs",
+        "state": "fds",
+        "zip": "43324",
+        "country": "gfsgd"
+      }      
+    },
+    {
+      "id": "3",
+      "name": "erwer",
+      "email": "sdsd@test.com",
+      "phone": "42342344",
+      "funding": "$4234",
+      "address": {
+        "city": "fdfgfs",
+        "street": "ghgh",
+        "landmark": "hjghgh",
+        "state": "fghfghds",
+        "zip": "56546",
+        "country": "hjuth"
+      }      
+    },
+    {
+      "id": "4",
+      "name": "fger",
+      "email": "fger@test.com",
+      "phone": "56775",
+      "funding": "$56456",
+      "address": {
+        "city": "hgtrh",
+        "street": "jthyhg",
+        "landmark": "hyttr",
+        "state": "jkhj",
+        "zip": "545654645",
+        "country": "kjhgt"
+      }      
+    },
+    {
+      "id": "5",
+      "name": "fghrg",
+      "email": "fghfdg@test.com",
+      "phone": "2345454",
+      "funding": "$54423",
+      "address": {
+        "city": "jkjh",
+        "street": "hrth",
+        "landmark": "fthfgh",
+        "state": "ghtgh",
+        "zip": "89756",
+        "country": "kljksgfh"
+      }      
+    },
+    {
+      "id": "6",
+      "name": "gthghr",
+      "email": "gtg@test.com",
+      "phone": "56ty56",
+      "funding": "$6576",
+      "address": {
+        "city": "asdfjyhjghas",
+        "street": "jtyj",
+        "landmark": "sghjghdfs",
+        "state": "jhj",
+        "zip": "jytgth",
+        "country": "ghhth"
+      }      
     }
   ]
 }
