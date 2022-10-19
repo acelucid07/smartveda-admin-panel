@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { CATEGORY ,SUB_CATEGORY, SPONSOR} from '../_models/cms'
+import { CATEGORY, SUB_CATEGORY, SPONSOR } from '../_models/cms'
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +17,10 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/orders`;
         return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
     }
-
+    getCategoryById(id: string): Observable<CATEGORY> {
+        const endpointUrl = `${environment.JSON_SERVER}/${id}`;
+        return this.http.get<CATEGORY>(endpointUrl);
+    }
     addCategory(categoryData: CATEGORY): Observable<CATEGORY> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
@@ -51,23 +54,27 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/orders`;
         return this.http.put<SUB_CATEGORY>(endpointUrl, subCategoryData, { 'headers': httpOptions });
     }
-    
+
     getSponsorList(): Observable<SPONSOR[]> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/orders`;
         return this.http.get<SPONSOR[]>(endpointUrl, { 'headers': httpOptions });
     }
-    addSponsor(sponsorData:SPONSOR): Observable<SPONSOR> {
-        const token = localStorage.getItem('token') || '';
-        let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/orders`;
-        return this.http.post<SPONSOR>(endpointUrl,sponsorData, { 'headers': httpOptions });
+    getSponsorDetailsById(id: string): Observable<SPONSOR> {
+        const endpointUrl = `${environment.JSON_SERVER}/${id}`;
+        return this.http.get<SPONSOR>(endpointUrl);
     }
-    editSponsor(sponsorData:SPONSOR): Observable<SPONSOR> {
+    addSponsor(sponsorData: SPONSOR): Observable<SPONSOR> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/orders`;
-        return this.http.put<SPONSOR>(endpointUrl,sponsorData, { 'headers': httpOptions });
+        return this.http.post<SPONSOR>(endpointUrl, sponsorData, { 'headers': httpOptions });
+    }
+    editSponsor(sponsorData: SPONSOR): Observable<SPONSOR> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/orders`;
+        return this.http.put<SPONSOR>(endpointUrl, sponsorData, { 'headers': httpOptions });
     }
 }

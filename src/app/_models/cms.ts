@@ -20,8 +20,8 @@ export interface SPONSOR {
     name: string,
     email: string,
     phone_No: string,
-    funding: ADDRESS,
-    Address: string,
+    funding: string,
+    Address: ADDRESS,
 }
 
 export interface ADDRESS {
