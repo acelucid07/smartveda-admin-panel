@@ -12,8 +12,11 @@ export interface SUB_CATEGORY {
     image: string,
     hyperlink: string,
     position: string,
-    parent_id:string,
-    parent_name:string
+    parent_category:PARENT_CATEGORY,
+}
+export interface PARENT_CATEGORY {
+    id:string,
+    name:string
 }
 export interface SPONSOR {
     id: number,
@@ -21,14 +24,14 @@ export interface SPONSOR {
     email: string,
     phone_No: string,
     funding: string,
-    Address: ADDRESS,
+    address: ADDRESS,
 }
 
 export interface ADDRESS {
-    cityName: string,
+    city: string,
     street: string,
     landmark: string,
     state: string,
-    zip_code: number,
+    zip: number,
     country: string
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TABLE_HEADING } from '../../../_models/table_heading'
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
+import { CmsService } from '../../../_services/cms.service';
+import { SPONSOR } from '../../../_models/cms'
 @Component({
   selector: 'app-sponsor',
   templateUrl: './sponsor.component.html',
@@ -10,20 +12,28 @@ export class SponsorComponent implements OnInit {
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
   fgsType: any;
-  constructor(private ngxLoader: NgxUiLoaderService) { }
+  sponsorList: SPONSOR[] = []
+  constructor(private ngxLoader: NgxUiLoaderService,
+    private CmsService: CmsService) { }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'id', show:true,headers: 'ID' },
-      { field: 'name',show:true, headers: 'name' },
-      { field: 'email',show:true, headers: 'sponsor_email' },
-      { field: 'phone_No',show:true, headers: 'phone_No' },
-      { field: 'funding', show:true,headers: 'funding' },
-      { field: 'Address ',show:true, headers: 'Address ' },
+      { field: 'id', show: true, headers: 'ID' },
+      { field: 'name', show: true, headers: 'name' },
+      { field: 'email', show: true, headers: 'sponsor_email' },
+      { field: 'phone', show: true, headers: 'phone_No' },
+      { field: 'funding', show: true, headers: 'funding' },
+      { field: 'city ', show: true, headers: 'City ' },
+      { field: 'street ', show: true, headers: 'Street ' },
+      { field: 'landmark ', show: true, headers: 'Landmark ' },
+      { field: 'state ', show: true, headers: 'State ' },
+      { field: 'zip ', show: true, headers: 'Zip_Code ' },
+      { field: 'country ', show: true, headers: 'Country ' },
     ]
+    this.getSponsorList()
   }
 
   onToggleSidebar(sidebarState: any) {
@@ -32,5 +42,11 @@ export class SponsorComponent implements OnInit {
     } else {
       this.sidebarSpacing = 'expanded';
     }
+  }
+  getSponsorList() {
+    this.CmsService.getSponsorList().subscribe((res: SPONSOR[]) => {
+      this.sponsorList = res
+      this.ngxLoader.stop();
+    })
   }
 }

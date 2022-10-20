@@ -1,11 +1,12 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
     <div class="page-heading">
-        <h1 class="header-text-title" style="margin-left: 1%;">Customers</h1>
+        <h1 class="header-text-title" style="margin-left: 1%;">Sponsor</h1>
     </div>
     <div class="card col-sm-12" style="border:none;">
-        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll"
-            [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+            [showCurrentPageReport]="true"
+            [value]="sponsorList"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
             [globalFilterFields]="['email', 'phone', 'role', 'status']" styleClass="p-datatable-striped">
 
@@ -20,19 +21,23 @@
 
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th>S.No</th>
                     <th *ngFor="let col of columns">{{col.headers}}</th>
                     <th>Options</th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-i="rowIndex" let-order>
+            <ng-template pTemplate="body" let-i="rowIndex" let-sponsorList>
                 <tr>
-                    <td>{{i+1}}</td>
-                    <td>{{order.id}}</td>
-                    <td>{{order.name}}</td>
-                    <td>{{order.image}}</td> 
-                    <td>{{order.hyperlink}}</td>
-                    <td>{{order.position}}</td>
+                    <td>{{sponsorList.id}}</td>
+                    <td>{{sponsorList.name}}</td>
+                    <td>{{sponsorList.email}}</td>
+                    <td>{{sponsorList.phone}}</td>
+                    <td>{{sponsorList.funding}}</td>
+                    <td>{{sponsorList.address.city}}</td>
+                    <td>{{sponsorList.address.street}}</td>
+                    <td>{{sponsorList.address.landmark}}</td>
+                    <td>{{sponsorList.address.state}}</td>
+                    <td>{{sponsorList.address.zip}}</td>
+                    <td>{{sponsorList.address.country}}</td>
                     <td><button class="p-button-primary" pButton type="button" icon="pi pi-eye"
                             style="margin-right:5px">
                         </button>

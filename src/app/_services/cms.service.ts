@@ -14,7 +14,7 @@ export class CmsService {
     getCategoryList(): Observable<CATEGORY[]> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/orders`;
+        const endpointUrl = `${environment.JSON_SERVER}/category`;
         return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
     }
     getCategoryById(id: string): Observable<CATEGORY> {
@@ -35,10 +35,10 @@ export class CmsService {
         return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
     }
 
-    getSubCategory(): Observable<SUB_CATEGORY[]> {
+    getSubCategoryList(): Observable<SUB_CATEGORY[]> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/orders`;
+        const endpointUrl = `${environment.JSON_SERVER}/sub_category`;
         return this.http.get<SUB_CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
     }
 
@@ -58,7 +58,7 @@ export class CmsService {
     getSponsorList(): Observable<SPONSOR[]> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/orders`;
+        const endpointUrl = `${environment.JSON_SERVER}/sponsors`;
         return this.http.get<SPONSOR[]>(endpointUrl, { 'headers': httpOptions });
     }
     getSponsorDetailsById(id: string): Observable<SPONSOR> {

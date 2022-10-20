@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TABLE_HEADING } from '../../../_models/table_heading'
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
+import {SUB_CATEGORY}  from '../../../_models/cms';
+import {CmsService} from '../../../_services/cms.service'
 
 @Component({
   selector: 'app-sub-category',
@@ -10,8 +12,10 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 export class SubCategoryComponent implements OnInit {
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
+  subCategoryList:SUB_CATEGORY[] =[]
   fgsType: any;
-  constructor(private ngxLoader: NgxUiLoaderService) { }
+  constructor(private ngxLoader: NgxUiLoaderService,
+    private CmsService:CmsService) { }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
@@ -22,10 +26,10 @@ export class SubCategoryComponent implements OnInit {
       { field: 'name',show:true, headers: 'name' },
       { field: 'image',show:true, headers: 'image' },
       { field: 'hyperlink', show:true,headers: 'hyperlink' },
-      { field: 'position', show:true,headers: 'position' },
-      { field: 'parent_id', show:true,headers: 'parent_id' },
-      { field: 'parent_name',show:true, headers: 'parent_name' },
+      { field: 'parent_id', show:true,headers: 'parent_ID' },
+      { field: 'parent_name',show:true, headers: 'parent_Name' },
     ]
+    this.getSubCategoryList()
   }
 
   onToggleSidebar(sidebarState: any) {
@@ -34,5 +38,11 @@ export class SubCategoryComponent implements OnInit {
     } else {
       this.sidebarSpacing = 'expanded';
     }
+  }
+  getSubCategoryList() {
+    this.CmsService.getSubCategoryList().subscribe((res: SUB_CATEGORY[]) => {
+      this.subCategoryList = res;
+      this.ngxLoader.stop();
+    })
   }
 }

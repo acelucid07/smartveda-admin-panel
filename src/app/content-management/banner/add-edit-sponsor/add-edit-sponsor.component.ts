@@ -64,12 +64,12 @@ export class AddEditSponsorComponent implements OnInit {
         email: res.email,
         phone_No: res.phone_No,
         funding: res.funding,
-        cityName: res.Address.cityName,
-        street: res.Address.street,
-        landmark: res.Address.landmark,
-        state: res.Address.state,
-        zip_code: res.Address.zip_code,
-        country: res.Address.country
+        cityName: res.address.city,
+        street: res.address.street,
+        landmark: res.address.landmark,
+        state: res.address.state,
+        zip_code: res.address.zip,
+        country: res.address.country
       })
       this.ngxLoader.stop();
     })

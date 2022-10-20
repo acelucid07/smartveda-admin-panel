@@ -4,11 +4,10 @@
         <h1 class="header-text-title" style="margin-left: 1%;">Customers</h1>
     </div>
     <div class="card col-sm-12" style="border:none;">
-        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll"
-            [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+            [showCurrentPageReport]="true" [value]="subCategoryList"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
             [globalFilterFields]="['email', 'phone', 'role', 'status']" styleClass="p-datatable-striped">
-
             <ng-template pTemplate="caption">
                 <div class="row">
                     <span class="p-input-icon-right ml-5">
@@ -20,22 +19,18 @@
 
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th>S.No</th>
                     <th *ngFor="let col of columns">{{col.headers}}</th>
                     <th>Options</th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-i="rowIndex" let-order>
+            <ng-template pTemplate="body" let-i="rowIndex" let-subCategoryList>
                 <tr>
-                    <td>{{i+1}}</td>
-                    <td>{{order.id}}</td>
-                    <td>{{order.name}}</td>
-                    <td>{{order.image}}</td>
-                    <td>{{order.hyperlink}}</td>
-                    <td>{{order.position}}</td>
-                    <td>{{order.position}}</td>
-                    <td>{{order.parent_id}}</td>
-                    <td>{{order.parent_name}}</td>
+                    <td>{{subCategoryList.id}}</td>
+                    <td>{{subCategoryList.name}}</td>
+                    <td>{{subCategoryList.image}}</td>
+                    <td>{{subCategoryList.hyperlink}}</td>
+                    <td>{{subCategoryList.parent_category.id}}</td>
+                    <td>{{subCategoryList.parent_category.name}}</td>
                     <td><button class="p-button-primary" pButton type="button" icon="pi pi-eye"
                             style="margin-right:5px">
                         </button>
