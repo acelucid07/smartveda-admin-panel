@@ -1,17 +1,17 @@
 export const SideNaveMenueRoute = [
     {
         label: 'Dashboard',
-        icon: 'pi pi-fw pi-plus',
+        icon: 'pi pi-fw pi-cog',
         routerLink: ['/dashboard']
     },
     {
         label: 'Profile',
-        icon: 'pi pi-fw pi-plus',
+        icon: 'pi pi-fw pi-user',
         routerLink: ['/customer']
     },
     {
         label: 'Order',
-        icon: 'pi pi-fw pi-plus',
+        icon: 'pi pi-fw pi-shopping-cart',
         routerLink: ['/order']
     },
     {
@@ -19,57 +19,61 @@ export const SideNaveMenueRoute = [
         items: [
             {
                 label: 'Banner',
-                icon: 'pi pi-fw pi-plus',
-                routerLink: ['/pagename'],
                 items: [
-                    {
+                    {    icon: 'pi pi-fw pi-shopping-cart',
                         label: 'Category',
-                        icon: 'pi pi-fw pi-plus',
-                        routerLink: ['/pagename'],
-                    },
-                    {
+                        routerLink: ['/crm/category']
+                        },
+                    {    
+                        icon: 'pi pi-fw pi-shopping-cart',
                         label: 'Sub_Category',
-                        icon: 'pi pi-fw pi-plus',
-                        routerLink: ['/pagename'],
+                        routerLink: ['/crm/subcategory']
+                        
                     },
-                    {
+                    {   icon: 'pi pi-fw pi-user-plus',
                         label: 'Sponsor',
-                        icon: 'pi pi-fw pi-plus',
-                        routerLink: ['/pagename'],
+                        routerLink: ['/crm/sponsor']
+                        
                     }
                 ]
             },
             {
                 label: 'Slider',
-                icon: 'pi pi-fw pi-plus',
-                routerLink: ['/pagename']
+                items:[
+                    {
+                        label: 'Profile',
+                        icon: 'pi pi-fw pi-user',
+                        routerLink: ['/customer']
+                    },
+                    {
+                        label: 'Order',
+                        icon: 'pi pi-fw pi-shopping-cart',
+                        routerLink: ['/order']
+                    },
+                ]
             },
 
         ]
     },
     {
         label: 'Catalogs',
-        icon: 'pi pi-fw pi-plus',
+        icon: 'pi pi-fw pi-qrcode',
         routerLink: ['/customer']
     },
     {
         label: 'Sponsors',
-        icon: 'pi pi-fw pi-plus',
+        icon: 'pi pi-fw pi-user-plus',
         routerLink: ['/customer']
     },
     {
         label: 'Categories',
-        icon: 'pi pi-fw pi-plus',
+        icon: 'pi pi-fw pi-shopping-cart',
         routerLink: ['/customer']
     },
     {
         label: 'Appointment',
-        icon: 'pi pi-fw pi-plus',
+        icon: 'pi pi-fw pi-desktop',
         routerLink: ['/customer']
     },
-    {
-        label: 'Appointment',
-        icon: 'pi pi-fw pi-plus',
-        routerLink: ['/customer']
-    },
+    
 ]

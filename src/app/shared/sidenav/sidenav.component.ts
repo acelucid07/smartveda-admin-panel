@@ -3,7 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
-
+import {SideNaveMenueRoute} from './sidebar-routes.config'
+import {MenuItem} from 'primeng/api';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -48,10 +49,14 @@ export class SidenavComponent implements OnInit {
   closed: boolean = false;
   isShowing: boolean = true;
   iconColor: string = '';
+  items!: MenuItem[];
+
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
 
-  constructor(private observer: BreakpointObserver, private router: Router) { }
+  constructor(private observer: BreakpointObserver, private router: Router) { 
+    this.items = SideNaveMenueRoute 
+  }
 
   ngOnInit() {
     if (window.innerWidth > 992) {
@@ -66,6 +71,7 @@ export class SidenavComponent implements OnInit {
       this.isShowing = false;
     }
     this.iconColor = this.isShowing ? 'show' : 'hide';
+    console.log(this.items)
   }
 
   toggleSidebar() {

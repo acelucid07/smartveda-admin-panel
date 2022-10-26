@@ -6,6 +6,15 @@
             border-top-width: 0.13rem!important;
             border-top-color: rgba(255,255,255,0.4)!important;
         }
+        .p-panelmenu .p-panelmenu-header > a{
+          padding: 0.857rem 1rem;
+          border: none;
+          color: #f4f4f4;
+          background:none;
+          font-weight: 700;
+          border-radius: 3px;
+          transition: background-color 0.2s, box-shadow 0.2s;
+        }
     }
 }
 .sidebar-cont {
@@ -66,3 +75,4 @@
     letter-spacing: .1rem;
     padding: 0 0 0 1rem;
   }
+  

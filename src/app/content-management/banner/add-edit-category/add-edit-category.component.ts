@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { CmsService } from '../../../_services/cms.service'
 import { CATEGORY } from '../../../_models/cms'
-import { fas } from '@fortawesome/free-solid-svg-icons';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 @Component({
   selector: 'app-add-edit-category',
@@ -58,6 +57,7 @@ export class AddEditCategoryComponent implements OnInit {
         position: res.position,
         hyperlink: res.hyperlink
       })
+      console.log(this.categoryForm.value)
       this.ngxLoader.stop();
     })
   }
@@ -97,5 +97,12 @@ export class AddEditCategoryComponent implements OnInit {
         this.route.navigate(['/'])
       }
     })
+  }
+  onToggleSidebar(sidebarState: any) {
+    if (sidebarState === 'open') {
+      this.sidebarSpacing = 'contracted';
+    } else {
+      this.sidebarSpacing = 'expanded';
+    }
   }
 }

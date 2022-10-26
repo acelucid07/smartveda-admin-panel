@@ -7,7 +7,7 @@
 
         <mat-divider></mat-divider>
 
-        <ul class="menu-list">
+        <!-- <ul class="menu-list">
             <li class="menu-item">
                 <mat-icon>dashboard</mat-icon>
                 <a href="/dashboard" class="menu-link dashboard">Dashboard</a>
@@ -56,6 +56,11 @@
                 <mat-icon>business_center</mat-icon>
                 <a href="javascript:void(0)" class="menu-link listings">Marketing</a>
             </li>
+        </ul> -->
+
+        <!-- reusable menu -->
+        <ul class="menu-list">
+            <li class="menu-list"><p-panelMenu [model]="items"></p-panelMenu></li>
         </ul>
     </div>
 </div>

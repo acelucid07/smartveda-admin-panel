@@ -8,7 +8,7 @@ import { AddEditCategoryComponent } from './banner/add-edit-category/add-edit-ca
 import { AddEditSubcategoryComponent } from './banner/add-edit-subcategory/add-edit-subcategory.component';
 import { AddEditSponsorComponent } from './banner/add-edit-sponsor/add-edit-sponsor.component';
 import { SharedModule } from '../shared/shared.module';
-
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     ContentManagementRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ContentManagementModule { }

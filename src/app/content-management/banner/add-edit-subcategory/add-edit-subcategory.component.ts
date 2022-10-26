@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-subcategory',
@@ -11,7 +12,8 @@ export class AddEditSubcategoryComponent implements OnInit {
   sidebarSpacing: any;
   subCategoryForm: FormGroup;
 
-  constructor( fb:FormBuilder) { 
+  constructor( fb:FormBuilder,
+    private activateRoute: ActivatedRoute,) { 
     this.subCategoryForm = fb.group({
       id: ['', [Validators.required]],
       name : ['', [Validators.required]],
