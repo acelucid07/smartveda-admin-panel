@@ -74,4 +74,47 @@ export class AddEditSponsorComponent implements OnInit {
       this.ngxLoader.stop();
     })
   }
+  addSponsor(){
+    this.CmsService.addSponsor(this.sponsorForm.value).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("sponsor added successfully", "sponsor Added")
+        this.ngxLoader.stop()
+        this.route.navigate(['/'])
+      }
+      (error: any) => {
+        this.toastr.showError("Somthing wrong Please check", "Error occured")
+        this.ngxLoader.stop()
+        this.route.navigate(['/'])
+      }
+    })
+  }
+  editSponsor() {
+    this.CmsService.editSponsor(this.sponsorForm.value).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("sponsor edit successfully", "sponsor edit")
+        this.ngxLoader.stop()
+        this.route.navigate(['/'])
+      }
+      (error: any) => {
+        this.toastr.showError("Somthing wrong Please check", "Error occured")
+        this.ngxLoader.stop()
+        this.route.navigate(['/'])
+      }
+    })
+  }
+  submitForm() {
+    this.ngxLoader.start();
+    if (this.editMode) {
+      this.editSponsor()
+    } else {
+      this.addSponsor()
+    }
+}
+onToggleSidebar(sidebarState: any) {
+  if (sidebarState === 'open') {
+    this.sidebarSpacing = 'contracted';
+  } else {
+    this.sidebarSpacing = 'expanded';
+  }
+}
 }

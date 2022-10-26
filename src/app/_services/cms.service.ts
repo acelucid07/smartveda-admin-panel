@@ -41,7 +41,12 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/sub_category`;
         return this.http.get<SUB_CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
     }
-
+    getSubCategoryListById(id: string): Observable<SUB_CATEGORY> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/sub_category/${id}`;
+        return this.http.get<SUB_CATEGORY>(endpointUrl, { 'headers': httpOptions });
+    }
     addSubCategory(subCategoryData: SUB_CATEGORY): Observable<SUB_CATEGORY> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
