@@ -85,11 +85,11 @@ export class AddEditCategoryComponent implements OnInit {
   }
 
   editCategory() {
-    this.CmsService.editCategory(this.categoryForm.value).subscribe(res => {
+    this.CmsService.editCategory(this.categoryForm.value, this.id).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Category edit successfully", "Category edit")
         this.ngxLoader.stop()
-        this.route.navigate(['/'])
+        this.route.navigate(['/crm/category'])
       }
       (error: any) => {
         this.toastr.showError("Somthing wrong Please check", "Error occured")

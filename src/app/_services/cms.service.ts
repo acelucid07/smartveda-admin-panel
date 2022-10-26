@@ -28,10 +28,10 @@ export class CmsService {
         return this.http.post<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
     }
 
-    editCategory(categoryData: CATEGORY): Observable<CATEGORY> {
+    editCategory(categoryData: CATEGORY, id:string): Observable<CATEGORY> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/category`;
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
         return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
     }
 
@@ -48,10 +48,10 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/sub_category`;
         return this.http.post<SUB_CATEGORY>(endpointUrl, subCategoryData, { 'headers': httpOptions });
     }
-    editSubCategory(subCategoryData: SUB_CATEGORY): Observable<SUB_CATEGORY> {
+    editSubCategory(subCategoryData: SUB_CATEGORY, id:string): Observable<SUB_CATEGORY> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/sub_category`;
+        const endpointUrl = `${environment.JSON_SERVER}/sub_category/${id}`;
         return this.http.put<SUB_CATEGORY>(endpointUrl, subCategoryData, { 'headers': httpOptions });
     }
 
