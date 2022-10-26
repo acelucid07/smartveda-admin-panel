@@ -14,12 +14,13 @@
     left: 0;
     top: 56px;
     height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x:hidden;
     margin: 0;
     background: #fff;
     padding: 0;
     box-shadow: 3px 15px 10px #707070;
-    transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out; 
     background-color: #151D3B;
   }
   .sidebar-cont .sidebar {
