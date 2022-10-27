@@ -75,7 +75,21 @@ export class AddEditSponsorComponent implements OnInit {
     })
   }
   addSponsor(){
-    this.CmsService.addSponsor(this.sponsorForm.value).subscribe(res => {
+    let payload ={
+      name: this.sponsorForm.controls["name"].value,
+      email: this.sponsorForm.controls["email"].value,
+      phone_No: this.sponsorForm.controls["phone_No"].value,
+      funding: this.sponsorForm.controls["funding"].value,
+      address: {
+        city: this.sponsorForm.controls["city"].value,
+        street: this.sponsorForm.controls["street"].value,
+        landmark: this.sponsorForm.controls["landmark"].value,
+        state: this.sponsorForm.controls["state"].value,
+        zip_code: this.sponsorForm.controls["zip_code"].value,
+        country: this.sponsorForm.controls["country"].value
+      }
+    }
+    this.CmsService.addSponsor(payload).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("sponsor added successfully", "sponsor Added")
         this.ngxLoader.stop()

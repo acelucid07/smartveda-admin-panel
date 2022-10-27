@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { environment } from '../../environments/environment';
 import { CATEGORY, SUB_CATEGORY, SPONSOR } from '../_models/cms'
 
@@ -21,11 +22,11 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
         return this.http.get<CATEGORY>(endpointUrl);
     }
-    addCategory(categoryData: CATEGORY): Observable<CATEGORY> {
+    addCategory(categoryData: any): Observable<CATEGORY> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/category`;
-        return this.http.post<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
+        return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
     }
 
     editCategory(categoryData: CATEGORY, id:string): Observable<CATEGORY> {
@@ -47,11 +48,11 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/sub_category/${id}`;
         return this.http.get<any>(endpointUrl, { 'headers': httpOptions });
     }
-    addSubCategory(subCategoryData: SUB_CATEGORY): Observable<SUB_CATEGORY> {
+    addSubCategory(subCategoryData: any): Observable<SUB_CATEGORY> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/sub_category`;
-        return this.http.post<SUB_CATEGORY>(endpointUrl, subCategoryData, { 'headers': httpOptions });
+        return this.http.post<any>(endpointUrl, subCategoryData, { 'headers': httpOptions });
     }
     editSubCategory(subCategoryData: any, id:string): Observable<SUB_CATEGORY> {
         const token = localStorage.getItem('token') || '';
@@ -70,11 +71,11 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/sponsors/${id}`;
         return this.http.get<SPONSOR>(endpointUrl);
     }
-    addSponsor(sponsorData: SPONSOR): Observable<SPONSOR> {
+    addSponsor(sponsorData: any): Observable<SPONSOR> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/sponsors`;
-        return this.http.post<SPONSOR>(endpointUrl, sponsorData, { 'headers': httpOptions });
+        return this.http.post<any>(endpointUrl, sponsorData, { 'headers': httpOptions });
     }
     editSponsor(sponsorData: any, id:string): Observable<SPONSOR> {
         const token = localStorage.getItem('token') || '';

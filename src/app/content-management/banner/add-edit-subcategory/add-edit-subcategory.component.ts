@@ -81,7 +81,16 @@ export class AddEditSubcategoryComponent implements OnInit {
     }
   }
   addSubCategory() {
-    this.CmsService.addSubCategory(this.subCategoryForm.value).subscribe(res => {
+    let payload ={
+      name: this.subCategoryForm.controls['name'].value,
+      image: this.subCategoryForm.controls['image'].value,
+      hyperlink: this.subCategoryForm.controls['hyperlink'].value,
+      parent_category: {
+        id: this.subCategoryForm.controls['parentCategoryId'].value,
+        name: this.subCategoryForm.controls['parentCategoryName'].value
+      }
+    }
+    this.CmsService.addSubCategory(payload).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("subCategory added successfully", "SubCategory Added")
         this.ngxLoader.stop()

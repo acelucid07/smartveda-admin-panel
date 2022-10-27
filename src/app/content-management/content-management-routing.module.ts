@@ -23,8 +23,17 @@ const routes: Routes = [
     path: 'editsubcategory', component: AddEditSubcategoryComponent
   },
   {
-    path: 'editsponsor', component: AddEditSponsorComponent
+    path: 'addsponsor', component: AddEditSponsorComponent
   },
+  {
+    path:'addcategory', component: AddEditCategoryComponent
+  },
+  {
+    path: 'addsubcategory', component: AddEditSubcategoryComponent
+  },
+  {
+    path: 'addsponsor', component: AddEditSponsorComponent
+  }
 ];
 
 @NgModule({
