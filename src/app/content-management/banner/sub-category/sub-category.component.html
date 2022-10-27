@@ -34,13 +34,15 @@
                     <td>{{subCategoryList.hyperlink}}</td>
                     <td>{{subCategoryList.parent_category?.id}}</td>
                     <td>{{subCategoryList.parent_category?.name}}</td>
-                    <td><button class="p-button-primary" pButton type="button" icon="pi pi-eye"
+                    <td>
+                        <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye"
                             style="margin-right:5px">
-                        </button>
+                        </button> -->
                         <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
                             pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:5px"
                             [routerLink]="['/crm/editsubcategory']"
                             [queryParams]="{id:subCategoryList?.id}"></button>
+                        <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Sub-category" tooltipPosition="bottom" style="margin-right:5px"></button>
                     </td>
                 </tr>
             </ng-template>

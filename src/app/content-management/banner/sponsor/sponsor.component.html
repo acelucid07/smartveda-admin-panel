@@ -16,8 +16,9 @@
             <input pInputText type="text" placeholder="Search keyword" />
           </span>
           <span class="p-input-icon-right ml-5">
-            <button pButton type="button" label="Add Sponsor" class="p-button-success" [routerLink]="['/crm/addsponsor']"></button>
-        </span>
+            <button pButton type="button" label="Add Sponsor" class="p-button-success"
+              [routerLink]="['/crm/addsponsor']"></button>
+          </span>
         </div>
       </ng-template>
 
@@ -40,11 +41,14 @@
           <td>{{sponsorList.address.state}}</td>
           <td>{{sponsorList.address.zip}}</td>
           <td>{{sponsorList.address.country}}</td>
-          <td><button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
-            </button>
+          <td>
+            <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
+            </button> -->
             <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer"
               tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/crm/editsponsor']"
               [queryParams]="{id:sponsorList?.id}"></button>
+            <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Sponsor"
+              tooltipPosition="bottom" style="margin-right:5px"></button>
           </td>
         </tr>
       </ng-template>

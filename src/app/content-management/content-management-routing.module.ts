@@ -23,7 +23,7 @@ const routes: Routes = [
     path: 'editsubcategory', component: AddEditSubcategoryComponent
   },
   {
-    path: 'addsponsor', component: AddEditSponsorComponent
+    path: 'editsponsor', component: AddEditSponsorComponent
   },
   {
     path:'addcategory', component: AddEditCategoryComponent
