@@ -25,14 +25,14 @@ export class SponsorComponent implements OnInit {
     this.cols = [
       { field: 'id', show: true, headers: 'ID' },
       { field: 'name', show: true, headers: 'name' },
-      { field: 'email', show: true, headers: 'sponsor_email' },
-      { field: 'phone', show: true, headers: 'phone_No' },
+      { field: 'email', show: true, headers: 'sponsor Email' },
+      { field: 'phone', show: true, headers: 'phone No' },
       { field: 'funding', show: true, headers: 'funding' },
       { field: 'city ', show: true, headers: 'City ' },
       { field: 'street ', show: true, headers: 'Street ' },
       { field: 'landmark ', show: true, headers: 'Landmark ' },
       { field: 'state ', show: true, headers: 'State ' },
-      { field: 'zip ', show: true, headers: 'Zip_Code ' },
+      { field: 'zip ', show: true, headers: 'Zip Code ' },
       { field: 'country ', show: true, headers: 'Country ' },
     ]
     this.getSponsorList()

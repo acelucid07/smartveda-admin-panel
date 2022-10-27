@@ -24,12 +24,12 @@ export class SubCategoryComponent implements OnInit {
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'id', show:true,headers: 'ID' },
-      { field: 'name',show:true, headers: 'name' },
-      { field: 'image',show:true, headers: 'image' },
-      { field: 'hyperlink', show:true,headers: 'hyperlink' },
-      { field: 'parent_id', show:true,headers: 'parent_ID' },
-      { field: 'parent_name',show:true, headers: 'parent_Name' },
+      { field: 'id', show:true,headers: 'Id' },
+      { field: 'name',show:true, headers: 'Name' },
+      { field: 'image',show:true, headers: 'Image' },
+      { field: 'hyperlink', show:true,headers: 'Hyperlink' },
+      { field: 'parent_id', show:true,headers: 'Parent Id' },
+      { field: 'parent_name',show:true, headers: 'Parent Name' },
     ]
     this.getSubCategoryList()
   }

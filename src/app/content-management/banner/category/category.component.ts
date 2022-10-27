@@ -24,11 +24,11 @@ export class CategoryComponent implements OnInit {
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'id', show: true, headers: 'ID' },
-      { field: 'name', show: true, headers: 'name' },
-      { field: 'image', show: true, headers: 'image' },
-      { field: 'hyperlink', show: true, headers: 'hyperlink' },
-      { field: 'position', show: true, headers: 'position' },
+      { field: 'id', show: true, headers: 'Id' },
+      { field: 'name', show: true, headers: 'Name' },
+      { field: 'image', show: true, headers: 'Image' },
+      { field: 'hyperlink', show: true, headers: 'Hyperlink' },
+      { field: 'position', show: true, headers: 'Position' },
     ]
     this.getCategoryList()
   }
