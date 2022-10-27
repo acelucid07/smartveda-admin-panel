@@ -76,10 +76,10 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/sponsors`;
         return this.http.post<SPONSOR>(endpointUrl, sponsorData, { 'headers': httpOptions });
     }
-    editSponsor(sponsorData: SPONSOR): Observable<SPONSOR> {
+    editSponsor(sponsorData: any, id:string): Observable<SPONSOR> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/sponsors`;
-        return this.http.put<SPONSOR>(endpointUrl, sponsorData, { 'headers': httpOptions });
+        const endpointUrl = `${environment.JSON_SERVER}/sponsors/${id}`;
+        return this.http.put<any>(endpointUrl, sponsorData, { 'headers': httpOptions });
     }
 }
