@@ -3,6 +3,7 @@ import { TABLE_HEADING } from '../../../_models/table_heading'
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import {SUB_CATEGORY}  from '../../../_models/cms';
 import {CmsService} from '../../../_services/cms.service'
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 
 @Component({
   selector: 'app-sub-category',
@@ -15,7 +16,8 @@ export class SubCategoryComponent implements OnInit {
   subCategoryList:SUB_CATEGORY[] =[]
   fgsType: any;
   constructor(private ngxLoader: NgxUiLoaderService,
-    private CmsService:CmsService) { }
+    private CmsService:CmsService,
+    private toastr: ToastrMsgService,) { }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
@@ -43,6 +45,15 @@ export class SubCategoryComponent implements OnInit {
     this.CmsService.getSubCategoryList().subscribe((res: SUB_CATEGORY[]) => {
       this.subCategoryList = res;
       this.ngxLoader.stop();
+    })
+  }
+  deleteSubCategory(subCategoryList: any) {
+    this.ngxLoader.start();
+    this.CmsService.deleteSubCategory(subCategoryList.id).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("subCategory deleted successfully", "subCategory delete")
+        this.getSubCategoryList()
+      }
     })
   }
 }

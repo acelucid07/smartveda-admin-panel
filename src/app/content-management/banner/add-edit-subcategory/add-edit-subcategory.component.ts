@@ -25,7 +25,6 @@ export class AddEditSubcategoryComponent implements OnInit {
     private toastr: ToastrMsgService,
     private ngxLoader: NgxUiLoaderService,) {
     this.subCategoryForm = fb.group({
-      id: ['', [Validators.required]],
       name: ['', [Validators.required]],
       image: ['', [Validators.required]],
       hyperlink: ['', [Validators.required]],

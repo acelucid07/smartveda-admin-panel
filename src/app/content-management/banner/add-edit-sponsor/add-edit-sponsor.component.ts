@@ -26,7 +26,6 @@ export class AddEditSponsorComponent implements OnInit {
     private CmsService: CmsService
   ) {
     this.sponsorForm = this.fb.group({
-      id: [null],
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
       phone_No: ['', [Validators.required]],

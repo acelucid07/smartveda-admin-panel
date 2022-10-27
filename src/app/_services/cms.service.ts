@@ -18,7 +18,7 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/category`;
         return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
     }
-    getCategoryById(id: string): Observable<CATEGORY> {
+    getCategoryById(id: number): Observable<CATEGORY> {
         const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
         return this.http.get<CATEGORY>(endpointUrl);
     }
@@ -36,13 +36,20 @@ export class CmsService {
         return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
     }
 
+    deleteCategory(id:number): Observable<CATEGORY> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+    }
+
     getSubCategoryList(): Observable<SUB_CATEGORY[]> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/sub_category`;
         return this.http.get<SUB_CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
     }
-    getSubCategoryListById(id: string): Observable<any> {
+    getSubCategoryListById(id: number): Observable<any> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/sub_category/${id}`;
@@ -54,11 +61,17 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/sub_category`;
         return this.http.post<any>(endpointUrl, subCategoryData, { 'headers': httpOptions });
     }
-    editSubCategory(subCategoryData: any, id:string): Observable<SUB_CATEGORY> {
+    editSubCategory(subCategoryData: any, id:number): Observable<SUB_CATEGORY> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/sub_category/${id}`;
         return this.http.put<any>(endpointUrl, subCategoryData, { 'headers': httpOptions });
+    }
+    deleteSubCategory(id:number): Observable<SUB_CATEGORY> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/sub_category/${id}`;
+        return this.http.delete<any>(endpointUrl, { 'headers': httpOptions });
     }
 
     getSponsorList(): Observable<SPONSOR[]> {
@@ -67,7 +80,7 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/sponsors`;
         return this.http.get<SPONSOR[]>(endpointUrl, { 'headers': httpOptions });
     }
-    getSponsorDetailsById(id: string): Observable<SPONSOR> {
+    getSponsorDetailsById(id: number): Observable<SPONSOR> {
         const endpointUrl = `${environment.JSON_SERVER}/sponsors/${id}`;
         return this.http.get<SPONSOR>(endpointUrl);
     }
@@ -77,10 +90,16 @@ export class CmsService {
         const endpointUrl = `${environment.JSON_SERVER}/sponsors`;
         return this.http.post<any>(endpointUrl, sponsorData, { 'headers': httpOptions });
     }
-    editSponsor(sponsorData: any, id:string): Observable<SPONSOR> {
+    editSponsor(sponsorData: any, id:number): Observable<SPONSOR> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/sponsors/${id}`;
         return this.http.put<any>(endpointUrl, sponsorData, { 'headers': httpOptions });
+    }
+    deleteSponsor(id:number): Observable<SPONSOR> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/sponsors/${id}`;
+        return this.http.delete<any>(endpointUrl,  { 'headers': httpOptions });
     }
 }

@@ -3,6 +3,7 @@ import { TABLE_HEADING } from '../../../_models/table_heading'
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { CmsService } from '../../../_services/cms.service';
 import { SPONSOR } from '../../../_models/cms'
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 @Component({
   selector: 'app-sponsor',
   templateUrl: './sponsor.component.html',
@@ -14,7 +15,8 @@ export class SponsorComponent implements OnInit {
   fgsType: any;
   sponsorList: SPONSOR[] = []
   constructor(private ngxLoader: NgxUiLoaderService,
-    private CmsService: CmsService) { }
+    private CmsService: CmsService,
+    private toastr: ToastrMsgService,) { }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
@@ -47,6 +49,16 @@ export class SponsorComponent implements OnInit {
     this.CmsService.getSponsorList().subscribe((res: SPONSOR[]) => {
       this.sponsorList = res
       this.ngxLoader.stop();
+    })
+  }
+
+  deleteSponsor(sponsorList: any) {
+    this.ngxLoader.start();
+    this.CmsService.deleteSponsor(sponsorList.id).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("category deleted successfully", "category delete")
+        this.getSponsorList()
+      }
     })
   }
 }

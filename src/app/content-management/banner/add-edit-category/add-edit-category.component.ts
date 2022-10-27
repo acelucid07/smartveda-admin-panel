@@ -24,7 +24,6 @@ export class AddEditCategoryComponent implements OnInit {
     private toastr: ToastrMsgService,
     private CmsService: CmsService) {
     this.categoryForm = this.fb.group({
-      id: [null],
       name: ['', [Validators.required]],
       image: ['', [Validators.required]],
       hyperlink: ['', [Validators.required]],

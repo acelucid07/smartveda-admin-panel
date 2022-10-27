@@ -113,54 +113,58 @@
   ],
   "category": [
     {
-      "id": "1",
-      "name": "Sports & Fitness",
-      "image": "dummy",
-      "hyperlink": "www.google.com",
-      "position": "head"
-    },
-    {
-      "id": "2",
+      "id": 2,
       "name": "Electronics",
       "image": " nb sfbs sjb hjs",
       "hyperlink": "v hbsb nssg",
       "position": "head"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Mobiles, Tablets & More",
       "image": "jhb jsbjs sjbcjs",
       "hyperlink": "jhb jsb jhshb js",
       "position": "head"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Men's Fashion & Accessories",
       "image": "hjb jhsbjsdbzn bsbgjs",
       "hyperlink": "nb sbjsb sb jsbhj s",
       "position": "head"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Women's Fashion & Accessories",
       "image": "mnb jssbbsjbhcs",
       "hyperlink": "b jbjsb hsbj s bsjb",
       "position": "head"
+    },
+    {
+      "id": 6,
+      "name": "testig",
+      "image": "wwew",
+      "hyperlink": "www.google.com",
+      "position": "left"
+    },
+    {
+      "id": 7,
+      "name": "testing ck",
+      "image": "dummy",
+      "hyperlink": "www.google.com",
+      "position": "left"
+    },
+    {
+      "name": "testing ck",
+      "image": "jbcshbjsb bsj",
+      "hyperlink": "b djhbjd mdnbk",
+      "position": "left",
+      "id": 8
     }
   ],
   "sub_category": [
     {
-      "id": "1",
-      "name": "Cricket",
-      "image": "dummy ",
-      "hyperlink": "www.google.com",
-      "parent_category": {
-        "id": "1",
-        "name": "Sports & Fitness"
-      }
-    },
-    {
-      "id": "2",
+      "id": 2,
       "name": "Football",
       "image": "",
       "hyperlink": "",
@@ -170,137 +174,127 @@
       }
     },
     {
-      "id": "3",
-      "name": "Yoga",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "1",
-        "name": "Sports & Fitness"
-      }
-    },
-    {
-      "id": "4",
+      "id": 4,
       "name": "Fitness Accessories",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "1",
+        "id": 1,
         "name": "Sports & Fitness"
       }
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Strength Training",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "1",
+        "id": 1,
         "name": "Sports & Fitness"
       }
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Televisions",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "2",
+        "id": 2,
         "name": "Electronics"
       }
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Headphones",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "2",
+        "id": 2,
         "name": "Electronics"
       }
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Home Entertainment Systems",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "2",
+        "id": 2,
         "name": "Electronics"
       }
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "Cameras and DSLR Cameras",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "2",
+        "id": 2,
         "name": "Electronics"
       }
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "Musical Instruments & professionals Audio",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "2",
+        "id": 2,
         "name": "Electronics"
       }
     },
     {
-      "id": "11",
+      "id": 11,
       "name": "Gaming Consoles",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "2",
+        "id": 2,
         "name": "Electronics"
       }
     },
     {
-      "id": "12",
+      "id": 12,
       "name": "Mobiles & Smart Phones",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "3",
+        "id": 3,
         "name": "Mobiles, Tablets & More"
       }
     },
     {
-      "id": "13",
+      "id": 13,
       "name": "Cases and Covers",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "3",
+        "id": 3,
         "name": "Mobiles, Tablets & More"
       }
     },
     {
-      "id": "14",
+      "id": 14,
       "name": "Screen Protectors",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "3",
+        "id": 3,
         "name": "Mobiles, Tablets & More"
       }
     },
     {
-      "id": "15",
+      "id": 15,
       "name": "Power Banks",
       "image": "",
       "hyperlink": "",
       "parent_category": {
-        "id": "3",
+        "id": 3,
         "name": "Mobiles, Tablets & More"
       }
     },
     {
-      "id": "16",
+      "id": 16,
       "name": "Tablets",
       "image": "",
       "hyperlink": "",
@@ -310,7 +304,7 @@
       }
     },
     {
-      "id": "17",
+      "id": 17,
       "name": "Smart watches and Wearables",
       "image": "",
       "hyperlink": "",
@@ -320,7 +314,7 @@
       }
     },
     {
-      "id": "18",
+      "id": 18,
       "name": "Clothings",
       "image": "",
       "hyperlink": "",
@@ -330,7 +324,7 @@
       }
     },
     {
-      "id": "19",
+      "id": 19,
       "name": "T-shirts and Polos",
       "image": "",
       "hyperlink": "",
@@ -340,7 +334,7 @@
       }
     },
     {
-      "id": "20",
+      "id": 20,
       "name": "Shirts",
       "image": "",
       "hyperlink": "",
@@ -350,7 +344,7 @@
       }
     },
     {
-      "id": "21",
+      "id": 21,
       "name": "Jeans",
       "image": "",
       "hyperlink": "",
@@ -360,7 +354,7 @@
       }
     },
     {
-      "id": "22",
+      "id": 22,
       "name": "Innerware",
       "image": "",
       "hyperlink": "",
@@ -370,7 +364,7 @@
       }
     },
     {
-      "id": "23",
+      "id": 23,
       "name": "Watches",
       "image": "",
       "hyperlink": "",
@@ -380,7 +374,7 @@
       }
     },
     {
-      "id": "24",
+      "id": 24,
       "name": "Sunglasses",
       "image": "",
       "hyperlink": "",
@@ -390,114 +384,19 @@
       }
     },
     {
-      "id": "25",
-      "name": "Wallets",
-      "image": "",
-      "hyperlink": "",
+      "name": "hb sjb sbj bjsb jhs`",
+      "image": "bh djshgbhjsdnjsb",
+      "hyperlink": "B JBJSB SJB",
       "parent_category": {
-        "id": "4",
-        "name": "Men's Fashion & Accessories"
-      }
-    },
-    {
-      "id": "26",
-      "name": "Clothings",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "5",
-        "name": "Women's Fashion & Accessories"
-      }
-    },
-    {
-      "id": "27",
-      "name": "Western Wear",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "5",
-        "name": "Women's Fashion & Accessories"
-      }
-    },
-    {
-      "id": "28",
-      "name": "Western Wear",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "5",
-        "name": "Women's Fashion & Accessories"
-      }
-    },
-    {
-      "id": "29",
-      "name": "Ethnic Wear",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "5",
-        "name": "Women's Fashion & Accessories"
-      }
-    },
-    {
-      "id": "30",
-      "name": "Watches",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "5",
-        "name": "Women's Fashion & Accessories"
-      }
-    },
-    {
-      "id": "31",
-      "name": "Handbags and Clutches",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "5",
-        "name": "Women's Fashion & Accessories"
-      }
-    },
-    {
-      "id": "32",
-      "name": "Jewellery",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "5",
-        "name": "Women's Fashion & Accessories"
-      }
-    },
-    {
-      "id": "33",
-      "name": "Shoes",
-      "image": "",
-      "hyperlink": "",
-      "parent_category": {
-        "id": "5",
-        "name": "Women's Fashion & Accessories"
-      }
+        "id": "145",
+        "name": "hjcb shs bhb"
+      },
+      "id": 25
     }
   ],
   "sponsors": [
     {
-      "id": "1",
-      "name": "qwg",
-      "email": "qwg@test.com",
-      "phone": "1234325",
-      "funding": "$233424",
-      "address": {
-        "city": "asdfas",
-        "street": "fdsf",
-        "landmark": "sdfs",
-        "state": "fds",
-        "zip": "4324324",
-        "country": "gfsgd"
-      }
-    },
-    {
-      "id": "2",
+      "id": 2,
       "name": "fdg",
       "email": "fdg@test.com",
       "phone": "123423325",
@@ -512,7 +411,7 @@
       }
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "erwer",
       "email": "sdsd@test.com",
       "phone": "42342344",
@@ -527,7 +426,7 @@
       }
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "fger",
       "email": "fger@test.com",
       "phone": "56775",
@@ -542,7 +441,7 @@
       }
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "fghrg",
       "email": "fghfdg@test.com",
       "phone": "2345454",
@@ -557,7 +456,7 @@
       }
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "gthghr",
       "email": "gtg@test.com",
       "phone": "56ty56",
@@ -569,6 +468,21 @@
         "state": "jhj",
         "zip": "jytgth",
         "country": "ghhth"
+      }
+    },
+    {
+      "id": 7,
+      "name": "bjhcvsdbjcb",
+      "email": "jbdvd@gmail.com",
+      "phone_No": "6592555999",
+      "funding": "$54488",
+      "address": {
+        "city": "hjb dbjbd",
+        "street": "bhjd bjd",
+        "landmark": "bhj ddj",
+        "state": "jbdj d",
+        "zip_code": "54488",
+        "country": "jvdd"
       }
     }
   ]

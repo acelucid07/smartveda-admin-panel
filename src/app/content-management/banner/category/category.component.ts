@@ -3,6 +3,7 @@ import { TABLE_HEADING } from '../../../_models/table_heading'
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { CmsService } from '../../../_services/cms.service';
 import { CATEGORY } from '../../../_models/cms'
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -14,7 +15,8 @@ export class CategoryComponent implements OnInit {
   categoryList: CATEGORY[] = []
   fgsType: any;
   constructor(private ngxLoader: NgxUiLoaderService,
-    private CmsService: CmsService
+    private CmsService: CmsService,
+    private toastr: ToastrMsgService,
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +45,15 @@ export class CategoryComponent implements OnInit {
       this.categoryList = res
       console.log(this.categoryList)
       this.ngxLoader.stop();
+    })
+  }
+  deleteCategory(categoryList: any) {
+    this.ngxLoader.start();
+    this.CmsService.deleteCategory(categoryList.id).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("sponsor deleted successfully", "sponsor delete")
+        this.getCategoryList()
+      }
     })
   }
 }

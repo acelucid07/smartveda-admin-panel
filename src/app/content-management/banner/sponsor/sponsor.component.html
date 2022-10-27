@@ -48,6 +48,7 @@
               tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/crm/editsponsor']"
               [queryParams]="{id:sponsorList?.id}"></button>
             <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Sponsor"
+              (click)="deleteSponsor(sponsorList)"
               tooltipPosition="bottom" style="margin-right:5px"></button>
           </td>
         </tr>
