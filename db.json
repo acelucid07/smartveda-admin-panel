@@ -115,47 +115,37 @@
     {
       "id": "1",
       "name": "Sports & Fitness",
-      "image": "",
-      "hyperlink": "",
-      "position": "head",
-      "admin_status": "1",
-      "is_delete": "0"
+      "image": "dummy",
+      "hyperlink": "www.google.com",
+      "position": "head"
     },
     {
       "id": "2",
       "name": "Electronics",
-      "image": "",
-      "hyperlink": "",
-      "position": "head",
-      "admin_status": "1",
-      "is_delete": "0"
+      "image": " nb sfbs sjb hjs",
+      "hyperlink": "v hbsb nssg",
+      "position": "head"
     },
     {
       "id": "3",
       "name": "Mobiles, Tablets & More",
-      "image": "",
-      "hyperlink": "",
-      "position": "head",
-      "admin_status": "1",
-      "is_delete": "0"
+      "image": "jhb jsbjs sjbcjs",
+      "hyperlink": "jhb jsb jhshb js",
+      "position": "head"
     },
     {
       "id": "4",
       "name": "Men's Fashion & Accessories",
-      "image": "",
-      "hyperlink": "",
-      "position": "head",
-      "admin_status": "1",
-      "is_delete": "0"
+      "image": "hjb jhsbjsdbzn bsbgjs",
+      "hyperlink": "nb sbjsb sb jsbhj s",
+      "position": "head"
     },
     {
       "id": "5",
       "name": "Women's Fashion & Accessories",
-      "image": "",
-      "hyperlink": "",
-      "position": "head",
-      "admin_status": "1",
-      "is_delete": "0"
+      "image": "mnb jssbbsjbhcs",
+      "hyperlink": "b jbjsb hsbj s bsjb",
+      "position": "head"
     }
   ],
   "sub_category": [
