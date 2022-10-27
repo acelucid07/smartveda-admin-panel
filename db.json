@@ -396,94 +396,49 @@
   ],
   "sponsors": [
     {
-      "id": 2,
-      "name": "fdg",
-      "email": "fdg@test.com",
-      "phone": "123423325",
-      "funding": "$233",
-      "address": {
-        "city": "asdfas",
-        "street": "fdsf",
-        "landmark": "sdfs",
-        "state": "fds",
-        "zip": "43324",
-        "country": "gfsgd"
-      }
-    },
-    {
-      "id": 3,
-      "name": "erwer",
-      "email": "sdsd@test.com",
-      "phone": "42342344",
-      "funding": "$4234",
-      "address": {
-        "city": "fdfgfs",
-        "street": "ghgh",
-        "landmark": "hjghgh",
-        "state": "fghfghds",
-        "zip": "56546",
-        "country": "hjuth"
-      }
-    },
-    {
-      "id": 4,
-      "name": "fger",
-      "email": "fger@test.com",
-      "phone": "56775",
-      "funding": "$56456",
-      "address": {
-        "city": "hgtrh",
-        "street": "jthyhg",
-        "landmark": "hyttr",
-        "state": "jkhj",
-        "zip": "545654645",
-        "country": "kjhgt"
-      }
-    },
-    {
-      "id": 5,
-      "name": "fghrg",
-      "email": "fghfdg@test.com",
-      "phone": "2345454",
-      "funding": "$54423",
-      "address": {
-        "city": "jkjh",
-        "street": "hrth",
-        "landmark": "fthfgh",
-        "state": "ghtgh",
-        "zip": "89756",
-        "country": "kljksgfh"
-      }
-    },
-    {
-      "id": 6,
-      "name": "gthghr",
-      "email": "gtg@test.com",
-      "phone": "56ty56",
-      "funding": "$6576",
-      "address": {
-        "city": "asdfjyhjghas",
-        "street": "jtyj",
-        "landmark": "sghjghdfs",
-        "state": "jhj",
-        "zip": "jytgth",
-        "country": "ghhth"
-      }
-    },
-    {
       "id": 7,
       "name": "bjhcvsdbjcb",
       "email": "jbdvd@gmail.com",
-      "phone_No": "6592555999",
+      "phone": "6592555999",
       "funding": "$54488",
       "address": {
         "city": "hjb dbjbd",
         "street": "bhjd bjd",
         "landmark": "bhj ddj",
         "state": "jbdj d",
-        "zip_code": "54488",
+        "zip": "54488",
         "country": "jvdd"
       }
+    },
+    {
+      "name": "cktesting",
+      "email": "ck45@gmail.com",
+      "phone": "693655496587",
+      "funding": "$487878",
+      "address": {
+        "city": "ddn",
+        "street": "ddn",
+        "landmark": "ddn",
+        "state": "uk",
+        "zip": "58796",
+        "country": "india"
+      },
+      "id": 8
+    },
+    {
+      "name": " mbjx nx",
+      "email": "ck@gmail.com",
+      "phone": "685974155",
+      "funding": "4577",
+      "address": {
+        "city": "jhbvsbguys",
+        "street": "n svhi",
+        "landmark": "bvjshuuy",
+        "state": "njvshi",
+        "zip": "65988",
+        "country": " njsjdhbyusw"
+      },
+      "id": 9
     }
   ]
 }

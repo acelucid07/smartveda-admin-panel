@@ -21,7 +21,7 @@ export interface SPONSOR {
     id: number,
     name: string,
     email: string,
-    phone_No: string,
+    phone: string,
     funding: string,
     address: ADDRESS,
 }

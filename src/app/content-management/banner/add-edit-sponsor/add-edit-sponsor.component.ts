@@ -28,13 +28,13 @@ export class AddEditSponsorComponent implements OnInit {
     this.sponsorForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      phone_No: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
       funding: ['', [Validators.required]],
       city: ['', Validators.required],
       street: ['', Validators.required],
       landmark: ['', Validators.required],
       state: ['', Validators.required],
-      zip_code: ['', Validators.required],
+      zip: ['', Validators.required],
       country: ['', Validators.required]
     })
   }
@@ -61,13 +61,13 @@ export class AddEditSponsorComponent implements OnInit {
         id: res.id,
         name: res.name,
         email: res.email,
-        phone_No: res.phone_No,
+        phone: res.phone,
         funding: res.funding,
         city: res.address.city,
         street: res.address.street,
         landmark: res.address.landmark,
         state: res.address.state,
-        zip_code: res.address.zip,
+        zip: res.address.zip,
         country: res.address.country
       })
       this.ngxLoader.stop();
@@ -77,14 +77,14 @@ export class AddEditSponsorComponent implements OnInit {
     let payload ={
       name: this.sponsorForm.controls["name"].value,
       email: this.sponsorForm.controls["email"].value,
-      phone_No: this.sponsorForm.controls["phone_No"].value,
+      phone: this.sponsorForm.controls["phone"].value,
       funding: this.sponsorForm.controls["funding"].value,
       address: {
         city: this.sponsorForm.controls["city"].value,
         street: this.sponsorForm.controls["street"].value,
         landmark: this.sponsorForm.controls["landmark"].value,
         state: this.sponsorForm.controls["state"].value,
-        zip_code: this.sponsorForm.controls["zip_code"].value,
+        zip: this.sponsorForm.controls["zip"].value,
         country: this.sponsorForm.controls["country"].value
       }
     }
@@ -106,14 +106,14 @@ export class AddEditSponsorComponent implements OnInit {
       id : this.id,
       name: this.sponsorForm.controls["name"].value,
       email: this.sponsorForm.controls["email"].value,
-      phone_No: this.sponsorForm.controls["phone_No"].value,
+      phone: this.sponsorForm.controls["phone_No"].value,
       funding: this.sponsorForm.controls["funding"].value,
       address: {
         city: this.sponsorForm.controls["city"].value,
         street: this.sponsorForm.controls["street"].value,
         landmark: this.sponsorForm.controls["landmark"].value,
         state: this.sponsorForm.controls["state"].value,
-        zip_code: this.sponsorForm.controls["zip_code"].value,
+        zip: this.sponsorForm.controls["zip_code"].value,
         country: this.sponsorForm.controls["country"].value
       }
     }
