@@ -79,7 +79,7 @@ export class AddEditSponsorComponent implements OnInit {
       if (res) {
         this.toastr.showSuccess("sponsor added successfully", "sponsor Added")
         this.ngxLoader.stop()
-        this.route.navigate(['/'])
+        this.route.navigate(['/crm/sponsor'])
       }
       (error: any) => {
         this.toastr.showError("Somthing wrong Please check", "Error occured")
@@ -93,7 +93,7 @@ export class AddEditSponsorComponent implements OnInit {
       if (res) {
         this.toastr.showSuccess("sponsor edit successfully", "sponsor edit")
         this.ngxLoader.stop()
-        this.route.navigate(['/'])
+        this.route.navigate(['/crm/sponsor'])
       }
       (error: any) => {
         this.toastr.showError("Somthing wrong Please check", "Error occured")

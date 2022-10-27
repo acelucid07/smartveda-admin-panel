@@ -74,7 +74,7 @@ export class AddEditCategoryComponent implements OnInit {
       if (res) {
         this.toastr.showSuccess("Category added successfully", "Category Added")
         this.ngxLoader.stop()
-        this.route.navigate(['/'])
+        this.route.navigate(['/crm/category'])
       }
       (error: any) => {
         this.toastr.showError("Somthing wrong Please check", "Error occured")

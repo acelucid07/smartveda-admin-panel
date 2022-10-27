@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { SUB_CATEGORY } from '../../../_models/cms'
 import { CmsService } from '../../../_services/cms.service'
-import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 @Component({
   selector: 'app-add-edit-subcategory',
   templateUrl: './add-edit-subcategory.component.html',
@@ -18,19 +18,18 @@ export class AddEditSubcategoryComponent implements OnInit {
   id: any
   title: string = " "
   editMode: boolean = false
-  constructor( fb:FormBuilder,
+  constructor(fb: FormBuilder,
     private activateRoute: ActivatedRoute,
     private CmsService: CmsService,
-    private ngxLoader: NgxUiLoaderService,
+    private route: Router,
     private toastr: ToastrMsgService,
-    private route: Router) { 
+    private ngxLoader: NgxUiLoaderService,) {
     this.subCategoryForm = fb.group({
       id: ['', [Validators.required]],
-      name : ['', [Validators.required]],
+      name: ['', [Validators.required]],
       image: ['', [Validators.required]],
       hyperlink: ['', [Validators.required]],
-      position: ['', [Validators.required]],
-      parentCategoryId:[null,[Validators.required]],
+      parentCategoryId: [null, [Validators.required]],
       parentCategoryName: [null, [Validators.required]],
     })
   }
@@ -45,7 +44,7 @@ export class AddEditSubcategoryComponent implements OnInit {
         this.editMode = true
         this.title = "Edit Sub_Category"
         this.getSubCategoryById()
-       } else {
+      } else {
         this.editMode = false
         this.title = "Add  Sub_Category"
       }
@@ -65,10 +64,9 @@ export class AddEditSubcategoryComponent implements OnInit {
         id: res.id,
         name: res.name,
         image: res.image,
-        position: res.position,
         hyperlink: res.hyperlink,
-        parentCategoryId:res.parent_category.id,
-        parentCategoryName:res.parent_category.name
+        parentCategoryId: res.parent_category.id,
+        parentCategoryName: res.parent_category.name
       })
       console.log(this.subCategoryForm.value)
       this.ngxLoader.stop();
@@ -81,45 +79,45 @@ export class AddEditSubcategoryComponent implements OnInit {
     } else {
       this.addSubCategory()
     }
-}
-addSubCategory() {
-  this.CmsService.addSubCategory(this.subCategoryForm.value).subscribe(res => {
-    if (res) {
-      this.toastr.showSuccess("subCategory added successfully", "SubCategory Added")
-      this.ngxLoader.stop()
-      this.route.navigate(['/'])
-    }
-    (error: any) => {
-      this.toastr.showError("Somthing wrong Please check", "Error occured")
-      this.ngxLoader.stop()
-      this.route.navigate(['/'])
-    }
-  })
-}
+  }
+  addSubCategory() {
+    this.CmsService.addSubCategory(this.subCategoryForm.value).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("subCategory added successfully", "SubCategory Added")
+        this.ngxLoader.stop()
+        this.route.navigate(['crm/subcategory'])
+      }
+      (error: any) => {
+        this.toastr.showError("Somthing wrong Please check", "Error occured")
+        this.ngxLoader.stop()
+        this.route.navigate(['/'])
+      }
+    })
+  }
 
-editSubCategory() {
-  let payload ={
-    id: this.id,
-    name: this.subCategoryForm.controls['name'].value,
-    image: this.subCategoryForm.controls['image'].value,
-    position: this.subCategoryForm.controls['position'].value,
-    hyperlink: this.subCategoryForm.controls['hyperlink'].value,
-    parent_category:{
-    id:this.subCategoryForm.controls['parentCategoryId'].value,
-    name: this.subCategoryForm.controls['parentCategoryName'].value
-    }}
-  this.CmsService.editSubCategory(payload,this.id).subscribe(res => {
-    if (res) {
-      this.toastr.showSuccess("SubCategory edit successfully", "SubCategory edit")
-      this.ngxLoader.stop()
-      this.route.navigate(['/crm/subcategory'])
+  editSubCategory() {
+    let payload = {
+      id: this.id,
+      name: this.subCategoryForm.controls['name'].value,
+      image: this.subCategoryForm.controls['image'].value,
+      hyperlink: this.subCategoryForm.controls['hyperlink'].value,
+      parent_category: {
+        id: this.subCategoryForm.controls['parentCategoryId'].value,
+        name: this.subCategoryForm.controls['parentCategoryName'].value
+      }
     }
-    (error: any) => {
-      this.toastr.showError("Somthing wrong Please check", "Error occured")
-      this.ngxLoader.stop()
-      this.route.navigate(['/'])
-    }
-  })
-}
+    this.CmsService.editSubCategory(payload, this.id).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("SubCategory edit successfully", "SubCategory edit")
+        this.ngxLoader.stop()
+        this.route.navigate(['/crm/subcategory'])
+      }
+      (error: any) => {
+        this.toastr.showError("Somthing wrong Please check", "Error occured")
+        this.ngxLoader.stop()
+        this.route.navigate(['/'])
+      }
+    })
+  }
 
 }

@@ -159,337 +159,337 @@
     }
   ],
   "sub_category": [
-  {
-    "id": "1",
-    "name": "Cricket",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
+    {
       "id": "1",
-      "name":"Sports & Fitness"
-    }
-  },
-  {
-    "id": "2",
-    "name": "Football",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "1",
-      "name":"Sports & Fitness"
-    }
-  },
-  {
-    "id": "3",
-    "name": "Yoga",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "1",
-      "name":"Sports & Fitness"
-    }
-  },
-  {
-    "id": "4",
-    "name": "Fitness Accessories",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "1",
-      "name":"Sports & Fitness"
-    }
-  },
-  {
-    "id": "5",
-    "name": "Strength Training",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "1",
-      "name":"Sports & Fitness"
-    }
-  },
-  {
-    "id": "6",
-    "name": "Televisions",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
+      "name": "Cricket",
+      "image": "dummy ",
+      "hyperlink": "www.google.com",
+      "parent_category": {
+        "id": "1",
+        "name": "Sports & Fitness"
+      }
+    },
+    {
       "id": "2",
-      "name":"Electronics"
-    }
-  },
-  {
-    "id": "7",
-    "name": "Headphones",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "2",
-      "name":"Electronics"
-    }
-  },
-  {
-    "id": "8",
-    "name": "Home Entertainment Systems",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "2",
-      "name":"Electronics"
-    }
-  },
-  {
-    "id": "9",
-    "name": "Cameras and DSLR Cameras",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "2",
-      "name":"Electronics"
-    }
-  },
-  {
-    "id": "10",
-    "name": "Musical Instruments & professionals Audio",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "2",
-      "name":"Electronics"
-    }
-  },
-  {
-    "id": "11",
-    "name": "Gaming Consoles",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "2",
-      "name":"Electronics"
-    }
-  },
-  {
-    "id": "12",
-    "name": "Mobiles & Smart Phones",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
+      "name": "Football",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "1",
+        "name": "Sports & Fitness"
+      }
+    },
+    {
       "id": "3",
-      "name":"Mobiles, Tablets & More"
-    }
-  },
-  {
-    "id": "13",
-    "name": "Cases and Covers",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "3",
-      "name":"Mobiles, Tablets & More"
-    }
-  },
-  {
-    "id": "14",
-    "name": "Screen Protectors",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "3",
-      "name":"Mobiles, Tablets & More"
-    }
-  },
-  {
-    "id": "15",
-    "name": "Power Banks",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "3",
-      "name":"Mobiles, Tablets & More"
-    }
-  },
-  {
-    "id": "16",
-    "name": "Tablets",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "3",
-      "name":"Mobiles, Tablets & More"
-    }
-  },
-  {
-    "id": "17",
-    "name": "Smart watches and Wearables",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "3",
-      "name":"Mobiles, Tablets & More"
-    }
-  },
-  {
-    "id": "18",
-    "name": "Clothings",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
+      "name": "Yoga",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "1",
+        "name": "Sports & Fitness"
+      }
+    },
+    {
       "id": "4",
-      "name":"Men's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "19",
-    "name": "T-shirts and Polos",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "4",
-      "name":"Men's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "20",
-    "name": "Shirts",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "4",
-      "name":"Men's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "21",
-    "name": "Jeans",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "4",
-      "name":"Men's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "22",
-    "name": "Innerware",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "4",
-      "name":"Men's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "23",
-    "name": "Watches",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "4",
-      "name":"Men's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "24",
-    "name": "Sunglasses",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "4",
-      "name":"Men's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "25",
-    "name": "Wallets",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "4",
-      "name":"Men's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "26",
-    "name": "Clothings",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
+      "name": "Fitness Accessories",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "1",
+        "name": "Sports & Fitness"
+      }
+    },
+    {
       "id": "5",
-      "name":"Women's Fashion & Accessories"
+      "name": "Strength Training",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "1",
+        "name": "Sports & Fitness"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Televisions",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "2",
+        "name": "Electronics"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Headphones",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "2",
+        "name": "Electronics"
+      }
+    },
+    {
+      "id": "8",
+      "name": "Home Entertainment Systems",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "2",
+        "name": "Electronics"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Cameras and DSLR Cameras",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "2",
+        "name": "Electronics"
+      }
+    },
+    {
+      "id": "10",
+      "name": "Musical Instruments & professionals Audio",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "2",
+        "name": "Electronics"
+      }
+    },
+    {
+      "id": "11",
+      "name": "Gaming Consoles",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "2",
+        "name": "Electronics"
+      }
+    },
+    {
+      "id": "12",
+      "name": "Mobiles & Smart Phones",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "3",
+        "name": "Mobiles, Tablets & More"
+      }
+    },
+    {
+      "id": "13",
+      "name": "Cases and Covers",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "3",
+        "name": "Mobiles, Tablets & More"
+      }
+    },
+    {
+      "id": "14",
+      "name": "Screen Protectors",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "3",
+        "name": "Mobiles, Tablets & More"
+      }
+    },
+    {
+      "id": "15",
+      "name": "Power Banks",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "3",
+        "name": "Mobiles, Tablets & More"
+      }
+    },
+    {
+      "id": "16",
+      "name": "Tablets",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "3",
+        "name": "Mobiles, Tablets & More"
+      }
+    },
+    {
+      "id": "17",
+      "name": "Smart watches and Wearables",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "3",
+        "name": "Mobiles, Tablets & More"
+      }
+    },
+    {
+      "id": "18",
+      "name": "Clothings",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "4",
+        "name": "Men's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "19",
+      "name": "T-shirts and Polos",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "4",
+        "name": "Men's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "20",
+      "name": "Shirts",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "4",
+        "name": "Men's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "21",
+      "name": "Jeans",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "4",
+        "name": "Men's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "22",
+      "name": "Innerware",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "4",
+        "name": "Men's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "23",
+      "name": "Watches",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "4",
+        "name": "Men's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "24",
+      "name": "Sunglasses",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "4",
+        "name": "Men's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "25",
+      "name": "Wallets",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "4",
+        "name": "Men's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "26",
+      "name": "Clothings",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "5",
+        "name": "Women's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "27",
+      "name": "Western Wear",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "5",
+        "name": "Women's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "28",
+      "name": "Western Wear",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "5",
+        "name": "Women's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "29",
+      "name": "Ethnic Wear",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "5",
+        "name": "Women's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "30",
+      "name": "Watches",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "5",
+        "name": "Women's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "31",
+      "name": "Handbags and Clutches",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "5",
+        "name": "Women's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "32",
+      "name": "Jewellery",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "5",
+        "name": "Women's Fashion & Accessories"
+      }
+    },
+    {
+      "id": "33",
+      "name": "Shoes",
+      "image": "",
+      "hyperlink": "",
+      "parent_category": {
+        "id": "5",
+        "name": "Women's Fashion & Accessories"
+      }
     }
-  },
-  {
-    "id": "27",
-    "name": "Western Wear",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "5",
-      "name":"Women's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "28",
-    "name": "Western Wear",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "5",
-      "name":"Women's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "29",
-    "name": "Ethnic Wear",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "5",
-      "name":"Women's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "30",
-    "name": "Watches",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "5",
-      "name":"Women's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "31",
-    "name": "Handbags and Clutches",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "5",
-      "name":"Women's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "32",
-    "name": "Jewellery",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "5",
-      "name":"Women's Fashion & Accessories"
-    }
-  },
-  {
-    "id": "33",
-    "name": "Shoes",
-    "image": "",
-    "hyperlink": "",
-    "parent_category": {
-      "id": "5",
-      "name":"Women's Fashion & Accessories"
-    }
-  }
-],
+  ],
   "sponsors": [
     {
       "id": "1",
@@ -504,7 +504,7 @@
         "state": "fds",
         "zip": "4324324",
         "country": "gfsgd"
-      }      
+      }
     },
     {
       "id": "2",
@@ -519,7 +519,7 @@
         "state": "fds",
         "zip": "43324",
         "country": "gfsgd"
-      }      
+      }
     },
     {
       "id": "3",
@@ -534,7 +534,7 @@
         "state": "fghfghds",
         "zip": "56546",
         "country": "hjuth"
-      }      
+      }
     },
     {
       "id": "4",
@@ -549,7 +549,7 @@
         "state": "jkhj",
         "zip": "545654645",
         "country": "kjhgt"
-      }      
+      }
     },
     {
       "id": "5",
@@ -564,7 +564,7 @@
         "state": "ghtgh",
         "zip": "89756",
         "country": "kljksgfh"
-      }      
+      }
     },
     {
       "id": "6",
@@ -579,7 +579,7 @@
         "state": "jhj",
         "zip": "jytgth",
         "country": "ghhth"
-      }      
+      }
     }
   ]
 }

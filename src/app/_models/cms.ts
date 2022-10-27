@@ -11,8 +11,7 @@ export interface SUB_CATEGORY {
     name: string,
     image: string,
     hyperlink: string,
-    position: string,
-    parent_category:PARENT_CATEGORY,
+   parent_category:PARENT_CATEGORY,
 }
 export interface PARENT_CATEGORY {
     id:string,
