@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import { order } from 'src/app/_models/order';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
+import {TABLE_HEADING} from '../../_models/table_heading'
 
 @Component({
   selector: 'app-orders',
@@ -12,8 +13,8 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 export class OrdersComponent implements OnInit {
 
   sidebarSpacing: any;
-  cols!: any[];
-  orderData:any;
+  cols!: TABLE_HEADING[];
+  orderData:order[]=[];
   fgsType: any;
 
   constructor(
@@ -28,22 +29,18 @@ export class OrdersComponent implements OnInit {
     this.sidebarSpacing = 'contracted';
     this.orderService.getOrders().subscribe((data) => {
       this.orderData = data;
-      
-      // this.orderData.map((item:order)=>{
-      //   item.deliveryDate= moment(item.deliveryDate).format('MMM DD, YYYY')
-      // })
-      this.ngxLoader.stop();
+     this.ngxLoader.stop();
     });
 
     this.cols = [
-      { field:'id', headers: 'Order Id'},
-      { field:'customerId', headers: 'Customer Id'},
-      { field: 'productName', headers: 'Product Name'},
-      { field: 'deliveryStatus', headers: 'Delivery Status'},
-      { field: 'deliveryDate', headers: 'Delivery Date'},
-      { field: 'price', headers: 'Price'},
-      { field: 'paymentMode', headers: 'Payment Mode'},
-      { field: 'paymentStatus', headers: 'Payment Status'}
+      { field:'id',show:true, headers: 'Order Id'},
+      { field:'customerId',show:true, headers: 'Customer Id'},
+      { field: 'productName',show:true, headers: 'Product Name'},
+      { field: 'deliveryStatus',show:true, headers: 'Delivery Status'},
+      { field: 'deliveryDate',show:true, headers: 'Delivery Date'},
+      { field: 'price',show:true, headers: 'Price'},
+      { field: 'paymentMode',show:true, headers: 'Payment Mode'},
+      { field: 'paymentStatus',show:true, headers: 'Payment Status'}
     ]
   }
 

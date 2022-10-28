@@ -14,7 +14,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import { TableModule } from 'primeng/table';
 import { ToastrModule } from 'ngx-toastr';
 import { AccordionModule } from 'primeng/accordion'
-
+import {PanelMenuModule} from 'primeng/panelmenu';
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -32,6 +32,7 @@ import { AccordionModule } from 'primeng/accordion'
     DropdownModule,
     TooltipModule,
     TableModule,
+    PanelMenuModule,
     ToastrModule.forRoot({
       timeOut: 300,
       positionClass: 'toast-bottom-right',
@@ -49,7 +50,8 @@ import { AccordionModule } from 'primeng/accordion'
     TooltipModule,
     TableModule,
     ToastrModule,
-    AccordionModule
+    AccordionModule,
+    PanelMenuModule
   ]
 })
 export class SharedModule { 

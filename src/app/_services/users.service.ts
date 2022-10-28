@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserGetRequestParams } from '../_models/user'
 import { map, Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
@@ -12,11 +13,11 @@ export class UsersService {
     getUsers(): any {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = 'http://3.110.155.54:5000/users';
+        const endpointUrl = `${environment.BASE_URL}/users`;
         return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     }
 
     downloadFile(): Observable<any> {
-        return this.http.get('http://3.110.155.54:5000/downloadcsv', { responseType: "blob" });
+        return this.http.get(`${environment.BASE_URL}/downloadcsv`, { responseType: "blob" });
     }
 }

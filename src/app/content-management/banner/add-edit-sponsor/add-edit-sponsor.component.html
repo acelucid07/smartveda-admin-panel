@@ -1,0 +1,90 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+  <form [formGroup]="sponsorForm">
+    <div class="card col-sm-12">
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="h-100 mt-5">
+            <div class="card-body">
+              <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <h6 class="mb-2 text-primary">{{title}}</h6>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" formControlName="name">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="image">Email</label>
+                    <input type="text" class="form-control" formControlName="email">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="hyperlink">Phone No.</label>
+                    <input type="url" class="form-control" formControlName="phone">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="Name">Funding</label>
+                    <input type="text" class="form-control" formControlName="funding">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="Name">City Name</label>
+                    <input type="text" class="form-control" formControlName="city">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="Name">Street</label>
+                    <input type="text" class="form-control" formControlName="street">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="Name">Landmark</label>
+                    <input type="text" class="form-control" formControlName="landmark">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="Name">State</label>
+                    <input type="text" class="form-control" formControlName="state">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="Name">Zip Code</label>
+                    <input type="text" class="form-control" formControlName="zip">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="Name">Country</label>
+                    <input type="text" class="form-control" formControlName="country">
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters mt-4">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+                  <div class="text-right">
+                    <button pButton type="button" id="submit" name="submit" class="p-button-danger mr-4"
+                      [routerLink]="['/crm/sponsor']">Cancel</button>
+                    <button pButton type="button" id="submit" name="submit" class="p-button-success"
+                      (click)="submitForm()">submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
