@@ -15,6 +15,7 @@ import { TableModule } from 'primeng/table';
 import { ToastrModule } from 'ngx-toastr';
 import { AccordionModule } from 'primeng/accordion'
 import {PanelMenuModule} from 'primeng/panelmenu';
+import {CardModule} from 'primeng/card';
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -33,6 +34,7 @@ import {PanelMenuModule} from 'primeng/panelmenu';
     TooltipModule,
     TableModule,
     PanelMenuModule,
+    CardModule,
     ToastrModule.forRoot({
       timeOut: 300,
       positionClass: 'toast-bottom-right',
@@ -51,7 +53,8 @@ import {PanelMenuModule} from 'primeng/panelmenu';
     TableModule,
     ToastrModule,
     AccordionModule,
-    PanelMenuModule
+    PanelMenuModule,
+    CardModule
   ]
 })
 export class SharedModule { 

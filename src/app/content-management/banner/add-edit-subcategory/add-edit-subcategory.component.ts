@@ -58,7 +58,7 @@ export class AddEditSubcategoryComponent implements OnInit {
     }
   }
   getSubCategoryById() {
-    this.CmsService.getSubCategoryListById(this.id).subscribe((res: SUB_CATEGORY) => {
+    this.CmsService.getSubCategoryListById(this.id).subscribe((res:any) => {
       this.subCategoryForm.patchValue({
         id: res.id,
         name: res.name,

@@ -46,7 +46,7 @@ export class SponsorComponent implements OnInit {
     }
   }
   getSponsorList() {
-    this.CmsService.getSponsorList().subscribe((res: SPONSOR[]) => {
+    this.CmsService.getSponsorList().subscribe((res:any) => {
       this.sponsorList = res
       this.ngxLoader.stop();
     })

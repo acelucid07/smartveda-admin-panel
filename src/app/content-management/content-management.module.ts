@@ -9,6 +9,7 @@ import { AddEditSubcategoryComponent } from './banner/add-edit-subcategory/add-e
 import { AddEditSponsorComponent } from './banner/add-edit-sponsor/add-edit-sponsor.component';
 import { SharedModule } from '../shared/shared.module';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { Slider1Component } from './slider/slider1/slider1.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     SponsorComponent,
     AddEditCategoryComponent,
     AddEditSubcategoryComponent,
-    AddEditSponsorComponent
+    AddEditSponsorComponent,
+    Slider1Component
   ],
   imports: [
     CommonModule,
