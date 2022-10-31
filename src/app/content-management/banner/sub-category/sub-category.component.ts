@@ -26,7 +26,7 @@ export class SubCategoryComponent implements OnInit {
     this.cols = [
       { field: 'id', show:true,headers: 'Id' },
       { field: 'name',show:true, headers: 'Name' },
-      { field: 'image',show:true, headers: 'Image' },
+      { field: 'image',show:true, headers: 'ImageName' },
       { field: 'hyperlink', show:true,headers: 'Hyperlink' },
       { field: 'parent_id', show:true,headers: 'Parent Id' },
       { field: 'parent_name',show:true, headers: 'Parent Name' },
@@ -42,7 +42,7 @@ export class SubCategoryComponent implements OnInit {
     }
   }
   getSubCategoryList() {
-    this.CmsService.getSubCategoryList().subscribe((res: SUB_CATEGORY[]) => {
+    this.CmsService.getSubCategoryList().subscribe((res:any) => {
       this.subCategoryList = res;
       this.ngxLoader.stop();
     })

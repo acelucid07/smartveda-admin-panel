@@ -26,7 +26,7 @@ export class CategoryComponent implements OnInit {
     this.cols = [
       { field: 'id', show: true, headers: 'Id' },
       { field: 'name', show: true, headers: 'Name' },
-      { field: 'image', show: true, headers: 'Image' },
+      { field: 'image', show: true, headers: 'ImageName' },
       { field: 'hyperlink', show: true, headers: 'Hyperlink' },
       { field: 'position', show: true, headers: 'Position' },
     ]

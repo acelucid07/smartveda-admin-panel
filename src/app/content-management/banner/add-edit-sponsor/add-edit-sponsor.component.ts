@@ -56,7 +56,7 @@ export class AddEditSponsorComponent implements OnInit {
     });
   }
   getSponsorDetailsById() {
-    this.CmsService.getSponsorDetailsById(this.id).subscribe((res: SPONSOR) => {
+    this.CmsService.getSponsorDetailsById(parseInt(this.id)).subscribe((res:any) => {
       this.sponsorForm.patchValue({
         id: res.id,
         name: res.name,
