@@ -35,7 +35,7 @@ export let  sponsors=[
       "name": " mohan",
       "email": "mohan@gmail.com",
       "phone": "685974155",
-      "funding": "4577",
+      "funding": "$4577",
       "address": {
         "city": "DDN",
         "street": "main road",
@@ -51,7 +51,7 @@ export let  sponsors=[
       "name": "Rohan kumar",
       "email": "rohan@mail.com",
       "phone": "321232132",
-      "funding": "321323",
+      "funding": "$321323",
       "address": {
         "city": "DDN",
         "street": "main road",
