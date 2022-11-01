@@ -1,0 +1,156 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <form>
+        <div class="card col-sm-12">
+            <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="h-100 mt-5">
+                        <div class="page-heading">
+                            <h1 class="header-text-title" style="margin-left: 1%;">Seller Details</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="row gutters">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="name">FirstName</label>
+                                        <input type="text" class="form-control" formControlName="name">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="image">LastName</label>
+                                        <input type="text" class="form-control" formControlName="image">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="hyperlink">Email</label>
+                                        <input type="url" class="form-control" formControlName="hyperlink">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">ContactNo</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">City</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Street</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Landmark</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">State</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Zip_code</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Country</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-heading">
+                                <h1 class="header-text-title">Product Details</h1>
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="name">ProductName</label>
+                                        <input type="text" class="form-control" formControlName="name">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="image">SKUs </label>
+                                        <input type="text" class="form-control" formControlName="image">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="hyperlink">Brand </label>
+                                        <input type="url" class="form-control" formControlName="hyperlink">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Category </label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Variants </label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Weight </label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Price</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Quantity</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Status</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Country</label>
+                                        <input type="text" class="form-control" formControlName="position">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters mt-4">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+                                    <div class="text-right">
+                                        <button pButton type="button" id="submit" name="submit"
+                                            class="p-button-danger mr-4"
+                                            [routerLink]="['/crm/category']">Cancel</button>
+                                        <button pButton type="button" id="submit" name="submit"
+                                            class="p-button-success">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
