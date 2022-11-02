@@ -14,7 +14,7 @@
       "position": "head"
     },
     {
-      "id": 4,
+      id: 4,
       "name": "Men's Fashion & Accessories",
       "image": "test4 image",
       "hyperlink": "www.goolge.com",
