@@ -16,7 +16,7 @@
                     </span>
                     <span class="p-input-icon-right ml-5">
                         <button pButton type="button" label="Add Product" class="p-button-success"
-                            [routerLink]="['/crm/addcategory']"></button>
+                            [routerLink]="['/product/editProduc']"></button>
                     </span>
                 </div>
             </ng-template>
@@ -39,7 +39,7 @@
                     <td>
                         <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
                             pTooltip="Edit product" tooltipPosition="bottom" style="margin-right:5px"
-                            [routerLink]="['/crm/editcategory']" [queryParams]="{id:productList?.id}"></button>
+                            [routerLink]="['/product/editProduct']"></button>
                         <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
                             pTooltip="Delete product" tooltipPosition="bottom" style="margin-right:5px"
                             (click)="deleteProduct(productList)"></button>

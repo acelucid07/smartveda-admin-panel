@@ -66,7 +66,7 @@ export const SideNaveMenueRoute = [
             {
                 label: 'Category',
                 icon: 'pi pi-fw pi-user',
-                routerLink: ['/crm/slider']
+                routerLink: ['/product/editProduct']
             },
 
         ]
