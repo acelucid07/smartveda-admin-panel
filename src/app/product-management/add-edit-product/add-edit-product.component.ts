@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-import { product } from 'src/app/_models/catalog'
+import { product, product_region, product_details, brands, Description, prices, SEO } from 'src/app/_models/catalog'
 @Component({
   selector: 'app-add-edit-product',
   templateUrl: './add-edit-product.component.html',
@@ -17,6 +17,13 @@ export class AddEditProductComponent implements OnInit {
   title: string = " "
   editMode: boolean = false
   productForm: FormGroup
+  payload: product;
+  product_region: product_region
+  product_details: product_details
+  brands: brands
+  prices: prices
+  SEO: SEO
+  Description: Description
   constructor(
     private fb: FormBuilder,
     private activateRoute: ActivatedRoute,
@@ -29,7 +36,7 @@ export class AddEditProductComponent implements OnInit {
       country: ['', [Validators.required]],
       language: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      SKU: ['', [Validators.required]],
+      sku: ['', [Validators.required]],
       status: ['', [Validators.required]],
       category: ['', [Validators.required]],
       featured: ['', [Validators.required]],
@@ -76,8 +83,8 @@ export class AddEditProductComponent implements OnInit {
       this.sidebarSpacing = 'expanded';
     }
   }
-  addProduct() {
-    this.ProductService.addProduct(this.productForm.value).subscribe(res => {
+  addProduct(addpayload:product) {
+    this.ProductService.addProduct(addpayload).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Product added successfully", "Product Added")
         this.ngxLoader.stop()
@@ -96,7 +103,7 @@ export class AddEditProductComponent implements OnInit {
         country: res.Product_Region.country,
         language: res.Product_Region.language,
         name: res.product_Detail.name,
-        SKU: res.product_Detail.SKU,
+        SKU: res.product_Detail.sku,
         status: res.product_Detail.status,
         category: res.product_Detail.category,
         featured: res.product_Detail.featured,
@@ -121,8 +128,8 @@ export class AddEditProductComponent implements OnInit {
       this.ngxLoader.stop();
     })
   }
-  editProduct() {
-    this.ProductService.editProduct(this.productForm.value, this.id).subscribe(res => {
+  editProduct(editData:product) {
+    this.ProductService.editProduct(editData, this.id).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Product edit successfully", "Product edit")
         this.ngxLoader.stop()
@@ -137,11 +144,57 @@ export class AddEditProductComponent implements OnInit {
   }
 
   submitForm() {
+    this.SEO = {
+      meta_title: this.productForm.controls['meta_description'].value,
+      meta_description: this.productForm.controls['meta_title'].value,
+      meta_keywords: this.productForm.controls['meta_keywords'].value
+    }
+    this.prices = {
+      price: this.productForm.controls['price'].value,
+      cost: this.productForm.controls['cost'].value,
+      special_price: this.productForm.controls['special_price'].value,
+      special_price_to: this.productForm.controls['special_price_to'].value,
+      special_price_from: this.productForm.controls['special_price_from'].value
+    }
+    this.Description = {
+      description: this.productForm.controls['description'].value,
+      short_description: this.productForm.controls['short_description'].value
+    }
+    this.product_region = {
+      country: this.productForm.controls['country'].value,
+      language: this.productForm.controls['language'].value,
+    }
+
+    this.brands = {
+      brands: this.productForm.controls['brands'].value,
+      country_origin: this.productForm.controls['country_origin'].value
+    }
+    this.product_details = {
+      name: this.productForm.controls['name'].value,
+      sku: this.productForm.controls['sku'].value,
+      category: this.productForm.controls['category'].value,
+      Quantity: this.productForm.controls['Quantity'].value,
+      featured: this.productForm.controls['featured'].value,
+      status: this.productForm.controls['status'].value,
+      new: false,
+      visible_individually: this.productForm.controls['visible_individually'].value
+    }
+    this.payload = {
+      id: parseInt(this.id),
+      Product_Region: this.product_region,
+      product_Detail: this.product_details,
+      brand: this.brands,
+      description: this.Description,
+      price: this.prices,
+      images: this.productForm.controls['images'].value,
+      videos: this.productForm.controls['videos'].value,
+      seo: this.SEO
+    }
     this.ngxLoader.start();
     if (this.editMode) {
-      this.editProduct()
+      this.editProduct(this.payload)
     } else {
-      this.addProduct()
+      this.addProduct(this.payload)
     }
-}
+  }
 }

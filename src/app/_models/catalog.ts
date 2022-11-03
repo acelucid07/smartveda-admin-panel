@@ -1,7 +1,7 @@
 export interface product {
-  id:string
-  product_Region: product_region,
-  product_Details: product_details,
+  id:number
+  Product_Region: product_region,
+  product_Detail: product_details,
   brand: brands,
   description: Description,
   price: prices,

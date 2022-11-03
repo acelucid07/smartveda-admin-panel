@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, from } from 'rxjs';
+import { of, from, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { products } from '../DummyData/product';
+import {product} from '../_models/catalog'
 
 @Injectable({
     providedIn: 'root'
@@ -43,7 +44,7 @@ export class ProductService {
         // return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
         let productObj = products.findIndex((obj) => obj.id == id);
         products[productObj] = productData
-        return of(productObj)
+       return of(productData)
     }
 
     deleteProduct(id: number) {
@@ -51,11 +52,8 @@ export class ProductService {
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/product/${id}`;
         //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
-        let productObj = products.map(item => {
-            item.id == id;
-            return item
-        })
+        let productObj = products.findIndex((item)=>item.id==id)
         products.splice(products.findIndex((index) => index.id == id), 1);
-        return of(productObj)
+        return of(products[productObj])
     }
 }

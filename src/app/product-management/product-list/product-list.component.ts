@@ -3,6 +3,7 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
+import { product } from 'src/app/_models/catalog';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -11,7 +12,7 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 export class ProductListComponent implements OnInit {
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
-  productList: []= []
+  productList:product []
   fgsType: any;
   constructor(private ngxLoader: NgxUiLoaderService,
     private ProductService: ProductService,
@@ -42,6 +43,7 @@ export class ProductListComponent implements OnInit {
   getProductList() {
     this.ProductService.getProductList().subscribe((res:any) => {
       this.productList = res
+      console.log(res[0])
       this.ngxLoader.stop();
     })
   }
