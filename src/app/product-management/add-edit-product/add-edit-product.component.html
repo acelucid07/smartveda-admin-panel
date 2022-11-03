@@ -1,6 +1,6 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
-    <form>
+    <form [formGroup] = "productForm">
         <div class="card col-sm-12">
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -13,13 +13,13 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Country</label>
-                                        <input type="text" class="form-control" formControlName="sellerFirstName">
+                                        <input type="text" class="form-control" formControlName="country">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="image">language</label>
-                                        <input type="text" class="form-control" formControlName="sellerLastName">
+                                        <input type="text" class="form-control" formControlName="language">
                                     </div>
                                 </div>
                             </div>
@@ -31,49 +31,49 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" formControlName="ProductName">
+                                        <input type="text" class="form-control" formControlName="name">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="image">SKUs </label>
-                                        <input type="text" class="form-control" formControlName="SKUs">
+                                        <input type="text" class="form-control" formControlName="SKU">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Name">Category </label>
-                                        <input type="text" class="form-control" formControlName="Category">
+                                        <input type="text" class="form-control" formControlName="category">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="Name">New </label>
-                                        <input type="text" class="form-control" formControlName="Variants">
+                                        <label for="Name">Status </label>
+                                        <input type="text" class="form-control" formControlName="status">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Name">Featured </label>
-                                        <input type="text" class="form-control" formControlName="Weight">
+                                        <input type="text" class="form-control" formControlName="featured">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Name">visible_individually</label>
-                                        <input type="text" class="form-control" formControlName="Quantity">
+                                        <input type="text" class="form-control" formControlName="visible_individually">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Name">Quantity</label>
-                                        <input type="text" class="form-control" formControlName="Status">
+                                        <input type="text" class="form-control" formControlName="Quantity">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Name">status</label>
-                                        <input type="text" class="form-control" formControlName="Description">
+                                        <input type="text" class="form-control" formControlName="status">
                                         </div>
                                 </div>
                             </div>
@@ -85,13 +85,13 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Brands</label>
-                                        <input type="text" class="form-control" formControlName="sellerFirstName">
+                                        <input type="text" class="form-control" formControlName="brands">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="image">country_origin</label>
-                                        <input type="text" class="form-control" formControlName="sellerLastName">
+                                        <input type="text" class="form-control" formControlName="country_origin">
                                     </div>
                                 </div>
                             </div>
@@ -103,31 +103,31 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Price</label>
-                                        <input type="text" class="form-control" formControlName="ProductName">
+                                        <input type="text" class="form-control" formControlName="price">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="image">Cost </label>
-                                        <input type="text" class="form-control" formControlName="SKUs">
+                                        <input type="text" class="form-control" formControlName="cost">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Name">Special_Price </label>
-                                        <input type="text" class="form-control" formControlName="Category">
+                                        <input type="text" class="form-control" formControlName="special_price">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Name">Special_Price_From </label>
-                                        <input type="text" class="form-control" formControlName="Variants">
+                                        <input type="text" class="form-control" formControlName="special_price_from">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="Name">Special_Price_To </label>
-                                        <input type="text" class="form-control" formControlName="Weight">
+                                        <input type="text" class="form-control" formControlName="special_price_to">
                                     </div>
                                 </div>
                             </div>
@@ -139,15 +139,13 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Short_Description</label>
-                                        <!-- <input type="text" class="form-control" formControlName="sellerFirstName"> -->
-                                        <ckeditor ></ckeditor>
+                                        <ckeditor formControlName="short_description" ></ckeditor>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="image">Description</label>
-                                        <!-- <input type="text" class="form-control" formControlName="sellerLastName"> -->
-                                        <ckeditor ></ckeditor>
+                                        <ckeditor formControlName="description" ></ckeditor>
                                     </div>
                                 </div>
                             </div>
@@ -158,20 +156,20 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Meta_Title</label>
-                                        <input type="text" class="form-control" formControlName="sellerFirstName">
+                                        <textarea class="form-control" formControlName="meta_title"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Meta_Keywords</label>
-                                        <input type="text" class="form-control" formControlName="sellerFirstName">
+                                        <textarea class="form-control" formControlName="meta_keywords"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="image">Meta_Description</label>
-                                        <!-- <input type="text" class="form-control" formControlName="sellerLastName"> -->
-                                        <ckeditor ></ckeditor>
+                                        <textarea  class="form-control" formControlName="meta_description" ></textarea>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +178,7 @@
                                     <div class="text-right">
                                         <button pButton type="button" id="submit" name="submit"
                                             class="p-button-danger mr-4"
-                                            [routerLink]="['/crm/category']">Cancel</button>
+                                            [routerLink]="['/product/productlist']">Cancel</button>
                                         <button pButton type="button" id="submit" name="submit"
                                             class="p-button-success">Submit</button>
                                     </div>

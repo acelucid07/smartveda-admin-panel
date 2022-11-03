@@ -39,7 +39,7 @@
                     <td>
                         <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
                             pTooltip="Edit product" tooltipPosition="bottom" style="margin-right:5px"
-                            [routerLink]="['/product/editProduct']"></button>
+                            [routerLink]="['/product/editProduct']" [queryParams]="{id:productList?.id}"></button>
                         <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
                             pTooltip="Delete product" tooltipPosition="bottom" style="margin-right:5px"
                             (click)="deleteProduct(productList)"></button>

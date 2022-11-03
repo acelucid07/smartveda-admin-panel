@@ -13,25 +13,23 @@ export class ProductService {
     getProductList() {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/category`;
+        const endpointUrl = `${environment.JSON_SERVER}/product`;
         // return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
         return of(products)
     }
     getProductById(id: number) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
-        let productObj = products.map(item => {
-            item.id == id
-            return item
-        })
+        const endpointUrl = `${environment.JSON_SERVER}/product/${id}`;
+        let indexObj = products.findIndex((obj) => obj.id == id);
+        let productObj =  products[indexObj]
         //return this.http.get<CATEGORY>(endpointUrl,{ 'headers': httpOptions });
-        return from(productObj)
+        return of(productObj)
     }
     addProduct(productData: any) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/category`;
+        const endpointUrl = `${environment.JSON_SERVER}/product`;
         // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
         productData.id = products.length + 1
         products.push(productData);
@@ -41,7 +39,7 @@ export class ProductService {
     editProduct(productData: any, id: number) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        const endpointUrl = `${environment.JSON_SERVER}/product/${id}`;
         // return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
         let productObj = products.findIndex((obj) => obj.id == id);
         products[productObj] = productData
@@ -51,7 +49,7 @@ export class ProductService {
     deleteProduct(id: number) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        const endpointUrl = `${environment.JSON_SERVER}/product/${id}`;
         //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
         let productObj = products.map(item => {
             item.id == id;
