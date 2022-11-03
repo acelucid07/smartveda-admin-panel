@@ -66,7 +66,7 @@ export const SideNaveMenueRoute = [
             {
                 label: 'Category',
                 icon: 'pi pi-fw pi-user',
-                routerLink: ['/product/editProduct']
+                routerLink: ['/product/categorylist']
             },
 
         ]

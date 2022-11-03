@@ -51,7 +51,7 @@ export class ProductListComponent implements OnInit {
     this.ngxLoader.start();
     this.ProductService.deleteProduct(categoryList.id).subscribe(res => {
       if (res) {
-        this.toastr.showSuccess("sponsor deleted successfully", "sponsor delete")
+        this.toastr.showSuccess("Product deleted successfully", "Product delete")
         this.getProductList()
       }
     })

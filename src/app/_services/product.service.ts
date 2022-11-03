@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { of, from, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { products } from '../DummyData/product';
+import { categories } from '../DummyData/product-category';
 import {product} from '../_models/catalog'
 
 @Injectable({
@@ -52,8 +53,58 @@ export class ProductService {
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/product/${id}`;
         //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
-        let productObj = products.findIndex((item)=>item.id==id)
+        let productObj = products.map(item => {
+            item.id == id;
+            return item
+        })
         products.splice(products.findIndex((index) => index.id == id), 1);
-        return of(products[productObj])
+        return of(productObj)
+    }
+    getCategoryList() {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category`;
+        // return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
+        return of(categories)
+    }
+
+    getCategoryById(id: number) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        let indexObj = categories.findIndex((obj) => obj.id == id);
+        let categoryObj =  categories[indexObj]
+        //return this.http.get<CATEGORY>(endpointUrl,{ 'headers': httpOptions });
+        return of(categoryObj)
+    }
+    addCategory(categoryData: any) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category`;
+        // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
+        categoryData.id = categories.length + 1
+        products.push(categoryData);
+        return of(categoryData)
+    }
+    editCategory(categoryData: any, id: number) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        // return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
+        let categoryObj = categories.findIndex((obj) => obj.id == id);
+        categories[categoryObj] = categoryData
+        return of(categoryObj)
+    }
+    deleteCategory(id: number) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+        let categoryObj = categories.map(item => {
+            item.id == id;
+            return item
+        })
+        categories.splice(categories.findIndex((index) => index.id == id), 1);
+        return of(categoryObj)
     }
 }
