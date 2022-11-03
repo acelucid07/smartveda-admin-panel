@@ -7,12 +7,12 @@
         <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
             [showCurrentPageReport]="true" [value]="productList"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
-            [globalFilterFields]="['email', 'phone', 'role', 'status']" styleClass="p-datatable-striped">
+            [globalFilterFields]="['name', 'category', 'Quantity', 'status']" styleClass="p-datatable-striped">
             <ng-template pTemplate="caption">
                 <div class="row">
                     <span class="p-input-icon-right ml-5">
                         <i class="pi pi-search"></i>
-                        <input pInputText type="text" placeholder="Search keyword" />
+                        <input pInputText type="text" (input)="dt.filterGlobal($event.target,'contains')" placeholder="Search keyword" />
                     </span>
                     <span class="p-input-icon-right ml-5">
                         <button pButton type="button" label="Add Product" class="p-button-success"
@@ -23,19 +23,21 @@
 
             <ng-template pTemplate="header" let-columns>
                 <tr>
+                    <th>S.no</th>
                     <th *ngFor="let col of columns">{{col.headers}}</th>
                     <th>Options</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-i="rowIndex" let-productList>
                 <tr>
+                    <td>{{i+1}}</td>
                     <td>{{productList.id}}</td>
-                    <td>{{productList?.product_Detail.name}}</td>
-                    <td>{{productList?.product_Detail.category}}</td>
-                    <td>{{productList?.brand.brands}}</td>
-                    <td>{{productList?.price.price}}</td>
-                    <td>{{productList?.product_Detail.Quantity}}</td>
-                    <td>{{productList?.product_Detail.status}}</td>
+                    <td>{{productList?.product_Detail?.name}}</td>
+                    <td>{{productList?.product_Detail?.category}}</td>
+                    <td>{{productList?.brand?.brands}}</td>
+                    <td>{{productList?.price?.price}}</td>
+                    <td>{{productList?.product_Detail?.Quantity}}</td>
+                    <td>{{productList?.product_Detail?.status}}</td>
                     <td>
                         <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
                             pTooltip="Edit product" tooltipPosition="bottom" style="margin-right:5px"

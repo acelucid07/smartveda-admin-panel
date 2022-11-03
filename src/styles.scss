@@ -61,7 +61,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .grid-row-data-item{
     flex:1;
 }
-
+th {
+    background-color: #285d91 !important;
+    color: #fff !important;
+  }
+  td {
+    text-align: center !important;
+    font-size: 200 !important;
+  }
 
 
 //Material UI Styles Override

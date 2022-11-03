@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-
+import { product } from 'src/app/_models/catalog'
 @Component({
   selector: 'app-add-edit-product',
   templateUrl: './add-edit-product.component.html',
@@ -126,7 +126,7 @@ export class AddEditProductComponent implements OnInit {
       if (res) {
         this.toastr.showSuccess("Product edit successfully", "Product edit")
         this.ngxLoader.stop()
-        this.route.navigate(['/crm/category'])
+        this.route.navigate(['/product/productlist'])
       }
       (error: any) => {
         this.toastr.showError("Somthing wrong Please check", "Error occured")
@@ -135,4 +135,13 @@ export class AddEditProductComponent implements OnInit {
       }
     })
   }
+
+  submitForm() {
+    this.ngxLoader.start();
+    if (this.editMode) {
+      this.editProduct()
+    } else {
+      this.addProduct()
+    }
+}
 }
