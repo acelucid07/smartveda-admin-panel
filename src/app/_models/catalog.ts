@@ -43,3 +43,16 @@ export interface SEO{
   meta_description:string,
   meta_keywords:string
 }
+export interface category {
+  id:number,
+  categoryName:string,
+  image:string,
+  description:string,
+  status: Boolean,
+  parentCategory: parent_category,
+  meta_description:SEO
+}
+export interface parent_category {
+  id: number,
+  name:string
+}

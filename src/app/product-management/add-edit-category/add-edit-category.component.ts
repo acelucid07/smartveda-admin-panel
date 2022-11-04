@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
+import { category, parent_category, SEO } from 'src/app/_models/catalog';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 
@@ -17,6 +18,9 @@ export class AddEditCategoryComponent implements OnInit {
   title: string = " "
   editMode: boolean = false
   productCategoryForm: FormGroup
+  payload: category
+  parent_category: parent_category
+  seo: SEO
   constructor(
     private fb: FormBuilder,
     private activateRoute: ActivatedRoute,
@@ -62,8 +66,8 @@ export class AddEditCategoryComponent implements OnInit {
     }
   }
 
-  addProductCategory() {
-    this.ProductService.addProduct(this.productCategoryForm.value).subscribe(res => {
+  addProductCategory(addPayloadData: category) {
+    this.ProductService.addProduct(addPayloadData).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Category added successfully", "Product Added")
         this.ngxLoader.stop()
@@ -94,8 +98,8 @@ export class AddEditCategoryComponent implements OnInit {
     })
   }
 
-  editProductCategory() {
-    this.ProductService.editProduct(this.productCategoryForm.value, this.id).subscribe(res => {
+  editProductCategory(editData: category) {
+    this.ProductService.editProduct(editData, this.id).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Product edit successfully", "Product edit")
         this.ngxLoader.stop()
@@ -109,11 +113,29 @@ export class AddEditCategoryComponent implements OnInit {
     })
   }
   submitForm() {
+    this.seo = {
+      meta_title: this.productCategoryForm.controls['metaDescription'].value,
+      meta_description: this.productCategoryForm.controls['metaTitle'].value,
+      meta_keywords: this.productCategoryForm.controls['metaKeyword'].value
+    }
+    this.parent_category = {
+      id: this.parent_category.id,
+      name: this.productCategoryForm.controls['parentCategoryName'].value
+    }
+    this.payload = {
+      id: parseInt(this.id),
+      categoryName: this.productCategoryForm.controls['categoryName'].value,
+      image: this.productCategoryForm.controls['image'].value,
+      description: this.productCategoryForm.controls['description'].value,
+      status: this.productCategoryForm.controls['status'].value,
+      parentCategory: this.parent_category,
+      meta_description: this.seo
+    }
     this.ngxLoader.start();
     if (this.editMode) {
-      this.editProductCategory()
+      this.editProductCategory(this.payload)
     } else {
-      this.addProductCategory()
+      this.addProductCategory(this.payload)
     }
 }
 }
