@@ -49,7 +49,7 @@ export interface category {
   image:string,
   description:string,
   status: Boolean,
-  parentCategory: parent_category,
+  parent_category: parent_category,
   meta_description:SEO
 }
 export interface parent_category {

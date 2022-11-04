@@ -20,6 +20,7 @@ export class AddEditCategoryComponent implements OnInit {
   productCategoryForm: FormGroup
   payload: category
   parent_category: parent_category
+  parentId;
   seo: SEO
   constructor(
     private fb: FormBuilder,
@@ -30,16 +31,16 @@ export class AddEditCategoryComponent implements OnInit {
     private ProductService: ProductService
   ) {
     this.productCategoryForm = this.fb.group({
-      name : ["", [Validators.required]],
+      categoryName: ["", [Validators.required]],
       image: ["", [Validators.required]],
       parentCategoryName: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      metaTitle: ['',[Validators.required]],
-      metaDescription: ['',[Validators.required]],
-      metaKeyword: ['',[Validators.required]],
-      status: ['',[Validators.required]]
+      metaTitle: ['', [Validators.required]],
+      metaDescription: ['', [Validators.required]],
+      metaKeyword: ['', [Validators.required]],
+      status: ['', [Validators.required]]
     })
-   }
+  }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
@@ -80,11 +81,11 @@ export class AddEditCategoryComponent implements OnInit {
       }
     })
   }
-  
+
   getProductCategoryById() {
     this.ProductService.getCategoryById(parseInt(this.id)).subscribe((res: any) => {
       this.productCategoryForm.patchValue({
-        name: res.categoryName,
+        categoryName: res.categoryName,
         parentCategoryName: res.parent_category.name,
         status: res.status,
         image: res.image,
@@ -94,12 +95,13 @@ export class AddEditCategoryComponent implements OnInit {
         metaDescription: res.meta_description.meta_description,
         metaKeyword: res.meta_description.meta_keyword,
       })
+      this.parentId = res.parent_category.id
       this.ngxLoader.stop();
     })
   }
 
   editProductCategory(editData: category) {
-    this.ProductService.editProduct(editData, this.id).subscribe(res => {
+    this.ProductService.editCategory(editData, this.id).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Product edit successfully", "Product edit")
         this.ngxLoader.stop()
@@ -119,7 +121,7 @@ export class AddEditCategoryComponent implements OnInit {
       meta_keywords: this.productCategoryForm.controls['metaKeyword'].value
     }
     this.parent_category = {
-      id: this.parent_category.id,
+      id: this.parentId,
       name: this.productCategoryForm.controls['parentCategoryName'].value
     }
     this.payload = {
@@ -128,14 +130,15 @@ export class AddEditCategoryComponent implements OnInit {
       image: this.productCategoryForm.controls['image'].value,
       description: this.productCategoryForm.controls['description'].value,
       status: this.productCategoryForm.controls['status'].value,
-      parentCategory: this.parent_category,
+      parent_category: this.parent_category,
       meta_description: this.seo
     }
     this.ngxLoader.start();
     if (this.editMode) {
+      console.log(this.payload)
       this.editProductCategory(this.payload)
     } else {
       this.addProductCategory(this.payload)
     }
-}
+  }
 }

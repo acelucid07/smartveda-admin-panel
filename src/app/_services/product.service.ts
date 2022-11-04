@@ -93,6 +93,7 @@ export class ProductService {
         // return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
         let categoryObj = categories.findIndex((obj) => obj.id == id);
         categories[categoryObj] = categoryData
+        console.log(categories[categoryObj])
         return of(categoryData)
     }
     deleteCategory(id: number) {
