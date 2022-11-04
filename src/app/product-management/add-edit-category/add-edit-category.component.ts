@@ -90,7 +90,6 @@ export class AddEditCategoryComponent implements OnInit {
         metaDescription: res.meta_description.meta_description,
         metaKeyword: res.meta_description.meta_keyword,
       })
-      console.log(this.productCategoryForm.value)
       this.ngxLoader.stop();
     })
   }

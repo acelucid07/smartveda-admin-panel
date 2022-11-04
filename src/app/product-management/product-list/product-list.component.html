@@ -7,13 +7,13 @@
         <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
             [showCurrentPageReport]="true" [value]="productList"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
-            [globalFilterFields]="['name', 'category', 'Quantity', 'status']" styleClass="p-datatable-striped">
+            [globalFilterFields]="['product_Detail?.name', 'product_Detail?.category', 'product_Detail?.Quantity', 'product_Detail?.status']" styleClass="p-datatable-striped">
             <ng-template pTemplate="caption">
                 <div class="row">
                     <span class="p-input-icon-right ml-5">
                         <i class="pi pi-search"></i>
                         <input pInputText type="text" (input)="dt.filterGlobal($event.target,'contains')" placeholder="Search keyword" />
-                    </span>
+                        </span>
                     <span class="p-input-icon-right ml-5">
                         <button pButton type="button" label="Add Product" class="p-button-success"
                             [routerLink]="['/product/editProduc']"></button>
