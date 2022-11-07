@@ -24,12 +24,9 @@ export class CmsService {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
-        let categoryObj = category.map(item => {
-            item.id ==id
-            return item
-        })
+        let indexObj = category.findIndex((obj)=>obj.id==id);
         //return this.http.get<CATEGORY>(endpointUrl,{ 'headers': httpOptions });
-        return from(categoryObj)
+        return of(category[indexObj])
     }
     addCategory(categoryData: any) {
         const token = localStorage.getItem('token') || '';

@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'crm',
     loadChildren: () => import('./content-management/content-management.module').then(mod => mod.ContentManagementModule)
   },
+  {
+    path: 'product',
+    loadChildren: () => import('./product-management/product-management.module').then(mod => mod.ProductManagementModule)
+  },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

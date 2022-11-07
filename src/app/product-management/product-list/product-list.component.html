@@ -1,0 +1,54 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <div class="page-heading">
+        <h1 class="header-text-title" style="margin-left: 1%;">Product</h1>
+    </div>
+    <div class="card col-sm-12" style="border:none;">
+        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+            [showCurrentPageReport]="true" [value]="productList"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+            [globalFilterFields]="['product_Detail?.name', 'product_Detail?.category', 'product_Detail?.Quantity', 'product_Detail?.status']" styleClass="p-datatable-striped">
+            <ng-template pTemplate="caption">
+                <div class="row">
+                    <span class="p-input-icon-right ml-5">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="dt.filterGlobal($event.target,'contains')" placeholder="Search keyword" />
+                        </span>
+                    <span class="p-input-icon-right ml-5">
+                        <button pButton type="button" label="Add Product" class="p-button-success"
+                            [routerLink]="['/product/addProduct']"></button>
+                    </span>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>S.no</th>
+                    <th *ngFor="let col of columns">{{col.headers}}</th>
+                    <th>Options</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-i="rowIndex" let-productList>
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{productList.id}}</td>
+                    <td>{{productList?.product_Detail?.name}}</td>
+                    <td>{{productList?.product_Detail?.category}}</td>
+                    <td>{{productList?.brand?.brands}}</td>
+                    <td>{{productList?.price?.price}}</td>
+                    <td>{{productList?.product_Detail?.Quantity}}</td>
+                    <td>{{productList?.product_Detail?.status}}</td>
+                    <td>
+                        <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
+                            pTooltip="Edit product" tooltipPosition="bottom" style="margin-right:5px"
+                            [routerLink]="['/product/editProduct']" [queryParams]="{id:productList?.id}"></button>
+                        <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
+                            pTooltip="Delete product" tooltipPosition="bottom" style="margin-right:5px"
+                            (click)="deleteProduct(productList)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+    </div>
+</div>

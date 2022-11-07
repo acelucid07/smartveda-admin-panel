@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AccordionModule } from 'primeng/accordion'
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {CardModule} from 'primeng/card';
+import { CKEditorModule } from 'ckeditor4-angular';
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -35,6 +36,7 @@ import {CardModule} from 'primeng/card';
     TableModule,
     PanelMenuModule,
     CardModule,
+    CKEditorModule,
     ToastrModule.forRoot({
       timeOut: 300,
       positionClass: 'toast-bottom-right',
@@ -54,7 +56,8 @@ import {CardModule} from 'primeng/card';
     ToastrModule,
     AccordionModule,
     PanelMenuModule,
-    CardModule
+    CardModule,
+    CKEditorModule
   ]
 })
 export class SharedModule { 

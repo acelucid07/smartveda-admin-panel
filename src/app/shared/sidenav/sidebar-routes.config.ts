@@ -56,24 +56,22 @@ export const SideNaveMenueRoute = [
         ]
     },
     {
-        label: 'Catalogs',
-        icon: 'pi pi-fw pi-qrcode',
-        routerLink: ['/customer']
+        label: 'Catalog',
+        items: [
+            {
+                label: 'Product',
+                icon: 'pi pi-fw pi-shopping-cart',
+                routerLink: ['/product/productlist']
+            },
+            {
+                label: 'Category',
+                icon: 'pi pi-fw pi-user',
+                routerLink: ['/product/categorylist']
+            },
+
+        ]
     },
-    {
-        label: 'Sponsors',
-        icon: 'pi pi-fw pi-user-plus',
-        routerLink: ['/customer']
-    },
-    {
-        label: 'Categories',
-        icon: 'pi pi-fw pi-shopping-cart',
-        routerLink: ['/customer']
-    },
-    {
-        label: 'Appointment',
-        icon: 'pi pi-fw pi-desktop',
-        routerLink: ['/customer']
-    },
+    
+    
     
 ]
