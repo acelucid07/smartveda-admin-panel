@@ -10,6 +10,9 @@ const routes: Routes = [
     path: 'editProduct', component: AddEditProductComponent
   },
   {
+    path: 'addProduct', component: AddEditProductComponent
+  },
+  {
     path: 'productlist', component: ProductListComponent
   },
   {
@@ -17,6 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'editcategory', component: AddEditCategoryComponent
+  },
+  {
+    path: 'addcategory', component: AddEditCategoryComponent
   }
 ];
 
