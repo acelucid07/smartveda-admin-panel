@@ -83,7 +83,7 @@ export class ProductService {
         const endpointUrl = `${environment.JSON_SERVER}/category`;
         // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
         categoryData.id = categories.length + 1
-        products.push(categoryData);
+        categories.push(categoryData);
         return of(categoryData)
     }
     editCategory(categoryData: any, id: number) {

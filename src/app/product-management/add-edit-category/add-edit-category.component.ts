@@ -68,11 +68,11 @@ export class AddEditCategoryComponent implements OnInit {
   }
 
   addProductCategory(addPayloadData: category) {
-    this.ProductService.addProduct(addPayloadData).subscribe(res => {
+    this.ProductService.addCategory(addPayloadData).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Category added successfully", "Product Added")
         this.ngxLoader.stop()
-        this.route.navigate(['/product/category'])
+        this.route.navigate(['/product/categorylist'])
       }
       (error: any) => {
         this.toastr.showError("Somthing wrong Please check", "Error occured")
