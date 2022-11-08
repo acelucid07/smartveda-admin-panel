@@ -89,7 +89,7 @@ export class AddEditProductComponent implements OnInit {
       if (res) {
         this.toastr.showSuccess("Product added successfully", "Product Added")
         this.ngxLoader.stop()
-        this.route.navigate(['/crm/category'])
+        this.route.navigate(['/product/productlist'])
       }
       (error: any) => {
         this.toastr.showError("Somthing wrong Please check", "Error occured")
