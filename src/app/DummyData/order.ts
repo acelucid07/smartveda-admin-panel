@@ -6,7 +6,7 @@ export let order = [
         orderNo: "DSR1452268",
         paymentStatus: "pending",
         deliveryType: "standard",
-        paymentType: "COD",
+        paymentType: "Cash",
         total: "$1452.14",
         deliveryStatus: "Inprogress",
         country: "India",
@@ -34,7 +34,7 @@ export let order = [
         orderNo: "DSR145268",
         paymentStatus: "pending",
         deliveryType: "standard",
-        paymentType: "COD",
+        paymentType: "Card",
         total: "$142.14",
         deliveryStatus: "Inprogress",
         country: "India",
@@ -62,7 +62,7 @@ export let order = [
         orderNo: "DSR14500268",
         paymentStatus: "paid",
         deliveryType: "standard",
-        paymentType: "COD",
+        paymentType: "Cash",
         total: "$1482.14",
         deliveryStatus: "Inprogress",
         country: "India",
@@ -90,7 +90,7 @@ export let order = [
         orderNo: "DSR14511268",
         paymentStatus: "paid",
         deliveryType: "standard",
-        paymentType: "COD",
+        paymentType: "UPI",
         total: "$1282.14",
         deliveryStatus: "Inprogress",
         country: "India",
@@ -118,7 +118,7 @@ export let order = [
         orderNo: "DSR14500268",
         paymentStatus: "paid",
         deliveryType: "standard",
-        paymentType: "COD",
+        paymentType: "Card",
         total: "$1482.14",
         deliveryStatus: "Inprogress",
         country: "India",
@@ -185,7 +185,18 @@ export let orderTransactin = [
         productTotal: "$875.32",
         tax: "$48.45",
         totalAmountWith: "$587.41",
-        methodOfPayment: "COD"
+        methodOfPayment: "Cash"
+    },
+    {
+        transactionId: "r1548268ef457skpocd",
+        orderId: 1544,
+        productId: [145, 254, 9875,],
+        discount: "$4.24",
+        deliveryCharge: "$8.125",
+        productTotal: "$875.32",
+        tax: "$48.45",
+        totalAmountWith: "$587.41",
+        methodOfPayment: "UPI"
     },
     {
         transactionId: "r1548268ef457skpocd",
@@ -207,17 +218,6 @@ export let orderTransactin = [
         productTotal: "$875.32",
         tax: "$48.45",
         totalAmountWith: "$587.41",
-        methodOfPayment: "COD"
-    },
-    {
-        transactionId: "r1548268ef457skpocd",
-        orderId: 1544,
-        productId: [145, 254, 9875,],
-        discount: "$4.24",
-        deliveryCharge: "$8.125",
-        productTotal: "$875.32",
-        tax: "$48.45",
-        totalAmountWith: "$587.41",
-        methodOfPayment: "COD"
+        methodOfPayment: "Card"
     }
 ]

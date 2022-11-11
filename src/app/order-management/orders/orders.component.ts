@@ -33,15 +33,15 @@ export class OrdersComponent implements OnInit {
     });
 
     this.cols = [
-      { field: 'orderId', show: true, headers: 'Order_Id' },
-      { field: 'customerId', show: true, headers: 'Customer_Id' },
-      { field: 'orderDate', show: true, headers: 'order_Date' },
-      { field: 'orderNo', show: true, headers: 'orderNo' },
-      { field: 'paymentStatus', show: true, headers: 'Payment_Status' },
-      { field: 'deliveryType', show: true, headers: 'delivery_Type' },
-      { field: 'paymentType', show: true, headers: 'payment_Type' },
-      { field: 'total', show: true, headers: 'total' },
-      { field: 'deliveryStatus', show: true, headers: 'Delivery_Status' },
+      { field: 'orderId', show: true, headers: 'Order Id' },
+      { field: 'orderNo', show: true, headers: 'Order No' },
+      { field: 'orderDate', show: true, headers: 'Order Date' },
+      { field: 'customerId', show: true, headers: 'Customer Id' },
+      { field: 'paymentStatus', show: true, headers: 'Payment Status' },
+      { field: 'paymentType', show: true, headers: 'Payment Type' },
+      { field: 'total', show: true, headers: 'Total' },
+      { field: 'deliveryStatus', show: true, headers: 'Delivery Status' },
+      { field: 'deliveryType', show: true, headers: 'Delivery Type' },
       { field: 'country', show: true, headers: 'Country' }
     ]
   }

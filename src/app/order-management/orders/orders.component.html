@@ -1,7 +1,7 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
   <div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
-    <h1 class="header-text-title" style="margin-left: 1%;">Customers</h1>
+    <h1 class="header-text-title" style="margin-left: 1%;">Orders</h1>
   </div>
   <div class="card col-sm-12" style="border:none;">
     <p-table id="customerTable" #dt [value]="orderData" 
@@ -32,14 +32,14 @@
         <tr>
           <td>{{i+1}}</td>
           <td>{{order.orderId}}</td>
-          <td>{{order.customerId}}</td>
-          <td>{{order.orderDate}}</td>
           <td>{{order.orderNo}}</td>
+          <td>{{order.orderDate}}</td>
+          <td>{{order.customerId}}</td>
           <td>{{order.paymentStatus}}</td>
-          <td>{{order.deliveryType}}</td>
           <td>{{order.paymentType}}</td>
           <td>{{order.total}}</td>
           <td>{{order.deliveryStatus}}</td>
+          <td>{{order.deliveryType}}</td>
           <td>{{order.country}}</td>
           <td>
           <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:5px"></button>
