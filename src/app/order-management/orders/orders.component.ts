@@ -27,20 +27,22 @@ export class OrdersComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
-    this.orderService.getOrders().subscribe((data) => {
-      this.orderData = data;
-     this.ngxLoader.stop();
+    this.orderService.getOrderList().subscribe((data) => {
+      this.orderData = data
+      this.ngxLoader.stop();
     });
 
     this.cols = [
-      { field:'id',show:true, headers: 'Order Id'},
-      { field:'customerId',show:true, headers: 'Customer Id'},
-      { field: 'productName',show:true, headers: 'Product Name'},
-      { field: 'deliveryStatus',show:true, headers: 'Delivery Status'},
-      { field: 'deliveryDate',show:true, headers: 'Delivery Date'},
-      { field: 'price',show:true, headers: 'Price'},
-      { field: 'paymentMode',show:true, headers: 'Payment Mode'},
-      { field: 'paymentStatus',show:true, headers: 'Payment Status'}
+      { field: 'orderId', show: true, headers: 'Order_Id' },
+      { field: 'customerId', show: true, headers: 'Customer_Id' },
+      { field: 'orderDate', show: true, headers: 'order_Date' },
+      { field: 'orderNo', show: true, headers: 'orderNo' },
+      { field: 'paymentStatus', show: true, headers: 'Payment_Status' },
+      { field: 'deliveryType', show: true, headers: 'delivery_Type' },
+      { field: 'paymentType', show: true, headers: 'payment_Type' },
+      { field: 'total', show: true, headers: 'total' },
+      { field: 'deliveryStatus', show: true, headers: 'Delivery_Status' },
+      { field: 'country', show: true, headers: 'Country' }
     ]
   }
 

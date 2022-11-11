@@ -11,8 +11,24 @@ export const SideNaveMenueRoute = [
     },
     {
         label: 'Order',
-        icon: 'pi pi-fw pi-shopping-cart',
-        routerLink: ['/order']
+        items: [
+            {
+                label: 'OrderList',
+                icon: 'pi pi-fw pi-shopping-cart',
+                routerLink: ['/order']
+            },
+            {
+                label: 'cancelOrderList',
+                icon: 'pi pi-fw pi-shopping-cart',
+                routerLink: ['/order/cancel-order-list']
+            },
+            {
+                label: 'orderTransaction',
+                icon: 'pi pi-fw pi-shopping-cart',
+                routerLink: ['/order/order-transaction']
+            }
+        ],
+
     },
     {
         label: 'CMS',
@@ -20,26 +36,28 @@ export const SideNaveMenueRoute = [
             {
                 label: 'Banner',
                 items: [
-                    {    icon: 'pi pi-fw pi-shopping-cart',
+                    {
+                        icon: 'pi pi-fw pi-shopping-cart',
                         label: 'Category',
                         routerLink: ['/crm/category']
-                        },
-                    {    
+                    },
+                    {
                         icon: 'pi pi-fw pi-shopping-cart',
                         label: 'SubCategory',
                         routerLink: ['/crm/subcategory']
-                        
+
                     },
-                    {   icon: 'pi pi-fw pi-user-plus',
+                    {
+                        icon: 'pi pi-fw pi-user-plus',
                         label: 'Sponsor',
                         routerLink: ['/crm/sponsor']
-                        
+
                     }
                 ]
             },
             {
                 label: 'Slider',
-                items:[
+                items: [
                     {
                         label: 'Slider1',
                         icon: 'pi pi-fw pi-user',
@@ -71,7 +89,7 @@ export const SideNaveMenueRoute = [
 
         ]
     },
-    
-    
-    
+
+
+
 ]
