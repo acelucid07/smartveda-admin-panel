@@ -50,4 +50,21 @@ export class OrdersService {
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     return of(orderTransactin)
   }
+
+  getDeliveredOrderList() {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let DeliveredOrderList = order.filter(item=>item.deliveryStatus==="Delivered")
+    return of(DeliveredOrderList)
+  }
+  getConfirmedOrderList() {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let DeliveredOrderList = order.filter(item=>item.orderStatus==="Confirmed")
+    return of(DeliveredOrderList)
+  }
 }

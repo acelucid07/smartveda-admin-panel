@@ -6,13 +6,17 @@ import { OrdersComponent } from './orders/orders.component';
 import { SharedModule } from '../shared/shared.module';
 import { OrderTransactionComponent } from './order-transaction/order-transaction.component';
 import { CancelOrderComponent } from './cancel-order/cancel-order.component';
+import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
+import { DeliveredOrderComponent } from './delivered-order/delivered-order.component';
 
 
 @NgModule({
   declarations: [
     OrdersComponent,
     OrderTransactionComponent,
-    CancelOrderComponent
+    CancelOrderComponent,
+    ConfirmedOrderComponent,
+    DeliveredOrderComponent
   ],
   imports: [
     CommonModule,

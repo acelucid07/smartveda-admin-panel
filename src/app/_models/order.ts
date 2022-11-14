@@ -9,6 +9,7 @@ export interface order {
   total:string,
   deliveryStatus:string,
   country:string,
+  orderStatus:string,
   email:string,
   mobileNo:string,
   billingCityName:string,
