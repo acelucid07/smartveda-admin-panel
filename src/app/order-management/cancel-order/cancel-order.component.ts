@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild} from '@angular/core';
 import { cancelOrder } from 'src/app/_models/order';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading'
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-cancel-order',
@@ -10,6 +11,8 @@ import { TABLE_HEADING } from '../../_models/table_heading'
   styleUrls: ['./cancel-order.component.scss']
 })
 export class CancelOrderComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
+  sidebarSpacing:any;
  cols!: TABLE_HEADING[];
   cancelOrder: cancelOrder[] = [];
   fgsType: any;
@@ -21,8 +24,10 @@ export class CancelOrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sidebarSpacing = 'contracted';
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
+    this.sidebarSpacing = 'contracted';
     this.orderService.getCancelOrderList().subscribe((data) => {
       this.cancelOrder = data
       this.ngxLoader.stop();
@@ -36,5 +41,18 @@ export class CancelOrderComponent implements OnInit {
       { field: 'deliveryCharge', show: true, headers: 'deliveryCharge' },
     ]
   }
+  onToggleSidebar(sidebarState: any) {
+    if (sidebarState === 'open') {
+      this.sidebarSpacing = 'contracted';
+    } else {
+      this.sidebarSpacing = 'expanded';
+    }
+  }
+  
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+    console.log($event)
+  }
+ 
  
 }
