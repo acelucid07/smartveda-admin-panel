@@ -19,6 +19,7 @@ import {CardModule} from 'primeng/card';
 import { CKEditorModule } from 'ckeditor4-angular';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -41,6 +42,7 @@ import {MatDividerModule} from '@angular/material/divider';
     CKEditorModule,
     MatExpansionModule,
     MatDividerModule,
+    MatTabsModule,
     ToastrModule.forRoot({
       timeOut: 300,
       positionClass: 'toast-bottom-right',
@@ -63,7 +65,8 @@ import {MatDividerModule} from '@angular/material/divider';
     CardModule,
     CKEditorModule,
     MatExpansionModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTabsModule
   ]
 })
 export class SharedModule { 

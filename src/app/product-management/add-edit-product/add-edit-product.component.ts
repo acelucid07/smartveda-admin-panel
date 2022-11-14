@@ -24,6 +24,7 @@ export class AddEditProductComponent implements OnInit {
   prices: prices
   SEO: SEO
   Status = Satatus
+  expand:boolean= false
   Description: Description
   constructor(
     private fb: FormBuilder,
@@ -72,7 +73,9 @@ export class AddEditProductComponent implements OnInit {
         this.getProductById()
       } else {
         this.editMode = false
+        this.expand =  true
         this.title = "Add New Product"
+
       }
     });
   }
