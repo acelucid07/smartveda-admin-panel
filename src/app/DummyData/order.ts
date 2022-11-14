@@ -177,8 +177,8 @@ export let cancelOrder = [
 ]
 export let orderTransactin = [
     {
-        transactionId: "r1548268ef457skpocd",
-        orderId: 1544,
+        transactionId: "r1548268ef457",
+        orderId: 1534,
         productId: [145, 254, 9875,],
         discount: "$4.24",
         deliveryCharge: "$8.125",
@@ -188,8 +188,8 @@ export let orderTransactin = [
         methodOfPayment: "Cash"
     },
     {
-        transactionId: "r1548268ef457skpocd",
-        orderId: 1544,
+        transactionId: "r1548268ef457",
+        orderId: 1504,
         productId: [145, 254, 9875,],
         discount: "$4.24",
         deliveryCharge: "$8.125",
@@ -199,8 +199,8 @@ export let orderTransactin = [
         methodOfPayment: "UPI"
     },
     {
-        transactionId: "r1548268ef457skpocd",
-        orderId: 1544,
+        transactionId: "r1548268ef457",
+        orderId: 1514,
         productId: [145, 254, 9875,],
         discount: "$4.24",
         deliveryCharge: "$8.125",
@@ -210,8 +210,8 @@ export let orderTransactin = [
         methodOfPayment: "COD"
     },
     {
-        transactionId: "r1548268ef457skpocd",
-        orderId: 1544,
+        transactionId: "r1548268ef457",
+        orderId: 1569,
         productId: [145, 254, 9875,],
         discount: "$4.24",
         deliveryCharge: "$8.125",

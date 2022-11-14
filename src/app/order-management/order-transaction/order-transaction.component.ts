@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { orderTransactin } from 'src/app/_models/order'; 
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-order-transaction',
@@ -10,6 +11,7 @@ import { orderTransactin } from 'src/app/_models/order';
   styleUrls: ['./order-transaction.component.scss']
 })
 export class OrderTransactionComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   fgsType: any;
   cols: TABLE_HEADING[];
@@ -45,5 +47,8 @@ export class OrderTransactionComponent implements OnInit {
     } else {
       this.sidebarSpacing = 'expanded';
     }
+  }
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }

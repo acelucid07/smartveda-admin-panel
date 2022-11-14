@@ -150,20 +150,22 @@
     </div> 
   </mat-tab>
     <mat-tab label="Cancelled">
-    <div class="card col-sm-12" style="border:none;">
+      <app-cancel-order></app-cancel-order>
+    <!-- <div class="card col-sm-12" style="border:none;">
       <p-table id="customerTable" #dt [value]="orderData" 
         [columns]="cols"
         responsiveLayout="scroll" [paginator]="true"
         [rows]="10" [showCurrentPageReport]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
-        [globalFilterFields]="['email', 'phone', 'role', 'status']"
+        [globalFilterFields]="['orderId', 'orderNo', 'customerId', 'country']"
         styleClass="p-datatable-striped">
         
       <ng-template pTemplate="caption">
         <div class="row">
           <span class="p-input-icon-right ml-5">
               <i class="pi pi-search"></i>
-              <input pInputText type="text" placeholder="Search keyword"/>
+              <input pInputText type="text" placeholder="Search keyword"
+              (input)="applyFilterGlobal($event, 'contains')"/>
           </span>
         </div>
       </ng-template>
@@ -196,7 +198,14 @@
         </ng-template>
       </p-table>
       <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
-    </div>
+    </div> -->
+   </mat-tab>
+   <mat-tab label="Confimed Order">
+    <p>Confimed Order here </p>
+   </mat-tab>
+
+   <mat-tab label="Pending Order">
+    <p>Pending Order here </p>
    </mat-tab>
   </mat-tab-group>
   

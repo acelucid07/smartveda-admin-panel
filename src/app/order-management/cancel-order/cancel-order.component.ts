@@ -10,8 +10,7 @@ import { TABLE_HEADING } from '../../_models/table_heading'
   styleUrls: ['./cancel-order.component.scss']
 })
 export class CancelOrderComponent implements OnInit {
-  sidebarSpacing: any;
-  cols!: TABLE_HEADING[];
+ cols!: TABLE_HEADING[];
   cancelOrder: cancelOrder[] = [];
   fgsType: any;
   constructor(
@@ -22,10 +21,8 @@ export class CancelOrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sidebarSpacing = 'contracted';
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
-    this.sidebarSpacing = 'contracted';
     this.orderService.getCancelOrderList().subscribe((data) => {
       this.cancelOrder = data
       this.ngxLoader.stop();
@@ -39,11 +36,5 @@ export class CancelOrderComponent implements OnInit {
       { field: 'deliveryCharge', show: true, headers: 'deliveryCharge' },
     ]
   }
-  onToggleSidebar(sidebarState: any) {
-    if (sidebarState === 'open') {
-      this.sidebarSpacing = 'contracted';
-    } else {
-      this.sidebarSpacing = 'expanded';
-    }
-  }
+ 
 }
