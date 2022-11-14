@@ -30,7 +30,7 @@ export class OrderTransactionComponent implements OnInit {
       this.ngxLoader.stop();
     });
     this.cols = [
-      { field: 'transactionId', show: true, headers: 'transactionId' },
+      { field: ' transactionId', show: true, headers: 'transactionId' },
       { field: 'orderId', show: true, headers: 'orderId' },
       { field: 'productId', show: true, headers: 'productId' },
       { field: 'discount', show: true, headers: 'discount' },
