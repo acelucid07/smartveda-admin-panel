@@ -1,9 +1,11 @@
+import { order } from 'src/app/_models/order';
 import { Component, OnInit,ViewChild} from '@angular/core';
 import { cancelOrder } from 'src/app/_models/order';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading'
 import { Table } from 'primeng/table';
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 
 @Component({
   selector: 'app-cancel-order',
@@ -12,13 +14,13 @@ import { Table } from 'primeng/table';
 })
 export class CancelOrderComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
-  // sidebarSpacing:any;
  cols!: TABLE_HEADING[];
   cancelOrder: cancelOrder[] = [];
   fgsType: any;
   constructor(
     private orderService: OrdersService,
-    private ngxLoader: NgxUiLoaderService
+    private ngxLoader: NgxUiLoaderService,
+    private toastr: ToastrMsgService
   ) {
 
   }
@@ -26,10 +28,8 @@ export class CancelOrderComponent implements OnInit {
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
-    this.orderService.getCancelOrderList().subscribe((data) => {
-      this.cancelOrder = data
-      this.ngxLoader.stop();
-    });
+    this.getCancelOrderList();
+    
     this.cols = [
       { field: 'cancelTransId', show: true, headers: 'cancelTransId' },
       { field: 'orderId', show: true, headers: 'orderId' },
@@ -44,6 +44,21 @@ export class CancelOrderComponent implements OnInit {
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
     console.log($event)
+  }
+  deleteOrder(order: number){
+    this.ngxLoader.stop();
+    this.orderService.deleteCancelledOrder(order).subscribe((res) => {
+      if (res) {
+        this.toastr.showSuccess('order deleted successfully', 'order delete');
+        this.getCancelOrderList();
+      }
+    });
+  }
+  getCancelOrderList(){
+    this.orderService.getCancelOrderList().subscribe((data) => {
+      this.cancelOrder = data
+      this.ngxLoader.stop();
+    });
   }
  
  
