@@ -76,6 +76,15 @@ export class OrdersService {
     order.splice(order.findIndex((index) => index.orderId == orderId), 1);
     return of(order[indexConfirmedOrder])
   }
+  deleteOrder(orderId: number) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let indexOrder = order.findIndex(item => item.orderId === orderId)
+    order.splice(order.findIndex((index) => index.orderId == orderId), 1);
+    return of(order[indexOrder])
+  }
   deleteDeliveredOrder(orderId: number) {
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)

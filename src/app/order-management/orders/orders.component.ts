@@ -3,8 +3,9 @@ import * as moment from 'moment';
 import { order } from 'src/app/_models/order';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
-import {TABLE_HEADING} from '../../_models/table_heading'
+import { TABLE_HEADING } from '../../_models/table_heading'
 import { Table } from 'primeng/table';
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 
 @Component({
   selector: 'app-orders',
@@ -15,23 +16,21 @@ export class OrdersComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
-  orderData:order[]=[];
+  orderData: order[] = [];
   fgsType: any;
 
   constructor(
     private orderService: OrdersService,
-    private ngxLoader: NgxUiLoaderService
-    ) { }
+    private ngxLoader: NgxUiLoaderService,
+    private toastr: ToastrMsgService,
+  ) { }
 
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
-    this.orderService.getOrderList().subscribe((data) => {
-      this.orderData = data
-      this.ngxLoader.stop();
-    });
+    this.getOrderList()
 
     this.cols = [
       { field: 'orderId', show: true, headers: 'Order Id' },
@@ -56,5 +55,20 @@ export class OrdersComponent implements OnInit {
   }
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+  }
+  deleteOrder(order: number) {
+    this.ngxLoader.start();
+    this.orderService.deleteOrder(order).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("order deleted successfully", "order delete")
+        this.getOrderList()
+      }
+    })
+  }
+  getOrderList() {
+    this.orderService.getOrderList().subscribe((data) => {
+      this.orderData = data
+      this.ngxLoader.stop();
+    });
   }
 }
