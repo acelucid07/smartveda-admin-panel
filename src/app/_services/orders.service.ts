@@ -7,7 +7,7 @@ import { order, cancelOrder, orderTransactin } from '../DummyData/order'
 @Injectable({
   providedIn: 'root'
 })
- 
+
 export class OrdersService {
   constructor(private http: HttpClient) { }
 
@@ -56,7 +56,7 @@ export class OrdersService {
     let httpOptions = new HttpHeaders().set('x-access-token', token)
     const endpointUrl = `${environment.JSON_SERVER}/orders`;
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
-    let DeliveredOrderList = order.filter(item=>item.deliveryStatus==="Delivered")
+    let DeliveredOrderList = order.filter(item => item.deliveryStatus === "Delivered")
     return of(DeliveredOrderList)
   }
   getConfirmedOrderList() {
@@ -64,7 +64,43 @@ export class OrdersService {
     let httpOptions = new HttpHeaders().set('x-access-token', token)
     const endpointUrl = `${environment.JSON_SERVER}/orders`;
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
-    let DeliveredOrderList = order.filter(item=>item.orderStatus==="Confirmed")
+    let DeliveredOrderList = order.filter(item => item.orderStatus === "Confirmed")
     return of(DeliveredOrderList)
+  }
+  deleteConfirmedOrder(orderId: number) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let indexConfirmedOrder = order.findIndex(item => item.orderId === orderId)
+    order.splice(order.findIndex((index) => index.orderId == orderId), 1);
+    return of(order[indexConfirmedOrder])
+  }
+  deleteDeliveredOrder(orderId: number) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let indexDeliveredOrder = order.findIndex(item => item.orderId === orderId)
+    order.splice(order.findIndex((index) => index.orderId == orderId), 1);
+    return of(order[indexDeliveredOrder])
+  }
+  deleteCancelledOrder(orderId: number) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let indexDeleteOrder = order.findIndex(item => item.orderId === orderId)
+    order.splice(order.findIndex((index) => index.orderId == orderId), 1);
+    return of(order[indexDeleteOrder])
+  }
+  deteOrderTransactionById(orderId: number) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let indexOrderTrans = orderTransactin.findIndex(item => item.orderId === orderId)
+    orderTransactin.splice(orderTransactin.findIndex((index) => index.orderId == orderId), 1);
+    return of(orderTransactin[indexOrderTrans])
   }
 }
