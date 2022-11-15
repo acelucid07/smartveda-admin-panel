@@ -40,10 +40,10 @@ export class ConfirmedOrderComponent implements OnInit {
     console.log($event);
   }
   deleteOrder(order: number) {
-    this.ngxLoader.stop();
+    this.ngxLoader.start();
     this.orderService.deleteConfirmedOrder(order).subscribe((res) => {
       if (res) {
-        this.toastr.showSuccess('order deleted successfully', 'order delete');
+        this.toastr.showSuccess('ConfirmedOrder deleted successfully', 'order delete');
         this.getConfirmedOrderList();
       }
     });

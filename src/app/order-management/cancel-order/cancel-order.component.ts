@@ -45,11 +45,11 @@ export class CancelOrderComponent implements OnInit {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
     console.log($event)
   }
-  deleteOrder(order: number){
-    this.ngxLoader.stop();
-    this.orderService.deleteCancelledOrder(order).subscribe((res) => {
+  deleteOrder(orderId: number){
+    this.ngxLoader.start();
+    this.orderService.deleteCancelledOrder(orderId).subscribe((res) => {
       if (res) {
-        this.toastr.showSuccess('order deleted successfully', 'order delete');
+        this.toastr.showSuccess('cancel deleted successfully', 'order delete');
         this.getCancelOrderList();
       }
     });
@@ -60,6 +60,4 @@ export class CancelOrderComponent implements OnInit {
       this.ngxLoader.stop();
     });
   }
- 
- 
-}
+ }

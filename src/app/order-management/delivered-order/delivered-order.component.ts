@@ -36,7 +36,6 @@ export class DeliveredOrderComponent implements OnInit {
   }
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
-    console.log($event);
   }
   deleteOrder(order: number) {
     this.ngxLoader.start();

@@ -99,9 +99,9 @@ export class OrdersService {
     let httpOptions = new HttpHeaders().set('x-access-token', token)
     const endpointUrl = `${environment.JSON_SERVER}/orders`;
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
-    let indexDeleteOrder = order.findIndex(item => item.orderId === orderId)
-    order.splice(order.findIndex((index) => index.orderId == orderId), 1);
-    return of(order[indexDeleteOrder])
+    let indexDeleteOrder = cancelOrder.findIndex(item => item.orderId === orderId)
+    cancelOrder.splice(cancelOrder.findIndex((index) => index.orderId == orderId), 1);
+    return of(cancelOrder[indexDeleteOrder])
   }
   deteOrderTransactionById(orderId: number) {
     const token = localStorage.getItem('token') || '';
