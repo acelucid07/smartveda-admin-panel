@@ -61,7 +61,7 @@ export class OrderTransactionComponent implements OnInit {
     this.ngxLoader.start();
     this.orderService.deteOrderTransactionById(orderId).subscribe((res) => {
       if (res) {
-        this.toastr.showSuccess('order deleted successfully', 'order delete');
+        this.toastr.showSuccess('orders-transaction deleted successfully', 'order deleted');
         this.getOrderTransactionList();
       }
     });

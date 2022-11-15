@@ -41,7 +41,7 @@ export class DeliveredOrderComponent implements OnInit {
     this.ngxLoader.start();
     this.orderService.deleteDeliveredOrder(order).subscribe((res) => {
       if (res) {
-        this.toastr.showSuccess('order deleted successfully', 'order delete');
+        this.toastr.showSuccess('delivered order deleted successfully', 'order deleted');
         this.getDeliveredOrderList();
       }
     });

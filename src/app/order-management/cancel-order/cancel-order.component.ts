@@ -49,7 +49,7 @@ export class CancelOrderComponent implements OnInit {
     this.ngxLoader.start();
     this.orderService.deleteCancelledOrder(orderId).subscribe((res) => {
       if (res) {
-        this.toastr.showSuccess('cancel deleted successfully', 'order delete');
+        this.toastr.showSuccess('cancel order deleted successfully', 'order deleted');
         this.getCancelOrderList();
       }
     });
