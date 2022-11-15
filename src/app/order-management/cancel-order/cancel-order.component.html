@@ -4,11 +4,11 @@
     </div>
     <div class="card col-sm-12" style="border:none;">
         <p-table id="customerTable" #dt [value]="cancelOrder" [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
-            [globalFilterFields]="['orderId', 'total', 'deliveryCharge']" styleClass="p-datatable-striped">
+            [globalFilterFields]="['orderId']" styleClass="p-datatable-striped">
 
             <ng-template pTemplate="caption">
                 <div class="row">
-                    <span class="p-input-icon-right ml-5">
+                <span class="p-input-icon-right ml-5">
             <i class="pi pi-search"></i>
             <input pInputText type="text" placeholder="Search by OrderId" 
             (input)="applyFilterGlobal($event, 'contains')" />
