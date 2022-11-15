@@ -17,6 +17,9 @@ import { AccordionModule } from 'primeng/accordion'
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {CardModule} from 'primeng/card';
 import { CKEditorModule } from 'ckeditor4-angular';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -37,6 +40,9 @@ import { CKEditorModule } from 'ckeditor4-angular';
     PanelMenuModule,
     CardModule,
     CKEditorModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatTabsModule,
     ToastrModule.forRoot({
       timeOut: 300,
       positionClass: 'toast-bottom-right',
@@ -57,7 +63,10 @@ import { CKEditorModule } from 'ckeditor4-angular';
     AccordionModule,
     PanelMenuModule,
     CardModule,
-    CKEditorModule
+    CKEditorModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatTabsModule
   ]
 })
 export class SharedModule { 
