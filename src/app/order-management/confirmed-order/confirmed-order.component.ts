@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { order } from 'src/app/_models/order';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
-import { TABLE_HEADING } from '../../_models/table_heading'
+import { TABLE_HEADING } from '../../_models/table_heading';
+import { Table } from 'primeng/table';
+
 @Component({
   selector: 'app-confirmed-order',
   templateUrl: './confirmed-order.component.html',
   styleUrls: ['./confirmed-order.component.scss']
 })
 export class ConfirmedOrderComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
   cols!: TABLE_HEADING[];
   confirmedOrder: order[] = [];
   fgsType: any;
@@ -29,6 +32,10 @@ export class ConfirmedOrderComponent implements OnInit {
       { field: 'customerId', show: true, headers: 'Customer Id' },
       { field: 'orderStatus', show: true, headers: 'order Status' },
     ]
+  }
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+    console.log($event)
   }
 
 }

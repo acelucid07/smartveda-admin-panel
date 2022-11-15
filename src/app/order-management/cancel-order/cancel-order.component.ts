@@ -12,7 +12,7 @@ import { Table } from 'primeng/table';
 })
 export class CancelOrderComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
-  sidebarSpacing:any;
+  // sidebarSpacing:any;
  cols!: TABLE_HEADING[];
   cancelOrder: cancelOrder[] = [];
   fgsType: any;
@@ -24,10 +24,8 @@ export class CancelOrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sidebarSpacing = 'contracted';
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
-    this.sidebarSpacing = 'contracted';
     this.orderService.getCancelOrderList().subscribe((data) => {
       this.cancelOrder = data
       this.ngxLoader.stop();
@@ -41,13 +39,7 @@ export class CancelOrderComponent implements OnInit {
       { field: 'deliveryCharge', show: true, headers: 'deliveryCharge' },
     ]
   }
-  onToggleSidebar(sidebarState: any) {
-    if (sidebarState === 'open') {
-      this.sidebarSpacing = 'contracted';
-    } else {
-      this.sidebarSpacing = 'expanded';
-    }
-  }
+
   
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);

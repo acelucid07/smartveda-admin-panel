@@ -29,7 +29,7 @@ export let order = [
         shippingStreetName: ""
     },
     {
-        orderId: 1438,
+        orderId: 1433,
         customerId: '1063',
         orderDate: "15/11/2022",
         orderNo: "DSR145268",
@@ -396,7 +396,7 @@ export let cancelOrder = [
         deliveryCharge: "$8.1"
     },
     {
-        cancelTransId: 147,
+        cancelTransId: 142,
         orderId: 1258,
         total: "$1482.14",
         refundInitiated: false,
@@ -404,8 +404,8 @@ export let cancelOrder = [
         deliveryCharge: "$8.1"
     },
     {
-        cancelTransId: 147,
-        orderId: 1258,
+        cancelTransId: 171,
+        orderId: 1255,
         total: "$1482.14",
         refundInitiated: false,
         productId: [142, 458, 369, 458],
