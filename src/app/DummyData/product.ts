@@ -5,6 +5,7 @@ export let  products= [
         "country":"india",
         "language":"English"
       },
+      
       "product_Detail": {
         "name":"LAVA AGNI 5G",
         "sku":"KSDR3123",
