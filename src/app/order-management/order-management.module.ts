@@ -8,6 +8,7 @@ import { OrderTransactionComponent } from './order-transaction/order-transaction
 import { CancelOrderComponent } from './cancel-order/cancel-order.component';
 import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
 import { DeliveredOrderComponent } from './delivered-order/delivered-order.component';
+import { ShipmentComponent } from './shipment/shipment.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DeliveredOrderComponent } from './delivered-order/delivered-order.compo
     OrderTransactionComponent,
     CancelOrderComponent,
     ConfirmedOrderComponent,
-    DeliveredOrderComponent
+    DeliveredOrderComponent,
+    ShipmentComponent
   ],
   imports: [
     CommonModule,
