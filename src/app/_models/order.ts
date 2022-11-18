@@ -1,3 +1,4 @@
+import {product_details} from '../_models/catalog'
 export interface order {
   orderId: number,
   customerId: string,
@@ -71,6 +72,7 @@ export interface Shipments {
   Totalquantity: string | number
   ShipmentDate: string,
   Shippingto: string,
+  ProductDetails:any,
   Billing_Address:Billing_Address,
   Shipping_Address:Shipping_Address,
   PaymentInformation:orderTransactin,

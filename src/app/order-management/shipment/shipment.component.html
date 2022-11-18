@@ -36,11 +36,12 @@
                     <td>{{shippingData.ShipmentDate}}</td>
                     <td>{{shippingData.Shippingto}}</td>
                     <td>
-                        <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
-                            pTooltip="Edit shippingData" tooltipPosition="bottom" style="margin-right:5px"></button>
-                        <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
-                            pTooltip="Delete Customer" tooltipPosition="bottom"
-                            (click)="deleteOrderShipping(shippingData?.orderId)"></button>
+                        <button class="p-button-primary" pButton type="button" icon="pi pi-eye" pTooltip="view"
+                            tooltipPosition="bottom" [routerLink]="['/order/shipment-details']"
+                            [queryParams]="{orderId:shippingData?.OrderDetails?.orderId}">
+                        </button>
+                        <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Customer"
+                            tooltipPosition="bottom" (click)="deleteOrderShipping(shippingData?.OrderDetails?.orderId)"></button>
                     </td>
                 </tr>
             </ng-template>

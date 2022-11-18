@@ -298,6 +298,28 @@ export let shipmentData = [
         Totalquantity: 124,
         ShipmentDate: "12/12/2022",
         Shippingto: "ryaveer",
+        ProductDetails: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 548
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Elrctronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 54
+            }
+        ],
         Billing_Address: {
             billingPinCode: "",
             billingFlatNo: "",
@@ -358,6 +380,28 @@ export let shipmentData = [
         Totalquantity: 124,
         ShipmentDate: "12/12/2022",
         Shippingto: "ryaveer",
+        ProductDetails: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 548
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Elrctronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 54
+            }
+        ],
         Billing_Address: {
             billingPinCode: "",
             billingFlatNo: "",
@@ -418,6 +462,28 @@ export let shipmentData = [
         Totalquantity: 124,
         ShipmentDate: "12/12/2022",
         Shippingto: "ryaveer",
+        ProductDetails: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 548
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Elrctronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 54
+            }
+        ],
         Billing_Address: {
             billingPinCode: "",
             billingFlatNo: "",
@@ -478,6 +544,28 @@ export let shipmentData = [
         Totalquantity: 124,
         ShipmentDate: "12/12/2022",
         Shippingto: "ryaveer",
+        ProductDetails: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 548
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Elrctronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 54
+            }
+        ],
         Billing_Address: {
             billingPinCode: "",
             billingFlatNo: "",
