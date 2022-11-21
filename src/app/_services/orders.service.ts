@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { from, map, Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { order, cancelOrder, orderTransactin } from '../DummyData/order'
+import { order, cancelOrder, orderTransactin ,shipmentData} from '../DummyData/order'
 
 @Injectable({
   providedIn: 'root'
@@ -111,5 +111,29 @@ export class OrdersService {
     let indexOrderTrans = orderTransactin.findIndex(item => item.orderId === orderId)
     orderTransactin.splice(orderTransactin.findIndex((index) => index.orderId == orderId), 1);
     return of(orderTransactin[indexOrderTrans])
+  }
+  deleteOrderShipping(shipmentId: number) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let indexShipment = shipmentData.findIndex(item => item.shipmentId === shipmentId)
+    shipmentData.splice(shipmentData.findIndex((index) => index.shipmentId == shipmentId), 1);
+    return of(shipmentData[indexShipment])
+  }
+  getOrderShippingList(){
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    return of(shipmentData)
+   }
+  getOrderShippingListById(orderId: number) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let indexShipment = shipmentData.findIndex(item => item.OrderDetails.orderId === orderId)
+    return of(shipmentData[indexShipment])
   }
 }

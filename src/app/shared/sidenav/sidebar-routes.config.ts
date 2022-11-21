@@ -21,6 +21,11 @@ export const SideNaveMenueRoute = [
                 label: 'orderTransaction',
                 icon: 'pi pi-fw pi-shopping-cart',
                 routerLink: ['/order/order-transaction']
+            },
+            {
+                label: 'shipment',
+                icon: 'pi pi-fw pi-shopping-cart',
+                routerLink: ['/order/shipment']
             }
         ],
 

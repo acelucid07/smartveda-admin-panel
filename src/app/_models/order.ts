@@ -1,3 +1,4 @@
+import {product_details} from '../_models/catalog'
 export interface order {
   orderId: number,
   customerId: string,
@@ -12,20 +13,6 @@ export interface order {
   orderStatus:string,
   email:string,
   mobileNo:string,
-  billingCityName:string,
-  billingBuildingName:string,
-  billingBlockName:string,
-  billingFloorNo:string,
-  billingUnit:string,
-  billingPostalCode:string,
-  billingStreetName:string,
-  shippingPostalCode:string,
-  shippingCityName:string,
-  shippingBuildingName:string,
-  shippingBlockName:string,
-  shippingFloorNo:string,
-  shippingunit:string,
-  shippingStreetName:string
 }
 
 export interface cancelOrder {
@@ -47,4 +34,37 @@ export interface orderTransactin{
   tax:string,
   totalAmountWith:string,
   methodOfPayment:string 
+}
+
+export interface Billing_Address {
+  billingPinCode: string | number,
+  billingFlatNo: string | number,
+  billingArea: string,
+  billingLandmark: string
+  billingCity: string
+  billingTown: string
+  billingState: string
+}
+
+export interface Shipping_Address{
+  shippingPinCode: string | number,
+  shippingFlatNo: string | number,
+  shippingArea: string,
+  shippingLandmark: string
+  shippingCity: string
+  shippingTown: string
+  shippingState: string
+  shippingAddressType: string
+}
+
+export interface Shipments {
+  shipmentId: string | number
+  OrderDetails: order,
+  Totalquantity: string | number
+  ShipmentDate: string,
+  Shippingto: string,
+  ProductDetails:any,
+  Billing_Address:Billing_Address,
+  Shipping_Address:Shipping_Address,
+  PaymentInformation:orderTransactin,
 }

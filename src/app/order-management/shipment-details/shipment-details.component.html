@@ -1,0 +1,187 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <div style="border:none;">
+        <div class="page-heading">
+            <h1 class="header-text-title" style="margin-left: 1%;"> Shipments #{{ShipmentDetails?.OrderDetails?.orderNo}}</h1>
+        </div>
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div class="page-heading">
+                            <h6 class="header-text-title">Customer & Order Details </h6>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <mat-panel-title>
+                            <div class="page-heading">
+                                <h6 class="header-text-title">Customer Details </h6>
+                                <hr class="hr-color">
+                            </div>
+                        </mat-panel-title>
+                        <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Customer Id : {{ShipmentDetails?.OrderDetails?.customerId}}</p>
+                                <p>Email : {{ShipmentDetails?.OrderDetails?.email}}</p>
+                                <p>Mobile No. : {{ShipmentDetails?.OrderDetails?.mobileNo}}</p>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <mat-panel-title>
+                            <div class="page-heading">
+                                <h6 class="header-text-title">Order Details </h6>
+                                <hr class="hr-color">
+                            </div>
+                        </mat-panel-title>
+                        <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Order Id : {{ShipmentDetails?.OrderDetails?.orderId}}</p>
+                                <p>Order No. : {{ShipmentDetails?.OrderDetails?.orderNo}}</p>
+                                <p>Order Date : {{ShipmentDetails?.OrderDetails?.orderDate}}</p>
+                                <p>Delivery Type : {{ShipmentDetails?.OrderDetails?.deliveryType}}</p>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Payment Type : {{ShipmentDetails?.OrderDetails?.paymentType}}</p>
+                                <p>Order Status : {{ShipmentDetails?.OrderDetails?.orderStatus}}</p>
+                                <p>Payment Status : {{ShipmentDetails?.OrderDetails?.paymentStatus}}</p>
+                                <p>Total : {{ShipmentDetails?.OrderDetails?.total}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div class="page-heading">
+                            <h6 class="header-text-title">Address</h6>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <mat-panel-title>
+                            <div class="page-heading">
+                                <h6 class="header-text-title">Billing Address </h6>
+                                <hr class="hr-color">
+                            </div>
+                        </mat-panel-title>
+                        <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Pincode: {{ShipmentDetails?.Billing_Address?.billingPinCode}}</p>
+                                <p>Flat, House No., Building, Company, Apartment: {{ShipmentDetails?.Billing_Address?.billingFlatNo}}</p>
+                                <p>Area, Street, Sector, Village: {{ShipmentDetails?.Billing_Address?.billingArea}}</p>
+                                
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Town/City: {{ShipmentDetails?.Billing_Address?.billingFlatNo}}</p>
+                                <p>State: {{ShipmentDetails?.Billing_Address?.billingState}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <mat-panel-title>
+                            <div class="page-heading">
+                                <h6 class="header-text-title">Shipping Address </h6>
+                                <hr class="hr-color">
+                            </div>
+                        </mat-panel-title>
+                        <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Pincode: {{ShipmentDetails?.Shipping_Address?.shippingPinCode}}</p>
+                                <p>Flat, House No., Building, Company, Apartment: {{ShipmentDetails?.Shipping_Address?.shippingFlatNo}}</p>
+                                <p>Area, Street, Sector, Village: {{ShipmentDetails?.Shipping_Address?.shippingArea}}</p>
+                                
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Town/City: {{ShipmentDetails?.Shipping_Address?.shippingTown}}</p>
+                                <p>State: {{ShipmentDetails?.Shipping_Address?.shippingState}}</p>
+                                <p>Address Type: {{ShipmentDetails?.Shipping_Address?.shippingAddressType}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div class="page-heading">
+                            <h6 class="header-text-title">Payments</h6>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <mat-panel-title>
+                            <div class="page-heading">
+                                <h6 class="header-text-title">Payment Details</h6>
+                                <hr class="hr-color">
+                            </div>
+                        </mat-panel-title>
+                        <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Payment Mode: {{ShipmentDetails?.PaymentInformation?.methodOfPayment}}</p>
+                                <p>Transaction Id: : {{ShipmentDetails?.PaymentInformation?.transactionId}}</p>
+                                <p>Payment Type: {{ShipmentDetails?.PaymentInformation?.methodOfPayment}}</p>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <p>Total Amount Without Tax: {{ShipmentDetails?.PaymentInformation?.productTotal}}</p>
+                                <p>Total Amount with Tax: {{ShipmentDetails?.PaymentInformation?.totalAmountWith}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div class="page-heading">
+                            <h6 class="header-text-title">Products</h6>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <mat-panel-title>
+                            <div class="page-heading">
+                                <h6 class="header-text-title">Product Details</h6>
+                                <hr class="hr-color">
+                            </div>
+                        </mat-panel-title>
+                        <div class="row gutters">
+                            <table>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>SKU</th>
+                                    <th>Quantity</th>
+                                </tr>
+                                <tr *ngFor="let product of ShipmentDetails?.ProductDetails">
+                                    <td>{{product?.name}}</td>
+                                    <td>{{product?.sku}}</td>
+                                    <td>{{product?.Quantity}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+    </div>
+</div>

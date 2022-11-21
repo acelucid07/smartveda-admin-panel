@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrdersComponent } from './orders/orders.component';
 import { AuthGuardService as AuthGuard } from '../_services/auth-guard.service';
 import { OrderTransactionComponent } from './order-transaction/order-transaction.component';
+import { ShipmentComponent } from './shipment/shipment.component';
+import { ShipmentDetailsComponent } from './shipment-details/shipment-details.component';
 
 const routes: Routes = [
   {
@@ -13,7 +15,14 @@ const routes: Routes = [
   {
     path: 'order-transaction', component: OrderTransactionComponent
   },
+  {
+    path: 'shipment', component: ShipmentComponent
+  },
+  {
+    path: 'shipment-details', component: ShipmentDetailsComponent
+  },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
