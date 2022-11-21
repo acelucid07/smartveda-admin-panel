@@ -112,13 +112,13 @@ export class OrdersService {
     orderTransactin.splice(orderTransactin.findIndex((index) => index.orderId == orderId), 1);
     return of(orderTransactin[indexOrderTrans])
   }
-  deleteOrderShipping(shipmentId: number) {
+  deleteOrderShipping(orderId: number) {
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)
     const endpointUrl = `${environment.JSON_SERVER}/orders`;
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
-    let indexShipment = shipmentData.findIndex(item => item.shipmentId === shipmentId)
-    shipmentData.splice(shipmentData.findIndex((index) => index.shipmentId == shipmentId), 1);
+    let indexShipment = shipmentData.findIndex(item => item.OrderDetails.orderId === orderId)
+    shipmentData.splice(shipmentData.findIndex((index) => index?.OrderDetails?.orderId == orderId), 1);
     return of(shipmentData[indexShipment])
   }
   getOrderShippingList(){
