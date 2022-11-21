@@ -292,12 +292,12 @@ export let shipmentData = [
             deliveryStatus: "Inprogress",
             orderStatus: "Confirmed",
             country: "India",
-            email: "aryaveer@gmail.com",
+            email: "rameshaveer@gmail.com",
             mobileNo: "9453693219",
         },
         Totalquantity: 124,
         ShipmentDate: "12/12/2022",
-        Shippingto: "ryaveer",
+        Shippingto: "Ramesh kumar",
         ProductDetails: [
             {
                 name: "LAVA AGNI 5G",
@@ -307,7 +307,7 @@ export let shipmentData = [
                 new: false,
                 featured: false,
                 visible_individually: true,
-                Quantity: 548
+                Quantity: 8
             },
             {
                 name: "OPPO A54",
@@ -317,7 +317,7 @@ export let shipmentData = [
                 new: false,
                 featured: false,
                 visible_individually: true,
-                Quantity: 54
+                Quantity: 4
             }
         ],
         Billing_Address: {
@@ -348,7 +348,7 @@ export let shipmentData = [
             productTotal: "$875.32",
             tax: "$48.45",
             totalAmountWith: "$587.41",
-            methodOfPayment: "Cash"
+            methodOfPayment: "UPI"
         }
     },
     {
@@ -370,7 +370,7 @@ export let shipmentData = [
         },
         Totalquantity: 124,
         ShipmentDate: "12/12/2022",
-        Shippingto: "ryaveer",
+        Shippingto: "veer shingh",
         ProductDetails: [
             {
                 name: "LAVA AGNI 5G",
@@ -380,7 +380,7 @@ export let shipmentData = [
                 new: false,
                 featured: false,
                 visible_individually: true,
-                Quantity: 548
+                Quantity: 2
             },
             {
                 name: "OPPO A54",
@@ -390,7 +390,7 @@ export let shipmentData = [
                 new: false,
                 featured: false,
                 visible_individually: true,
-                Quantity: 54
+                Quantity: 1
             }
         ],
         Billing_Address: {
@@ -421,7 +421,7 @@ export let shipmentData = [
             productTotal: "$875.32",
             tax: "$48.45",
             totalAmountWith: "$587.41",
-            methodOfPayment: "Cash"
+            methodOfPayment: "UPI"
         }
     },
     {
@@ -443,7 +443,7 @@ export let shipmentData = [
         },
         Totalquantity: 124,
         ShipmentDate: "12/12/2022",
-        Shippingto: "ryaveer",
+        Shippingto: "Rohan pandey",
         ProductDetails: [
             {
                 name: "LAVA AGNI 5G",
@@ -453,7 +453,7 @@ export let shipmentData = [
                 new: false,
                 featured: false,
                 visible_individually: true,
-                Quantity: 548
+                Quantity: 2
             },
             {
                 name: "OPPO A54",
@@ -463,7 +463,7 @@ export let shipmentData = [
                 new: false,
                 featured: false,
                 visible_individually: true,
-                Quantity: 54
+                Quantity: 3
             }
         ],
         Billing_Address: {
@@ -494,7 +494,7 @@ export let shipmentData = [
             productTotal: "$875.32",
             tax: "$48.45",
             totalAmountWith: "$587.41",
-            methodOfPayment: "Cash"
+            methodOfPayment: "UPI"
         }
     },
     {
@@ -516,7 +516,7 @@ export let shipmentData = [
         },
         Totalquantity: 124,
         ShipmentDate: "12/12/2022",
-        Shippingto: "ryaveer",
+        Shippingto: "Mohan pandey",
         ProductDetails: [
             {
                 name: "LAVA AGNI 5G",
@@ -526,7 +526,7 @@ export let shipmentData = [
                 new: false,
                 featured: false,
                 visible_individually: true,
-                Quantity: 548
+                Quantity: 8
             },
             {
                 name: "OPPO A54",
@@ -536,7 +536,7 @@ export let shipmentData = [
                 new: false,
                 featured: false,
                 visible_individually: true,
-                Quantity: 54
+                Quantity: 4
             }
         ],
         Billing_Address: {
@@ -567,7 +567,7 @@ export let shipmentData = [
             productTotal: "$875.32",
             tax: "$48.45",
             totalAmountWith: "$587.41",
-            methodOfPayment: "Cash"
+            methodOfPayment: "UPI"
         }
     }
 ]
