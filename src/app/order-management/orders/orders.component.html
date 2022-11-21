@@ -12,10 +12,14 @@
                     <ng-template pTemplate="caption">
                         <div class="row">
                             <span class="p-input-icon-right ml-5">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text"placeholder="Search by OrderId or customerId" 
-                (input)="applyFilterGlobal($event, 'contains')"/>
-              </span>
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" placeholder="Search by OrderId or customerId"
+                                    (input)="applyFilterGlobal($event, 'contains')" />
+                            </span>
+                            <span class="p-input-icon-right ml-5">
+                                <button pButton type="button" label="Create New Order" class="p-button-success"
+                                    [routerLink]="['/order/createNewOrder']"></button>
+                            </span>
                         </div>
                     </ng-template>
 
@@ -39,11 +43,8 @@
                             <td>{{order.deliveryStatus}}</td>
                             <td>{{order.deliveryType}}</td>
                             <td>{{order.country}}</td>
-                            <td>
-                                <!-- <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:5px"></button> -->
-                                <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
-                                 pTooltip="Delete Customer" tooltipPosition="bottom"
-                                 (click)="deleteOrder(order?.orderId)"></button>
+                            <td><button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit product" [routerLink]="['/order/editOrder']" [queryParams]="{orderId:order.orderId}" tooltipPosition="bottom" style="margin-right:5px"></button>
+                                <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Customer" tooltipPosition="bottom" (click)="deleteOrder(order?.orderId)"></button>
                             </td>
                         </tr>
                     </ng-template>

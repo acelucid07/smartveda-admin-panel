@@ -1,0 +1,286 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <div class="page-heading">
+        <h1 class="header-text-title" style="margin-left: 1%;">{{title}}</h1>
+    </div>
+    <form [formGroup]="ordersForm">
+        <div class="card col-sm-12">
+            <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="h-100 mt-5">
+                        <div class="card-body">
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-2 text-primary"></h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="name">OrderId</label>
+                                        <input type="text" class="form-control" formControlName="orderId">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="image">CustomerId</label>
+                                        <input type="text" class="form-control" formControlName="customerId">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="hyperlink">OrderDate</label>
+                                        <input type="url" class="form-control" formControlName="orderDate">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">OrderNo</label>
+                                        <input type="text" class="form-control" formControlName="orderNo">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">PaymentStatus</label>
+                                        <input type="text" class="form-control" formControlName="paymentStatus">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">DeliveryType</label>
+                                        <input type="text" class="form-control" formControlName="deliveryType">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">DeliveryStatus</label>
+                                        <input type="text" class="form-control" formControlName="deliveryStatus">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">PaymentType</label>
+                                        <input type="text" class="form-control" formControlName="paymentType">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Total</label>
+                                        <input type="text" class="form-control" formControlName="total">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Country</label>
+                                        <input type="text" class="form-control" formControlName="country">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">OrderStatus</label>
+                                        <input type="text" class="form-control" formControlName="orderStatus">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">Email</label>
+                                        <input type="text" class="form-control" formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="Name">MobileNo</label>
+                                        <input type="text" class="form-control" formControlName="mobileNo">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
+                                    <mat-accordion>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    <div class="page-heading">
+                                                        <h6 class="header-text-title">Shipping_address</h6>
+                                                    </div>
+                                                </mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <div class="row gutters">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="name">shippingPinCode</label>
+                                                        <input type="text" class="form-control" formControlName="shippingPinCode">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingFlatNo</label>
+                                                        <input type="text" class="form-control" formControlName="shippingFlatNo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingHouseNo</label>
+                                                        <input type="text" class="form-control" formControlName="shippingHouseNo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingBuildingName</label>
+                                                        <input type="text" class="form-control" formControlName="shippingBuildingName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingApartmentName</label>
+                                                        <input type="text" class="form-control" formControlName="shippingApartmentName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingArea</label>
+                                                        <input type="text" class="form-control" formControlName="shippingArea">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingStreetName</label>
+                                                        <input type="text" class="form-control" formControlName="shippingStreetName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingVillageName</label>
+                                                        <input type="text" class="form-control" formControlName="shippingVillageName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingLandmark</label>
+                                                        <input type="text" class="form-control" formControlName="shippingLandmark">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingCity</label>
+                                                        <input type="text" class="form-control" formControlName="shippingCity">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingTown</label>
+                                                        <input type="text" class="form-control" formControlName="shippingTown">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">shippingSectorName</label>
+                                                        <input type="text" class="form-control" formControlName="shippingSectorName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                                </div>
+
+
+                                <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
+                                    <mat-accordion>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    <div class="page-heading">
+                                                        <h6 class="header-text-title">Billing_address</h6>
+                                                    </div>
+                                                </mat-panel-title>
+                                            </mat-expansion-panel-header>
+
+                                            <div class="row gutters">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="name">billingPinCode</label>
+                                                        <input type="text" class="form-control" formControlName="billingPinCode">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingFlatNo</label>
+                                                        <input type="text" class="form-control" formControlName="billingFlatNo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingHouseNo</label>
+                                                        <input type="text" class="form-control" formControlName="billingHouseNo">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingBuildingName</label>
+                                                        <input type="text" class="form-control" formControlName="billingBuildingName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingApartmentName</label>
+                                                        <input type="text" class="form-control" formControlName="billingApartmentName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingArea</label>
+                                                        <input type="text" class="form-control" formControlName="billingArea">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingStreetName</label>
+                                                        <input type="text" class="form-control" formControlName="billingStreetName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingSectorName</label>
+                                                        <input type="text" class="form-control" formControlName="billingSectorName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingVillageName</label>
+                                                        <input type="text" class="form-control" formControlName="billingVillageName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingLandmark</label>
+                                                        <input type="text" class="form-control" formControlName="billingLandmark">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingCity</label>
+                                                        <input type="text" class="form-control" formControlName="billingCity">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="image">billingTown</label>
+                                                        <input type="text" class="form-control" formControlName="billingTown">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                                </div>
+                            </div>
+                            <div class="row gutters mt-4">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+                                    <div class="text-right">
+                                        <button pButton type="button" id="submit" name="submit" class="p-button-danger mr-4">Cancel</button>
+                                        <button pButton type="button" id="submit" name="submit" class="p-button-success" (click)="submitForm()">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

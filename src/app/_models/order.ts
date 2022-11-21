@@ -12,20 +12,37 @@ export interface order {
   orderStatus:string,
   email:string,
   mobileNo:string,
-  billingCityName:string,
-  billingBuildingName:string,
-  billingBlockName:string,
-  billingFloorNo:string,
-  billingUnit:string,
-  billingPostalCode:string,
-  billingStreetName:string,
-  shippingPostalCode:string,
-  shippingCityName:string,
-  shippingBuildingName:string,
-  shippingBlockName:string,
-  shippingFloorNo:string,
-  shippingunit:string,
-  shippingStreetName:string
+  Shipping_address: Shipping_Address,
+  Billing_address: Billing_Address
+  
+}
+export interface Shipping_Address{
+  shippingPinCode: string | number,
+  shippingFlatNo: string | number,
+  shippingHouseNo: string | number,
+  shippingBuildingName: string,
+  shippingApartmentName: string,
+  shippingArea: string,
+  shippingStreetName: string,
+  shippingSectorName: string
+  shippingVillageName: string
+  shippingLandmark: string
+  shippingCity: string
+  shippingTown: string
+}
+export interface Billing_Address {
+  billingPinCode: string | number,
+  billingFlatNo: string | number,
+  billingHouseNo: string | number,
+  billingBuildingName: string,
+  billingApartmentName: string,
+  billingArea: string,
+  billingStreetName: string,
+  billingSectorName: string
+  billingVillageName: string
+  billingLandmark: string
+  billingCity: string
+  billingTown: string
 }
 
 export interface cancelOrder {

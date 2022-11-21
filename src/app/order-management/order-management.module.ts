@@ -8,6 +8,8 @@ import { OrderTransactionComponent } from './order-transaction/order-transaction
 import { CancelOrderComponent } from './cancel-order/cancel-order.component';
 import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
 import { DeliveredOrderComponent } from './delivered-order/delivered-order.component';
+import { AddEditOrdersComponent } from './add-edit-orders/add-edit-orders.component';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -16,12 +18,15 @@ import { DeliveredOrderComponent } from './delivered-order/delivered-order.compo
     OrderTransactionComponent,
     CancelOrderComponent,
     ConfirmedOrderComponent,
-    DeliveredOrderComponent
+    DeliveredOrderComponent,
+    AddEditOrdersComponent
   ],
   imports: [
     CommonModule,
     OrderManagementRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class OrderManagementModule { }

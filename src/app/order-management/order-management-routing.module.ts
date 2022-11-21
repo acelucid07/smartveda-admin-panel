@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { OrdersComponent } from './orders/orders.component';
 import { AuthGuardService as AuthGuard } from '../_services/auth-guard.service';
 import { OrderTransactionComponent } from './order-transaction/order-transaction.component';
+import { AddEditOrdersComponent } from './add-edit-orders/add-edit-orders.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,12 @@ const routes: Routes = [
   },
   {
     path: 'order-transaction', component: OrderTransactionComponent
+  },
+  {
+    path: 'editOrder', component: AddEditOrdersComponent
+  },
+  {
+    path: 'createNewOrder', component: AddEditOrdersComponent
   },
 ];
 
