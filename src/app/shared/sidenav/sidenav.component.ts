@@ -71,7 +71,6 @@ export class SidenavComponent implements OnInit {
       this.isShowing = false;
     }
     this.iconColor = this.isShowing ? 'show' : 'hide';
-    console.log(this.items)
   }
 
   toggleSidebar() {

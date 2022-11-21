@@ -39,31 +39,22 @@ export interface orderTransactin{
 export interface Billing_Address {
   billingPinCode: string | number,
   billingFlatNo: string | number,
-  billingHouseNo: string | number,
-  billingBuildingName: string,
-  billingApartmentName: string,
   billingArea: string,
-  billingStreetName: string,
-  billingSectorName: string
-  billingVillageName: string
   billingLandmark: string
   billingCity: string
   billingTown: string
+  billingState: string
 }
 
 export interface Shipping_Address{
   shippingPinCode: string | number,
   shippingFlatNo: string | number,
-  shippingHouseNo: string | number,
-  shippingBuildingName: string,
-  shippingApartmentName: string,
   shippingArea: string,
-  shippingStreetName: string,
-  shippingSectorName: string
-  shippingVillageName: string
   shippingLandmark: string
   shippingCity: string
   shippingTown: string
+  shippingState: string
+  shippingAddressType: string
 }
 
 export interface Shipments {
