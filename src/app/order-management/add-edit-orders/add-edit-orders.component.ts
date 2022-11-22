@@ -77,7 +77,7 @@ export class AddEditOrdersComponent implements OnInit {
       shippingLandmark: ['', [Validators.required]],
       shippingCity: ['', [Validators.required]],
       shippingTown: ['', [Validators.required]],
-    });
+    }); 
   }
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';
