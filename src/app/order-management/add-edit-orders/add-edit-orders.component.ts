@@ -18,7 +18,10 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 })
 export class AddEditOrdersComponent implements OnInit {
   sidebarSpacing: any;
+  Mode: string ='';
   ordersForm: FormGroup;
+  showdialog:boolean =false
+  ProductList:any[]=[];
   Shipping_Address: Shipping_Address;
   Billing_Address: Billing_Address;
   order: order;
@@ -237,4 +240,5 @@ export class AddEditOrdersComponent implements OnInit {
       };
     });
   }
+  
 }

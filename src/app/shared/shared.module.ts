@@ -20,6 +20,9 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {MatRadioModule} from '@angular/material/radio';
+import {DialogModule} from 'primeng/dialog';
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -43,6 +46,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatExpansionModule,
     MatDividerModule,
     MatTabsModule,
+    RadioButtonModule,
+    DialogModule,
+    MatRadioModule,
     ToastrModule.forRoot({
       timeOut: 300,
       positionClass: 'toast-bottom-right',
@@ -66,7 +72,11 @@ import {MatTabsModule} from '@angular/material/tabs';
     CKEditorModule,
     MatExpansionModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    DialogModule,
+    RadioButtonModule,
+    MatRadioModule
+
   ]
 })
 export class SharedModule { 
