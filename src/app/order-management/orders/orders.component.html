@@ -6,16 +6,22 @@
     <mat-tab-group mat-align-tabs="start">
         <mat-tab label="All">
             <div class="card col-sm-12" style="border:none;">
-                <p-table id="customerTable" #dt [value]="orderData" [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+                <p-table id="customerTable" #dt [value]="orderData" [columns]="cols" responsiveLayout="scroll"
+                    [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
                     [globalFilterFields]="['orderId', 'customerId']" styleClass="p-datatable-striped">
 
                     <ng-template pTemplate="caption">
                         <div class="row">
                             <span class="p-input-icon-right ml-5">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text"placeholder="Search by OrderId or customerId" 
-                (input)="applyFilterGlobal($event, 'contains')"/>
-              </span>
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" placeholder="Search by OrderId or customerId"
+                                    (input)="applyFilterGlobal($event, 'contains')" />
+                            </span>
+                            <span class="p-input-icon-right ml-5">
+                                <button pButton type="button" label="Create New Order" class="p-button-success"
+                                    [routerLink]="['/order/createOrder']"></button>
+                            </span>
                         </div>
                     </ng-template>
 
@@ -42,8 +48,8 @@
                             <td>
                                 <!-- <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:5px"></button> -->
                                 <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
-                                 pTooltip="Delete Customer" tooltipPosition="bottom"
-                                 (click)="deleteOrder(order?.orderId)"></button>
+                                    pTooltip="Delete Customer" tooltipPosition="bottom"
+                                    (click)="deleteOrder(order?.orderId)"></button>
                             </td>
                         </tr>
                     </ng-template>

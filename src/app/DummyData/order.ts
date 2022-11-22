@@ -13,6 +13,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Shipping_Address: {
+            shippingPinCode: "248171",
+            shippingFlatNo: "894",
+            shippingArea: "majra",
+            shippingLandmark: "near jama masjid",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
+        Billing_Address: {
+            billingPinCode: "248171",
+            billingFlatNo: "894",
+            billingArea: "majra",
+            billingLandmark: "near jama masjid",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
     },
     {
         orderId: 1433,
@@ -28,6 +47,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1438,
@@ -43,6 +81,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1438,
@@ -58,6 +115,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1438,
@@ -73,6 +149,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1358,
@@ -88,6 +183,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1158,
@@ -103,6 +217,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1258,
@@ -118,6 +251,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1258,
@@ -133,6 +285,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1258,
@@ -148,6 +319,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1258,
@@ -163,6 +353,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1258,
@@ -178,6 +387,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
     {
         orderId: 1258,
@@ -193,6 +421,25 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        Billing_Address: {
+            billingPinCode: "248001",
+            billingFlatNo: "42",
+            billingArea: "dalanwala",
+            billingLandmark: "opposite shagun tower",
+            billingCity: "Dehradun",
+            billingTown: "Dehradun",
+            billingState: "Uttarakhand"
+        },
+        Shipping_Address: {
+            shippingPinCode: "248001",
+            shippingFlatNo: "42",
+            shippingArea: "dalanwala",
+            shippingLandmark: "opposite shagun tower",
+            shippingCity: "Dehradun",
+            shippingTown: "Dehradun",
+            shippingState: "Uttarakhand",
+            shippingAddressType: "Office"
+        },
     },
 ]
 

@@ -10,7 +10,8 @@ import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.compo
 import { DeliveredOrderComponent } from './delivered-order/delivered-order.component';
 import { ShipmentComponent } from './shipment/shipment.component';
 import { ShipmentDetailsComponent } from './shipment-details/shipment-details.component';
-
+import { AddEditOrdersComponent } from './add-edit-orders/add-edit-orders.component';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,15 @@ import { ShipmentDetailsComponent } from './shipment-details/shipment-details.co
     ConfirmedOrderComponent,
     DeliveredOrderComponent,
     ShipmentComponent,
-    ShipmentDetailsComponent
+    ShipmentDetailsComponent,
+    AddEditOrdersComponent
   ],
   imports: [
     CommonModule,
     OrderManagementRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class OrderManagementModule { }

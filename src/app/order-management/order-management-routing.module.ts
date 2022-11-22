@@ -5,6 +5,7 @@ import { AuthGuardService as AuthGuard } from '../_services/auth-guard.service';
 import { OrderTransactionComponent } from './order-transaction/order-transaction.component';
 import { ShipmentComponent } from './shipment/shipment.component';
 import { ShipmentDetailsComponent } from './shipment-details/shipment-details.component';
+import { AddEditOrdersComponent } from './add-edit-orders/add-edit-orders.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'shipment-details', component: ShipmentDetailsComponent
+  },
+  {
+    path: 'createOrder', component: AddEditOrdersComponent
   },
 ];
 
