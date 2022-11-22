@@ -6,6 +6,7 @@ import { RESOURCE_CACHE_PROVIDER } from '@angular/platform-browser-dynamic';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { product_details } from 'src/app/_models/catalog';
 @Component({
   selector: 'app-add-edit-orders',
   templateUrl: './add-edit-orders.component.html',
@@ -26,12 +27,13 @@ export class AddEditOrdersComponent implements OnInit {
   title: string = ' ';
   payload: order;
   expand: boolean = false;
+  products: product_details[]
   constructor(private fb: FormBuilder,
     private ordersService: OrdersService,
     private activateRoute: ActivatedRoute,
     private route: Router,
     private toastr: ToastrMsgService,
-    private ngxLoader: NgxUiLoaderService) {
+    private ngxLoader: NgxUiLoaderService,) {
     this.ordersForm = this.fb.group({
       orderId: ['', [Validators.required]],
       customerId: ['', [Validators.required]],
@@ -62,6 +64,9 @@ export class AddEditOrdersComponent implements OnInit {
       shippingState: ['', [Validators.required]],
       shippingAddressType: ['', [Validators.required]],
     });
+
+    this.products = [
+    ]
   }
 
   ngOnInit(): void {
