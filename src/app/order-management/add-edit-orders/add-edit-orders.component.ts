@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { order, Shipping_Address, Billing_Address, } from 'src/app/_models/order';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from 'src/app/_services/orders.service';
+import{ProductService} from 'src/app/_services/product.service'
 import { RESOURCE_CACHE_PROVIDER } from '@angular/platform-browser-dynamic';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
@@ -18,11 +19,11 @@ export class AddEditOrdersComponent implements OnInit {
   Mode: string = '';
   ordersForm: FormGroup;
   showdialog: boolean = false
-  ProductList: any[] = [];
+  ProductList: product_details[] = [];
   Shipping_Address: Shipping_Address;
   Billing_Address: Billing_Address;
   order: order;
-  orderId: any;
+  orderId: number;
   editMode: boolean = false;
   title: string = ' ';
   payload: order;
@@ -31,6 +32,7 @@ export class AddEditOrdersComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private ordersService: OrdersService,
     private activateRoute: ActivatedRoute,
+    private ProductService:ProductService,
     private route: Router,
     private toastr: ToastrMsgService,
     private ngxLoader: NgxUiLoaderService,) {
@@ -72,7 +74,8 @@ export class AddEditOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';
     this.activateRoute.queryParamMap.subscribe((params) => {
-      this.orderId = params.get('orderId');
+      this.orderId = parseInt(params.get('orderId'));
+      this.getProductList()
       if (this.orderId && this.orderId != undefined) {
         this.editMode = true;
         this.title = 'Edit Order';
@@ -87,7 +90,7 @@ export class AddEditOrdersComponent implements OnInit {
 
   getOrderById() {
     this.ordersService
-      .getOrderDetailsBy(parseInt(this.orderId))
+      .getOrderDetailsBy(this.orderId)
       .subscribe((res) => {
         this.ordersForm.patchValue({
           orderId: res.orderId,
@@ -126,5 +129,16 @@ export class AddEditOrdersComponent implements OnInit {
     } else {
       this.sidebarSpacing = 'expanded';
     }
+  }
+  getProductList() {
+    this.ProductService.getProductList().subscribe((res:any) => {
+      if(res && res!=undefined){
+        res.map(item=>{
+          this.ProductList.push(item.product_Detail)
+        })
+      }
+      console.log(this.ProductList)
+     this.ngxLoader.stop();
+    })
   }
 }
