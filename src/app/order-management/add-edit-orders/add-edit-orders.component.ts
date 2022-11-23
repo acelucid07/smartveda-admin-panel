@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { order, Shipping_Address, Billing_Address, } from 'src/app/_models/order';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from 'src/app/_services/orders.service';
-import{ProductService} from 'src/app/_services/product.service'
+import { ProductService } from 'src/app/_services/product.service'
 import { RESOURCE_CACHE_PROVIDER } from '@angular/platform-browser-dynamic';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
@@ -32,7 +32,7 @@ export class AddEditOrdersComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private ordersService: OrdersService,
     private activateRoute: ActivatedRoute,
-    private ProductService:ProductService,
+    private ProductService: ProductService,
     private route: Router,
     private toastr: ToastrMsgService,
     private ngxLoader: NgxUiLoaderService,) {
@@ -50,6 +50,8 @@ export class AddEditOrdersComponent implements OnInit {
       country: ['', [Validators.required]],
       email: ['', [Validators.required]],
       mobileNo: ['', [Validators.required]],
+      productName: ['', [Validators.required]],
+      quantity: ['', [Validators.required]],
       billingPinCode: ['', [Validators.required]],
       billingFlatNo: ['', [Validators.required]],
       billingArea: ['', [Validators.required]],
@@ -113,13 +115,13 @@ export class AddEditOrdersComponent implements OnInit {
           billingCity: res.Billing_Address.billingCity,
           billingTown: res.Billing_Address.billingTown,
           billingState: res.Billing_Address.billingState,
-          shippingPinCode:res.Shipping_Address.shippingPinCode,
+          shippingPinCode: res.Shipping_Address.shippingPinCode,
           shippingFlatNo: res.Shipping_Address.shippingFlatNo,
           shippingArea: res.Shipping_Address.shippingArea,
           shippingLandmark: res.Shipping_Address.shippingLandmark,
           shippingCity: res.Shipping_Address.shippingCity,
           shippingTown: res.Shipping_Address.shippingTown,
-          shippingState:res.Shipping_Address.shippingState,
+          shippingState: res.Shipping_Address.shippingState,
         });
       });
   }
@@ -131,14 +133,23 @@ export class AddEditOrdersComponent implements OnInit {
     }
   }
   getProductList() {
-    this.ProductService.getProductList().subscribe((res:any) => {
-      if(res && res!=undefined){
-        res.map(item=>{
+    this.ProductService.getProductList().subscribe((res: any) => {
+      if (res && res != undefined) {
+        res.map(item => {
           this.ProductList.push(item.product_Detail)
         })
       }
       console.log(this.ProductList)
-     this.ngxLoader.stop();
+      this.ngxLoader.stop();
     })
+  }
+
+  closedModel() {
+    
+    let productName = this.ordersForm.controls['productName'].value
+    let productDetails = this.ProductList.filter(item => item.name == productName)
+    productDetails[0].Quantity = this.ordersForm.controls['quantity'].value
+    this.products.push(productDetails[0])
+    this.showdialog = false;
   }
 }
