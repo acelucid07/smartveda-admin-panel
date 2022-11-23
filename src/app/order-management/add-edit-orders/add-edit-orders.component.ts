@@ -3,7 +3,6 @@ import { order, Shipping_Address, Billing_Address, } from 'src/app/_models/order
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { ProductService } from 'src/app/_services/product.service'
-import { RESOURCE_CACHE_PROVIDER } from '@angular/platform-browser-dynamic';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -68,9 +67,6 @@ export class AddEditOrdersComponent implements OnInit {
       shippingState: ['', [Validators.required]],
       shippingAddressType: ['', [Validators.required]],
     });
-
-    this.products = [
-    ]
   }
 
   ngOnInit(): void {
@@ -145,11 +141,48 @@ export class AddEditOrdersComponent implements OnInit {
   }
 
   closedModel() {
-    
     let productName = this.ordersForm.controls['productName'].value
     let productDetails = this.ProductList.filter(item => item.name == productName)
     productDetails[0].Quantity = this.ordersForm.controls['quantity'].value
     this.products.push(productDetails[0])
     this.showdialog = false;
+  }
+  submit() {
+    this.Billing_Address = {
+      billingPinCode: this.ordersForm.controls['billingPinCode'].value,
+      billingFlatNo: this.ordersForm.controls['billingFlatNo'].value,
+      billingArea: this.ordersForm.controls['billingArea'].value,
+      billingLandmark: this.ordersForm.controls['billingLandmark'].value,
+      billingCity: this.ordersForm.controls['billingCity'].value,
+      billingTown: this.ordersForm.controls['billingTown'].value,
+      billingState: this.ordersForm.controls['billingState'].value,
+    }
+    this.Shipping_Address = {
+      shippingPinCode: this.ordersForm.controls['billingPinCode'].value,
+      shippingFlatNo: this.ordersForm.controls['billingFlatNo'].value,
+      shippingArea: this.ordersForm.controls['billingArea'].value,
+      shippingLandmark: this.ordersForm.controls['billingLandmark'].value,
+      shippingCity: this.ordersForm.controls['billingCity'].value,
+      shippingTown: this.ordersForm.controls['billingTown'].value,
+      shippingState: this.ordersForm.controls['billingState'].value,
+      shippingAddressType: ""
+    }
+    this.payload = {
+      orderId: this.ordersForm.controls['orderId'].value,
+      customerId: this.ordersForm.controls['customerId'].value,
+      orderDate: this.ordersForm.controls['orderDate'].value,
+      orderNo: this.ordersForm.controls['orderNo'].value,
+      orderStatus: this.ordersForm.controls['orderStatus'].value,
+      paymentStatus: this.ordersForm.controls['paymentStatus'].value,
+      deliveryType: this.ordersForm.controls['deliveryType'].value,
+      deliveryStatus: this.ordersForm.controls['deliveryStatus'].value,
+      paymentType: this.ordersForm.controls['paymentType'].value,
+      total: this.ordersForm.controls['total'].value,
+      country: this.ordersForm.controls['country'].value,
+      email: this.ordersForm.controls['email'].value,
+      mobileNo: this.ordersForm.controls['mobileNo'].value,
+      Billing_Address: this.Billing_Address,
+      Shipping_Address: this.Shipping_Address
+    }
   }
 }
