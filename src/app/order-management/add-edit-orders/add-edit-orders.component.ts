@@ -190,10 +190,13 @@ export class AddEditOrdersComponent implements OnInit {
       Billing_Address: this.Billing_Address,
       Shipping_Address: this.Shipping_Address
     }
+    this.toastr.showSuccess("Order Created successfully", "Order Added")
+    this.route.navigate(['/order'])
     console.log(this.payload)
   }
 
   calCulateTotalAmount() {
+    this.totalAmount = 0.0
     if (this.products.length > 0) {
       this.products.map(item => {
         this.totalAmount = this.totalAmount + parseFloat(item.Quantity) * parseFloat(item.price)
