@@ -144,7 +144,7 @@ export class AddEditOrdersComponent implements OnInit {
     let productName = this.ordersForm.controls['productName'].value;
     let productDetails = this.ProductList.filter(item => item.name == productName);
     productDetails[0].Quantity = this.ordersForm.controls['quantity'].value;
-    this.totalAmount = this.totalAmount + parseInt(productDetails[0].Quantity)*parseInt(productDetails[0].price)
+    this.totalAmount = this.totalAmount + parseFloat(productDetails[0].Quantity)*parseFloat(productDetails[0].price)
     this.ordersForm.controls['total'].setValue(this.totalAmount)
     this.products.push(productDetails[0])
     console.log(this.ordersForm.controls['total'].value)

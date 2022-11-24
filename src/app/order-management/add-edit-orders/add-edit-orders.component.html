@@ -68,9 +68,9 @@
                               <tr>
                                 <th>Product Name</th>
                                 <th>SKU</th>
-                                <th>Categoty Name</th>
+                                <th>Category Name</th>
                                 <th>Quantity</th>
-                                <th>price</th>
+                                <th>Price</th>
                               </tr>
                               <tr *ngFor="let product of products ">
                                 <td>{{product.name}}</td>
@@ -84,6 +84,12 @@
   
                             </tbody>
                           </table>
+                        </div>
+                        <div class="text-left mt-5">
+                          <h5>
+                          <label for="totalCalculatedAmount">Total Calculated Amount: </label>
+                          {{totalAmount}}
+                        </h5>
                         </div>
                       </div>
                      
