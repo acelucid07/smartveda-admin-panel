@@ -7,7 +7,6 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { product_details } from 'src/app/_models/catalog';
-import { DateAdapter } from '@angular/material/core';
 import { CommonService } from 'src/app/_services/common';
 @Component({
   selector: 'app-add-edit-orders',
@@ -190,9 +189,15 @@ export class AddEditOrdersComponent implements OnInit {
       Billing_Address: this.Billing_Address,
       Shipping_Address: this.Shipping_Address
     }
-    this.toastr.showSuccess("Order Created successfully", "Order Added")
-    this.route.navigate(['/order'])
-    console.log(this.payload)
+    this.ordersService.createNewOrder(this.payload).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("Order Created successfully", "Order Added")
+        this.route.navigate(['/order'])
+      } else {
+        this.toastr.showError("Somthing going wron ", "Order Issue")
+        this.route.navigate(['/order'])
+      }
+    })
   }
 
   calCulateTotalAmount() {
