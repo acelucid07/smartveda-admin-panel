@@ -7,6 +7,8 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { product_details } from 'src/app/_models/catalog';
+import { DateAdapter } from '@angular/material/core';
+import { CommonService } from 'src/app/_services/common';
 @Component({
   selector: 'app-add-edit-orders',
   templateUrl: './add-edit-orders.component.html',
@@ -23,15 +25,16 @@ export class AddEditOrdersComponent implements OnInit {
   order: order;
   orderId: number;
   editMode: boolean = false;
-  totalAmount:number=0.0;
+  totalAmount: number = 0.0;
   title: string = ' ';
   payload: order;
   expand: boolean = false;
-  products: product_details[]=[]
+  products: product_details[] = []
   constructor(private fb: FormBuilder,
     private ordersService: OrdersService,
     private activateRoute: ActivatedRoute,
     private ProductService: ProductService,
+    private CommonService: CommonService,
     private route: Router,
     private toastr: ToastrMsgService,
     private ngxLoader: NgxUiLoaderService,) {
@@ -144,10 +147,9 @@ export class AddEditOrdersComponent implements OnInit {
     let productName = this.ordersForm.controls['productName'].value;
     let productDetails = this.ProductList.filter(item => item.name == productName);
     productDetails[0].Quantity = this.ordersForm.controls['quantity'].value;
-    this.totalAmount = this.totalAmount + parseFloat(productDetails[0].Quantity)*parseFloat(productDetails[0].price)
-    this.ordersForm.controls['total'].setValue(this.totalAmount)
     this.products.push(productDetails[0])
-    console.log(this.ordersForm.controls['total'].value)
+    this.calCulateTotalAmount()
+    this.ordersForm.controls['total'].setValue(this.totalAmount)
     this.showdialog = false
   }
   submit() {
@@ -171,22 +173,31 @@ export class AddEditOrdersComponent implements OnInit {
       shippingAddressType: ""
     }
     this.payload = {
-      orderId: this.ordersForm.controls['orderId'].value,
-      customerId: this.ordersForm.controls['customerId'].value,
-      orderDate: this.ordersForm.controls['orderDate'].value,
-      orderNo: this.ordersForm.controls['orderNo'].value,
-      orderStatus: this.ordersForm.controls['orderStatus'].value,
-      paymentStatus: this.ordersForm.controls['paymentStatus'].value,
-      deliveryType: this.ordersForm.controls['deliveryType'].value,
-      deliveryStatus: this.ordersForm.controls['deliveryStatus'].value,
-      paymentType: this.ordersForm.controls['paymentType'].value,
+      orderId: parseInt(this.CommonService.generateRandomeOrderId()),
+      customerId: "1053",
+      orderDate: this.CommonService.getCurrentDate(),
+      orderNo: this.CommonService.generateRandomNo(),
+      orderStatus: "Confirmed",
+      paymentStatus: "Pending",
+      deliveryType: "standard",
+      deliveryStatus: "Inprogress",
+      paymentType: "Cash",
       total: this.ordersForm.controls['total'].value,
-      country: this.ordersForm.controls['country'].value,
+      country: "India",
       email: this.ordersForm.controls['email'].value,
       mobileNo: this.ordersForm.controls['mobileNo'].value,
-      product_details:this.products,
+      product_details: this.products,
       Billing_Address: this.Billing_Address,
       Shipping_Address: this.Shipping_Address
+    }
+    console.log(this.payload)
+  }
+
+  calCulateTotalAmount() {
+    if (this.products.length > 0) {
+      this.products.map(item => {
+        this.totalAmount = this.totalAmount + parseFloat(item.Quantity) * parseFloat(item.price)
+      })
     }
   }
 }

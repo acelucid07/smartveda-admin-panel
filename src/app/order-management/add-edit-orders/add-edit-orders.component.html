@@ -33,7 +33,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                           <div class="form-group">
                             <label for="customerName">Email</label>
-                            <input type="email" class="form-control">
+                            <input type="email"  formControlName="email"class="form-control">
                           </div>
                         </div>
                       </div>
@@ -41,7 +41,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                           <div class="form-group">
                             <label for="customerName">Phone</label>
-                            <input type="text" class="form-control">
+                            <input type="text"  formControlName="mobileNo" class="form-control">
                           </div>
                         </div>
                       </div>
@@ -247,7 +247,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
                   <div class="text-right">
                     <button pButton type="button" id="submit" name="submit" class="p-button-danger mr-4">Cancel</button>
-                    <button pButton type="button" id="submit" name="submit" class="p-button-success">Submit</button>
+                    <button pButton type="button" id="submit" name="submit" class="p-button-success" (click)="submit()">Submit</button>
                   </div>
                 </div>
               </div>
