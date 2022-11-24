@@ -11,8 +11,11 @@ export interface order {
   deliveryStatus:string,
   country:string,
   orderStatus:string,
+  product_details:any,
   email:string,
   mobileNo:string,
+  Shipping_Address:Shipping_Address,
+  Billing_Address:Billing_Address,
 }
 
 export interface cancelOrder {
@@ -59,7 +62,7 @@ export interface Shipping_Address{
 
 export interface Shipments {
   shipmentId: string | number
-  OrderDetails: order,
+  OrderDetails: any,
   Totalquantity: string | number
   ShipmentDate: string,
   Shippingto: string,

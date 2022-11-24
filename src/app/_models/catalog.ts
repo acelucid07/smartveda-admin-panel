@@ -21,7 +21,8 @@ export interface product_details {
   new: boolean,
   featured: boolean,
   visible_individually: boolean,
-  Quantity: number
+  Quantity: string
+  price: string,
 }
 export interface brands {
   brands: string,

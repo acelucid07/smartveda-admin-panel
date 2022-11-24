@@ -14,7 +14,8 @@ export let  products= [
         "new": "false",
         "featured":"false",
         "visible_individually":"true",
-        "Quantity":548
+        "Quantity":548,
+        "price":"100.25",
       },
       "brand":{
         "brands":"OPPO",
@@ -52,7 +53,8 @@ export let  products= [
           "new": "false",
           "featured":"false",
           "visible_individually":"true",
-          "Quantity":54
+          "Quantity":54,
+          "price":"100.25",
         },
         "brand":{
           "brands":"OPPO",
@@ -90,7 +92,8 @@ export let  products= [
           "new": "false",
           "featured":"false",
           "visible_individually":"true",
-          "Quantity":541
+          "Quantity":541,
+          "price":"100.25",
         },
         "brand":{
           "brands":"VIVO",
@@ -128,7 +131,8 @@ export let  products= [
           "new": "false",
           "featured":"false",
           "visible_individually":"true",
-          "Quantity":32
+          "Quantity":32,
+          "price":"100.25",
         },
         "brand":{
           "brands":"VIVO",

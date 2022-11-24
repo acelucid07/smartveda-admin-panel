@@ -1,0 +1,258 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+  <div class="page-heading">
+    <h1 class="header-text-title" style="margin-left: 1%;">{{title}}</h1>
+  </div>
+  <form [formGroup]="ordersForm">
+    <div class="card col-sm-12">
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="h-100">
+            <div class="card-body">
+              <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <h6 class="mb-2 text-primary">Order Details</h6>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <mat-accordion>
+                    <mat-expansion-panel expanded="true">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <div class="page-heading">
+                            <h6 class="header-text-title">Customer details</h6>
+                          </div>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div class="row gutters">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="customerName">Name</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="customerName">Email</label>
+                            <input type="email"  formControlName="email"class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row gutters">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="customerName">Phone</label>
+                            <input type="text"  formControlName="mobileNo" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </div>
+
+                <!-- product listing start from here ----->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <mat-accordion>
+                    <mat-expansion-panel expanded="true">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <div class="page-heading">
+                            <h6 class="header-text-title">Product Details</h6>
+                            <hr class="hr-color">
+                          </div>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div *ngIf=" products.length> 0">
+                        <div class="row gutters">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>Product Name</th>
+                                <th>SKU</th>
+                                <th>Category Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                              </tr>
+                              <tr *ngFor="let product of products ">
+                                <td>{{product.name}}</td>
+                                <td>{{product.sku}}</td>
+                                <td>{{product.category}}</td>
+                                <td>{{product.Quantity}}</td>
+                                <td>{{product.price}}</td>
+                              </tr>
+                            </thead>
+                            <tbody>
+  
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="text-left mt-5">
+                          <h5>
+                          <label for="totalCalculatedAmount">Total Calculated Amount: </label>
+                          {{totalAmount}}
+                        </h5>
+                        </div>
+                      </div>
+                     
+
+                      <p-dialog header="product List" [modal]="true" [(visible)]="showdialog"
+                        [breakpoints]="{'960px': '75vw'}" [style]="{width: '60vw'}" [draggable]="false"
+                        [resizable]="false">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
+                          <div class="row gutters">
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
+                              <div class="form-group">
+                                <label for="name">Products List</label>
+                                <select type="text" formControlName="productName" name=""
+                                  class="form-control border-primary">
+                                  <option value="" >Select Product </option>
+                                  <option value="{{item.name}}" *ngFor ="let item of ProductList">{{item.name}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5">
+                              <div class="form-group">
+                                <label for="customerName">Quantity</label>
+                                <input type="tex" class="form-control" formControlName="quantity">
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <ng-template pTemplate="footer">
+                          <p-button (click)="closedModel()" class="p-button-danger"> Cancel
+                          </p-button>
+                          <p-button (click)="closedModel()" class="p-button-success"> Save
+                          </p-button>
+                        </ng-template>
+                      </p-dialog>
+                      <div class="row gutters mt-4">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+                          <div class="text-right">
+                            <button pButton type="button" id="submit" name="submit" class="p-button-secondary mr-4"
+                              (click)="showdialog =true">Add Product</button>
+                          </div>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <mat-accordion>
+                    <mat-expansion-panel expanded="true">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <div class="page-heading">
+                            <h6 class="header-text-title">Shipping Address</h6>
+                          </div>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div class="row gutters">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="name">PinCode</label>
+                            <input type="text" class="form-control" formControlName="shippingPinCode">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">Flat No./House No./Building/Apartment</label>
+                            <input type="text" class="form-control" formControlName="shippingFlatNo">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">Area/Street/Sector/Village</label>
+                            <input type="text" class="form-control" formControlName="shippingArea">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">Landmark</label>
+                            <input type="text" class="form-control" formControlName="shippingLandmark">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">City/Town</label>
+                            <input type="text" class="form-control" formControlName="shippingCity">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">State</label>
+                            <input type="text" class="form-control" formControlName="shippingState">
+                          </div>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <mat-accordion>
+                    <mat-expansion-panel expanded="true">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <div class="page-heading">
+                            <h6 class="header-text-title">Billing Address</h6>
+                          </div>
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+
+                      <div class="row gutters">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                          <div class="form-group">
+                            <label for="name">PinCode</label>
+                            <input type="text" class="form-control" formControlName="billingPinCode">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">Flat No./House
+                              No./Building/Appartment</label>
+                            <input type="text" class="form-control" formControlName="billingFlatNo">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">Area/Street/Sector/Village</label>
+                            <input type="text" class="form-control" formControlName="billingArea">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">Landmark</label>
+                            <input type="text" class="form-control" formControlName="billingLandmark">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">City/Town</label>
+                            <input type="text" class="form-control" formControlName="billingCity">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                          <div class="form-group">
+                            <label for="image">State</label>
+                            <input type="text" class="form-control" formControlName="billingCity">
+                          </div>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </div>
+              </div>
+              <div class="row gutters mt-4">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+                  <div class="text-right">
+                    <button pButton type="button" id="submit" name="submit" class="p-button-danger mr-4" [routerLink]="['/order']">Cancel</button>
+                    <button pButton type="button" id="submit" name="submit" class="p-button-success" (click)="submit()">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+     </div>

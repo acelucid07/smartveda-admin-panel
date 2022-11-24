@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, map, Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { order, cancelOrder, orderTransactin ,shipmentData} from '../DummyData/order'
+import { order, cancelOrder, orderTransactin, shipmentData } from '../DummyData/order'
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,14 @@ export class OrdersService {
     return of(order[index])
   }
 
+  createNewOrder(orderdata) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    order.push(orderdata)
+    return of(orderdata)
+  }
   updateOrderStatus(orderId: number, data: any) {
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)
@@ -121,13 +129,13 @@ export class OrdersService {
     shipmentData.splice(shipmentData.findIndex((index) => index?.OrderDetails?.orderId == orderId), 1);
     return of(shipmentData[indexShipment])
   }
-  getOrderShippingList(){
+  getOrderShippingList() {
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)
     const endpointUrl = `${environment.JSON_SERVER}/orders`;
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     return of(shipmentData)
-   }
+  }
   getOrderShippingListById(orderId: number) {
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)
