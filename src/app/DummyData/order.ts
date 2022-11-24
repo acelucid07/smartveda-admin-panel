@@ -13,6 +13,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"142.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"129.12"
+            }
+        ],
         Shipping_Address: {
             shippingPinCode: "248171",
             shippingFlatNo: "894",
@@ -47,6 +71,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"500.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"250.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -81,6 +129,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"230.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"450.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -115,6 +187,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"250.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"250.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -149,6 +245,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"250.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"250.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -183,6 +303,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"250.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"250.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -217,6 +361,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"450.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"300.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -251,6 +419,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"50.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"280.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -285,6 +477,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"420.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"250.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -319,6 +535,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"250.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"250.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -353,6 +593,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"250.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"250.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -387,6 +651,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"240.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"290.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",
@@ -421,6 +709,30 @@ export let order = [
         country: "India",
         email: "aryaveer@gmail.com",
         mobileNo: "9453693219",
+        product_details: [
+            {
+                name: "LAVA AGNI 5G",
+                sku: "KSDR3123",
+                status: "true",
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 8,
+                price:"560.12"
+            },
+            {
+                name: "OPPO A54",
+                sku: "KSDR3123",
+                status: true,
+                category: "Electronics",
+                new: false,
+                featured: false,
+                visible_individually: true,
+                Quantity: 4,
+                price:"270.12"
+            }
+        ],
         Billing_Address: {
             billingPinCode: "248001",
             billingFlatNo: "42",

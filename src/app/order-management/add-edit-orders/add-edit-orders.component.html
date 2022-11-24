@@ -61,27 +61,33 @@
                           </div>
                         </mat-panel-title>
                       </mat-expansion-panel-header>
-                      <div class="row gutters">
-                        <table>
-                          <thead>
-                            <tr>
-                              <th>Product Name</th>
-                              <th>SKU</th>
-                              <th>Categoty Name</th>
-                              <th>Quantity</th>
-                            </tr>
-                            <tr *ngFor="let product of products ">
-                              <td>{{product.name}}</td>
-                              <td>{{product.sku}}</td>
-                              <td>{{product.category}}</td>
-                              <td>{{product.Quantity}}</td>
-                            </tr>
-                          </thead>
-                          <tbody>
-
-                          </tbody>
-                        </table>
+                      <div *ngIf=" products.length> 0">
+                        <div class="row gutters">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>Product Name</th>
+                                <th>SKU</th>
+                                <th>Categoty Name</th>
+                                <th>Quantity</th>
+                                <th>price</th>
+                              </tr>
+                              <tr *ngFor="let product of products ">
+                                <td>{{product.name}}</td>
+                                <td>{{product.sku}}</td>
+                                <td>{{product.category}}</td>
+                                <td>{{product.Quantity}}</td>
+                                <td>{{product.price}}</td>
+                              </tr>
+                            </thead>
+                            <tbody>
+  
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
+                     
+
                       <p-dialog header="product List" [modal]="true" [(visible)]="showdialog"
                         [breakpoints]="{'960px': '75vw'}" [style]="{width: '60vw'}" [draggable]="false"
                         [resizable]="false">
@@ -124,6 +130,7 @@
                     </mat-expansion-panel>
                   </mat-accordion>
                 </div>
+
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <mat-accordion>
                     <mat-expansion-panel expanded="true">

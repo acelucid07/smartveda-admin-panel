@@ -181,6 +181,7 @@ export class AddEditProductComponent implements OnInit {
       featured: this.productForm.controls['featured'].value,
       status: this.productForm.controls['status'].value,
       new: false,
+      price:this.productForm.controls['price'].value,
       visible_individually: this.productForm.controls['visible_individually'].value
     }
     this.payload = {

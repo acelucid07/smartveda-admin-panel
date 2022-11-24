@@ -11,6 +11,7 @@ export interface order {
   deliveryStatus:string,
   country:string,
   orderStatus:string,
+  product_details:any,
   email:string,
   mobileNo:string,
   Shipping_Address:Shipping_Address,

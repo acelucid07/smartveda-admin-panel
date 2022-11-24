@@ -15,7 +15,6 @@ import { product_details } from 'src/app/_models/catalog';
 export class AddEditOrdersComponent implements OnInit {
 
   sidebarSpacing: any;
-  Mode: string = '';
   ordersForm: FormGroup;
   showdialog: boolean = false
   ProductList: product_details[] = [];
@@ -24,10 +23,11 @@ export class AddEditOrdersComponent implements OnInit {
   order: order;
   orderId: number;
   editMode: boolean = false;
+  totalAmount:number=0.0;
   title: string = ' ';
   payload: order;
   expand: boolean = false;
-  products: product_details[]
+  products: product_details[]=[]
   constructor(private fb: FormBuilder,
     private ordersService: OrdersService,
     private activateRoute: ActivatedRoute,
@@ -141,11 +141,14 @@ export class AddEditOrdersComponent implements OnInit {
   }
 
   closedModel() {
-    let productName = this.ordersForm.controls['productName'].value
-    let productDetails = this.ProductList.filter(item => item.name == productName)
-    productDetails[0].Quantity = this.ordersForm.controls['quantity'].value
+    let productName = this.ordersForm.controls['productName'].value;
+    let productDetails = this.ProductList.filter(item => item.name == productName);
+    productDetails[0].Quantity = this.ordersForm.controls['quantity'].value;
+    this.totalAmount = this.totalAmount + parseInt(productDetails[0].Quantity)*parseInt(productDetails[0].price)
+    this.ordersForm.controls['total'].setValue(this.totalAmount)
     this.products.push(productDetails[0])
-    this.showdialog = false;
+    console.log(this.ordersForm.controls['total'].value)
+    this.showdialog = false
   }
   submit() {
     this.Billing_Address = {
@@ -181,6 +184,7 @@ export class AddEditOrdersComponent implements OnInit {
       country: this.ordersForm.controls['country'].value,
       email: this.ordersForm.controls['email'].value,
       mobileNo: this.ordersForm.controls['mobileNo'].value,
+      product_details:this.products,
       Billing_Address: this.Billing_Address,
       Shipping_Address: this.Shipping_Address
     }
