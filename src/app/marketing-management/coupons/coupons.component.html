@@ -1,7 +1,7 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
     <div class="page-heading">
-        <h1 class="header-text-title" style="margin-left: 1%;">Coupons List</h1>
+        <h1 class="header-text-title" style="margin-left: 1%;">Promo Code Details</h1>
     </div>
     <mat-tab-group mat-align-tabs="start">
         <mat-tab label="All Coupons">
@@ -19,8 +19,8 @@
                                 (input)="applyFilterGlobal($event, 'contains')" />
                             </span>
                             <span class="p-input-icon-right ml-5">
-                                <button pButton type="button" label="Create New Coupons" class="p-button-success"
-                                    [routerLink]="['/']"></button>
+                                <button pButton type="button" label="Add New" class="p-button-success"
+                                    [routerLink]="['/marketing/addpromo']"></button>
                             </span>
                         </div>
                     </ng-template>
@@ -40,9 +40,9 @@
                             <td>{{coupon.Title}}</td>
                             <td>{{coupon.couponType}}</td>
                             <td>{{coupon.endDate}}</td>
-                            <td>{{coupon.firstTimeUser}}</td>
+                            <td>{{coupon.status}}</td>
                             <td>
-                                <!-- <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:5px"></button> -->
+                                <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Promotion" tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/marketing/editpromo']" [queryParams]="{id:coupon?.id}"></button>
                                 <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
                                     pTooltip="InActive coupon" tooltipPosition="bottom"
                                     (click)="InActivate(coupon?.Code)"></button>

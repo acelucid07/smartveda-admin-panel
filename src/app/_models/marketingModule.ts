@@ -1,4 +1,5 @@
 export interface CouponCode {
+    id: number;
     Country: string,
     Title: string,
     Code: string,

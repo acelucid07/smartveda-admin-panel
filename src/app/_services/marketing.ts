@@ -46,12 +46,12 @@ export class MarketingService {
         CouponData.push(Data)
         return of(Data)
     }
-    getCouponCodeById(CouponCode) {
+    getCouponCodeById(id) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/couponsById`;
         //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
-        let indeofCoupon = CouponData.findIndex(item => item.Code === CouponCode);
+        let indeofCoupon = CouponData.findIndex(item => item.id === id);
         return of(CouponData[indeofCoupon])
     }
     editCouponCode(CouponCode: any, payload) {

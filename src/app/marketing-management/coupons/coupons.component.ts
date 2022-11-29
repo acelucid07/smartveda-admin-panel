@@ -35,7 +35,7 @@ export class CouponsComponent implements OnInit {
       { field: 'Title', show: true, headers: 'Promotion Name' },
       { field: 'couponType', show: true, headers: 'Promo Code Type' },
       { field: 'endDate', show: true, headers: 'End Date' },
-      { field: 'firstTimeUser', show: true, headers: 'first Time User' },
+      { field: 'status', show: true, headers: 'Status' },
     ]
   }
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CouponsComponent } from './coupons/coupons.component';
 import { AuthGuardService as AuthGuard } from '../_services/auth-guard.service';
+import { AddEditCouponComponent } from './add-edit-coupon/add-edit-coupon.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,12 @@ const routes: Routes = [
     component: CouponsComponent,
     canActivate: [AuthGuard]
   },
-
+  {
+    path: 'addpromo', component: AddEditCouponComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'editpromo', component: AddEditCouponComponent, canActivate: [AuthGuard]
+  }
 ];
 
 

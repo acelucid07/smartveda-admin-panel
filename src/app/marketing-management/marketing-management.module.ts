@@ -7,7 +7,6 @@ import { AddEditCouponComponent } from './add-edit-coupon/add-edit-coupon.compon
 import { ActiveCouponComponent } from './active-coupon/active-coupon.component';
 import { InactiveCouponComponent } from './inactive-coupon/inactive-coupon.component';
 
-
 @NgModule({
   declarations: [
     CouponsComponent,
