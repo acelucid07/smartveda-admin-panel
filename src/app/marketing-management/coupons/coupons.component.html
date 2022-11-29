@@ -1,0 +1,64 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <div class="page-heading">
+        <h1 class="header-text-title" style="margin-left: 1%;">Coupons List</h1>
+    </div>
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="All Coupons">
+            <div class="card col-sm-12" style="border:none;">
+                <p-table id="customerTable" #dt [value]="couponData" [columns]="cols" responsiveLayout="scroll"
+                    [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+                    [globalFilterFields]="['Code']" styleClass="p-datatable-striped">
+
+                    <ng-template pTemplate="caption">
+                        <div class="row">
+                            <span class="p-input-icon-right ml-5">
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" placeholder="Search by coupon code" 
+                                (input)="applyFilterGlobal($event, 'contains')" />
+                            </span>
+                            <span class="p-input-icon-right ml-5">
+                                <button pButton type="button" label="Create New Coupons" class="p-button-success"
+                                    [routerLink]="['/']"></button>
+                            </span>
+                        </div>
+                    </ng-template>
+
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th>S.No</th>
+                            <th *ngFor="let col of columns">{{col.headers}}</th>
+                            <th>Options</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-i="rowIndex" let-coupon>
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{coupon.Country}}</td>
+                            <td>{{coupon.Code}}</td>
+                            <td>{{coupon.Title}}</td>
+                            <td>{{coupon.couponType}}</td>
+                            <td>{{coupon.endDate}}</td>
+                            <td>{{coupon.firstTimeUser}}</td>
+                            <td>
+                                <!-- <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:5px"></button> -->
+                                <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
+                                    pTooltip="InActive coupon" tooltipPosition="bottom"
+                                    (click)="InActivate(coupon?.Code)"></button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+            </div>
+        </mat-tab>
+        <mat-tab label="Active">
+            <app-active-coupon></app-active-coupon>
+        </mat-tab>
+        <mat-tab label="InActivate">
+            <app-inactive-coupon></app-inactive-coupon>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>

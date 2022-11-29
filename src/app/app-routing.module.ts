@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'product',
     loadChildren: () => import('./product-management/product-management.module').then(mod => mod.ProductManagementModule)
   },
+  {
+    path: 'marketing',
+    loadChildren: () => import('./marketing-management/marketing-management.module').then(mod => mod.MarketingManagementModule)
+  },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

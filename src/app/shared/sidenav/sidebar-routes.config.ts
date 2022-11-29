@@ -89,7 +89,14 @@ export const SideNaveMenueRoute = [
 
         ]
     },
-
-
-
+    {
+        label: 'Marketing',
+        items: [
+            {
+                label: 'Coupons',
+                icon: 'pi pi-fw pi-shopping-cart',
+                routerLink: ['/marketing']
+            },
+        ]
+    },
 ]
