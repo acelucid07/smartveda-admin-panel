@@ -6,13 +6,15 @@ import {SharedModule} from '../shared/shared.module';
 import { AddEditCouponComponent } from './add-edit-coupon/add-edit-coupon.component';
 import { ActiveCouponComponent } from './active-coupon/active-coupon.component';
 import { InactiveCouponComponent } from './inactive-coupon/inactive-coupon.component';
+import { RewardsComponent } from './rewards/rewards.component';
 
 @NgModule({
   declarations: [
     CouponsComponent,
     AddEditCouponComponent,
     ActiveCouponComponent,
-    InactiveCouponComponent
+    InactiveCouponComponent,
+    RewardsComponent
   ],
   imports: [
     CommonModule,

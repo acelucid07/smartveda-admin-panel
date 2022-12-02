@@ -16,3 +16,7 @@ export interface CouponCode {
     date: string,
     description: string,
 }
+export interface rewards {
+    id:number;
+    
+}
