@@ -26,7 +26,6 @@ constructor() {
     }
    
     convertDate(dateFormat){
-        console.log(moment(dateFormat).format("YYYY-MM-DD"))
       return moment(dateFormat).format("YYYY-MM-DD"); 
     }
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CouponsComponent } from './coupons/coupons.component';
 import { AuthGuardService as AuthGuard } from '../_services/auth-guard.service';
 import { AddEditCouponComponent } from './add-edit-coupon/add-edit-coupon.component';
+import { RewardsComponent } from './rewards/rewards.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'editpromo', component: AddEditCouponComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'redemption', component: RewardsComponent, canActivate: [AuthGuard]
   }
 ];
 

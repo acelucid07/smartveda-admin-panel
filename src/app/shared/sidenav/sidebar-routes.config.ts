@@ -98,7 +98,14 @@ export const SideNaveMenueRoute = [
                 routerLink: ['/marketing']
             },
             {
-                
+                label: 'Rewards',
+                items: [
+                    {
+                        label: 'Redemption',
+                        icon: 'pi pi-fw pi-money-bill',
+                        routerLink: ['/marketing/redemption']
+                    }
+                ]
             }
             ]
     },

@@ -43,8 +43,7 @@
           <div class="form-group">
             <select class="form-control" formControlName="CustomerId">
               <option value="" selected disabled>Select Customer</option>
-              <option value="1">...</option>
-              <option value="2">....</option>
+              <option value="{{emails.email}}" *ngFor="let emails of customer">{{emails.email}}</option>
             </select>
           </div>
         </div>

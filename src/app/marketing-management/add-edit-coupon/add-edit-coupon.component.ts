@@ -7,6 +7,7 @@ import { MarketingService } from 'src/app/_services/marketing';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { CommonService } from 'src/app/_services/common';
 import { UsersService } from 'src/app/_services/users.service';
+import { UserGetRequestParams } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-add-edit-coupon',
@@ -67,7 +68,6 @@ export class AddEditCouponComponent implements OnInit {
         this.title = 'Add New Promotion';
       }
     })
-
     this.getCustomer()
   }
 
@@ -100,7 +100,7 @@ export class AddEditCouponComponent implements OnInit {
           Title: res.Title,
           Code: res.Code,
           couponType: res.couponType,
-          CustomerId: res.CustomerId,
+          CustomerId: this.customer,
           startDate: this.CommonService.convertDate(res.startDate),
           endDate: this.CommonService.convertDate(res.endDate),
           quotaPerUser: res.quotaPerUser,
@@ -159,10 +159,10 @@ export class AddEditCouponComponent implements OnInit {
       }
     })
   }
-  getCustomer(){
-    this.userService.getUsers().subscribe(res => {
-      this.customer = res;
-      console.log(this.customer)
+  getCustomer() {
+    this.userService.getUsers().subscribe((res: any) => {
+      this.customer = res.data
     })
   }
+
 }
