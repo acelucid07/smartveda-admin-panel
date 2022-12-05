@@ -112,6 +112,7 @@ export class AddEditCouponComponent implements OnInit {
           date: this.CommonService.convertDate(res.date),
           description: res.description,
         });
+        console.log(this.promotionForm.value)
       });
   }
 
