@@ -7,7 +7,6 @@ import { MarketingService } from 'src/app/_services/marketing';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { CommonService } from 'src/app/_services/common';
 import { UsersService } from 'src/app/_services/users.service';
-import { UserGetRequestParams } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-add-edit-coupon',
