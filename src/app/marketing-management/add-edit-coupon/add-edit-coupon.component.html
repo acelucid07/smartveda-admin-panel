@@ -1,0 +1,149 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+  <div class="page-heading">
+    <h1 class="header-text-title" style="margin-left: 1%;">{{title}}</h1>
+  </div>
+  <form [formGroup]="promotionForm">
+    <div class="card col-sm-12">
+      <div class="row gutters">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
+          <div class="form-group">
+            <label for="country" id="label">Country</label>
+            <input type="text" class="form-control" placeholder="Select Country" formControlName="Country">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
+          <div class="form-group">
+            <label for="title" id="label">Title</label>
+            <input type="text" class="form-control" placeholder="Enter promo title" formControlName="Title">
+          </div>
+        </div>
+      </div>
+
+      <div class="row gutters">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
+          <div class="form-group">
+            <label for="code" id="label">Code</label>
+            <input type="text" class="form-control" placeholder="Enter Code" formControlName="Code">
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 mt-4">
+          <label for="type" id="label">Type</label>
+          <div class="form-group">
+            <select class="form-control" formControlName="couponType">
+              <option value="" selected disabled>Select Promo Type</option>
+              <!-- <option *ngFor="let coupon of promoList" value="coupon">{{coupon.couponType}}</option> -->
+              <option value="fixed">Fixed</option>
+              <option value="percentage">Percentage</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 mt-4">
+          <label for="type" id="label">Select Customer</label>
+          <div class="form-group">
+            <select class="form-control" formControlName="CustomerId">
+              <option value="" selected disabled>Select Customer</option>
+              <option value="{{emails.email}}" *ngFor="let emails of customer">{{emails.email}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row gutters">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
+          <div class="form-group">
+            <label for="startDate" id="label">Start Date</label>
+            <input type="date" class="form-control" placeholder="Select Start Date" formControlName="startDate"
+            id="startDate" name="startDate">
+            <!-- <p-calendar [(ngModel)]="payload.startDate"></p-calendar> -->
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
+          <div class="form-group">
+            <label for="endDate" id="label">End Date</label>
+            <input type="date" class="form-control" placeholder="Select End Date" formControlName="endDate" name="endDate">
+          </div>
+        </div>
+      </div>
+
+      <div class="row gutters">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
+          <div class="form-group">
+            <label for="quota" id="label">Quota per user</label>
+            <input type="number" class="form-control" placeholder="0" formControlName="quotaPerUser">
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12 mt-4 form-group">
+          <div class="form-group">
+            <label for="firstTimeUser">First Time User</label>
+            <div class="form-check form-check-inline form-control">
+              <input type="radio" class="form-check-input ml-3" name="firstTimeUser" [value]="true"
+                formControlName="firstTimeUser">
+              <label class="form-check-label" for="yes">Yes</label>
+              <input type="radio" class="form-check-input ml-5" name="firstTimeUser" [value]="false"
+                formControlName="firstTimeUser">
+              <label class="form-check-label" for="no">No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row gutters">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
+          <div class="form-group">
+            <label for="maxAMount" id="label">Maximum Discount Amount</label>
+            <input type="text" class="form-control" placeholder="Maximum discount" formControlName="maxDiscountAmount">
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 mt-4">
+          <label for="minAmount" id="label">Minimum Bill Amount</label>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Minimum Bill Amount" formControlName="miniBillAmount">
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 mt-4">
+          <label for="discount" id="label">Discount</label>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Discount" formControlName="discount">
+          </div>
+        </div>
+      </div>
+
+      <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 mt-4">
+          <label for="date" id="label">Date</label>
+          <div class="form-group">
+            <input type="date" class="form-control" formControlName="date">
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 mt-4">
+          <div class="form-group">
+            <label for="status">Status</label>
+            <div class="form-check form-check-inline form-control">
+              <div>
+                <input type="radio" class="form-check-input ml-3" name="status" [value]="true" formControlName="status">
+                <label class="form-check-label" for="active">Active</label>
+              </div>
+              <div>
+                <input type="radio" class="form-check-input ml-5" name="status" [value]="false" formControlName="status">
+                <label class="form-check-label" for="InActive">InActive</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-4">
+          <div class="form-group">
+            <label for="description" id="label">Description</label>
+            <input type="text" class="form-control" placeholder="Description" formControlName="description">
+          </div>
+        </div>
+      </div>
+
+      <div class="text-right mt-4">
+        <button class="btn btn-danger mb-4 mr-2" type="submit" [routerLink]="['/marketing']">Back</button>
+        <button class="btn btn-success mb-4" type="submit" (click)="submitPromo()">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 
 @Injectable({ providedIn: 'root' })
 export class CommonService {
@@ -24,4 +25,7 @@ constructor() {
         return `${TodayDate}`
     }
    
+    convertDate(dateFormat){
+      return moment(dateFormat).format("YYYY-MM-DD"); 
+    }
 }

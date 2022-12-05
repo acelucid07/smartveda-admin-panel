@@ -21,6 +21,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
 import {DialogModule} from 'primeng/dialog';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -50,7 +52,10 @@ import {DialogModule} from 'primeng/dialog';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    AccordionModule
+    AccordionModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CalendarModule
   ],
   exports: [
     HeaderComponent,
@@ -69,7 +74,10 @@ import {DialogModule} from 'primeng/dialog';
     MatExpansionModule,
     MatDividerModule,
     MatTabsModule,
-    DialogModule
+    DialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CalendarModule
   ]
 })
 export class SharedModule { 

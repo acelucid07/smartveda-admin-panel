@@ -89,7 +89,27 @@ export const SideNaveMenueRoute = [
 
         ]
     },
+    {
+        label: 'Marketing',
+        items: [
+            {
+                label: 'Coupons',
+                icon: 'pi pi-fw pi-shopping-cart',
+                routerLink: ['/marketing']
+            },
+            {
+                label: 'Rewards',
+                items: [
+                    {
+                        label: 'Redemption',
+                        icon: 'pi pi-fw pi-money-bill',
+                        routerLink: ['/marketing/redemption']
+                    }
+                ]
+            }
+            ]
+    },
+    {
 
-
-
+    }
 ]
