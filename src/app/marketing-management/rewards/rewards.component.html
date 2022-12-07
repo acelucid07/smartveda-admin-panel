@@ -1,5 +1,44 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
-    <h1 class="header-text-title" style="margin-left: 1%;">Rewards Coming Soon</h1>
+    <h1 class="header-text-title" style="margin-left: 1%;">Reward Redemption</h1>
   </div>
+  <div class="card col-sm-12" style="border: none;">
+    <p-table id="rewardsTable" #dt [value]="rewardsRedemptionData" [columns]="cols" responsiveLayout="scroll"
+    [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+    [globalFilterFields]="['couponCodeName']" styleClass="p-datatable-striped">
+
+    <ng-template pTemplate="caption">
+      <div class="row">
+          <span class="p-input-icon-right ml-5">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" placeholder="Search by coupon name" 
+              (input)="applyFilterGlobal($event, 'contains')" />
+          </span>
+          <!-- <span class="p-input-icon-right ml-5">
+              <button pButton type="button" label="Add New" class="p-button-success"
+                  [routerLink]="['/marketing/addpromo']"></button>
+          </span> -->
+      </div>
+  </ng-template>
+  <ng-template class="text-center" pTemplate="header" let-columns>
+    <tr>
+        <th>S.No</th>
+        <th *ngFor="let col of columns">{{col.headers}}</th>
+    </tr>
+</ng-template>
+  <ng-template pTemplate="body" let-i="rowIndex" let-rewards>
+    <tr>
+      <td>{{i+1}}</td>
+      <td>{{rewards.couponCodeId}}</td>
+      <td>{{rewards.couponCodeName}}</td>
+      <td>{{rewards.customerEmail}}</td>
+      <td>{{rewards.appliedOn}}</td>
+      <td>{{rewards.completedOn}}</td>
+      <td>{{rewards.status}}</td>
+    </tr>
+  </ng-template>
+  </p-table>
+  </div>
+</div>
