@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of, Observable, from } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { CouponData } from '../DummyData/marketing';
+import { CouponData, rewardsRedemptionData } from '../DummyData/marketing';
 
 
 @Injectable({
@@ -64,4 +64,11 @@ export class MarketingService {
         return of(payload)
     }
 
+    getRewardRedemptionList(){
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/coupons`;
+        //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+        return of(rewardsRedemptionData)
+    }
 }
