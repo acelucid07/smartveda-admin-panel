@@ -108,8 +108,5 @@ export const SideNaveMenueRoute = [
                 ]
             }
             ]
-    },
-    {
-
     }
 ]

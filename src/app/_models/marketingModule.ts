@@ -16,7 +16,12 @@ export interface CouponCode {
     date: string,
     description: string,
 }
-export interface rewards {
+export default interface rewards {
     id:number;
-    
+    couponCodeId: number;
+    couponCodeName: string;
+    customerEmail: string;
+    appliedOn: string
+    completedOn: string;
+    status:string;
 }
