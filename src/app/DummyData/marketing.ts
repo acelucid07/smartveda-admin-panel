@@ -98,7 +98,7 @@ export let rewardsRedemptionData = [
     customerEmail: "testuser@test.com",
     appliedOn: "2022-10-21",
     completedOn: "2022-11-22",
-    status: true,
+    status: "Cancelled",
 },
 {
     id:1255,
@@ -107,7 +107,7 @@ export let rewardsRedemptionData = [
     customerEmail: "testuser1@test.com",
     appliedOn: "2022-10-21",
     completedOn: "2022-10-22",
-    status: true,
+    status: "Completed",
 },
 {
     id:1256,
@@ -116,7 +116,7 @@ export let rewardsRedemptionData = [
     customerEmail: "testuser121@test.com",
     appliedOn: "2022-10-21",
     completedOn: "2022-11-22",
-    status: false,
+    status: "Pending",
 },
 {
     id:1257,
@@ -125,7 +125,7 @@ export let rewardsRedemptionData = [
     customerEmail: "testuser12431@test.com",
     appliedOn: "2022-10-21",
     completedOn: "2022-11-22",
-    status: true,
+    status: "Completed",
 },
 {
     id:1258,
@@ -134,7 +134,7 @@ export let rewardsRedemptionData = [
     customerEmail: "testuser12341@test.com",
     appliedOn: "2022-10-21",
     completedOn: "2022-11-22",
-    status: false,
+    status: "Cancelled",
 },
 {
     id:1259,
@@ -143,6 +143,6 @@ export let rewardsRedemptionData = [
     customerEmail: "testuser143@test.com",
     appliedOn: "2022-10-21",
     completedOn: "2022-11-22",
-    status: true,
+    status: "Pending",
 },
 ]

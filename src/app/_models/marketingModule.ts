@@ -23,5 +23,5 @@ export default interface rewards {
     customerEmail: string;
     appliedOn: string
     completedOn: string;
-    status:boolean;
+    status:string;
 }
