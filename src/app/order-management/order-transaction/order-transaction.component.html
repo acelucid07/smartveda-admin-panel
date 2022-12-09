@@ -37,10 +37,12 @@
                     <td>{{order.totalAmountWith}}</td>
                     <td>{{order.methodOfPayment}}</td>
                     <td>
+                        <div class="btn-grp">
                         <!-- <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:5px"></button> -->
                         <button class="p-button-danger" pButton type="button" icon="pi pi-trash" 
                         pTooltip="Delete Customer" tooltipPosition="bottom"
                         (click)="deteOrderTransactionBy(order?.orderId)"></button>
+                        </div>
                     </td>
                 </tr>
             </ng-template>
