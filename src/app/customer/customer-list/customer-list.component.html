@@ -14,7 +14,7 @@
           <input pInputText type="text" placeholder="Search keyword" />
         </span>
       </div>
-      <div class="flex" style="margin-left:82%">
+      <div class="btn-grp flex" style="margin-left:82%">
         <button type="button" pButton pRipple icon="pi pi-file" (click)="downloadResource()" class="mr-2" pTooltip="CSV"
           tooltipPosition="bottom"></button>
         <button type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success mr-2" pTooltip="XLSX"
@@ -37,7 +37,9 @@
       <tr>
         <td>{{i+1}}</td>
         <td *ngFor="let col of columns" [ngClass]="{'d-none': !col.show}">{{customerData[col.field]}}</td>
-        <td><button class="p-button-primary" pButton type="button" icon="pi pi-eye" pTooltip="view customer"
+        <td>
+          <div class="btn-grp">
+          <button class="p-button-primary" pButton type="button" icon="pi pi-eye" pTooltip="view customer"
             tooltipPosition="bottom" [routerLink]="['/customer/viewcustomer']" [queryParams]="{ id:customerData?._id }"
             style="margin-right:5px">
           </button>
@@ -46,6 +48,7 @@
             [queryParams]="{id:customerData?._id}"></button>
           <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Customer"
             tooltipPosition="bottom" (click)="onDeleteCustomer(customerData)"></button>
+          </div>
         </td>
       </tr>
     </ng-template>

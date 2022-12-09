@@ -35,6 +35,7 @@
                     <td>{{subCategoryList.parent_category?.id}}</td>
                     <td>{{subCategoryList.parent_category?.name}}</td>
                     <td>
+                        <div class="btn-grp">
                         <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye"
                             style="margin-right:5px">
                         </button> -->
@@ -46,6 +47,7 @@
                          pTooltip="Delete Sub-category"
                          tooltipPosition="bottom" style="margin-right:5px"
                          (click)="deleteSubCategory(subCategoryList)"></button>
+                        </div>
                     </td>
                 </tr>
             </ng-template>

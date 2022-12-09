@@ -39,12 +39,14 @@
                     <td>{{productList?.product_Detail?.Quantity}}</td>
                     <td>{{productList?.product_Detail?.status}}</td>
                     <td>
+                        <div class="btn-grp">
                         <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
                             pTooltip="Edit product" tooltipPosition="bottom" style="margin-right:5px"
                             [routerLink]="['/product/editProduct']" [queryParams]="{id:productList?.id}"></button>
                         <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
                             pTooltip="Delete product" tooltipPosition="bottom" style="margin-right:5px"
                             (click)="deleteProduct(productList)"></button>
+                        </div>
                     </td>
                 </tr>
             </ng-template>

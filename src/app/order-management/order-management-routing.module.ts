@@ -25,6 +25,9 @@ const routes: Routes = [
   {
     path: 'createOrder', component: AddEditOrdersComponent
   },
+  {
+    path: 'editOrder', component: AddEditOrdersComponent
+  }
 ];
 
 
