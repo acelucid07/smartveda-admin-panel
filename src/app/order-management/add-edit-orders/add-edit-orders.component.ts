@@ -75,7 +75,6 @@ export class AddEditOrdersComponent implements OnInit {
     this.sidebarSpacing = 'contracted';
     this.activateRoute.queryParamMap.subscribe((params) => {
       this.orderId = parseInt(params.get('orderId'));
-      this.getProductList()
       if (this.orderId && this.orderId != undefined) {
         this.editMode = true;
         this.title = 'Edit Order';
@@ -86,6 +85,7 @@ export class AddEditOrdersComponent implements OnInit {
         this.title = 'Add New order';
       }
     });
+    this.getProductList()
   }
 
   getOrderById() {
@@ -189,7 +189,17 @@ export class AddEditOrdersComponent implements OnInit {
       Billing_Address: this.Billing_Address,
       Shipping_Address: this.Shipping_Address
     }
-    this.ordersService.createNewOrder(this.payload).subscribe(res => {
+    this.ngxLoader.start();
+    if (this.editMode) {
+      this.editOrder(this.payload)
+      console.log(this.payload)
+    } else {
+      this.addNewOrder(this.payload)
+      console.log(this.payload)
+    }
+  }
+  addNewOrder(data: order){
+    this.ordersService.createNewOrder(data).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Order Created successfully", "Order Added")
         this.route.navigate(['/order'])
@@ -207,5 +217,19 @@ export class AddEditOrdersComponent implements OnInit {
         this.totalAmount = this.totalAmount + parseFloat(item.Quantity) * parseFloat(item.price)
       })
     }
+  }
+  editOrder(editData: order){
+    this.ordersService.editOrder(editData, this.orderId).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("Order edit successfully", "Order edit")
+        this.ngxLoader.stop()
+        this.route.navigate(['/order'])
+      }
+      (error: any) => {
+        this.toastr.showError("Somthing wrong Please check", "Error occured")
+        this.ngxLoader.stop()
+        this.route.navigate(['/order'])
+      }
+    })
   }
 }

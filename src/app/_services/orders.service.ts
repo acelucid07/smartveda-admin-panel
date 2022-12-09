@@ -35,6 +35,14 @@ export class OrdersService {
     order.push(orderdata)
     return of(orderdata)
   }
+  editOrder(orderData: any, orderId:number){
+    const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/editOrder/${orderId}`;
+        let orderObj = order.findIndex((obj) => { obj.orderId == orderId});
+        order[orderObj] = orderData; 
+        return of (orderData);
+  }
   updateOrderStatus(orderId: number, data: any) {
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)
