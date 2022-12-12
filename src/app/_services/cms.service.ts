@@ -45,7 +45,7 @@ export class CmsService {
         // return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
         let categoryObj = category.findIndex((obj) => obj.id == id);
         category[categoryObj] = categoryData
-        return of(categoryObj)
+        return of(categoryData)
     }
 
     deleteCategory(id: number) {

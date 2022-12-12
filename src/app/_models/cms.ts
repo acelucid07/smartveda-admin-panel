@@ -1,7 +1,7 @@
 export interface CATEGORY {
     id: number,
     name: string,
-    image: string,
+    image: File|any,
     hyperlink: string,
     position: string,
 }

@@ -75,12 +75,13 @@ export class AddEditOrdersComponent implements OnInit {
     this.sidebarSpacing = 'contracted';
     this.activateRoute.queryParamMap.subscribe((params) => {
       this.orderId = parseInt(params.get('id'));
-      this.getProductList()
       if (this.orderId && this.orderId != undefined) {
         this.editMode = true;
         this.title = 'Edit Order';
+        this.getProductList()
         this.getOrderById()
       } else {
+        this.getProductList()
         this.editMode = false;
         this.expand = true;
         this.title = 'Add New order';
@@ -134,7 +135,7 @@ export class AddEditOrdersComponent implements OnInit {
     this.ProductService.getProductList().subscribe((res: any) => {
       if (res && res != undefined) {
         res.map(item => {
-          this.products.push(item.product_Detail)
+          this.ProductList.push(item.product_Detail)
         })
       }
       console.log(this.ProductList)
