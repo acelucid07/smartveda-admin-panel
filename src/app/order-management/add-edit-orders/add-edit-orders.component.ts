@@ -74,7 +74,7 @@ export class AddEditOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';
     this.activateRoute.queryParamMap.subscribe((params) => {
-      this.orderId = parseInt(params.get('orderId'));
+      this.orderId = parseInt(params.get('id'));
       this.getProductList()
       if (this.orderId && this.orderId != undefined) {
         this.editMode = true;
@@ -134,7 +134,7 @@ export class AddEditOrdersComponent implements OnInit {
     this.ProductService.getProductList().subscribe((res: any) => {
       if (res && res != undefined) {
         res.map(item => {
-          this.ProductList.push(item.product_Detail)
+          this.products.push(item.product_Detail)
         })
       }
       console.log(this.ProductList)
