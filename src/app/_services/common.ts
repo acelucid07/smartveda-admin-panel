@@ -3,29 +3,39 @@ import * as moment from 'moment';
 
 @Injectable({ providedIn: 'root' })
 export class CommonService {
-constructor() {
-}
-    generateRandomNo(){
+    constructor() {
+    }
+    generateRandomNo() {
         var date = new Date()
         var StringValueOfDate = date.valueOf()
         // StringValueOfDate = StringValueOfDate.substring(0, 15)
         // StringValueOfDate = StringValueOfDate.replace(/-/g, '')
         return `ASNO/${StringValueOfDate}`
     }
-    generateRandomeOrderId(){
+    generateRandomeOrderId() {
         var date = new Date()
         var StringValueOfDate = date.valueOf()
         // StringValueOfDate = StringValueOfDate.substring(0, 10)
         // StringValueOfDate = StringValueOfDate.replace(/-/g, '')
-        return `${StringValueOfDate}`  
+        return `${StringValueOfDate}`
     }
 
-    getCurrentDate(){
+    getCurrentDate() {
         let TodayDate = new Date().toLocaleDateString()
         return `${TodayDate}`
     }
-   
-    convertDate(dateFormat){
-      return moment(dateFormat).format("YYYY-MM-DD"); 
+
+    convertDate(dateFormat) {
+        return moment(dateFormat).format("YYYY-MM-DD");
     }
+
+    fileReadAndDetails(event:any) {
+        let file = event.target;
+        let fileReader = new FileReader();
+        fileReader.readAsText(file);
+        fileReader.onload = function () {
+            alert(fileReader.result);
+        }
+    }
+
 }

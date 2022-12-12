@@ -74,12 +74,14 @@ export class AddEditOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';
     this.activateRoute.queryParamMap.subscribe((params) => {
-      this.orderId = parseInt(params.get('orderId'));
+      this.orderId = parseInt(params.get('id'));
       if (this.orderId && this.orderId != undefined) {
         this.editMode = true;
         this.title = 'Edit Order';
+        this.getProductList()
         this.getOrderById()
       } else {
+        this.getProductList()
         this.editMode = false;
         this.expand = true;
         this.title = 'Add New order';

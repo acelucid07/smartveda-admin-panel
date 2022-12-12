@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
+import { category } from 'src/app/_models/catalog';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
@@ -12,7 +13,7 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 export class CategoryListComponent implements OnInit {
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
-  categoryList: []= []
+  categoryList:category []= []
   fgsType: any;
   constructor(
     private ngxLoader: NgxUiLoaderService,
@@ -24,9 +25,10 @@ export class CategoryListComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'id', show: true, headers: 'Id' },
-      { field: 'categoryName', show: true, headers: 'Name' },
-      { field: 'name', show: true, headers: 'parent Category Name' },
+      { field: '_id', show: true, headers: 'Id' },
+      { field: 'name', show: true, headers: 'Name' },
+      { field: 'parentCategoryId', show: true, headers: 'parent Category Id' },
+      { field: 'image', show: true, headers: 'Image' },
       { field: 'status', show: true, headers: 'Status' },
     ]
      this.getCategoryList()
@@ -41,8 +43,10 @@ export class CategoryListComponent implements OnInit {
   }
 
   getCategoryList() {
-    this.ProductService.getCategoryList().subscribe((res:any) => {
+    this.ProductService.getCategoryList().subscribe((res:category[]) => {
+      console.log(res)
       this.categoryList = res
+      console.log(this.categoryList)
       this.ngxLoader.stop();
     })
   }

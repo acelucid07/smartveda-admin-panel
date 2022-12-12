@@ -4,7 +4,7 @@ import { of, from, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { products } from '../DummyData/product';
 import { categories } from '../DummyData/product-category';
-import { product } from '../_models/catalog'
+import { category, product } from '../_models/catalog'
 
 @Injectable({
     providedIn: 'root'
@@ -63,9 +63,8 @@ export class ProductService {
     getCategoryList() {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/category`;
-        // return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
-        return of(categories)
+        const endpointUrl = `${environment.BASE_URL}/getallcategory`;
+         return this.http.get<category[]>(endpointUrl, { 'headers': httpOptions });
     }
 
     getCategoryById(id: number) {

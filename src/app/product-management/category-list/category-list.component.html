@@ -31,9 +31,10 @@
             <ng-template pTemplate="body" let-i="rowIndex" let-categoryList>
                 <tr>
                     <td>{{i+1}}</td>
-                    <td>{{categoryList?.id}}</td>
-                    <td>{{categoryList?.categoryName}}</td>
-                    <td>{{categoryList?.parent_category?.name}}</td>
+                    <td>{{categoryList?._id}}</td>
+                    <td>{{categoryList?.name}}</td>
+                    <td>{{categoryList?.parentCategoryId}}</td>
+                    <td><img src={{categoryList.image}} style="width: 50px; height: 50px;"></td>
                     <td>{{categoryList?.status}}</td>
                     <td>
                         <div class="btn-grp">

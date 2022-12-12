@@ -14,9 +14,12 @@ export class AddEditCategoryComponent implements OnInit {
   categoryForm: FormGroup
   fgsType: any;
   sidebarSpacing: any;
+  payload: CATEGORY
   id: any
   title: string = " "
   editMode: boolean = false
+  image: File
+  URL: any = "https://adminpanelbucket.s3.amazonaws.com/pexels-pixabay-14365.jpg";
   constructor(private fb: FormBuilder,
     private activateRoute: ActivatedRoute,
     private ngxLoader: NgxUiLoaderService,
@@ -24,8 +27,8 @@ export class AddEditCategoryComponent implements OnInit {
     private toastr: ToastrMsgService,
     private CmsService: CmsService) {
     this.categoryForm = this.fb.group({
+      id:['',Validators.required],
       name: ['', [Validators.required]],
-      image: ['', [Validators.required]],
       hyperlink: ['', [Validators.required]],
       position: ['', [Validators.required]],
     })
@@ -56,20 +59,26 @@ export class AddEditCategoryComponent implements OnInit {
         position: res.position,
         hyperlink: res.hyperlink
       })
-      console.log(this.categoryForm.value)
       this.ngxLoader.stop();
     })
   }
   submitForm() {
+    this.payload = {
+      id: this.categoryForm.controls['id'].value,
+      name: this.categoryForm.controls['name'].value,
+      image: this.image,
+      hyperlink: this.categoryForm.controls['hyperlink'].value,
+      position: this.categoryForm.controls['position'].value,
+    }
     this.ngxLoader.start();
     if (this.editMode) {
       this.editCategory()
     } else {
       this.addCategory()
     }
-}
+  }
   addCategory() {
-    this.CmsService.addCategory(this.categoryForm.value).subscribe(res => {
+   this.CmsService.addCategory(this.categoryForm.value).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Category added successfully", "Category Added")
         this.ngxLoader.stop()
@@ -84,6 +93,7 @@ export class AddEditCategoryComponent implements OnInit {
   }
 
   editCategory() {
+    console.log(this.payload)
     this.CmsService.editCategory(this.categoryForm.value, this.id).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Category edit successfully", "Category edit")
@@ -102,6 +112,16 @@ export class AddEditCategoryComponent implements OnInit {
       this.sidebarSpacing = 'contracted';
     } else {
       this.sidebarSpacing = 'expanded';
+    }
+  }
+  OnChangesEvent(event) {
+    this.image = event.target.files;
+    console.log(event.target.files)
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (data) => {
+      this.URL = data.target.result;
+      console.log(data.target.result)
     }
   }
 }
