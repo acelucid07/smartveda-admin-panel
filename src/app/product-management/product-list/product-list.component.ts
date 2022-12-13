@@ -22,13 +22,13 @@ export class ProductListComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'id', show: true, headers: 'ProductId' },
+      { field: '_id', show: true, headers: 'ProductId' },
       { field: 'name', show: true, headers: 'ProductName' },
       { field: 'category', show: true, headers: 'Category' },
-      { field: 'manufacturer/brands', show: true, headers: 'Brand' },
+      { field: 'country_origin', show: true, headers: 'Brand' },
       { field: 'price', show: true, headers: 'Price' },
       { field: 'Quantity', show: true, headers: 'Quantity' },
-      { field: 'status', show: true, headers: 'Status' },
+      { field: 'Status', show: true, headers: 'Status' },
     ]
     this.getProductList()
   }
@@ -41,15 +41,15 @@ export class ProductListComponent implements OnInit {
     }
   }
   getProductList() {
-    this.ProductService.getProductList().subscribe((res:any) => {
+    this.ProductService.getProductList().subscribe((res:product[]) => {
       this.productList = res
       console.log(res[0])
       this.ngxLoader.stop();
     })
   }
-  deleteProduct(categoryList: any) {
+  deleteProduct(id) {
     this.ngxLoader.start();
-    this.ProductService.deleteProduct(categoryList.id).subscribe(res => {
+    this.ProductService.deleteProduct(id).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Product deleted successfully", "Product delete")
         this.getProductList()

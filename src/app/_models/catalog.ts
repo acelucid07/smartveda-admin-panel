@@ -2,11 +2,11 @@ export interface product {
   id: number
   Product_Region: product_region,
   product_Detail: product_details,
-  brand: brands,
+  manufacturer: manufacturer,
   description: Description,
   price: prices,
-  images: string,
-  videos: string,
+  images: string |any,
+  videos: string | any,
   seo: SEO
 }
 export interface product_region {
@@ -15,17 +15,17 @@ export interface product_region {
 }
 export interface product_details {
   name: string,
-  sku: string,
-  status: Boolean,
+  SKU: string,
+  Status: Boolean,
   category: string,
-  new: boolean,
-  featured: boolean,
+  is_new: boolean,
+  is_featured: boolean,
   visible_individually: boolean,
   Quantity: string
   price: string,
 }
-export interface brands {
-  brands: string,
+export interface manufacturer {
+  brand: string,
   country_origin: string
 }
 export interface Description {
@@ -47,7 +47,7 @@ export interface SEO {
 export interface category {
   id: number,
   categoryName: string,
-  image: string,
+  image: string |any,
   description: string,
   status: Boolean,
   parent_category: parent_category,

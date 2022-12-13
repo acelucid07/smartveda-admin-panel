@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { category, parent_category, SEO } from 'src/app/_models/catalog';
+import { CommonService } from 'src/app/_services/common';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 
@@ -21,6 +22,8 @@ export class AddEditCategoryComponent implements OnInit {
   payload: category
   parent_category: parent_category
   parentId;
+  image: File;
+  imageUrl;
   seo: SEO
   constructor(
     private fb: FormBuilder,
@@ -28,11 +31,11 @@ export class AddEditCategoryComponent implements OnInit {
     private ngxLoader: NgxUiLoaderService,
     private route: Router,
     private toastr: ToastrMsgService,
+    private commonService: CommonService,
     private ProductService: ProductService
   ) {
     this.productCategoryForm = this.fb.group({
       categoryName: ["", [Validators.required]],
-      image: ["", [Validators.required]],
       parentCategoryName: ['', [Validators.required]],
       description: ['', [Validators.required]],
       metaTitle: ['', [Validators.required]],
@@ -88,14 +91,14 @@ export class AddEditCategoryComponent implements OnInit {
         categoryName: res.categoryName,
         parentCategoryName: res.parent_category.name,
         status: res.status,
-        image: res.image,
         description: res.description,
         images: res.images,
         metaTitle: res.meta_description.meta_title,
         metaDescription: res.meta_description.meta_description,
         metaKeyword: res.meta_description.meta_keyword,
       })
-      this.parentId = res.parent_category.id
+      this.imageUrl = res.image,
+        this.parentId = res.parent_category.id
       this.ngxLoader.stop();
     })
   }
@@ -127,7 +130,7 @@ export class AddEditCategoryComponent implements OnInit {
     this.payload = {
       id: parseInt(this.id),
       categoryName: this.productCategoryForm.controls['categoryName'].value,
-      image: this.productCategoryForm.controls['image'].value,
+      image: this.image,
       description: this.productCategoryForm.controls['description'].value,
       status: this.productCategoryForm.controls['status'].value,
       parent_category: this.parent_category,
@@ -139,6 +142,14 @@ export class AddEditCategoryComponent implements OnInit {
       this.editProductCategory(this.payload)
     } else {
       this.addProductCategory(this.payload)
+    }
+  }
+  OnChange(event) {
+    this.image = event.target.files;
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (data) => {
+        this.imageUrl = data.target.result;
     }
   }
 }

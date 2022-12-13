@@ -15,18 +15,15 @@ export class ProductService {
     getProductList() {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/product`;
-        // return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
-        return of(products)
+        const endpointUrl = `${environment.BASE_URL}/products`;
+        return this.http.get<product[]>(endpointUrl, { 'headers': httpOptions });
     }
-    getProductById(id: number) {
+    getProductById(id: string) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/product/${id}`;
-        let indexObj = products.findIndex((obj) => obj.id == id);
-        let productObj = products[indexObj]
-        //return this.http.get<CATEGORY>(endpointUrl,{ 'headers': httpOptions });
-        return of(productObj)
+        const endpointUrl = `${environment.BASE_URL}/products?id=${id}`;
+        return this.http.get<product>(endpointUrl, { 'headers': httpOptions });
+
     }
     addProduct(productData: any) {
         const token = localStorage.getItem('token') || '';
@@ -38,33 +35,27 @@ export class ProductService {
         return of(productData)
     }
 
-    editProduct(productData: any, id: number) {
+    editProduct(productData, id) {
+        const formData = new FormData()
+        formData.append("Data", JSON.stringify(productData))
+        productData.image = "";
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/product/${id}`;
-        // return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
-        let productObj = products.findIndex((obj) => obj.id == id);
-        products[productObj] = productData
-        return of(productData)
+        const endpointUrl = `${environment.BASE_URL}/products?id=${id}`;
+        return this.http.put(endpointUrl, formData, { 'headers': httpOptions });
     }
 
-    deleteProduct(id: number) {
+    deleteProduct(id) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/product/${id}`;
-        //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
-        let productObj = products.map(item => {
-            item.id == id;
-            return item
-        })
-        products.splice(products.findIndex((index) => index.id == id), 1);
-        return of(productObj)
+        const endpointUrl = `${environment.JSON_SERVER}/products?id=${id}`;
+        return this.http.delete<product>(endpointUrl, { 'headers': httpOptions });
     }
     getCategoryList() {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.BASE_URL}/getallcategory`;
-         return this.http.get<category[]>(endpointUrl, { 'headers': httpOptions });
+        return this.http.get<category[]>(endpointUrl, { 'headers': httpOptions });
     }
 
     getCategoryById(id: number) {

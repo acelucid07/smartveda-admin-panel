@@ -3,20 +3,17 @@ import * as moment from 'moment';
 
 @Injectable({ providedIn: 'root' })
 export class CommonService {
+    URLBase64:any
     constructor() {
     }
     generateRandomNo() {
         var date = new Date()
         var StringValueOfDate = date.valueOf()
-        // StringValueOfDate = StringValueOfDate.substring(0, 15)
-        // StringValueOfDate = StringValueOfDate.replace(/-/g, '')
         return `ASNO/${StringValueOfDate}`
     }
     generateRandomeOrderId() {
         var date = new Date()
         var StringValueOfDate = date.valueOf()
-        // StringValueOfDate = StringValueOfDate.substring(0, 10)
-        // StringValueOfDate = StringValueOfDate.replace(/-/g, '')
         return `${StringValueOfDate}`
     }
 
@@ -29,12 +26,17 @@ export class CommonService {
         return moment(dateFormat).format("YYYY-MM-DD");
     }
 
-    fileReadAndDetails(event:any) {
-        let file = event.target;
-        let fileReader = new FileReader();
-        fileReader.readAsText(file);
-        fileReader.onload = function () {
-            alert(fileReader.result);
+    fileReadAndDetails(event: any) {
+        var image = event.target.files;
+        console.log(event.target.files)
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = (data) => {
+            this.URLBase64 = data.target.result;
+        }
+        return {
+            fileData: image,
+            URLBase64: this.URLBase64
         }
     }
 
