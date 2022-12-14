@@ -54,7 +54,7 @@ export class ProductService {
     getCategoryList() {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL}/getallcategory`;
+        const endpointUrl = `${environment.BASE_URL}/categories`;
         return this.http.get<category[]>(endpointUrl, { 'headers': httpOptions });
     }
 
