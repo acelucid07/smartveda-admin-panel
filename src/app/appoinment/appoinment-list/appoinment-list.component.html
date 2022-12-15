@@ -1,7 +1,7 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
-    <h1 class="header-text-title" style="margin-left: 1%;">Appoinment List</h1>
+    <h1 class="header-text-title" style="margin-left: 1%;">Appointment List</h1>
   </div>
   <div class="card col-sm-12" style="border:none;">
     <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
@@ -15,7 +15,7 @@
             <input pInputText type="text" placeholder="Search keyword" />
           </span>
           <span class="p-input-icon-right ml-5">
-            <button pButton type="button" label="Add new Appoinment" class="p-button-success"
+            <button pButton type="button" label="Add new Appointment" class="p-button-success"
               [routerLink]="['/']"></button>
           </span>
         </div>
@@ -42,7 +42,7 @@
             </button> -->
             <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Appoinment"
               tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/']"
-              [queryParams]="{id:appoinmentList._id}"></button>
+              [queryParams]="{id:appoinmentList._id}" [disabled]="true"></button>
             <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Appoinment"
              tooltipPosition="bottom" style="margin-right:5px"
              (click)="deleteAppoinmentById(appoinmentList._id)"></button>
