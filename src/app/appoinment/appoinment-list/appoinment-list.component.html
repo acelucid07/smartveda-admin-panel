@@ -1,0 +1,56 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+  <div class="page-heading">
+    <h1 class="header-text-title" style="margin-left: 1%;">Appointment List</h1>
+  </div>
+  <div class="card col-sm-12" style="border:none;">
+    <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+      [showCurrentPageReport]="true" [value]="appoinmentList"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+      [globalFilterFields]="['email', 'phone', 'role', 'status']" styleClass="p-datatable-striped">
+      <ng-template pTemplate="caption">
+        <div class="row">
+          <span class="p-input-icon-right ml-5">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" placeholder="Search keyword" />
+          </span>
+          <span class="p-input-icon-right ml-5">
+            <button pButton type="button" label="Add new Appointment" class="p-button-success"
+              [routerLink]="['/']"></button>
+          </span>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">{{col.headers}}</th>
+          <th>Options</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-i="rowIndex" let-appoinmentList>
+        <tr>
+          <td>{{appoinmentList._id}}</td>
+          <td>{{appoinmentList.name}}</td>
+          <td>{{appoinmentList.email}}</td>
+          <td>{{appoinmentList.phone}}</td>
+          <td>{{appoinmentList.appointmentDate}}</td>
+          <td>{{appoinmentList.startTime}}</td>
+          <td>{{appoinmentList.endTime}}</td>
+          <td>
+            <div class="btn-grp" id="btn-grp">
+            <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
+            </button> -->
+            <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Appoinment"
+              tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/']"
+              [queryParams]="{id:appoinmentList._id}" [disabled]="true"></button>
+            <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Appoinment"
+             tooltipPosition="bottom" style="margin-right:5px"
+             (click)="deleteAppoinmentById(appoinmentList._id)"></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+  </div>
+</div>
