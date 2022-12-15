@@ -110,12 +110,12 @@ export const SideNaveMenueRoute = [
             ]
     },
     {
-        label: 'Appoinment',
+        label: 'Appointment',
         items: [
             {
-                label: 'Appoinment',
-                icon: 'pi pi-fw pi-shopping-cart',
-                routerLink: ['/appoinment']
+                label: 'Appointment',
+                icon: 'pi pi-fw pi-calendar',
+                routerLink: ['/appointment']
             },
             
             ]
