@@ -41,11 +41,11 @@ export class AddEditSubcategoryComponent implements OnInit {
       this.id = params.get('id');
       if (this.id && this.id != undefined) {
         this.editMode = true
-        this.title = "Edit Sub_Category"
+        this.title = "Edit Sub-Category"
         this.getSubCategoryById()
       } else {
         this.editMode = false
-        this.title = "Add  Sub_Category"
+        this.title = "Add Sub-Category"
       }
     });
   }
