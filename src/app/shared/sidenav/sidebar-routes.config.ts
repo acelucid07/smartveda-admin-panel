@@ -39,18 +39,18 @@ export const SideNaveMenueRoute = [
                     {
                         icon: 'pi pi-fw pi-shopping-cart',
                         label: 'Category',
-                        routerLink: ['/crm/category']
+                        routerLink: ['/cms/category']
                     },
                     {
                         icon: 'pi pi-fw pi-shopping-cart',
                         label: 'SubCategory',
-                        routerLink: ['/crm/subcategory']
+                        routerLink: ['/cms/subcategory']
 
                     },
                     {
                         icon: 'pi pi-fw pi-user-plus',
                         label: 'Sponsor',
-                        routerLink: ['/crm/sponsor']
+                        routerLink: ['/cms/sponsor']
 
                     }
                 ]
@@ -61,12 +61,12 @@ export const SideNaveMenueRoute = [
                     {
                         label: 'Slider1',
                         icon: 'pi pi-fw pi-user',
-                        routerLink: ['/crm/slider']
+                        routerLink: ['/cms/slider']
                     },
                     {
                         label: 'Slider2',
                         icon: 'pi pi-fw pi-shopping-cart',
-                        routerLink: ['/crm/slider']
+                        routerLink: ['/cms/slider']
                     },
                 ]
             },

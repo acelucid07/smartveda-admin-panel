@@ -25,7 +25,7 @@ const routes: Routes = [
     loadChildren: () => import('./order-management/order-management.module').then(mod => mod.OrderManagementModule)
   },
   {
-    path: 'crm',
+    path: 'cms',
     loadChildren: () => import('./content-management/content-management.module').then(mod => mod.ContentManagementModule)
   },
   {
