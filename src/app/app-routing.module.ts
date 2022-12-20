@@ -25,7 +25,7 @@ const routes: Routes = [
     loadChildren: () => import('./order-management/order-management.module').then(mod => mod.OrderManagementModule)
   },
   {
-    path: 'crm',
+    path: 'cms',
     loadChildren: () => import('./content-management/content-management.module').then(mod => mod.ContentManagementModule)
   },
   {
@@ -37,7 +37,7 @@ const routes: Routes = [
     loadChildren: () => import('./marketing-management/marketing-management.module').then(mod => mod.MarketingManagementModule)
   },
   {
-    path: 'appoinment',
+    path: 'appointment',
     loadChildren: () => import('./appoinment/appoinment.module').then(mod=>mod.AppoinmentModule)
   },
   { path: '', component: AuthenticationComponent },

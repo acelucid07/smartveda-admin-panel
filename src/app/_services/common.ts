@@ -26,6 +26,10 @@ export class CommonService {
         return moment(dateFormat).format("YYYY-MM-DD");
     }
 
+    convertTime(timeFormat){
+        return moment(timeFormat).format("HH:mm")
+    }
+
     fileReadAndDetails(event: any) {
         var image = event.target.files;
         console.log(event.target.files)

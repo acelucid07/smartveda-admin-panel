@@ -37,11 +37,11 @@
                     <td>{{shippingData.Shippingto}}</td>
                     <td>
                         <div class="btn-grp">
-                        <button class="p-button-primary" pButton type="button" icon="pi pi-eye" pTooltip="view"
+                        <button class="p-button-primary" pButton type="button" icon="pi pi-eye" pTooltip="view Shipment"
                             tooltipPosition="bottom" [routerLink]="['/order/shipment-details']"
                             [queryParams]="{orderId:shippingData?.OrderDetails?.orderId}">
                         </button>
-                        <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Customer"
+                        <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Shipment"
                             tooltipPosition="bottom" (click)="deleteOrderShipping(shippingData?.OrderDetails?.orderId)"></button>
                         </div>
                     </td>

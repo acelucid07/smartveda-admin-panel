@@ -17,7 +17,7 @@
           </span>
           <span class="p-input-icon-right ml-5">
             <button pButton type="button" label="Add Sponsor" class="p-button-success"
-              [routerLink]="['/crm/addsponsor']"></button>
+              [routerLink]="['/cms/addsponsor']"></button>
           </span>
         </div>
       </ng-template>
@@ -45,8 +45,8 @@
             <div class="btn-grp">
             <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
             </button> -->
-            <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer"
-              tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/crm/editsponsor']"
+            <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Sponsor"
+              tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/cms/editsponsor']"
               [queryParams]="{id:sponsorList?.id}"></button>
             <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Sponsor"
               (click)="deleteSponsor(sponsorList)"

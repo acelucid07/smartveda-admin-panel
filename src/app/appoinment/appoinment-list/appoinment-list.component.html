@@ -15,8 +15,8 @@
             <input pInputText type="text" placeholder="Search keyword" />
           </span>
           <span class="p-input-icon-right ml-5">
-            <button pButton type="button" label="Add new Appointment" class="p-button-success"
-              [routerLink]="['/']"></button>
+            <button pButton type="button" label="Add New Appoinment" class="p-button-success"
+            [routerLink]="['/appointment/add']"></button>
           </span>
         </div>
       </ng-template>
@@ -41,8 +41,8 @@
             <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
             </button> -->
             <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Appoinment"
-              tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/']"
-              [queryParams]="{id:appoinmentList._id}" [disabled]="true"></button>
+              tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/appointment/edit']"
+              [queryParams]="{id:appoinmentList._id}"></button>
             <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Appoinment"
              tooltipPosition="bottom" style="margin-right:5px"
              (click)="deleteAppoinmentById(appoinmentList._id)"></button>

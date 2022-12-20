@@ -13,15 +13,15 @@
 
                     <ng-template pTemplate="caption">
                         <div class="row">
-                            <span class="p-input-icon-right ml-5">
+                            <div class="p-input-icon-right ml-5">
                                 <i class="pi pi-search"></i>
                                 <input pInputText type="text" placeholder="Search by coupon code" 
                                 (input)="applyFilterGlobal($event, 'contains')" />
-                            </span>
-                            <span class="p-input-icon-right ml-5">
-                                <button pButton type="button" label="Add New" class="p-button-success"
+                            </div>
+                            <div class="p-input-icon-right ml-5">
+                                <button pButton type="button" label="Add New Promo" class="p-button-success"
                                     [routerLink]="['/marketing/addpromo']"></button>
-                            </span>
+                            </div>
                         </div>
                     </ng-template>
 
@@ -45,7 +45,7 @@
                                 <div class="btn-grp">
                                 <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Promotion" tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/marketing/editpromo']" [queryParams]="{id:coupon?.id}"></button>
                                 <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
-                                    pTooltip="InActive coupon" tooltipPosition="bottom"
+                                    pTooltip="In-Active promotion" tooltipPosition="bottom"
                                     (click)="InActivate(coupon?.Code)"></button>
                                 </div>
                             </td>

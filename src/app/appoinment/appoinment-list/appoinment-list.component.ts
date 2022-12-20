@@ -3,7 +3,7 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { AppoinmentService } from 'src/app/_services/appoinment';
-import { APPOINMENT } from '../../_models/appoinment';
+import { APPOINTMENT } from '../../_models/appointment';
 @Component({
   selector: 'app-appoinment-list',
   templateUrl: './appoinment-list.component.html',
@@ -12,7 +12,7 @@ import { APPOINMENT } from '../../_models/appoinment';
 export class AppoinmentListComponent implements OnInit {
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
-  appoinmentList: APPOINMENT[] = []
+  appoinmentList: APPOINTMENT[] = []
   fgsType: any;
   constructor(private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrMsgService,
@@ -44,13 +44,13 @@ export class AppoinmentListComponent implements OnInit {
     }
   }
   getAppoinmentList() {
-    this.AppoinmentService.getAppoinmentList().subscribe(res => {
+    this.AppoinmentService.getAppointmentList().subscribe(res => {
       this.appoinmentList = res
       this.ngxLoader.stop();
     })
   }
   deleteAppoinmentById(id) {
-    this.AppoinmentService.deleteAppoinmentById(id).subscribe(res => {
+    this.AppoinmentService.deleteAppointmentById(id).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("order deleted successfully", "order delete")
         this.getAppoinmentList()
