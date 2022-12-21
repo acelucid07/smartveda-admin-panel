@@ -48,15 +48,7 @@ export class CommonService {
         }
     }
 
-    getCountries(countries:any){
-        return this.http.get('https://trial.mobiscroll.com/content/countries.json').subscribe((resp: any) => {
-        countries = [];
-        for (let i = 0; i < resp.length; ++i) {
-          const country = resp[i];
-          countries.push({ text: country.text, value: country.value });
-        }
-        this.myData = countries;
-        console.log(this.myData);
-      });
+    getCountries(){
+        return this.http.get('https://trial.mobiscroll.com/content/countries.json')
     }
 }

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-import { product, product_region, product_details, manufacturer, Description, prices, SEO, Satatus } from 'src/app/_models/catalog'
+import { product, product_region, product_details, manufacturer, Description, prices, SEO, Satatus, Country_List } from 'src/app/_models/catalog'
 import { CommonService } from 'src/app/_services/common';
 @Component({
   selector: 'app-add-edit-product',
@@ -21,6 +21,7 @@ export class AddEditProductComponent implements OnInit {
   payload
   product_region: product_region
   product_details: product_details
+  countryList:Country_List[]=[];
   manufacturer: manufacturer
   prices: prices
   SEO: SEO
@@ -68,6 +69,7 @@ export class AddEditProductComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
+    this.getCountriesList()
     this.activateRoute.queryParamMap.subscribe(params => {
       this.id = params.get('id');
       if (this.id && this.id != undefined) {
@@ -107,7 +109,7 @@ export class AddEditProductComponent implements OnInit {
   getProductById() {
     this.ProductService.getProductById(this.id).subscribe((res: product) => {
       this.productForm.patchValue({
-        country: this.CommonService.getCountries(res.Product_Region?.country),
+        country: res.Product_Region.country,
         language: res.Product_Region.language,
         name: res.product_Detail.name,
         SKU: res.product_Detail.SKU,
@@ -215,5 +217,10 @@ export class AddEditProductComponent implements OnInit {
       this.Image = data.target.result;
       console.log(data.target.result)
     }
+  }
+  getCountriesList() {
+    this.CommonService.getCountries().subscribe((res:any) => {
+      this.countryList = res
+    })
   }
 }

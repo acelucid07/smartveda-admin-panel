@@ -13,6 +13,11 @@ export interface product_region {
   country: string,
   language: string,
 }
+export interface Country_List {
+  group:string,
+  text:string,
+  value:string
+}
 export interface product_details {
   name: string,
   SKU: string,
