@@ -1,257 +1,262 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
-    <div class="page-heading">
-        <h1 class="header-text-title" style="margin-left: 1%;">{{title}}</h1>
-    </div>
-    <form [formGroup] = "productForm">
-        <div class="card col-sm-12">
-            <div class="row gutters">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #cccfcd;">
-                    <div class="h-100 mt-5">
-                       <div class="card-body">
-                            <!-- Product_Region Start from Here -->
-                            <mat-accordion>
-                                <mat-expansion-panel [expanded]="expand">
-                                    <mat-expansion-panel-header>
-                                      <mat-panel-title>
-                                        <div class="page-heading">
-                                            <h6 class="header-text-title">Product_Region</h6>
-                                        </div>
-                                      </mat-panel-title>
-                                      </mat-expansion-panel-header>
-                                      <div class="row gutters">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="name">Country</label>
-                                                <input type="text" class="form-control" formControlName="country">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="image">language</label>
-                                                <input type="text" class="form-control" formControlName="language">
-                                            </div>
-                                        </div>
-                                    </div>
-                                  </mat-expansion-panel>
-                            </mat-accordion>
-                            <!-- product_Detail Start from Here-->
-                            <mat-accordion>
-                                <mat-expansion-panel [expanded]="expand">
-                                    <mat-expansion-panel-header>
-                                      <mat-panel-title>
-                                        <div class="page-heading">
-                                            <h6 class="header-text-title">Product_Detail</h6>
-                                        </div>
-                                      </mat-panel-title>
-                                      </mat-expansion-panel-header>
-                                      <div class="row gutters">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="name">Name</label>
-                                                <input type="text" class="form-control" formControlName="name">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="image">SKUs </label>
-                                                <input type="text" class="form-control" formControlName="SKU">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Name">Category </label>
-                                                <input type="text" class="form-control" formControlName="category">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Name">Featured </label>
-                                                <input type="text" class="form-control" formControlName="is_featured">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Name">visible_individually</label>
-                                                <input type="text" class="form-control" formControlName="visible_individually">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Name">Quantity</label>
-                                                <input type="text" class="form-control" formControlName="Quantity">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Name">status</label>
-                                                <select class="form-control" formControlName="Status" placeholder="select Status">
-                                                    <option *ngFor="let c of Status" [value]="c.name">{{ c.name }}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="row gutters">
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="Name">Image</label>
-                                                        <input type="file" class="form-control" (change)="OnChangesEvent($event)">
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <img [src]="Image" alt="product image" style="width:250px;height: 180px; border-radius: 5px;">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                  </mat-expansion-panel>
-                            </mat-accordion>
-                            <!-- Brand Start from Here-->
-                            <mat-accordion>
-                                <mat-expansion-panel [expanded]="expand">
-                                    <mat-expansion-panel-header>
-                                        <mat-panel-title>
-                                            <div class="page-heading">
-                                                <h6 class="header-text-title">Brand</h6>
-                                            </div>
-                                        </mat-panel-title>
-                                    </mat-expansion-panel-header>
-                                    <div class="row gutters">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="name">Brands</label>
-                                                <input type="text" class="form-control" formControlName="brand">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="image">country_origin</label>
-                                                <input type="text" class="form-control" formControlName="country_origin">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </mat-expansion-panel>
-                            </mat-accordion>
-                            <!-- Price section Start from Here -->
-                            <mat-accordion>
-                                <mat-expansion-panel [expanded]="expand">
-                                    <mat-expansion-panel-header>
-                                      <mat-panel-title>
-                                        <div class="page-heading">
-                                            <h6 class="header-text-title">Price</h6>
-                                        </div>
-                                      </mat-panel-title>
-                                      </mat-expansion-panel-header>
-                                      <div class="row gutters">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="name">Price</label>
-                                                <input type="text" class="form-control" formControlName="price">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="image">Cost </label>
-                                                <input type="text" class="form-control" formControlName="cost">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Name">Special_Price </label>
-                                                <input type="text" class="form-control" formControlName="special_price">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Name">Special_Price_From </label>
-                                                <input type="text" class="form-control" formControlName="special_price_from">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="Name">Special_Price_To </label>
-                                                <input type="text" class="form-control" formControlName="special_price_to">
-                                            </div>
-                                        </div>
-                                    </div>
-                                  </mat-expansion-panel>
-                            </mat-accordion>
-                            <!-- Description Start from Here -->
-                            <mat-accordion>
-                                <mat-expansion-panel [expanded]="expand">
-                                    <mat-expansion-panel-header>
-                                      <mat-panel-title>
-                                        <div class="page-heading">
-                                            <h6 class="header-text-title" >Description</h6>
-                                        </div>
-                                      </mat-panel-title>
-                                      </mat-expansion-panel-header>
-                                      <div class="row gutters">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="name">Short_Description</label>
-                                                <ckeditor formControlName="short_description" ></ckeditor>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="image">Description</label>
-                                                <ckeditor formControlName="description" ></ckeditor>
-                                            </div>
-                                        </div>
-                                    </div>
-                                  </mat-expansion-panel>
-                            </mat-accordion>
-                            <!-- Seo Start from Here -->
-                            <mat-accordion>
-                                <mat-expansion-panel [expanded]="expand">
-                                    <mat-expansion-panel-header>
-                                      <mat-panel-title>
-                                        <div class="page-heading">
-                                            <h6 class="header-text-title" >Seo</h6>
-                                        </div>
-                                      </mat-panel-title>
-                                      </mat-expansion-panel-header>
-                                      <div class="row gutters">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="name">Meta_Title</label>
-                                                <textarea class="form-control" formControlName="meta_title"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="name">Meta_Keywords</label>
-                                                <textarea class="form-control" formControlName="meta_keywords"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <label for="image">Meta_Description</label>
-                                                <textarea  class="form-control" formControlName="meta_description" ></textarea>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                  </mat-expansion-panel>
-                            </mat-accordion>
-                            <div class="row gutters mt-4">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
-                                    <div class="text-right">
-                                        <button pButton type="button" id="submit" name="submit"
-                                            class="p-button-danger mr-4"
-                                            [routerLink]="['/product/productlist']">Cancel</button>
-                                        <button pButton type="button" id="submit" name="submit"
-                                            class="p-button-success" (click)="submitForm()">Submit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+	<div class="page-heading">
+		<h1 class="header-text-title" style="margin-left: 1%;">{{title}}</h1>
+	</div>
+	<form [formGroup]="productForm">
+		<div class="card col-sm-12">
+			<div class="row gutters">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #cccfcd;">
+					<div class="h-100 mt-5">
+						<div class="card-body">
+							<!-- Product_Region Start from Here -->
+							<mat-accordion>
+								<mat-expansion-panel [expanded]="expand">
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											<div class="page-heading">
+												<h6 class="header-text-title">Product_Region</h6>
+											</div>
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div class="row gutters">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="name">Country</label>
+												<!-- <input type="text" class="form-control" formControlName="country"> -->
+												<select class="form-control"  formControlName="country" >
+													<option value="product_region.country">
+														
+													</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="image">language</label>
+												<input type="text" class="form-control" formControlName="language">
+											</div>
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</mat-accordion>
+							<!-- product_Detail Start from Here-->
+							<mat-accordion>
+								<mat-expansion-panel [expanded]="expand">
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											<div class="page-heading">
+												<h6 class="header-text-title">Product_Detail</h6>
+											</div>
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div class="row gutters">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="name">Name</label>
+												<input type="text" class="form-control" formControlName="name">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="image">SKUs </label>
+												<input type="text" class="form-control" formControlName="SKU">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">Category </label>
+												<input type="text" class="form-control" formControlName="category">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">Featured </label>
+												<input type="text" class="form-control" formControlName="is_featured">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">visible_individually</label>
+												<input type="text" class="form-control" formControlName="visible_individually">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">Quantity</label>
+												<input type="text" class="form-control" formControlName="Quantity">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">status</label>
+												<select class="form-control" formControlName="Status" placeholder="select Status">
+													<option *ngFor="let c of Status" [value]="c.name">{{ c.name }}</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="row gutters">
+												<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+													<div class="form-group">
+														<label for="Name">Image</label>
+														<input type="file" class="form-control" (change)="OnChangesEvent($event)">
+													</div>
+												</div>
+												<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+													<div class="form-group">
+														<img [src]="Image" alt="product image"
+															style="width:250px;height: 180px; border-radius: 5px;">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</mat-accordion>
+							<!-- Brand Start from Here-->
+							<mat-accordion>
+								<mat-expansion-panel [expanded]="expand">
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											<div class="page-heading">
+												<h6 class="header-text-title">Brand</h6>
+											</div>
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div class="row gutters">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="name">Brands</label>
+												<input type="text" class="form-control" formControlName="brand">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="image">country_origin</label>
+												<input type="text" class="form-control" formControlName="country_origin">
+											</div>
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</mat-accordion>
+							<!-- Price section Start from Here -->
+							<mat-accordion>
+								<mat-expansion-panel [expanded]="expand">
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											<div class="page-heading">
+												<h6 class="header-text-title">Price</h6>
+											</div>
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div class="row gutters">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="name">Price</label>
+												<input type="text" class="form-control" formControlName="price">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="image">Cost </label>
+												<input type="text" class="form-control" formControlName="cost">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">Special_Price </label>
+												<input type="text" class="form-control" formControlName="special_price">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">Special_Price_From </label>
+												<input type="text" class="form-control" formControlName="special_price_from">
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">Special_Price_To </label>
+												<input type="text" class="form-control" formControlName="special_price_to">
+											</div>
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</mat-accordion>
+							<!-- Description Start from Here -->
+							<mat-accordion>
+								<mat-expansion-panel [expanded]="expand">
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											<div class="page-heading">
+												<h6 class="header-text-title">Description</h6>
+											</div>
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div class="row gutters">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="name">Short_Description</label>
+												<ckeditor formControlName="short_description"></ckeditor>
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="image">Description</label>
+												<ckeditor formControlName="description"></ckeditor>
+											</div>
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</mat-accordion>
+							<!-- Seo Start from Here -->
+							<mat-accordion>
+								<mat-expansion-panel [expanded]="expand">
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											<div class="page-heading">
+												<h6 class="header-text-title">Seo</h6>
+											</div>
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div class="row gutters">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="name">Meta_Title</label>
+												<textarea class="form-control" formControlName="meta_title"></textarea>
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="name">Meta_Keywords</label>
+												<textarea class="form-control" formControlName="meta_keywords"></textarea>
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="image">Meta_Description</label>
+												<textarea class="form-control" formControlName="meta_description"></textarea>
+
+											</div>
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</mat-accordion>
+							<div class="row gutters mt-4">
+								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+									<div class="text-right">
+										<button pButton type="button" id="submit" name="submit" class="p-button-danger mr-4"
+											[routerLink]="['/product/productlist']">Cancel</button>
+										<button pButton type="button" id="submit" name="submit" class="p-button-success"
+											(click)="submitForm()">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>

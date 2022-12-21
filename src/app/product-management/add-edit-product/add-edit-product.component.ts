@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-import { product, product_region, product_details, manufacturer, Description, prices, SEO ,Satatus} from 'src/app/_models/catalog'
+import { product, product_region, product_details, manufacturer, Description, prices, SEO, Satatus } from 'src/app/_models/catalog'
 import { CommonService } from 'src/app/_services/common';
 @Component({
   selector: 'app-add-edit-product',
@@ -25,16 +25,16 @@ export class AddEditProductComponent implements OnInit {
   prices: prices
   SEO: SEO
   Image
-  imageData:File
+  imageData: File
   Status = Satatus
-  expand:boolean= false
+  expand: boolean = false
   Description: Description
   constructor(
     private fb: FormBuilder,
     private activateRoute: ActivatedRoute,
     private ngxLoader: NgxUiLoaderService,
     private route: Router,
-    private CommonService:CommonService,
+    private CommonService: CommonService,
     private toastr: ToastrMsgService,
     private ProductService: ProductService
   ) {
@@ -76,7 +76,7 @@ export class AddEditProductComponent implements OnInit {
         this.getProductById()
       } else {
         this.editMode = false
-        this.expand =  true
+        this.expand = true
         this.title = "Add New Product"
 
       }
@@ -90,7 +90,7 @@ export class AddEditProductComponent implements OnInit {
       this.sidebarSpacing = 'expanded';
     }
   }
-  addProduct(addpayload:product) {
+  addProduct(addpayload: product) {
     this.ProductService.addProduct(addpayload).subscribe(res => {
       if (res) {
         this.toastr.showSuccess("Product added successfully", "Product Added")
@@ -107,7 +107,7 @@ export class AddEditProductComponent implements OnInit {
   getProductById() {
     this.ProductService.getProductById(this.id).subscribe((res: product) => {
       this.productForm.patchValue({
-        country: res.Product_Region.country,
+        country: this.CommonService.getCountries(res.Product_Region?.country),
         language: res.Product_Region.language,
         name: res.product_Detail.name,
         SKU: res.product_Detail.SKU,
@@ -117,7 +117,7 @@ export class AddEditProductComponent implements OnInit {
         visible_individually: res.product_Detail.visible_individually,
         Quantity: res.product_Detail.Quantity,
         country_origin: res.manufacturer.country_origin,
-        brand:res.manufacturer.brand,
+        brand: res.manufacturer.brand,
         short_description: res.description.short_description,
         description: res.description.description,
         price: res.price.price,
@@ -129,14 +129,14 @@ export class AddEditProductComponent implements OnInit {
         meta_title: res.seo.meta_title,
         meta_description: res.seo.meta_description,
         meta_keywords: res.seo.meta_keywords,
-        })
-        this.Image = res.images 
-        
+      })
+      this.Image = res.images
+
       this.ngxLoader.stop();
     })
   }
-  editProduct(editData:product) {
-    if(this.imageData && this.imageData !=undefined){
+  editProduct(editData: product) {
+    if (this.imageData && this.imageData != undefined) {
       this.payload['image'] = this.imageData
     }
     this.ProductService.editProduct(editData, this.id).subscribe(res => {
@@ -187,7 +187,7 @@ export class AddEditProductComponent implements OnInit {
       is_featured: this.productForm.controls['is_featured'].value,
       Status: this.productForm.controls['Status'].value,
       is_new: true,
-      price:this.productForm.controls['price'].value,
+      price: this.productForm.controls['price'].value,
       visible_individually: this.productForm.controls['visible_individually'].value
     }
     this.payload = {
@@ -197,7 +197,7 @@ export class AddEditProductComponent implements OnInit {
       description: this.Description,
       price: this.prices,
       seo: this.SEO,
-      image:""
+      image: ""
     }
     this.ngxLoader.start();
     if (this.editMode) {
