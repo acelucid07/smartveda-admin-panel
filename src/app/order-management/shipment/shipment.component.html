@@ -1,53 +1,60 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
-    <div class="page-heading">
-        <h1 class="header-text-title" style="margin-left: 1%;">Order Shipping List</h1>
-    </div>
-    <div class="card col-sm-12" style="border:none;">
-        <p-table id="customerTable" #dt [value]="Shipments" [columns]="cols" responsiveLayout="scroll"
-            [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
-            [globalFilterFields]="['orderId', 'OrderDate']" styleClass="p-datatable-striped">
+	<div class="page-heading">
+		<h1 class="header-text-title" style="margin-left: 1%;">Order Shipping List</h1>
+	</div>
+	<div class="card col-sm-12" style="border:none;">
+		<p-table id="customerTable" #dt [value]="Shipments" [columns]="cols" responsiveLayout="scroll" [paginator]="true"
+			[rows]="10" [showCurrentPageReport]="true"
+			currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+			[globalFilterFields]="['shipmentId','orderId']" styleClass="p-datatable-striped">
 
-            <ng-template pTemplate="caption">
-                <div class="row">
-                    <span class="p-input-icon-right ml-5">
-                        <i class="pi pi-search"></i>
-                        <input pInputText type="text" placeholder="Search by OrderId or OrderDate"
-                            (input)="applyFilterGlobal($event, 'contains')" />
-                    </span>
-                </div>
-            </ng-template>
+			<ng-template pTemplate="caption">
+				<div class="row">
+					<span class="p-input-icon-right ml-5">
+						<i class="pi pi-search"></i>
+						<input pInputText type="text" placeholder="Search by shipmentId"
+							(input)="applyFilterGlobal($event, 'contains')" />
+					</span>
+				</div>
+			</ng-template>
 
-            <ng-template pTemplate="header" let-columns>
-                <tr>
-                    <th>S.No</th>
-                    <th *ngFor="let col of columns">{{col.headers}}</th>
-                    <th>Options</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-i="rowIndex" let-shippingData>
-                <tr>
-                    <td>{{i+1}}</td>
-                    <td>{{shippingData.shipmentId}}</td>
-                    <td>{{shippingData?.OrderDetails?.orderId}}</td>
-                    <td>{{shippingData?.OrderDetails?.orderDate}}</td>
-                    <td>{{shippingData.Totalquantity}}</td>
-                    <td>{{shippingData.ShipmentDate}}</td>
-                    <td>{{shippingData.Shippingto}}</td>
-                    <td>
-                        <div class="btn-grp">
-                        <button class="p-button-primary" pButton type="button" icon="pi pi-eye" pTooltip="view Shipment"
-                            tooltipPosition="bottom" [routerLink]="['/order/shipment-details']"
-                            [queryParams]="{orderId:shippingData?.OrderDetails?.orderId}">
-                        </button>
-                        <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Shipment"
-                            tooltipPosition="bottom" (click)="deleteOrderShipping(shippingData?.OrderDetails?.orderId)"></button>
-                        </div>
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-        <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
-    </div>
+			<ng-template pTemplate="header" let-columns>
+				<tr>
+					<th>S.No</th>
+					<th *ngFor="let col of columns">{{col.headers}}</th>
+					<th>Options</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-i="rowIndex" let-shippingData>
+				<tr>
+					<td>{{i+1}}</td>
+					<td>{{shippingData.shipmentId}}</td>
+					<td>{{shippingData?.OrderDetails?.orderId}}</td>
+					<td>{{shippingData?.OrderDetails?.orderDate}}</td>
+					<td>{{shippingData.Totalquantity}}</td>
+					<td>{{shippingData.ShipmentDate}}</td>
+					<td>{{shippingData.Shippingto}}</td>
+					<td>
+						<div class="btn-grp">
+							<button class="p-button-primary" pButton type="button" icon="pi pi-eye" pTooltip="view Shipment"
+								tooltipPosition="bottom" [routerLink]="['/order/shipment-details']"
+								[queryParams]="{orderId:shippingData?.OrderDetails?.orderId}">
+							</button>
+							<button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Shipment"
+								tooltipPosition="bottom" (click)="deleteOrderShipping(shippingData?.OrderDetails?.orderId)"></button>
+						</div>
+					</td>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="emptymessage">
+				<tr>
+					<td class="text-center text-danger font-weight-700" colspan="10">
+						No Records Found.
+					</td>
+				</tr>
+			</ng-template>
+		</p-table>
+		<ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+	</div>
 </div>

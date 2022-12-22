@@ -8,13 +8,15 @@ import autoTable from 'jspdf-autotable';
 import * as moment from 'moment';
 import { ProfileService } from 'src/app/_services/profile.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-import {TABLE_HEADING} from '../../_models/table_heading'
+import {TABLE_HEADING} from '../../_models/table_heading';
+import { Table } from 'primeng/table';
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   fgsType: any;
   customerData!: any;
@@ -120,5 +122,9 @@ export class CustomerListComponent implements OnInit {
 
   showError() {
     this.toastr.showError('Status Not updated', 'Status');
+  }
+
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }

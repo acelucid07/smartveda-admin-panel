@@ -7,13 +7,14 @@
     <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
       [showCurrentPageReport]="true" [value]="sponsorList"
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
-      [globalFilterFields]="['email', 'phone', 'role', 'status']" styleClass="p-datatable-striped">
+      [globalFilterFields]="['id', 'phone', 'name', 'role', 'country', 'city', 'funding', 'zip']" styleClass="p-datatable-striped">
 
       <ng-template pTemplate="caption">
         <div class="row">
           <span class="p-input-icon-right ml-5">
             <i class="pi pi-search"></i>
-            <input pInputText type="text" placeholder="Search keyword" />
+            <input pInputText type="text" placeholder="Search keyword"
+              (input)="applyFilterGlobal($event, 'contains')" />
           </span>
           <span class="p-input-icon-right ml-5">
             <button pButton type="button" label="Add Sponsor" class="p-button-success"
@@ -43,15 +44,21 @@
           <td>{{sponsorList.address.country}}</td>
           <td>
             <div class="btn-grp">
-            <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
+              <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
             </button> -->
-            <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Sponsor"
-              tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/cms/editsponsor']"
-              [queryParams]="{id:sponsorList?.id}"></button>
-            <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Sponsor"
-              (click)="deleteSponsor(sponsorList)"
-              tooltipPosition="bottom" style="margin-right:5px"></button>
+              <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Sponsor"
+                tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/cms/editsponsor']"
+                [queryParams]="{id:sponsorList?.id}"></button>
+              <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Sponsor"
+                (click)="deleteSponsor(sponsorList)" tooltipPosition="bottom" style="margin-right:5px"></button>
             </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td class="text-center text-danger font-weight-700" colspan="12">
+            No Records Found.
           </td>
         </tr>
       </ng-template>

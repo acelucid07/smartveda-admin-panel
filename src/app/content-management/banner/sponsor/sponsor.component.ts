@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TABLE_HEADING } from '../../../_models/table_heading'
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { CmsService } from '../../../_services/cms.service';
 import { SPONSOR } from '../../../_models/cms'
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
+import { Table } from 'primeng/table';
 @Component({
   selector: 'app-sponsor',
   templateUrl: './sponsor.component.html',
   styleUrls: ['./sponsor.component.scss']
 })
 export class SponsorComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
   fgsType: any;
@@ -60,5 +62,9 @@ export class SponsorComponent implements OnInit {
         this.getSponsorList()
       }
     })
+  }
+  //search functionality start here
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }

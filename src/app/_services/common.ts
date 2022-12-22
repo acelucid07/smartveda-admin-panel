@@ -1,10 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 
 @Injectable({ providedIn: 'root' })
 export class CommonService {
     URLBase64:any
-    constructor() {
+    myData:any;
+    constructor(
+        private http:HttpClient
+    ) {
     }
     generateRandomNo() {
         var date = new Date()
@@ -44,4 +48,7 @@ export class CommonService {
         }
     }
 
+    getCountries(){
+        return this.http.get('https://trial.mobiscroll.com/content/countries.json')
+    }
 }
