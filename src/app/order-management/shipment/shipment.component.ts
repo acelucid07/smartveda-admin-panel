@@ -28,12 +28,12 @@ export class ShipmentComponent implements OnInit {
     this.getOrderShippingList()
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'shipmentId', show: true, headers: 'shipment Id' },
-      { field: 'orderId', show: true, headers: 'Order Id' },
-      { field: 'orderDate', show: true, headers: 'Order Date' },
-      { field: 'TotalQuantity', show: true, headers: 'Total Quantity' },
-      { field: 'ShipmentDate', show: true, headers: 'Shipment Date' },
-      { field: 'ShippingTo', show: true, headers: 'Shipping To' },
+      { field: 'Shipment Id', show: true, headers: 'shipment Id' },
+      { field: 'Order Id', show: true, headers: 'Order Id' },
+      { field: 'Order Date', show: true, headers: 'Order Date' },
+      { field: 'Total Quantity', show: true, headers: 'Total Quantity' },
+      { field: 'Shipment Date', show: true, headers: 'Shipment Date' },
+      { field: 'Shipping To', show: true, headers: 'Shipping To' },
     ]
   }
 

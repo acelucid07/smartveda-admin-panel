@@ -11,7 +11,7 @@
       <div class="row">
         <span class="p-input-icon-right ml-5">
           <i class="pi pi-search"></i>
-          <input pInputText type="text" placeholder="Search keyword" />
+          <input pInputText type="text" placeholder="Search keyword"  (input)="applyFilterGlobal($event, 'contains')"/>
         </span>
       </div>
       <div class="btn-grp flex" style="margin-left:82%">
@@ -28,7 +28,7 @@
       <tr>
         <th>S.No</th>
         <th pSortableColumn="email" *ngFor="let col of columns" [ngClass]="{'d-none': !col.show}">{{col.headers}}
-          <p-sortIcon class="p-shortIcon-right" field="email"></p-sortIcon>
+          <p-sortIcon class="p-shortIcon light" field="email"></p-sortIcon>
         </th>
         <th>Options</th>
       </tr>

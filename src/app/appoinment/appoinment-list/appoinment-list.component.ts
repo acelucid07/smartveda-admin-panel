@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { AppoinmentService } from 'src/app/_services/appoinment';
 import { APPOINTMENT } from '../../_models/appointment';
+import { Table } from 'primeng/table';
 @Component({
   selector: 'app-appoinment-list',
   templateUrl: './appoinment-list.component.html',
   styleUrls: ['./appoinment-list.component.scss']
 })
 export class AppoinmentListComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
   appoinmentList: APPOINTMENT[] = []
@@ -56,5 +58,9 @@ export class AppoinmentListComponent implements OnInit {
         this.getAppoinmentList()
       }
     })
+  }
+  //search functionality starts here
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { category } from 'src/app/_models/catalog';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-category-list',
@@ -11,6 +12,7 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
   styleUrls: ['./category-list.component.scss']
 })
 export class CategoryListComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
   categoryList:category []= []
@@ -59,5 +61,10 @@ export class CategoryListComponent implements OnInit {
         this.getCategoryList()
       }
     })
+  }
+
+  // Search functionality start here
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }

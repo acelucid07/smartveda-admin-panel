@@ -43,7 +43,7 @@ export let CouponData = [
         couponType: "fixed",
         CustomerId: "",
         startDate: "2022-11-28",
-        status: true,
+        status: false,
         endDate: "2022-12-10",
         quotaPerUser: "5",
         firstTimeUser: true,

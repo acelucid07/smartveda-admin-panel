@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TABLE_HEADING } from '../../../_models/table_heading'
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
-import {SUB_CATEGORY}  from '../../../_models/cms';
-import {CmsService} from '../../../_services/cms.service'
+import { SUB_CATEGORY } from '../../../_models/cms';
+import { CmsService } from '../../../_services/cms.service'
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-
+import { Table } from 'primeng/table';
 @Component({
   selector: 'app-sub-category',
   templateUrl: './sub-category.component.html',
   styleUrls: ['./sub-category.component.scss']
 })
 export class SubCategoryComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
-  subCategoryList:SUB_CATEGORY[] =[]
+  subCategoryList: SUB_CATEGORY[] = []
   fgsType: any;
   constructor(private ngxLoader: NgxUiLoaderService,
-    private CmsService:CmsService,
+    private CmsService: CmsService,
     private toastr: ToastrMsgService,) { }
 
   ngOnInit(): void {
@@ -24,12 +25,12 @@ export class SubCategoryComponent implements OnInit {
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
     this.cols = [
-      { field: 'id', show:true,headers: 'Id' },
-      { field: 'name',show:true, headers: 'Name' },
-      { field: 'image',show:true, headers: 'ImageName' },
-      { field: 'hyperlink', show:true,headers: 'Hyperlink' },
-      { field: 'parent_id', show:true,headers: 'Parent Id' },
-      { field: 'parent_name',show:true, headers: 'Parent Name' },
+      { field: 'id', show: true, headers: 'Id' },
+      { field: 'name', show: true, headers: 'Name' },
+      { field: 'image', show: true, headers: 'ImageName' },
+      { field: 'hyperlink', show: true, headers: 'Hyperlink' },
+      { field: 'parent_id', show: true, headers: 'Parent Id' },
+      { field: 'parent_name', show: true, headers: 'Parent Name' },
     ]
     this.getSubCategoryList()
   }
@@ -42,7 +43,7 @@ export class SubCategoryComponent implements OnInit {
     }
   }
   getSubCategoryList() {
-    this.CmsService.getSubCategoryList().subscribe((res:any) => {
+    this.CmsService.getSubCategoryList().subscribe((res: any) => {
       this.subCategoryList = res;
       this.ngxLoader.stop();
     })
@@ -55,5 +56,9 @@ export class SubCategoryComponent implements OnInit {
         this.getSubCategoryList()
       }
     })
+  }
+  //search functionality start here
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }
