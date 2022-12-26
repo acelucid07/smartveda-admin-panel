@@ -25,7 +25,7 @@ export class TransactionDetailsComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.activateRoute.queryParamMap.subscribe(params => {
-      this.transactionId = params.get('transactionId');
+      this.transactionId = params.get('TransactionId');
     });
     this.getTransactionDetails();
   }

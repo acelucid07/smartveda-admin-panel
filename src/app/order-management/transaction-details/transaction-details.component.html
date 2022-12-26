@@ -9,44 +9,53 @@
     </div>
     <div class="card mt-5">
       <div class="row mt-4 ml-5">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-          <h6 for="trasactionId" class="header-text-title">Transaction Id: {{transactionDetails?.transactionId}}</h6>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="display: flex;">
+          <h5 for="trasactionId" class="header-text-title">Transaction Id:</h5>
+          <p class="medium ml-2"> {{transactionDetails?.transactionId}}</p>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-          <h6 for="orderId" class="header-text-title">Order Id:{{transactionDetails?.orderId}}</h6>
-        </div>
-      </div>
-
-      <div class="row mt-4 ml-5">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-          <h6 for="trasactionId" class="header-text-title">Product Id: {{transactionDetails?.transactionId}}</h6>
-        </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-          <h6 for="orderId" class="header-text-title">Discount: {{transactionDetails?.discount}}</h6>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="display: flex;">
+          <h5 for="orderId" class="header-text-title">Order Id:</h5>
+          <p class="medium ml-2">{{transactionDetails?.orderId}}</p>
         </div>
       </div>
 
       <div class="row mt-4 ml-5">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-          <h6 for="trasactionId" class="header-text-title">Delivery Charge: {{transactionDetails?.deliveryCharge}}</h6>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="display: flex;">
+          <h5 for="trasactionId" class="header-text-title">Product Id: </h5>
+          <p class="medium ml-2">{{transactionDetails?.transactionId}}</p>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-          <h6 for="orderId" class="header-text-title">Product Total: {{transactionDetails?.productTotal}}</h6>
-        </div>
-      </div>
-
-      <div class="row mt-4 ml-5">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-          <h6 for="trasactionId" class="header-text-title">Tax: {{transactionDetails?.tax}}</h6>
-        </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-          <h6 for="orderId" class="header-text-title">Total Amount with Tax: {{transactionDetails?.totalAmountWith}}</h6>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="display: flex;">
+          <h5 class="header-text-title">Discount :</h5>
+          <p class="medium ml-2">{{transactionDetails?.discount}}</p>
         </div>
       </div>
 
       <div class="row mt-4 ml-5">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
-          <h6 for="trasactionId" class="header-text-title">Method of Payment: {{transactionDetails?.methodOfPayment}}</h6>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="display: flex;">
+          <h5 for="trasactionId" class="header-text-title">Delivery Charge:</h5>
+          <p class="medium ml-2">{{transactionDetails?.deliveryCharge}}</p>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="display: flex;">
+          <h5 for="orderId" class="header-text-title">Product Total:</h5>
+          <p class="medium ml-2"> {{transactionDetails?.productTotal}}</p>
+        </div>
+      </div>
+
+      <div class="row mt-4 ml-5">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="display: flex;">
+          <h5 for="trasactionId" class="header-text-title">Tax:</h5>
+          <p class="medium ml-2"> {{transactionDetails?.tax}}</p>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="display: flex;">
+          <h5 for="orderId" class="header-text-title">Total Amount with Tax:</h5>
+          <p class="medium ml-2"> {{transactionDetails?.totalAmountWith}}</p>
+        </div>
+      </div>
+
+      <div class="row mt-4 ml-5">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group" style="display: flex;">
+          <h5 for="trasactionId" class="header-text-title">Method of Payment:</h5>
+          <p class="medium ml-2">{{transactionDetails?.methodOfPayment}}</p>
         </div>
       </div>
     </div>
