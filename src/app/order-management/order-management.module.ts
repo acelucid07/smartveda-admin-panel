@@ -12,6 +12,7 @@ import { ShipmentComponent } from './shipment/shipment.component';
 import { ShipmentDetailsComponent } from './shipment-details/shipment-details.component';
 import { AddEditOrdersComponent } from './add-edit-orders/add-edit-orders.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     DeliveredOrderComponent,
     ShipmentComponent,
     ShipmentDetailsComponent,
-    AddEditOrdersComponent
+    AddEditOrdersComponent,
+    TransactionDetailsComponent
   ],
   imports: [
     CommonModule,

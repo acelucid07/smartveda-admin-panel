@@ -1,0 +1,53 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+  <div style="border:none;">
+    <div class="page-heading">
+        <h1 class="header-text-title">
+            <i pButton class="pi pi-arrow-left p-button-text" [routerLink]="['/order/order-transaction']" pTooltip="Back" tooltipPosition="bottom"></i>
+            Transaction details
+        </h1>
+    </div>
+    <div class="card mt-5">
+      <div class="row mt-4 ml-5">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+          <h6 for="trasactionId" class="header-text-title">Transaction Id: {{transactionDetails?.transactionId}}</h6>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <h6 for="orderId" class="header-text-title">Order Id:{{transactionDetails?.orderId}}</h6>
+        </div>
+      </div>
+
+      <div class="row mt-4 ml-5">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+          <h6 for="trasactionId" class="header-text-title">Product Id: {{transactionDetails?.transactionId}}</h6>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <h6 for="orderId" class="header-text-title">Discount: {{transactionDetails?.discount}}</h6>
+        </div>
+      </div>
+
+      <div class="row mt-4 ml-5">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+          <h6 for="trasactionId" class="header-text-title">Delivery Charge: {{transactionDetails?.deliveryCharge}}</h6>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <h6 for="orderId" class="header-text-title">Product Total: {{transactionDetails?.productTotal}}</h6>
+        </div>
+      </div>
+
+      <div class="row mt-4 ml-5">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+          <h6 for="trasactionId" class="header-text-title">Tax: {{transactionDetails?.tax}}</h6>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <h6 for="orderId" class="header-text-title">Total Amount with Tax: {{transactionDetails?.totalAmountWith}}</h6>
+        </div>
+      </div>
+
+      <div class="row mt-4 ml-5">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 form-group">
+          <h6 for="trasactionId" class="header-text-title">Method of Payment: {{transactionDetails?.methodOfPayment}}</h6>
+        </div>
+      </div>
+    </div>
+</div>

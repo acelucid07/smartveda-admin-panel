@@ -6,6 +6,7 @@ import { OrderTransactionComponent } from './order-transaction/order-transaction
 import { ShipmentComponent } from './shipment/shipment.component';
 import { ShipmentDetailsComponent } from './shipment-details/shipment-details.component';
 import { AddEditOrdersComponent } from './add-edit-orders/add-edit-orders.component';
+import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'order-transaction', component: OrderTransactionComponent
+  },
+  {
+    path: 'transaction-details', component: TransactionDetailsComponent
   },
   {
     path: 'shipment', component: ShipmentComponent

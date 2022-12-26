@@ -58,6 +58,13 @@ export class OrdersService {
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     return of(orderTransactin)
   }
+  getTransactionById(transactionId: string){
+    const token = localStorage.getItem('token') || ''; 
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders/${transactionId}`;
+    let indexTransactionId = orderTransactin.findIndex((item) => item.transactionId === transactionId)
+    return of(orderTransactin[indexTransactionId])
+  }
 
   getDeliveredOrderList() {
     const token = localStorage.getItem('token') || '';
