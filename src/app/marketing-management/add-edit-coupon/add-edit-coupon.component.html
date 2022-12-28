@@ -1,7 +1,11 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
-    <h1 class="header-text-title" style="margin-left: 1%;">{{title}}</h1>
+    <h1 class="header-text-title">
+      <i pButton class="pi pi-arrow-left p-button-text" [routerLink]="['/marketing']" pTooltip="Back"
+        tooltipPosition="bottom">
+      </i>{{title}}
+    </h1>
   </div>
   <form [formGroup]="promotionForm">
     <div class="card col-sm-12">
@@ -43,7 +47,8 @@
           <div class="form-group">
             <select class="form-control" formControlName="CustomerId" *ngIf="title == 'Add New Promotion'">
               <option value="" selected disabled>Select customer</option>
-              <option value="{{CustomerId.email}}" *ngFor="let CustomerId of customer" selected>{{CustomerId.email}}</option>
+              <option value="{{CustomerId.email}}" *ngFor="let CustomerId of customer" selected>{{CustomerId.email}}
+              </option>
             </select>
             <select class="form-control" formControlName="CustomerId" *ngIf="title == 'Edit Promo'">
               <option value="" selected disabled>Select customer</option>

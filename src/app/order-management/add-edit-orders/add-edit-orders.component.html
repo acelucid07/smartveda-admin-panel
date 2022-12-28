@@ -1,7 +1,10 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
-    <h1 class="header-text-title" style="margin-left: 1%;">{{title}}</h1>
+    <h1 class="header-text-title" style="margin-left: 1%;">
+      <i pButton class="pi pi-arrow-left p-button-text" [routerLink]="['/order']" pTooltip="Back"
+			tooltipPosition="bottom">
+		</i>{{title}}</h1>
   </div>
   <form [formGroup]="ordersForm">
     <div class="card col-sm-12">
@@ -33,7 +36,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                           <div class="form-group">
                             <label for="customerName">Email</label>
-                            <input type="email"  formControlName="email"class="form-control">
+                            <input type="email" formControlName="email" class="form-control">
                           </div>
                         </div>
                       </div>
@@ -41,7 +44,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                           <div class="form-group">
                             <label for="customerName">Phone</label>
-                            <input type="text"  formControlName="mobileNo" class="form-control">
+                            <input type="text" formControlName="mobileNo" class="form-control">
                           </div>
                         </div>
                       </div>
@@ -81,18 +84,18 @@
                               </tr>
                             </thead>
                             <tbody>
-  
+
                             </tbody>
                           </table>
                         </div>
                         <div class="text-left mt-5">
                           <h5>
-                          <label for="totalCalculatedAmount">Total Calculated Amount: </label>
-                          {{totalAmount}}
-                        </h5>
+                            <label for="totalCalculatedAmount">Total Calculated Amount: </label>
+                            {{totalAmount}}
+                          </h5>
                         </div>
                       </div>
-                     
+
 
                       <p-dialog header="product List" [modal]="true" [(visible)]="showdialog"
                         [breakpoints]="{'960px': '75vw'}" [style]="{width: '60vw'}" [draggable]="false"
@@ -104,8 +107,8 @@
                                 <label for="name">Products List</label>
                                 <select type="text" formControlName="productName" name=""
                                   class="form-control border-primary">
-                                  <option value="" >Select Product </option>
-                                  <option value="{{item.name}}" *ngFor ="let item of ProductList">{{item.name}}</option>
+                                  <option value="">Select Product </option>
+                                  <option value="{{item.name}}" *ngFor="let item of ProductList">{{item.name}}</option>
                                 </select>
                               </div>
                             </div>
@@ -246,13 +249,15 @@
               <div class="row gutters mt-4">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
                   <div class="text-right">
-                    <button pButton type="button" id="submit" name="submit" class="p-button-danger mr-4" [routerLink]="['/order']">Cancel</button>
-                    <button pButton type="button" id="submit" name="submit" class="p-button-success" (click)="submit()">Submit</button>
+                    <button pButton type="button" id="submit" name="submit" class="p-button-danger mr-4"
+                      [routerLink]="['/order']">Cancel</button>
+                    <button pButton type="button" id="submit" name="submit" class="p-button-success"
+                      (click)="submit()">Submit</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
-     </div>
+      </div>
+    </div>
