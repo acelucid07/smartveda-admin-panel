@@ -54,10 +54,10 @@ export class CustomerListComponent implements OnInit {
   onDeleteCustomer(data: UserGetRequestParams) {
     this.profileService.deleteCustomerProfile(data).subscribe((res: UserGetRequestParams) => {
       console.log(res),
-        this.showSuccess();
+        this.toastr.showSuccess('User Deleted Successfully', 'User delete');
       this.getCustomerList();
       (error: any) => {
-        this.showError();
+        this.toastr.showError('Error Deleting User', 'error');
       }
     })
   }

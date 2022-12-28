@@ -10,21 +10,21 @@ export class ProfileService {
 
     }
     getProfile(id: string): Observable<UserGetRequestParams>{
-        const endpointUrl = `http://3.110.155.54:5000/user/${id}`;
+        const endpointUrl = `http://13.126.212.31:5000/user/${id}`;
         return this.http.get<UserGetRequestParams>(endpointUrl);
     }
    
     updateCustomerProfile(data: UserGetRequestParams): Observable<UserGetRequestParams> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token',token) 
-        const endpointUrl = `http://3.110.155.54:5000/update/${data.id}`;
+        const endpointUrl = `http://13.126.212.31:5000/update/${data.id}`;
         return this.http.put<UserGetRequestParams>(endpointUrl,data, {'headers':httpOptions});
     }
 
     deleteCustomerProfile(data:UserGetRequestParams): Observable<UserGetRequestParams>{
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `http://3.110.155.54:5000/delete/${data._id}`;
+        const endpointUrl = `http://13.126.212.31:5000/delete/${data._id}`;
         return this.http.put<UserGetRequestParams>(endpointUrl, data,{'headers': httpOptions})
     }
 }

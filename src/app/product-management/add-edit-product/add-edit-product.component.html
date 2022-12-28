@@ -1,7 +1,11 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
 	<div class="page-heading">
-		<h1 class="header-text-title" style="margin-left: 1%;">{{title}}</h1>
+		<h1 class="header-text-title">
+			<i pButton class="pi pi-arrow-left p-button-text" [routerLink]="['/product/productlist']" pTooltip="Back"
+				tooltipPosition="bottom">
+			</i>{{title}}
+		</h1>
 	</div>
 	<form [formGroup]="productForm">
 		<div class="card col-sm-12">
@@ -24,7 +28,7 @@
 											<div class="form-group">
 												<label for="name">Country</label>
 												<!-- <input type="text" class="form-control" formControlName="country"> -->
-												<select class="form-control"  formControlName="country" >
+												<select class="form-control" formControlName="country">
 													<option value="null" selected>Select Country</option>
 													<option value="country.text" *ngFor="let country of countryList ">{{ country.text }}
 													</option>

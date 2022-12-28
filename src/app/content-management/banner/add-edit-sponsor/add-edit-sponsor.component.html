@@ -1,8 +1,12 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
   <form [formGroup]="sponsorForm">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-      <h1 class="header-text-title">{{title}}</h1>
+    <div class="page-heading col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <h1 class="header-text-title">
+        <i pButton class="pi pi-arrow-left p-button-text" [routerLink]="['/cms/sponsor']" pTooltip="Back"
+          tooltipPosition="bottom">
+        </i>{{title}}
+      </h1>
     </div>
     <div class="card col-sm-12">
       <div class="row gutters">

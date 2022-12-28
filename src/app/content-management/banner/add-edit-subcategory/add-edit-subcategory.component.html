@@ -1,8 +1,12 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
   <form [formGroup]="subCategoryForm">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-      <h1 class="header-text-title">{{title}}</h1>
+    <div class="page-heading col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <h1 class="header-text-title">
+        <i pButton class="pi pi-arrow-left p-button-text" [routerLink]="['/cms/subcategory']" pTooltip="Back"
+          tooltipPosition="bottom">
+        </i>{{title}}
+      </h1>
     </div>
     <div class="card col-sm-12">
       <div class="row gutters">
@@ -27,7 +31,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
-                    <label for="hyperlink">Hyperlink</label> 
+                    <label for="hyperlink">Hyperlink</label>
                     <input type="url" class="form-control" formControlName="hyperlink">
                   </div>
                 </div>
