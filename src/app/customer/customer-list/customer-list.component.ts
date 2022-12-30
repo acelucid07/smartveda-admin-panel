@@ -8,7 +8,7 @@ import autoTable from 'jspdf-autotable';
 import * as moment from 'moment';
 import { ProfileService } from 'src/app/_services/profile.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-import {TABLE_HEADING} from '../../_models/table_heading';
+import { TABLE_HEADING } from '../../_models/table_heading';
 import { Table } from 'primeng/table';
 @Component({
   selector: 'app-customer-list',
@@ -20,6 +20,7 @@ export class CustomerListComponent implements OnInit {
   sidebarSpacing: any;
   fgsType: any;
   customerData!: any;
+  xlxsData!: any;
   users!: UserGetRequestParams[];
   userDetails!: any;
   exportColumns!: any[];
@@ -40,11 +41,11 @@ export class CustomerListComponent implements OnInit {
     this.getCustomerList();
 
     this.cols = [
-      { field: 'email',show:true, headers: 'Email' },
-      { field: 'phone', show:true,headers: 'Phone' },
-      { field: 'role',show:true, headers: 'Role' },
-      { field: 'status',show:true, headers: 'Status' },
-      { field: 'createdAt',show:true, headers: 'Created At' }
+      { field: 'email', show: true, headers: 'Email' },
+      { field: 'phone', show: true, headers: 'Phone' },
+      { field: 'role', show: true, headers: 'Role' },
+      { field: 'status', show: true, headers: 'Status' },
+      { field: 'createdAt', show: true, headers: 'Created At' }
     ]
     this.exportColumns = this.cols.map(col => (
       { title: col.headers, dataKey: col.field }
@@ -85,7 +86,9 @@ export class CustomerListComponent implements OnInit {
 
   exportExcel() {
     import("xlsx").then(xlsx => {
-      const worksheet = xlsx.utils.json_to_sheet(this.customerData);
+      let customerData = this.customerData;
+      customerData = customerData.filter((item) => delete item?.token && delete item?.otp && delete item?.__v);
+      const worksheet = xlsx.utils.json_to_sheet(customerData);
       const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
       const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
       this.saveAsExcelFile(excelBuffer, "customerList");
@@ -110,7 +113,8 @@ export class CustomerListComponent implements OnInit {
     this.userService.getUsers().subscribe((res: any) => {
       this.customerData = res.data;
       this.customerData.map((item: UserGetRequestParams) => {
-        item.createdAt = moment(item.createdAt).format('MMM DD, YYYY')
+        item.createdAt = moment(item.createdAt).format('MMM DD, YYYY'),
+        item.updatedAt = moment(item.updatedAt).format('MMM DD YYYY')
       })
       this.ngxLoader.stop();
     });
