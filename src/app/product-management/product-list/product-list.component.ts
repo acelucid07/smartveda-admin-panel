@@ -23,6 +23,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
     this.sidebarSpacing = 'contracted';
+    this.ngxLoader.start();
     this.cols = [
       { field: '_id', show: true, headers: 'ProductId' },
       { field: 'name', show: true, headers: 'ProductName' },

@@ -26,8 +26,8 @@ export class RewardsComponent implements OnInit {
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';
     this.fgsType = SPINNER.squareLoader
-    this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
+    this.ngxLoader.start();
     this.getRewardRedemption()
     this.cols = [
       { field: 'couponCodeId', show: true, headers: 'Coupon Id' },
@@ -50,8 +50,8 @@ export class RewardsComponent implements OnInit {
   getRewardRedemption(){
     this.MarketingService.getRewardRedemptionList().subscribe((data => {
       this.rewardsRedemptionData = data
+      this.ngxLoader.stop();
     }))
-    console.log(rewardsRedemptionData);
   }
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);

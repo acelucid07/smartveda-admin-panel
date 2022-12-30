@@ -26,6 +26,7 @@ export class CategoryListComponent implements OnInit {
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader
     this.sidebarSpacing = 'contracted';
+    this.ngxLoader.start();
     this.cols = [
       { field: '_id', show: true, headers: 'Id' },
       { field: 'name', show: true, headers: 'Name' },

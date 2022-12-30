@@ -95,8 +95,8 @@ export class AddEditOrdersComponent implements OnInit {
       .subscribe((res) => {
         this.ordersForm.patchValue({
           orderId: res.orderId,
+          orderDate:this.CommonService.convertDate(res.orderDate),
           customerId: res.customerId,
-          orderDate: res.orderDate,
           orderNo: res.orderNo,
           paymentStatus: res.paymentStatus,
           deliveryType: res.deliveryType,
@@ -138,7 +138,6 @@ export class AddEditOrdersComponent implements OnInit {
           this.ProductList.push(item.product_Detail)
         })
       }
-      console.log(this.ProductList)
       this.ngxLoader.stop();
     })
   }
