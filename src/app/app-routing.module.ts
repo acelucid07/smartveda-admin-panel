@@ -40,6 +40,14 @@ const routes: Routes = [
     path: 'appointment',
     loadChildren: () => import('./appoinment/appoinment.module').then(mod=>mod.AppoinmentModule)
   },
+  {
+    path: 'bundle',
+    loadChildren: () => import('./Bundle/bundle.module').then(mod=>mod.BundleModule)
+  },
+  // {
+  //   path: 'influencers',
+  //   loadChildren: () => import('./Bundle/bundle.module').then(mod=>mod.BundleModule)
+  // },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
