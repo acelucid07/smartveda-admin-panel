@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Quib_User } from 'src/app/_models/order';
-import { OrdersService } from 'src/app/_services/orders.service';
+import { Quib } from 'src/app/_models/order';
+import { QuibService } from 'src/app/_services/Quib.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading'
 import { Table } from 'primeng/table';
@@ -15,11 +15,11 @@ export class MostActiveComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
-  Quib_User: Quib_User[] = [];
+  Quib_User: Quib[] = [];
   fgsType: any;
 
   constructor(
-    private orderService: OrdersService,
+    private QuibService: QuibService,
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrMsgService,
   ) { }
@@ -29,7 +29,7 @@ export class MostActiveComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
-     this.getOrderList()
+     this.getMostActiveQuibList()
     this.cols = [
       { field: 'user', show: true, headers: 'User' },
       { field: 'movies', show: true, headers: 'Movies'},
@@ -54,27 +54,19 @@ export class MostActiveComponent implements OnInit {
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
-  deleteUser(order: number) {
-    this.ngxLoader.start();
-    this.orderService.deleteUser(order).subscribe(res => {
-      if (res) {
-        this.toastr.showSuccess("user deleted successfully", "user delete")
-        this.getOrderList()
-      }
-    })
-  }
-  getOrderList() {
-    this.orderService.getUserList().subscribe((data) => {
+ 
+  getMostActiveQuibList() {
+    this.QuibService.getMostActiveQuibList().subscribe((data) => {
       this.Quib_User =  data
       this.ngxLoader.stop();
     });
   }
   markAsActive(id:number,Status:boolean){
     this.ngxLoader.start();
-    this.orderService.markAsActive(id,Status).subscribe(res => {
+    this.QuibService.markAsActive(id,Status).subscribe(res => {
       if (res) {
         this.toastr.showSuccess(" Status change successfully", "Status change")
-        this.getOrderList()
+        this.getMostActiveQuibList()
       }
     })
   }

@@ -102,4 +102,11 @@ export class ProductService {
         // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
        return of(MovieData)  
     }
+    getActiveMoviesList(){
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/product`;
+        // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
+       return of(MovieData)  
+    }
 }

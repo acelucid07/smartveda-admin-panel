@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { order } from 'src/app/_models/order';
-import { OrdersService } from 'src/app/_services/orders.service';
+import { Quib } from 'src/app/_models/order';
+import { QuibService } from 'src/app/_services/Quib.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading';
 import { Table } from 'primeng/table';
@@ -13,42 +13,48 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 export class AlphaBeticQuibComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
   cols!: TABLE_HEADING[];
-  deliveredOrder: order[] = [];
+  sidebarSpacing: any;
+  alphaBeticQuib: Quib[] = [];
   fgsType: any;
   constructor(
-    private orderService: OrdersService,
+    private QuibService: QuibService,
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrMsgService
   ) {}
 
   ngOnInit(): void {
-    this.fgsType = SPINNER.squareLoader;
+    this.sidebarSpacing = 'contracted';
+    this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
-    this.getDeliveredOrderList();
-  
+    this.sidebarSpacing = 'contracted';
+    this.getAlphBeticQuibList();
     this.cols = [
-      { field: 'orderId', show: true, headers: 'Order Id' },
-      { field: 'orderNo', show: true, headers: 'Order No' },
-      { field: 'orderDate', show: true, headers: 'Order Date' },
-      { field: 'customerId', show: true, headers: 'Customer Id' },
-      { field: 'deliveryStatus', show: true, headers: 'Delivery Status' },
-    ];
+      { field: 'user', show: true, headers: 'User' },
+      { field: 'movies', show: true, headers: 'Movies'},
+      { field: 'quib', show: true, headers: 'Quib' },
+      { field: 'time', show: true, headers: 'Time' },
+      { field: 'createdDate', show: true, headers: 'Created Date' },
+      { field: 'postedDate', show: true, headers: 'Posted Date' },
+      { field: 'isEnabled', show: true, headers: 'Is Enabled' },
+      { field: 'isBumped', show: true, headers: 'Is Bumped' },
+      { field: 'quibType', show: true, headers: 'Quib Type' },
+      
+    ]
+  }
+  onToggleSidebar(sidebarState: any) {
+    if (sidebarState === 'open') {
+      this.sidebarSpacing = 'contracted';
+    } else {
+      this.sidebarSpacing = 'expanded';
+    }
   }
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
-  deleteOrder(order: number) {
-    this.ngxLoader.start();
-    this.orderService.deleteDeliveredOrder(order).subscribe((res) => {
-      if (res) {
-        this.toastr.showSuccess('delivered order deleted successfully', 'order deleted');
-        this.getDeliveredOrderList();
-      }
-    });
-  }
-  getDeliveredOrderList() {
-    this.orderService.getDeliveredOrderList().subscribe((data) => {
-      this.deliveredOrder = data;
+  
+  getAlphBeticQuibList() {
+    this.QuibService.getAlphBeticQuibList().subscribe((data) => {
+      this.alphaBeticQuib = data;
       this.ngxLoader.stop();
     });
   }

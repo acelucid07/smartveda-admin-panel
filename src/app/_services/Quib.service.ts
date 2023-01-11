@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { from, map, Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { order, cancelOrder, orderTransactin, shipmentData } from '../DummyData/order'
-import { Userdata, } from '../DummyData/userData'
+import { Userdata,MovieData,QuibData } from '../DummyData/userData'
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class OrdersService {
+export class QuibService {
   constructor(private http: HttpClient) { }
 
   getOrderList() {
@@ -172,5 +172,27 @@ export class OrdersService {
     const endpointUrl = `${environment.JSON_SERVER}/orders`;
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     return of(Userdata)
+  }
+
+  getMostActiveQuibList() {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    return of(QuibData)
+  }
+  getRecentActiveQuibList() {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    return of(QuibData)
+  }
+  getAlphBeticQuibList() {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    return of(QuibData)
   }
 }

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddEditCategoryComponent } from './add-edit-category/add-edit-category.component';
+import { AddEditMoviesComponent } from './add-edit-movies/add-edit-movies.component';
 import { AddEditProductComponent } from './add-edit-product/add-edit-product.component';
 import { ActiveMoviesComponent } from './active-movies/active-movies.component';
-import { ProductListComponent } from './product-list/product-list.component'
+import { AllMoviesComponent } from './all-movies-list/all-movies.component'
 
 const routes: Routes = [
   {
@@ -13,16 +13,16 @@ const routes: Routes = [
     path: 'addProduct', component: AddEditProductComponent
   },
   {
-    path: 'productlist', component: ProductListComponent
+    path: 'all-movies', component: AllMoviesComponent
   },
   {
     path: 'active-movies', component: ActiveMoviesComponent
   },
   {
-    path: 'editcategory', component: AddEditCategoryComponent
+    path: 'editmovies', component: AddEditMoviesComponent
   },
   {
-    path: 'addcategory', component: AddEditCategoryComponent
+    path: 'addmovies', component: AddEditMoviesComponent
   }
 ];
 

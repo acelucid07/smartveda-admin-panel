@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
-import { OrdersService } from 'src/app/_services/orders.service';
+import { QuibService } from 'src/app/_services/Quib.service';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
-import { orderTransactin } from 'src/app/_models/order';
 import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-
+import { Quib } from 'src/app/_models/order';
 @Component({
   selector: 'app-recent-quib',
   templateUrl: './recent-quib.component.html',
@@ -16,11 +15,11 @@ export class RecentQuibComponent implements OnInit {
   sidebarSpacing: any;
   fgsType: any;
   cols: TABLE_HEADING[];
-  orderTransactin: orderTransactin[] = [];
+  recentQuib: Quib[] = [];
 
 
   constructor(private ngxLoader: NgxUiLoaderService,
-    private orderService: OrdersService,
+    private QuibService: QuibService,
     private toastr: ToastrMsgService) { }
 
   ngOnInit(): void {
@@ -28,17 +27,18 @@ export class RecentQuibComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
-    this.getOrderTransactionList()
+    this.getRecentActiveQuibList()
     this.cols = [
-      { field: ' transactionId', show: true, headers: 'transactionId' },
-      { field: 'orderId', show: true, headers: 'orderId' },
-      { field: 'productId', show: true, headers: 'productId' },
-      { field: 'discount', show: true, headers: 'discount' },
-      { field: 'deliveryCharge', show: true, headers: 'deliveryCharge' },
-      { field: 'productTotal', show: true, headers: 'productTotal' },
-      { field: 'tax', show: true, headers: 'tax' },
-      { field: 'totalAmountWith', show: true, headers: 'totalAmountWith' },
-      { field: 'methodOfPayment', show: true, headers: 'methodOfPayment' },
+      { field: 'user', show: true, headers: 'User' },
+      { field: 'movies', show: true, headers: 'Movies'},
+      { field: 'quib', show: true, headers: 'Quib' },
+      { field: 'time', show: true, headers: 'Time' },
+      { field: 'createdDate', show: true, headers: 'Created Date' },
+      { field: 'postedDate', show: true, headers: 'Posted Date' },
+      { field: 'isEnabled', show: true, headers: 'Is Enabled' },
+      { field: 'isBumped', show: true, headers: 'Is Bumped' },
+      { field: 'quibType', show: true, headers: 'Quib Type' },
+      
     ]
   }
   onToggleSidebar(sidebarState: any) {
@@ -51,19 +51,11 @@ export class RecentQuibComponent implements OnInit {
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
-  getOrderTransactionList() {
-    this.orderService.getOrderTransaction().subscribe((data) => {
-      this.orderTransactin = data
+  getRecentActiveQuibList() {
+    this.QuibService.getRecentActiveQuibList().subscribe((data) => {
+      this.recentQuib = data
       this.ngxLoader.stop();
     });
   }
-  deteOrderTransactionBy(orderId: number) {
-    this.ngxLoader.start();
-    this.orderService.deteOrderTransactionById(orderId).subscribe((res) => {
-      if (res) {
-        this.toastr.showSuccess('orders-transaction deleted successfully', 'order deleted');
-        this.getOrderTransactionList();
-      }
-    });
-  }
+  
 }

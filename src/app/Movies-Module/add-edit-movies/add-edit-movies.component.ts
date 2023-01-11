@@ -2,26 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
-import { category, parent_category, SEO } from 'src/app/_models/catalog';
-import { CommonService } from 'src/app/_services/common';
+import { category, SEO } from 'src/app/_models/catalog';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 
 @Component({
-  selector: 'app-add-edit-category',
-  templateUrl: './add-edit-category.component.html',
-  styleUrls: ['./add-edit-category.component.scss']
+  selector: 'app-add-edit-movies',
+  templateUrl: './add-edit-movies.component.html',
+  styleUrls: ['./add-edit-movies.component.scss']
 })
-export class AddEditCategoryComponent implements OnInit {
+export class AddEditMoviesComponent implements OnInit {
   sidebarSpacing: any;
   fgsType: any;
   id: any
   title: string = " "
   editMode: boolean = false
   productCategoryForm: FormGroup
-  payload: category
-  parent_category: parent_category
-  parentId;
   image: File;
   imageUrl;
   seo: SEO
@@ -31,17 +27,21 @@ export class AddEditCategoryComponent implements OnInit {
     private ngxLoader: NgxUiLoaderService,
     private route: Router,
     private toastr: ToastrMsgService,
-    private commonService: CommonService,
     private ProductService: ProductService
   ) {
     this.productCategoryForm = this.fb.group({
-      categoryName: ["", [Validators.required]],
-      parentCategoryName: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      metaTitle: ['', [Validators.required]],
-      metaDescription: ['', [Validators.required]],
-      metaKeyword: ['', [Validators.required]],
-      status: ['', [Validators.required]]
+      Director: ["", [Validators.required]],
+      File: ['', [Validators.required]],
+      IsActive: ['', [Validators.required]],
+      ReleaseYear: ['', [Validators.required]],
+      Length: ['', [Validators.required]],
+      PosterContent: ['', [Validators.required]],
+      PosterContentThumb: ['', [Validators.required]],
+      Title: ['', [Validators.required]],
+      hours:['',[Validators.required]],
+      minutes:['',[Validators.required]],
+      seconds:['',[Validators.required]],
+      Rating:['',[Validators.required]]
     })
   }
 
@@ -57,7 +57,7 @@ export class AddEditCategoryComponent implements OnInit {
         this.getProductCategoryById()
       } else {
         this.editMode = false
-        this.title = "Add New category"
+        this.title = "Add New Movies"
       }
     });
   }
@@ -97,8 +97,6 @@ export class AddEditCategoryComponent implements OnInit {
         metaDescription: res.meta_description.meta_description,
         metaKeyword: res.meta_description.meta_keyword,
       })
-      this.imageUrl = res.image,
-        this.parentId = res.parent_category.id
       this.ngxLoader.stop();
     })
   }
@@ -118,31 +116,7 @@ export class AddEditCategoryComponent implements OnInit {
     })
   }
   submitForm() {
-    this.seo = {
-      meta_title: this.productCategoryForm.controls['metaDescription'].value,
-      meta_description: this.productCategoryForm.controls['metaTitle'].value,
-      meta_keywords: this.productCategoryForm.controls['metaKeyword'].value
-    }
-    this.parent_category = {
-      id: this.parentId,
-      name: this.productCategoryForm.controls['parentCategoryName'].value
-    }
-    this.payload = {
-      id: parseInt(this.id),
-      categoryName: this.productCategoryForm.controls['categoryName'].value,
-      image: this.image,
-      description: this.productCategoryForm.controls['description'].value,
-      status: this.productCategoryForm.controls['status'].value,
-      parent_category: this.parent_category,
-      meta_description: this.seo
-    }
-    this.ngxLoader.start();
-    if (this.editMode) {
-      console.log(this.payload)
-      this.editProductCategory(this.payload)
-    } else {
-      this.addProductCategory(this.payload)
-    }
+    
   }
   OnChange(event) {
     this.image = event.target.files;

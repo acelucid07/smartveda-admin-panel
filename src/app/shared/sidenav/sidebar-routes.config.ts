@@ -12,6 +12,10 @@ export const SideNaveMenueRoute = [
                 label: 'Active Movies',
                 routerLink: ['/Movies/active-movies']
             },
+            {
+                label: 'All Movies',
+                routerLink: ['/Movies/all-movies']
+            },
 
         ]
     },

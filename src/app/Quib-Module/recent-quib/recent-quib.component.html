@@ -1,49 +1,50 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
-	<div class="page-heading">
-		<h1 class="header-text-title" style="margin-left: 1%;">Order Transaction List</h1>
-	</div>
 	<div class="card col-sm-12" style="border:none;">
-		<p-table id="customerTable" #dt [value]="orderTransactin" [columns]="cols" responsiveLayout="scroll"
-			[paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+		<p-table id="customerTable" #dt [value]="recentQuib" [columns]="cols" responsiveLayout="scroll"
+			[paginator]="true" [rows]="10" [showCurrentPageReport]="true" [resizableColumns]="true"
 			currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
-			[globalFilterFields]="['orderId', 'transactionId']" styleClass="p-datatable-striped">
-
+			[globalFilterFields]="['user', 'movies']" styleClass="p-datatable-striped,width:max-content">
 			<ng-template pTemplate="caption">
 				<div class="row">
-					<span class="p-input-icon-right ml-5">
+					<div class="p-input-icon-right ml-5">
 						<i class="pi pi-search"></i>
-						<input pInputText type="text" placeholder="Search by OrderId or transactionId"
+						<input pInputText type="text" id="search-box" placeholder="Search by quibName or movies"
 							(input)="applyFilterGlobal($event, 'contains')" />
-					</span>
+					</div>
+					<div class="p-input-icon-right ml-5">
+						<button pButton type="button" label="Add  Most Active Quib" class="p-button-success"
+							[routerLink]="['']"></button>
+					</div>
 				</div>
 			</ng-template>
-
 			<ng-template pTemplate="header" let-columns>
 				<tr>
-					<th>S.No</th>
+					<th>S.no</th>
 					<th *ngFor="let col of columns">{{col.headers}}</th>
-					<th>Options</th>
+					<th>Action</th>
 				</tr>
 			</ng-template>
-			<ng-template pTemplate="body" let-i="rowIndex" let-order>
+			<ng-template pTemplate="body" let-i="rowIndex" let-recentQuib>
 				<tr>
 					<td>{{i+1}}</td>
-					<td>{{order.transactionId}}</td>
-					<td>{{order.orderId}}</td>
-					<td>{{order.productId}}</td>
-					<td>{{order.discount}}</td>
-					<td>{{order.deliveryCharge}}</td>
-					<td>{{order.productTotal}}</td>
-					<td>{{order.tax}}</td>
-					<td>{{order.totalAmountWith}}</td>
-					<td>{{order.methodOfPayment}}</td>
+					<td>{{recentQuib.user}}</td>
+					<td>{{recentQuib.movies}}</td>
+					<td>{{recentQuib.quib}}</td>
+					<td>{{recentQuib.time}}</td>
+					<td>{{recentQuib.createdDate}}</td>
+					<td>{{recentQuib.postedDate}}</td>
+					<td>{{recentQuib.isEnabled}}</td>
+					<td>{{recentQuib.isBumped}}</td>
+					<td>{{recentQuib.quibType}}</td>
 					<td>
 						<div class="btn-grp">
-							<!-- <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Customer" tooltipPosition="bottom" style="margin-right:5px"></button> -->
-							<button class="p-button-primary" pButton type="button" icon="pi pi-eye" [routerLink]="['/order/transaction-details']" [queryParams]="{TransactionId:order?.transactionId}"></button>
-							<button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Transaction"
-								tooltipPosition="bottom" (click)="deteOrderTransactionBy(order?.orderId)"></button>
+							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
+								disabled="true" pTooltip="edit user"
+								tooltipPosition="bottom" style="margin-right:5px"></button>
+
+							<button class="p-button-danger" pButton type="button" icon="pi pi-trash"
+								pTooltip="Delete user" tooltipPosition="bottom"></button>
 						</div>
 					</td>
 				</tr>

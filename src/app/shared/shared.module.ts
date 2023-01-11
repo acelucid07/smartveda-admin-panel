@@ -23,6 +23,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
+import {CheckboxModule} from 'primeng/checkbox';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -47,6 +50,8 @@ import { CalendarModule } from 'primeng/calendar';
     DialogModule,
     MatDividerModule,
     MatTabsModule,
+    CheckboxModule,
+    MatCheckboxModule,
     ToastrModule.forRoot({
       timeOut: 300,
       positionClass: 'toast-bottom-right',
@@ -77,8 +82,10 @@ import { CalendarModule } from 'primeng/calendar';
     DialogModule,
     FormsModule,
     ReactiveFormsModule,
-    CalendarModule
-  ]
+    CalendarModule,
+    CheckboxModule,
+    MatCheckboxModule,
+   ]
 })
 export class SharedModule { 
   NgxUiLoaderConfig: NgxUiLoaderConfig =

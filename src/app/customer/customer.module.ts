@@ -6,19 +6,23 @@ import { UpdateCustomerComponent } from './update-customer/update-customer.compo
 import { SharedModule as SharedImportsModule } from '../_modules/shared.module';
 import { AngularMaterialModule } from '../_modules/angular-material.module';
 import { QuibUserComponent } from './quib-user/quib-user.component';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 
 @NgModule({
   declarations: [
     UpdateCustomerComponent,
-    QuibUserComponent
+    QuibUserComponent,
   ],
   imports: [
     CommonModule,
     CustomerRoutingModule,
     SharedModule,
     SharedImportsModule,
-    AngularMaterialModule
+    ConfirmDialogModule,
+    AngularMaterialModule,
+    
   ]
 })
+
 export class CustomerModule { }
