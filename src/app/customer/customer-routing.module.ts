@@ -5,12 +5,13 @@ import { ProfileComponent } from '../profile/profile/profile.component';
 import { AuthGuardService as AuthGuard} from '../_services/auth-guard.service';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
-
+import {QuibUserComponent} from './quib-user/quib-user.component'
 const routes: Routes = [
   { path: '', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'customer', component: CustomerListComponent, canActivate: [AuthGuard] },
   { path: 'viewcustomer', component: ProfileBasicInfoComponent, canActivate: [AuthGuard]},
-  { path: 'editcustomer', component: UpdateCustomerComponent, canActivate: [AuthGuard]}
+  { path: 'editcustomer', component: UpdateCustomerComponent, canActivate: [AuthGuard]},
+  { path: 'quib-user', component: QuibUserComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

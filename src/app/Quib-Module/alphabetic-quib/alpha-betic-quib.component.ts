@@ -1,0 +1,55 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { order } from 'src/app/_models/order';
+import { OrdersService } from 'src/app/_services/orders.service';
+import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
+import { TABLE_HEADING } from '../../_models/table_heading';
+import { Table } from 'primeng/table';
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
+@Component({
+  selector: 'app-alpha-betic-quib',
+  templateUrl: './alpha-betic-quib.component.html',
+  styleUrls: ['./alpha-betic-quib.component.scss'],
+})
+export class AlphaBeticQuibComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
+  cols!: TABLE_HEADING[];
+  deliveredOrder: order[] = [];
+  fgsType: any;
+  constructor(
+    private orderService: OrdersService,
+    private ngxLoader: NgxUiLoaderService,
+    private toastr: ToastrMsgService
+  ) {}
+
+  ngOnInit(): void {
+    this.fgsType = SPINNER.squareLoader;
+    this.ngxLoader.start();
+    this.getDeliveredOrderList();
+  
+    this.cols = [
+      { field: 'orderId', show: true, headers: 'Order Id' },
+      { field: 'orderNo', show: true, headers: 'Order No' },
+      { field: 'orderDate', show: true, headers: 'Order Date' },
+      { field: 'customerId', show: true, headers: 'Customer Id' },
+      { field: 'deliveryStatus', show: true, headers: 'Delivery Status' },
+    ];
+  }
+  applyFilterGlobal($event, stringVal) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+  }
+  deleteOrder(order: number) {
+    this.ngxLoader.start();
+    this.orderService.deleteDeliveredOrder(order).subscribe((res) => {
+      if (res) {
+        this.toastr.showSuccess('delivered order deleted successfully', 'order deleted');
+        this.getDeliveredOrderList();
+      }
+    });
+  }
+  getDeliveredOrderList() {
+    this.orderService.getDeliveredOrderList().subscribe((data) => {
+      this.deliveredOrder = data;
+      this.ngxLoader.stop();
+    });
+  }
+}

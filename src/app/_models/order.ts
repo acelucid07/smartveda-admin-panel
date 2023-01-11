@@ -1,4 +1,4 @@
-import {product_details} from '../_models/catalog'
+import { product_details } from '../_models/catalog'
 export interface order {
   orderId: number,
   customerId: string,
@@ -7,15 +7,15 @@ export interface order {
   paymentStatus: string,
   deliveryType: string,
   paymentType: string,
-  total:string,
-  deliveryStatus:string,
-  country:string,
-  orderStatus:string,
-  product_details:any,
-  email:string,
-  mobileNo:string,
-  Shipping_Address:Shipping_Address,
-  Billing_Address:Billing_Address,
+  total: string,
+  deliveryStatus: string,
+  country: string,
+  orderStatus: string,
+  product_details: any,
+  email: string,
+  mobileNo: string,
+  Shipping_Address: Shipping_Address,
+  Billing_Address: Billing_Address,
 }
 
 export interface cancelOrder {
@@ -27,16 +27,16 @@ export interface cancelOrder {
   deliveryCharge: string
 }
 
-export interface orderTransactin{
-  transactionId:string,
-  orderId:number,
-  productId:Array<Number>,
-  discount:string,
-  deliveryCharge:string,
-  productTotal:string,
-  tax:string,
-  totalAmountWith:string,
-  methodOfPayment:string 
+export interface orderTransactin {
+  transactionId: string,
+  orderId: number,
+  productId: Array<Number>,
+  discount: string,
+  deliveryCharge: string,
+  productTotal: string,
+  tax: string,
+  totalAmountWith: string,
+  methodOfPayment: string
 }
 
 export interface Billing_Address {
@@ -49,7 +49,7 @@ export interface Billing_Address {
   billingState: string
 }
 
-export interface Shipping_Address{
+export interface Shipping_Address {
   shippingPinCode: string | number,
   shippingFlatNo: string | number,
   shippingArea: string,
@@ -66,8 +66,34 @@ export interface Shipments {
   Totalquantity: string | number
   ShipmentDate: string,
   Shippingto: string,
-  ProductDetails:any,
-  Billing_Address:Billing_Address,
-  Shipping_Address:Shipping_Address,
-  PaymentInformation:orderTransactin,
+  ProductDetails: any,
+  Billing_Address: Billing_Address,
+  Shipping_Address: Shipping_Address,
+  PaymentInformation: orderTransactin,
+}
+
+export interface Quib_User {
+  id: string | number
+  displayName: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  status: string,
+  joinDate: string,
+  bmp: string | number,
+  fng: string | number,
+  frs: string | number,
+  unp: string | number
+}
+
+export interface Quib {
+  user: string | number,
+  movies: string,
+  quib: string,
+  time: string,
+  createdDate: string,
+  postedDate: string,
+  isEnabled: boolean,
+  isBumped: boolean,
+  quibType: string | number,
 }

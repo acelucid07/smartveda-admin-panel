@@ -5,11 +5,13 @@ import { SharedModule } from '../shared/shared.module';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
 import { SharedModule as SharedImportsModule } from '../_modules/shared.module';
 import { AngularMaterialModule } from '../_modules/angular-material.module';
+import { QuibUserComponent } from './quib-user/quib-user.component';
 
 
 @NgModule({
   declarations: [
-    UpdateCustomerComponent
+    UpdateCustomerComponent,
+    QuibUserComponent
   ],
   imports: [
     CommonModule,

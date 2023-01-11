@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { products } from '../DummyData/product';
 import { categories } from '../DummyData/product-category';
 import { category, product } from '../_models/catalog'
-
+import { MovieData } from '../DummyData/userData';
 @Injectable({
     providedIn: 'root'
 })
@@ -94,5 +94,12 @@ export class ProductService {
         let indexObj = categories.findIndex((item) => item.id == id)
         categories.splice(categories.findIndex((index) => index.id == id), 1);
         return of(categories[indexObj])
+    }
+    getMovieList(){
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/product`;
+        // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
+       return of(MovieData)  
     }
 }

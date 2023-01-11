@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationComponent } from './authentication/authentication/authentication.component';
-import { ProfileBasicInfoComponent } from './profile/profile-basic-info/profile-basic-info.component';
 import { AuthGuardService as AuthGuard} from './_services/auth-guard.service';
 
 const routes: Routes = [
@@ -21,25 +20,15 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'order',
-    loadChildren: () => import('./order-management/order-management.module').then(mod => mod.OrderManagementModule)
+    path: 'Quib',
+    loadChildren: () => import('./Quib-Module/quib.module').then(mod => mod.QuibModule)
   },
   {
-    path: 'cms',
-    loadChildren: () => import('./content-management/content-management.module').then(mod => mod.ContentManagementModule)
+    path: 'Movies',
+    loadChildren: () => import('./Movies-Module/movies.module').then(mod => mod.MoviesModule)
   },
-  {
-    path: 'product',
-    loadChildren: () => import('./product-management/product-management.module').then(mod => mod.ProductManagementModule)
-  },
-  {
-    path: 'marketing',
-    loadChildren: () => import('./marketing-management/marketing-management.module').then(mod => mod.MarketingManagementModule)
-  },
-  {
-    path: 'appointment',
-    loadChildren: () => import('./appoinment/appoinment.module').then(mod=>mod.AppoinmentModule)
-  },
+  
+  
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

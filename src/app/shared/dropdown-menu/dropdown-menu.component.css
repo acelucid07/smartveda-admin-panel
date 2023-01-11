@@ -17,7 +17,8 @@ mat-icon {
   top: 1px;
   right: 1.5rem;
   display: block;
-  background: #151D3B;
+  /* background: #151D3B; */
+  background: #3d5763;
   border: 1px solid #D1D1D1;
   border-radius: 20px 0 20px 20px;
   list-style: none;

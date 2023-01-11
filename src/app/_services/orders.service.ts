@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { from, map, Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { order, cancelOrder, orderTransactin, shipmentData } from '../DummyData/order'
+import { Userdata, } from '../DummyData/userData'
 
 @Injectable({
   providedIn: 'root'
@@ -58,8 +59,8 @@ export class OrdersService {
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     return of(orderTransactin)
   }
-  getTransactionById(transactionId: string){
-    const token = localStorage.getItem('token') || ''; 
+  getTransactionById(transactionId: string) {
+    const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)
     const endpointUrl = `${environment.JSON_SERVER}/orders/${transactionId}`;
     let indexTransactionId = orderTransactin.findIndex((item) => item.transactionId === transactionId)
@@ -91,14 +92,27 @@ export class OrdersService {
     order.splice(order.findIndex((index) => index.orderId == orderId), 1);
     return of(order[indexConfirmedOrder])
   }
-  deleteOrder(orderId: number) {
+  deleteUser(Id: number) {
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)
     const endpointUrl = `${environment.JSON_SERVER}/orders`;
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
-    let indexOrder = order.findIndex(item => item.orderId === orderId)
-    order.splice(order.findIndex((index) => index.orderId == orderId), 1);
-    return of(order[indexOrder])
+    let indexOrder = Userdata.findIndex(item => item.id === Id)
+    Userdata.splice(Userdata.findIndex((index) => index.id == Id), 1);
+    return of(Userdata[indexOrder])
+  }
+  markAsActive(Id: number, Status) {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    let index = Userdata.findIndex(item => item.id === Id)
+    if (Status === true) {
+      Userdata[index].status = "Active"
+    } else {
+      Userdata[index].status = "Pending"
+    }
+    return of(Userdata[index])
   }
   deleteDeliveredOrder(orderId: number) {
     const token = localStorage.getItem('token') || '';
@@ -150,5 +164,13 @@ export class OrdersService {
     //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     let indexShipment = shipmentData.findIndex(item => item.OrderDetails.orderId === orderId)
     return of(shipmentData[indexShipment])
+  }
+
+  getUserList() {
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/orders`;
+    //return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
+    return of(Userdata)
   }
 }
