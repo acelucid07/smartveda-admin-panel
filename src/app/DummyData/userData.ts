@@ -158,28 +158,28 @@ export let Userdata = [
 ]
 
 export let MovieData = [
-  {
+  { "id":1,
     "title": "Arrival",
     "director": "Denis Villeneuve",
     "releaseyear": 2016,
     "length": 6981,
     "isActive": true,
   },
-  {
+  { "id":2,
     "title": "Beasts of No Nation",
     "director": "Cary Joji Fukunaga",
     "releaseyear": 2015,
     "length": 8243,
     "isActive": true,
   },
-  {
+  { "id":3,
     "title": "Birdman",
     "director": "Alejandro González Iñárritu",
     "releaseyear": 2014,
     "length": 7157,
     "isActive": true,
   },
-  {
+  { "id":4,
     "title": "Black Panther",
     "director": "Ryan Coogler",
     "releaseyear": 2018,
@@ -190,56 +190,61 @@ export let MovieData = [
 
 export let QuibData = [
   {
+    "id":12,
     "user": "J Quibseed",
     "movies": "Pulp Fiction",
     "quib": "Definition of pulp",
     "time": "0:00:15",
-    "createdDate": "2013/06/23",
-    "postedDate": "2013/07/01",
+    "createdDate": "06/23/2013",
+    "postedDate": "07/01/2013",
     "isEnabled": true,
     "isBumped": false,
     "quibType": "SQ"
   },
   {
+    "id":13,
     "user": "J Quibseed",
     "movies": "Pulp Fiction",
     "quib": "Alright. Same as last time, remember? You're crowd control. I handle employeesp",
     "time": "0:00:15",
-    "createdDate": "2013/06/23",
-    "postedDate": "2013/07/01",
+    "createdDate": "06/23/2013",
+    "postedDate": "07/01/2013",
     "isEnabled": true,
     "isBumped": false,
     "quibType": "SQ"
   },
   {
+    "id":14,
     "user": "J Quibseed",
     "movies": "Pulp Fiction",
     "quib": "Alright. Same as last time, remember? You're crowd control. I handle employees",
     "time": "0:00:15",
-    "createdDate": "2013/06/23",
-    "postedDate": "2013/07/01",
+    "createdDate": "06/23/2013",
+    "postedDate": "07/01/2013",
     "isEnabled": true,
     "isBumped": false,
     "quibType": "SQ"
   },
   {
+    "id":16,
     "user": "J Quibseed",
     "movies": "Pulp Fiction",
     "quib": "Alright. Same as last time, remember? You're crowd control. I handle employees",
     "time": "0:00:15",
-    "createdDate": "2013/06/23",
-    "postedDate": "2013/07/01",
+    "createdDate": "06/23/2013",
+    "postedDate": "07/01/2013",
     "isEnabled": true,
     "isBumped": false,
     "quibType": "SQ"
   },
   {
+    "id":17,
     "user": "J Quibseed",
     "movies": "Pulp Fiction",
     "quib": "Alright. Same as last time, remember? You're crowd control. I handle employees",
     "time": "0:00:15",
-    "createdDate": "2013/06/23",
-    "postedDate": "2013/07/01",
+    "createdDate": "06/23/2013",
+    "postedDate": "07/01/2013",
     "isEnabled": true,
     "isBumped": false,
     "quibType": "SQ"

@@ -13,10 +13,10 @@
 						<input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
 							placeholder="Search by title and  length" />
 					</span>
-					<span class="p-input-icon-right ml-5">
+					<!-- <span class="p-input-icon-right ml-5">
 						<button pButton type="button" label="Add Movie" class="p-button-success"
 							[routerLink]="['/product/addcategory']"></button>
-					</span>
+					</span> -->
 				</div>
 			</ng-template>
 
@@ -57,4 +57,97 @@
 		</p-table>
 		<ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
 	</div>
+
+	<!--pop model edit movies  start from here ------>
+	<p-dialog [(visible)]="display" [modal]="true" header="Add Movies" [style]="{width: '60vw',height:'100vh'}"
+		position="top" [baseZIndex]="10000">
+		<form [formGroup]="ActiveMoviesForm">
+			<div class="card col-sm-12">
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<div class="h-100 mt-5">
+							<div class="card-body">
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">Title</label>
+											<input type="text" class="form-control" formControlName="Title">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="image">Director </label>
+											<input type="text" class="form-control" formControlName="Director">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="Name">Release Year</label>
+											<input type="date" class="form-control" formControlName="ReleaseYear">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="row gutters">
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<label for="type" id="label">Rating</label>
+												<div class="form-group">
+													<select class="form-control" formControlName="Rating" placeholder="Select Rating">
+														
+														<option [value]="1">1</option>
+														<option [value]="2">2</option>
+														<option [value]="3">3</option>
+														<option [value]="5">5</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<section class="example-section">
+													<mat-checkbox class="example-margin">Enabled</mat-checkbox>
+												</section>
+												<section class="example-section">
+													<mat-checkbox class="example-margin">Featured</mat-checkbox>
+												</section>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="row gutters">
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="form-group">
+													<label for="Name">Movies Poster</label>
+													<input type="file" class="form-control" (change)="OnChange($event)">
+												</div>
+											</div>
+
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+												*ngIf=" imageUrl !=undefined">
+												<div class="form-group">
+													<img [src]="imageUrl" class="form-control"
+														style="width: 80%; height: 10vh;">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row gutters mt-4">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+										<div class="text-right">
+											<button pButton type="button" id="submit" name="submit"
+												class="p-button-danger mr-4" (click)="display = false">Cancel</button>
+											<button pButton type="button" id="submit" name="submit"
+												class="p-button-success">Submit</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</p-dialog>
+	<!--pop model edit movies  end  from here ------>
 </div>

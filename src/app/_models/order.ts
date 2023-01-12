@@ -87,6 +87,7 @@ export interface Quib_User {
 }
 
 export interface Quib {
+  id:number | any
   user: string | number,
   movies: string,
   quib: string,

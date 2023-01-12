@@ -68,6 +68,7 @@ export let Satatus = [
 
 ]
 export interface Movies {
+  id:number |any
   title:string,
   director:string,
   releaseyear:string |any,

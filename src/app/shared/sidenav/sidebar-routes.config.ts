@@ -9,14 +9,13 @@ export const SideNaveMenueRoute = [
         routerLink: ['/Movies/active-movies'],
         items: [
             {
-                label: 'Active Movies',
-                routerLink: ['/Movies/active-movies']
-            },
-            {
                 label: 'All Movies',
                 routerLink: ['/Movies/all-movies']
             },
-
+            {
+                label: 'Active Movies',
+                routerLink: ['/Movies/active-movies']
+            },
         ]
     },
     {

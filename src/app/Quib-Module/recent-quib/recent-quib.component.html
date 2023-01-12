@@ -9,12 +9,8 @@
 				<div class="row">
 					<div class="p-input-icon-right ml-5">
 						<i class="pi pi-search"></i>
-						<input pInputText type="text" id="search-box" placeholder="Search by quibName or movies"
+						<input pInputText type="text" id="search-box" placeholder="Search by User or Movies"
 							(input)="applyFilterGlobal($event, 'contains')" />
-					</div>
-					<div class="p-input-icon-right ml-5">
-						<button pButton type="button" label="Add  Most Active Quib" class="p-button-success"
-							[routerLink]="['']"></button>
 					</div>
 				</div>
 			</ng-template>
@@ -40,7 +36,7 @@
 					<td>
 						<div class="btn-grp">
 							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
-								disabled="true" pTooltip="edit user"
+								(click)="EditRecentQuib(recentQuib?.id)" pTooltip="edit recent quib"
 								tooltipPosition="bottom" style="margin-right:5px"></button>
 
 							<button class="p-button-danger" pButton type="button" icon="pi pi-trash"
@@ -59,4 +55,106 @@
 		</p-table>
 		<ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
 	</div>
+
+
+	<!--pop model edit movies  start from here ------>
+	<p-dialog [(visible)]="display" [modal]="true" header="Recent Quib" [style]="{width: '60vw',height:'100vh'}" position="top"
+	[baseZIndex]="10000">
+		<form [formGroup]="recentQuibForm">
+			<div class="card col-sm-12">
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<div class="h-100 mt-5">
+							<div class="card-body">
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">User</label>
+											<input type="text" class="form-control" formControlName="user">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="image">Movie </label>
+											<input type="text" class="form-control" formControlName="movies">
+										</div>
+									</div>
+								</div>
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">Quib</label>
+											<input type="text" class="form-control" formControlName="quib">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="image">Time </label>
+											<input type="text" class="form-control" formControlName="time">
+										</div>
+									</div>
+								</div>
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">Created Date</label>
+											<input type="date" class="form-control" formControlName="createdDate">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="image">Posted Date </label>
+											<input type="date" class="form-control" formControlName="postedDate">
+										</div>
+									</div>
+								</div>
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<label for="name">Is Enabled</label>
+										<div class="form-group">
+											<select class="form-control" formControlName="isEnabled" >
+												<option [value]="true">true</option>
+												<option [value]="false">false</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<label for="image">Is Bumped </label>
+										<div class="form-group">
+											<select class="form-control" formControlName="isBumped">
+												<option [value]="true">true</option>
+												<option [value]="false">false</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">Quib Type</label>
+											<input type="text" class="form-control" formControlName="quibType">
+										</div>
+									</div>
+									
+								</div>
+								<div class="row gutters mt-4">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+										<div class="text-right">
+											<button pButton type="button" id="submit" name="submit"
+												class="p-button-danger mr-4"
+												(click)="display = false">Cancel</button>
+											<button pButton type="button" id="submit" name="submit" class="p-button-success"
+											>Submit</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		
+	</p-dialog>
+	<!--pop model edit movies  end  from here ------>
 </div>

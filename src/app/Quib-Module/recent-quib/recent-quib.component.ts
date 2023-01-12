@@ -5,6 +5,7 @@ import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Quib } from 'src/app/_models/order';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-recent-quib',
   templateUrl: './recent-quib.component.html',
@@ -15,12 +16,27 @@ export class RecentQuibComponent implements OnInit {
   sidebarSpacing: any;
   fgsType: any;
   cols: TABLE_HEADING[];
+  display: boolean = false;
+  recentQuibForm: FormGroup
   recentQuib: Quib[] = [];
 
 
   constructor(private ngxLoader: NgxUiLoaderService,
     private QuibService: QuibService,
-    private toastr: ToastrMsgService) { }
+    private fb: FormBuilder,
+    private toastr: ToastrMsgService) {
+      this.recentQuibForm = this.fb.group({
+        user: ["", [Validators.required]],
+        movies: ['', [Validators.required]],
+        quib: ['', [Validators.required]],
+        time: ['', [Validators.required]],
+        createdDate: ['', [Validators.required]],
+        postedDate: ['', [Validators.required]],
+        isEnabled: ['', [Validators.required]],
+        isBumped: ['', [Validators.required]],
+        quibType: ['', [Validators.required]],
+      })
+     }
 
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';
@@ -58,4 +74,23 @@ export class RecentQuibComponent implements OnInit {
     });
   }
   
+  EditRecentQuib(id) {
+    let alphaBeticQuib = this.recentQuib.filter(item => item.id === id)
+    this.recentQuibForm.patchValue({
+      user: alphaBeticQuib[0].user,
+      movies: alphaBeticQuib[0].movies,
+      quib: alphaBeticQuib[0].quib,
+      time: alphaBeticQuib[0].time,
+      createdDate: alphaBeticQuib[0].createdDate,
+      postedDate: alphaBeticQuib[0].postedDate,
+      isEnabled: alphaBeticQuib[0].isEnabled,
+      isBumped: alphaBeticQuib[0].isBumped,
+      quibType: alphaBeticQuib[0].quibType,
+    })
+    this.display = true
+  }
+  AddRecentQuib() {
+    this.recentQuibForm.reset()
+    this.display = true
+  }
 }
