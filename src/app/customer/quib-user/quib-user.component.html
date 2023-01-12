@@ -12,10 +12,10 @@
 						<input pInputText type="text" id="search-box" placeholder="Search by First Name or Last Name "
 							(input)="applyFilterGlobal($event, 'contains')" />
 					</div>
-					<!-- <div class="p-input-icon-right ml-5">
+					<div class="p-input-icon-right ml-5">
 						<button pButton type="button" label="Add New User" class="p-button-success"
-							[routerLink]="['/order/createOrder']"></button>
-					</div> -->
+						(click)="display =true"></button>
+					</div>
 				</div>
 			</ng-template>
 			<ng-template pTemplate="header" let-columns>
@@ -69,8 +69,91 @@
 		</p-table>
 		<ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
 	</div>
-	
+
+	<!--pop model edit user  start from here ------>
+	<p-dialog [(visible)]="display" [modal]="true" header="Add New User" [style]="{width: '60vw',height:'100vh'}"
+		position="top" [baseZIndex]="10000">
+		<form [formGroup]="quibUserForm">
+			<div class="card col-sm-12">
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<div class="h-100 mt-5">
+							<div class="card-body">
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">Display Name</label>
+											<input type="text" class="form-control" formControlName="displayName">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="image">First Name </label>
+											<input type="text" class="form-control" formControlName="firstName">
+										</div>
+									</div>
+								</div>
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">Last Name</label>
+											<input type="text" class="form-control" formControlName="lastName">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="image">Email </label>
+											<input type="text" class="form-control" formControlName="email">
+										</div>
+									</div>
+								</div>
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">Join Date</label>
+											<input type="date" class="form-control" formControlName="joinDate">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="image">BMP</label>
+											<input type="date" class="form-control" formControlName="BMP">
+										</div>
+									</div>
+								</div>
+
+								<div class="row gutters">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">FRS</label>
+											<input type="text" class="form-control" formControlName="FRS">
+										</div>
+									</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group">
+											<label for="name">UNP</label>
+											<input type="text" class="form-control" formControlName="UNP">
+										</div>
+									</div>
+
+								</div>
+								<div class="row gutters mt-4">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+										<div class="text-right">
+											<button pButton type="button" id="submit" name="submit"
+												class="p-button-danger mr-4" (click)="display = false">Cancel</button>
+											<button pButton type="button" id="submit" name="submit"
+												class="p-button-success">Submit</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</p-dialog>
+	<!--pop model edit user  end from here ------>
 </div>
-<p-confirmDialog [style]="{width: '50vw'}" key="positionDialog"
- [baseZIndex]="10000" rejectButtonStyleClass="p-button-outlined">
-</p-confirmDialog>

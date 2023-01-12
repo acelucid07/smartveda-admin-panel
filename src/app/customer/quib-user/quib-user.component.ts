@@ -7,6 +7,7 @@ import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { PrimeNGConfig } from 'primeng/api';
 import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-quib-user',
@@ -19,14 +20,30 @@ export class QuibUserComponent implements OnInit {
   cols!: TABLE_HEADING[];
   Quib_User: Quib_User[] = [];
   fgsType: any;
+  display: boolean = false;
+  quibUserForm: FormGroup
   constructor(
     private QuibService: QuibService,
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrMsgService,
+    private fb: FormBuilder,
     private primengConfig: PrimeNGConfig,
     private confirmationService: ConfirmationService,
      private messageService: MessageService
-  ) { }
+  ) { 
+    this.quibUserForm = this.fb.group({
+      displayName: ["", [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      joinDate: ['', [Validators.required]],
+      BMP: ['', [Validators.required]],
+      FNG: ['', [Validators.required]],
+      FRS: ['', [Validators.required]],
+      UNP: ['', [Validators.required]],
+      status: ['', [Validators.required]],
+    })
+  }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
@@ -61,24 +78,6 @@ export class QuibUserComponent implements OnInit {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
   deleteUser(order: number) {
-    this.confirmationService.confirm({
-      message: 'Are you sure that you want to proceed?',
-      header: 'Confirmation',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-          this.messageService.add({severity:'info', summary:'Confirmed', detail:'You have accepted'});
-      },
-      reject: (type) => {
-          switch(type) {
-              case ConfirmEventType.REJECT:
-                  this.messageService.add({severity:'error', summary:'Rejected', detail:'You have rejected'});
-              break;
-              case ConfirmEventType.CANCEL:
-                  this.messageService.add({severity:'warn', summary:'Cancelled', detail:'You have cancelled'});
-              break;
-          }
-      }
-  });
     this.ngxLoader.start();
     this.QuibService.deleteUser(order).subscribe(res => {
       if (res) {
