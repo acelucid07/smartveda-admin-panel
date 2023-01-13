@@ -1,4 +1,4 @@
-import { product_details } from '../_models/catalog'
+import { product_details } from './movies'
 export interface order {
   orderId: number,
   customerId: string,

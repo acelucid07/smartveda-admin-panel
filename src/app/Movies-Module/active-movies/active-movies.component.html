@@ -2,8 +2,7 @@
 <div class="body bcard" [ngClass]="sidebarSpacing">
 	<div class="card col-sm-12" style="border:none;">
 		<p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
-			[showCurrentPageReport]="true" [value]="moviesList"
-			[resizableColumns]="true"
+			[showCurrentPageReport]="true" [value]="moviesList" [resizableColumns]="true"
 			currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
 			[globalFilterFields]="['title', 'length', 'isActive']" styleClass="p-datatable-striped">
 			<ng-template pTemplate="caption">
@@ -27,22 +26,25 @@
 					<th>Options</th>
 				</tr>
 			</ng-template>
-			<ng-template pTemplate="body" let-i="rowIndex" let-categoryList>
+			<ng-template pTemplate="body" let-i="rowIndex" let-activeMoviesList>
 				<tr>
 					<td>{{i+1}}</td>
-					<td>{{categoryList?.title}}</td>
-					<td>{{categoryList?.director}}</td>
-					<td>{{categoryList?.releaseyear}}</td>
-					<td>{{categoryList?.length}}</td>
-					<td>{{categoryList?.isActive}}</td>
+					<td>{{activeMoviesList?.title}}</td>
+					<td>{{activeMoviesList?.director}}</td>
+					<td>{{activeMoviesList?.releaseyear}}</td>
+					<td>{{activeMoviesList?.length}}</td>
+					<td>
+						<button pTooltip="mark as InActive" pButton type="button" class="p-button-success"
+							style="height: 30px;">{{activeMoviesList?.isActive}}</button>
+					</td>
 					<td>
 						<div class="btn-grp">
-							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit movie"
-								tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/product/editcategory']"
-								[queryParams]="{id:categoryList?.id}" disabled="true"></button>
-							<button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete movie"
-								tooltipPosition="bottom" style="margin-right:5px" (click)="deleteCategory(categoryList)"
+							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
+								pTooltip="Edit movie" tooltipPosition="bottom" style="margin-right:5px"
 								disabled="true"></button>
+							<button class="p-button-danger" pButton type="button" icon="pi pi-trash"
+								pTooltip="Delete movie" tooltipPosition="bottom" style="margin-right:5px"
+								></button>
 						</div>
 					</td>
 				</tr>
@@ -91,8 +93,9 @@
 											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 												<label for="type" id="label">Rating</label>
 												<div class="form-group">
-													<select class="form-control" formControlName="Rating" placeholder="Select Rating">
-														
+													<select class="form-control" formControlName="Rating"
+														placeholder="Select Rating">
+
 														<option [value]="1">1</option>
 														<option [value]="2">2</option>
 														<option [value]="3">3</option>

@@ -33,7 +33,15 @@
 					<td>{{moviesList?.director}}</td>
 					<td>{{moviesList?.releaseyear}}</td>
 					<td>{{moviesList?.length}}</td>
-					<td>{{moviesList?.isActive}}</td>
+					<td>
+						<div class="btn-grp">
+							<button pTooltip="mark as InActive" pButton type="button" class="p-button-success"
+								*ngIf="moviesList.isActive ==true"
+								style="height: 30px;">{{moviesList?.isActive}}</button>
+							<button pButton type="button" class="p-button-danger" pTooltip="mark as Active"
+								*ngIf="moviesList.isActive ==false"
+								style="height: 30px">{{moviesList?.isActive}}</button>
+						</div>
 					<td>
 						<div class="btn-grp">
 							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
@@ -41,7 +49,7 @@
 								(click)="EditMovies(moviesList?.id)"></button>
 							<button class="p-button-danger" pButton type="button" icon="pi pi-trash"
 								pTooltip="Delete movie" tooltipPosition="bottom" style="margin-right:5px"
-								disabled="true"></button>
+								(click)="deleteMovies(moviesList?.id)"></button>
 						</div>
 					</td>
 				</tr>
@@ -70,19 +78,22 @@
 									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div class="form-group">
 											<label for="name">Title</label>
-											<input type="text" class="form-control" formControlName="Title">
+											<input type="text" class="form-control" placeholder="Title"
+												formControlName="Title">
 										</div>
 									</div>
 									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div class="form-group">
 											<label for="image">Director </label>
-											<input type="text" class="form-control" formControlName="Director">
+											<input type="text" class="form-control" placeholder="Director"
+												formControlName="Director">
 										</div>
 									</div>
 									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div class="form-group">
 											<label for="Name">Release Year</label>
-											<input type="date" class="form-control" formControlName="ReleaseYear">
+											<input type="date" class="form-control" placeholder="Release Year"
+												formControlName="ReleaseYear">
 										</div>
 									</div>
 									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -90,11 +101,13 @@
 											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 												<label for="type" id="label">Rating</label>
 												<div class="form-group">
-													<select class="form-control" formControlName="Rating" placeholder="Select Rating">
+													<select class="form-control" formControlName="Rating"
+														placeholder="Select Rating">
 														<!-- <option value="" selected disabled>Select Rating</option> -->
 														<option [value]="1">1</option>
 														<option [value]="2">2</option>
 														<option [value]="3">3</option>
+														<option [value]="4">4</option>
 														<option [value]="5">5</option>
 													</select>
 												</div>
@@ -128,8 +141,57 @@
 											</div>
 										</div>
 									</div>
-								</div>
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="row gutters">
+											<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+												<div class="form-group">
+													<label for="Name">HH</label>
+													<input type="number" class="form-control" placeholder="hours"
+														formControlName="hours">
+												</div>
+											</div>
+											<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+												<div class="form-group">
+													<label for="Name">MM</label>
+													<input type="number" class="form-control" placeholder="minutes"
+														formControlName="minutes">
+												</div>
+											</div>
+											<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+												<div class="form-group">
+													<label for="Name">SS</label>
+													<input type="number" class="form-control" placeholder="second"
+														formControlName="seconds">
+												</div>
+											</div>
 
+										</div>
+									</div>
+
+								</div>
+								<button pButton type="button" class="p-button-warning">Add</button>
+
+								<div class="row gutters" formArrayName="screenShotImage">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="row gutters">
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="form-group">
+													<label for="Name">Screen Shot upload</label>
+													<input type="file" class="form-control" (change)="OnChange($event)">
+												</div>
+											</div>
+
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+												*ngIf=" imageUrl !=undefined">
+												<div class="form-group">
+													<img [src]="imageUrl" class="form-control"
+														style="width: 80%; height: 10vh;">
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
 								<div class="row gutters mt-4">
 									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 										<div class="text-right">
@@ -144,9 +206,13 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</form>
 
 	</p-dialog>
 	<!--pop model edit movies  end  from here ------>
+	<p-confirmDialog header="Confirmation" [style]="{width: '40vw'}" position="top" [baseZIndex]="10000"
+		icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
 </div>

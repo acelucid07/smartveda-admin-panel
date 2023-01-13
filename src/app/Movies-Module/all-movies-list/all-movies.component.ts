@@ -1,15 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
-import { ProductService } from 'src/app/_services/product.service';
+import { MoviesService } from 'src/app/_services/movies.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-import { Movies } from 'src/app/_models/catalog';
+import { Movies } from 'src/app/_models/movies';
 import { Table } from 'primeng/table';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,FormArray } from '@angular/forms';
+import { ConfirmationService} from 'primeng/api';
 @Component({
   selector: 'app-all-movies',
   templateUrl: './all-movies.component.html',
-  styleUrls: ['./all-movies.component.scss']
+  styleUrls: ['./all-movies.component.scss'],
+  providers: [ConfirmationService]
 })
 export class AllMoviesComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -20,10 +22,12 @@ export class AllMoviesComponent implements OnInit {
   display: boolean = false;
   image: File;
   imageUrl;
+  screenShotImage: FormArray;  
   AllMoviesForm: FormGroup
   constructor(private ngxLoader: NgxUiLoaderService,
     private fb: FormBuilder,
-    private ProductService: ProductService,
+    private MoviesService: MoviesService,
+    private confirmationService: ConfirmationService,
     private toastr: ToastrMsgService,) {
     this.AllMoviesForm = this.fb.group({
       Director: ["", [Validators.required]],
@@ -37,7 +41,12 @@ export class AllMoviesComponent implements OnInit {
       hours: ['', [Validators.required]],
       minutes: ['', [Validators.required]],
       seconds: ['', [Validators.required]],
-      Rating: ['', [Validators.required]]
+      Rating: ['', [Validators.required]],
+      screenShot:this.fb.array([
+        this.fb.group({  
+          imageUrl: '',  
+        })
+      ]),
     })
   }
 
@@ -49,7 +58,7 @@ export class AllMoviesComponent implements OnInit {
       { field: 'director', show: true, headers: 'Director' },
       { field: 'releaseyear', show: true, headers: 'Release Year' },
       { field: 'length', show: true, headers: 'Length' },
-      { field: 'isActive', show: true, headers: 'Is Active' },
+      { field: 'isActive', show: true, headers: 'Status' },
     ]
     this.getMovieList()
   }
@@ -62,7 +71,7 @@ export class AllMoviesComponent implements OnInit {
     }
   }
   getMovieList() {
-    this.ProductService.getMovieList().subscribe((res) => {
+    this.MoviesService.getMovieList().subscribe((res) => {
       this.moviesList = res
       this.ngxLoader.stop();
     })
@@ -91,5 +100,33 @@ export class AllMoviesComponent implements OnInit {
     reader.onload = (data) => {
       this.imageUrl = data.target.result;
     }
+  }
+  addImageFormControl(){
+    return this.fb.group({  
+      imageUrl: '',  
+    }); 
+  }
+  addScreenShot(): void {  
+    this.screenShotImage = this.AllMoviesForm.get('screenShot') as FormArray;  
+    this.screenShotImage.push(this.addImageFormControl());  
+  }  
+  deleteMovies(moviesId){
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete Movies ?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        
+      },
+    });
+  }
+  markAsActive(id: number, Status: boolean) {
+    this.ngxLoader.start();
+    this.MoviesService.markAsActive(id, Status).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess(" Status change successfully", "Status change")
+        this.getMovieList()
+      }
+    })
   }
 }

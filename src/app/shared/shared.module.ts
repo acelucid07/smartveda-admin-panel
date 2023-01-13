@@ -25,7 +25,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import {CheckboxModule} from 'primeng/checkbox';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 @NgModule({
   declarations: [
     SidenavComponent,
@@ -52,6 +52,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatTabsModule,
     CheckboxModule,
     MatCheckboxModule,
+    ConfirmDialogModule,
     ToastrModule.forRoot({
       timeOut: 300,
       positionClass: 'toast-bottom-right',
@@ -85,6 +86,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     CalendarModule,
     CheckboxModule,
     MatCheckboxModule,
+    ConfirmDialogModule
    ]
 })
 export class SharedModule { 

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
-import {  Movies } from 'src/app/_models/catalog';
+import {  Movies } from 'src/app/_models/movies';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
-import { ProductService } from 'src/app/_services/product.service';
+import { MoviesService } from 'src/app/_services/movies.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Table } from 'primeng/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -24,7 +24,7 @@ export class ActiveMoviesComponent implements OnInit {
   imageUrl;
   constructor(
     private ngxLoader: NgxUiLoaderService,
-    private ProductService: ProductService,
+    private MoviesService: MoviesService,
     private toastr: ToastrMsgService,
     private fb: FormBuilder,
   ) { 
@@ -66,23 +66,14 @@ export class ActiveMoviesComponent implements OnInit {
   }
 
   getMovieList() {
-    this.ProductService.getMovieList().subscribe((res) => {
-      console.log(res)
-      this.moviesList =  res
+    this.MoviesService.getMovieList().subscribe((res) => {
+      this.moviesList =  res.filter(item=>item.isActive===true)
       console.log(this.moviesList)
       this.ngxLoader.stop();
     })
   }
 
-  deleteCategory(categoryList: any) {
-    this.ngxLoader.start();
-    this.ProductService.deleteCategory(categoryList.id).subscribe(res => {
-      if (res) {
-        this.toastr.showSuccess("Category deleted successfully", "Category delete")
-        this.getMovieList()
-      }
-    })
-  }
+  
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
