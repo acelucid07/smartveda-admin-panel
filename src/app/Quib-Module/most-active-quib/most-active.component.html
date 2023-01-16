@@ -30,8 +30,26 @@
 					<td>{{mostActiveQuib.time}}</td>
 					<td>{{mostActiveQuib.createdDate}}</td>
 					<td>{{mostActiveQuib.postedDate}}</td>
-					<td>{{mostActiveQuib.isEnabled}}</td>
-					<td>{{mostActiveQuib.isBumped}}</td>
+					<td>
+						<div class="btn-grp">
+							<button (click)="IsEnabled(mostActiveQuib?.id,false)" pTooltip="mark as Decline" pButton type="button"
+								class="p-button-success" *ngIf="mostActiveQuib.isEnabled ==='Approved'"
+								style="height: 30px;">{{mostActiveQuib.isEnabled}}</button>
+							<button (click)="IsEnabled(mostActiveQuib?.id,true)" pButton type="button" class="p-button-danger"
+								pTooltip="mark as Approved" *ngIf="mostActiveQuib.isEnabled !='Approved'"
+								style="height: 30px">{{mostActiveQuib.isEnabled}}</button>
+						</div>
+					</td>
+					<td>
+						<div class="btn-grp">
+							<button (click)="IsBumped(mostActiveQuib?.id,false)" pTooltip="mark as Decline" pButton type="button"
+								class="p-button-success" *ngIf="mostActiveQuib.isBumped =='Saved'"
+								style="height: 30px;">{{mostActiveQuib.isBumped}}</button>
+							<button (click)="IsBumped(mostActiveQuib?.id,true)" pButton type="button" class="p-button-danger"
+								pTooltip="mark as Saved" *ngIf="mostActiveQuib.isBumped !='Saved'"
+								style="height: 30px">{{mostActiveQuib.isBumped}}</button>
+						</div>
+					</td>
 					<td>{{mostActiveQuib.quibType}}</td>
 					<td>
 						<div class="btn-grp">
@@ -39,9 +57,8 @@
 								 pTooltip="edit most active quib"
 								(click)="EditMostActiveQuib(mostActiveQuib?.id)"
 								tooltipPosition="bottom" style="margin-right:5px"></button>
-
 							<button class="p-button-danger" pButton type="button" icon="pi pi-trash"
-								pTooltip="Delete user" tooltipPosition="bottom"></button>
+							(click)="deleteQuib(mostActiveQuib?.id)"	pTooltip="Delete Quib" tooltipPosition="bottom"></button>
 						</div>
 					</td>
 				</tr>
@@ -157,4 +174,6 @@
 		
 	</p-dialog>
 	<!--pop model edit movies  end  from here ------>
+	<p-confirmDialog header="Confirmation" [style]="{width: '40vw'}" position="top" [baseZIndex]="10000"
+		icon="pi pi-exclamation-triangle"></p-confirmDialog>
 </div>

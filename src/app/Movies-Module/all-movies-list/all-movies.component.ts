@@ -5,8 +5,8 @@ import { MoviesService } from 'src/app/_services/movies.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Movies } from 'src/app/_models/movies';
 import { Table } from 'primeng/table';
-import { FormBuilder, FormGroup, Validators,FormArray } from '@angular/forms';
-import { ConfirmationService} from 'primeng/api';
+import { FormBuilder, FormGroup, Validators, FormArray, } from '@angular/forms';
+import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-all-movies',
   templateUrl: './all-movies.component.html',
@@ -22,7 +22,9 @@ export class AllMoviesComponent implements OnInit {
   display: boolean = false;
   image: File;
   imageUrl;
-  screenShotImage: FormArray;  
+  imageBase64 = [];
+  moviesPoster = [];
+  message: string;
   AllMoviesForm: FormGroup
   constructor(private ngxLoader: NgxUiLoaderService,
     private fb: FormBuilder,
@@ -31,7 +33,6 @@ export class AllMoviesComponent implements OnInit {
     private toastr: ToastrMsgService,) {
     this.AllMoviesForm = this.fb.group({
       Director: ["", [Validators.required]],
-      File: ['', [Validators.required]],
       IsActive: ['', [Validators.required]],
       ReleaseYear: ['', [Validators.required]],
       Length: ['', [Validators.required]],
@@ -42,11 +43,8 @@ export class AllMoviesComponent implements OnInit {
       minutes: ['', [Validators.required]],
       seconds: ['', [Validators.required]],
       Rating: ['', [Validators.required]],
-      screenShot:this.fb.array([
-        this.fb.group({  
-          imageUrl: '',  
-        })
-      ]),
+      moviesPoster: ['', [Validators.required]],
+      screenShot: this.fb.array([]),
     })
   }
 
@@ -87,46 +85,74 @@ export class AllMoviesComponent implements OnInit {
       ReleaseYear: moviesData[0].releaseyear,
       Title: moviesData[0].title,
     })
+    this.moviesPoster.pop();
+    this.imageBase64.pop();
     this.display = true
+
   }
-  AddMovies(){
+  AddMovies() {
     this.AllMoviesForm.reset()
     this.display = true
+    this.moviesPoster.pop();
+    this.imageBase64.pop();
   }
-  OnChange(event) {
+  OnChange(event, Status, index) {
     this.image = event.target.files;
     var reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = (data) => {
-      this.imageUrl = data.target.result;
+      if (!Status) {
+        this.moviesPoster[0] = data.target.result
+      } else {
+        this.imageBase64[index] = data.target.result;
+      }
     }
   }
-  addImageFormControl(){
-    return this.fb.group({  
-      imageUrl: '',  
-    }); 
+  addISchreenShotControl() {
+    this.allmovies.push(this.AddFormGroup())
   }
-  addScreenShot(): void {  
-    this.screenShotImage = this.AllMoviesForm.get('screenShot') as FormArray;  
-    this.screenShotImage.push(this.addImageFormControl());  
-  }  
-  deleteMovies(moviesId){
+  AddFormGroup(): FormGroup {
+    return this.fb.group({
+      skill: '',
+      exp: '',
+    })
+  }
+  get allmovies(): FormArray {
+    return this.AllMoviesForm.get('screenShot') as FormArray
+  }
+  deleteMovies(moviesId) {
     this.confirmationService.confirm({
-      message: 'Are you sure that you want to delete Movies ?',
+      message: 'Are you sure that you want to delete this Movies ?',
       header: 'Confirmation',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        
+        this.ngxLoader.start();
+        this.MoviesService.deleteMovies(moviesId).subscribe((res) => {
+          this.getMovieList()
+        })
       },
     });
   }
   markAsActive(id: number, Status: boolean) {
-    this.ngxLoader.start();
-    this.MoviesService.markAsActive(id, Status).subscribe(res => {
-      if (res) {
-        this.toastr.showSuccess(" Status change successfully", "Status change")
-        this.getMovieList()
-      }
-    })
+    if (Status) {
+      this.message = "Are you sure that you want to mark as Active"
+    } else {
+      this.message = "Are you sure that you want to mark as InActive"
+    }
+    this.confirmationService.confirm({
+      message: this.message,
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.ngxLoader.start();
+        this.MoviesService.markAsActive(id, Status).subscribe(res => {
+          if (res) {
+            this.toastr.showSuccess(" Status change successfully", "Status change")
+            this.getMovieList()
+          }
+        })
+      },
+    });
+
   }
 }

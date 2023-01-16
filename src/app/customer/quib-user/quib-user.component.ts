@@ -5,7 +5,7 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading'
 import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-import { ConfirmationService} from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -21,6 +21,7 @@ export class QuibUserComponent implements OnInit {
   Quib_User: Quib_User[] = [];
   fgsType: any;
   display: boolean = false;
+  message: string;
   quibUserForm: FormGroup
   constructor(
     private QuibService: QuibService,
@@ -48,7 +49,7 @@ export class QuibUserComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
-    this.getOrderList()
+    this.getUserList()
     this.cols = [
       { field: 'displayName', show: true, headers: 'Display Name' },
       { field: 'firstName', show: true, headers: 'First Name' },
@@ -84,26 +85,38 @@ export class QuibUserComponent implements OnInit {
         this.QuibService.deleteUser(order).subscribe(res => {
           if (res) {
             this.toastr.showSuccess("user deleted successfully", "user delete")
-            this.getOrderList()
+            this.getUserList()
           }
         })
       },
     });
 
   }
-  getOrderList() {
+  getUserList() {
     this.QuibService.getUserList().subscribe((data) => {
       this.Quib_User = data
       this.ngxLoader.stop();
     });
   }
   markAsActive(id: number, Status: boolean) {
-    this.ngxLoader.start();
-    this.QuibService.markAsActive(id, Status).subscribe(res => {
-      if (res) {
-        this.toastr.showSuccess(" Status change successfully", "Status change")
-        this.getOrderList()
-      }
-    })
+    if (Status) {
+      this.message = 'Are you sure that you want to Approved user?'
+    } else {
+      this.message = 'Are you sure that you want to mark as Pending?'
+    }
+    this.confirmationService.confirm({
+      message: this.message,
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.ngxLoader.start();
+        this.QuibService.markAsActive(id, Status).subscribe(res => {
+          if (res) {
+            this.toastr.showSuccess(" Status change successfully", "Status change")
+            this.getUserList()
+          }
+        })
+      },
+    });
   }
 }

@@ -10,7 +10,7 @@
 					<span class="p-input-icon-right ml-5">
 						<i class="pi pi-search"></i>
 						<input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
-							placeholder="Search by title and  length" />
+							placeholder="Search by Title and Length" />
 					</span>
 					<span class="p-input-icon-right ml-5">
 						<button pButton type="button" label="Add Movie" class="p-button-success"
@@ -36,10 +36,10 @@
 					<td>
 						<div class="btn-grp">
 							<button pTooltip="mark as InActive" pButton type="button" class="p-button-success"
-								*ngIf="moviesList.isActive ==true"
+								(click)="markAsActive(moviesList?.id,false)" *ngIf="moviesList.isActive ==true"
 								style="height: 30px;">{{moviesList?.isActive}}</button>
 							<button pButton type="button" class="p-button-danger" pTooltip="mark as Active"
-								*ngIf="moviesList.isActive ==false"
+								(click)="markAsActive(moviesList?.id,true)" *ngIf="moviesList.isActive ==false"
 								style="height: 30px">{{moviesList?.isActive}}</button>
 						</div>
 					<td>
@@ -66,7 +66,7 @@
 	</div>
 
 	<!--pop model edit movies  start from here ------>
-	<p-dialog [(visible)]="display" [modal]="true" header="Add Movies" [style]="{width: '60vw',height:'100vh'}"
+	<p-dialog [(visible)]="display" [modal]="true" header="Add Movies" [style]="{width: '70vw',height:'100vh'}"
 		position="top" [baseZIndex]="10000">
 		<form [formGroup]="AllMoviesForm">
 			<div class="card col-sm-12">
@@ -103,7 +103,6 @@
 												<div class="form-group">
 													<select class="form-control" formControlName="Rating"
 														placeholder="Select Rating">
-														<!-- <option value="" selected disabled>Select Rating</option> -->
 														<option [value]="1">1</option>
 														<option [value]="2">2</option>
 														<option [value]="3">3</option>
@@ -128,14 +127,14 @@
 											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 												<div class="form-group">
 													<label for="Name">Movies Poster</label>
-													<input type="file" class="form-control" (change)="OnChange($event)">
+													<input type="file" formControlName="moviesPoster" class="form-control" (change)="OnChange($event,false,1)">
 												</div>
 											</div>
 
 											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-												*ngIf=" imageUrl !=undefined">
+												*ngIf=" moviesPoster.length!=0">
 												<div class="form-group">
-													<img [src]="imageUrl" class="form-control"
+													<img [src]="moviesPoster[0]" class="form-control"
 														style="width: 80%; height: 10vh;">
 												</div>
 											</div>
@@ -169,26 +168,26 @@
 									</div>
 
 								</div>
-								<button pButton type="button" class="p-button-warning">Add</button>
-
-								<div class="row gutters" formArrayName="screenShotImage">
-									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-										<div class="row gutters">
-											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<div class="form-group">
-													<label for="Name">Screen Shot upload</label>
-													<input type="file" class="form-control" (change)="OnChange($event)">
-												</div>
-											</div>
-
-											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-												*ngIf=" imageUrl !=undefined">
-												<div class="form-group">
-													<img [src]="imageUrl" class="form-control"
-														style="width: 80%; height: 10vh;">
-												</div>
+								<button pButton type="button" class="p-button-warning"
+									(click)="addISchreenShotControl()">Add</button>
+								<div class="row gutters" formArrayName="screenShot">
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+									 *ngFor="let item of allmovies.controls; let i = index;">
+									<div class="row gutters">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<label for="Name">Screen Shot upload</label>
+												<input type="file" formControlName="i" class="form-control" (change)="OnChange($event,true,i)">
 											</div>
 										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+											*ngIf=" imageBase64.length!=0">
+											<div class="form-group">
+												<img [src]="imageBase64[i]" class="form-control"
+													style="width: 80%; height: 10vh;">
+											</div>
+										</div>
+									</div>
 									</div>
 
 								</div>

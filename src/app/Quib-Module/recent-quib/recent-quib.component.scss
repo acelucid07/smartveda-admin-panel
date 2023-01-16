@@ -1,36 +1,51 @@
-.btn-grp{
+.btn-grp {
   display: flex;
-}th {
+}
+
+th {
   background-color: #353d44 !important;
   color: #fff !important;
 }
+
 td {
   text-align: center !important;
   font-size: 200 !important;
 }
+
 .p-datatable {
   padding: none !important;
 }
-.content-header{
+
+.content-header {
   font-weight: 500;
   letter-spacing: 0.5px;
   font-size: 1.6rem;
   margin-bottom: 0.25rem;
 }
+
 .text-center {
   margin-left: 60% !important;
 }
+
 .glyphicon-cog:before {
   content: "\e019";
   padding-right: 10px;
 }
-.export{
-    margin-left: 90%;
-    margin-bottom: 0.5rem
+
+.export {
+  margin-left: 90%;
+  margin-bottom: 0.5rem
 }
-.btn-grp{
-  display:flex
+
+.btn-grp {
+  display: flex
 }
-.p-dialog .p-dialog-header{
-  background-color: #b54444;
+
+:host {
+  ::ng-deep {
+    .p-dialog .p-dialog-header {
+      background-color: #c6c7cd94;
+    }
+   
   }
+}

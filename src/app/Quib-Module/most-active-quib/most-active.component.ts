@@ -6,11 +6,13 @@ import { TABLE_HEADING } from '../../_models/table_heading'
 import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-most-active-quib',
   templateUrl: './most-active.component.html',
-  styleUrls: ['./most-active.component.scss']
+  styleUrls: ['./most-active.component.scss'],
+  providers: [ConfirmationService]
 })
 export class MostActiveComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -25,6 +27,7 @@ export class MostActiveComponent implements OnInit {
     private QuibService: QuibService,
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrMsgService,
+    private confirmationService: ConfirmationService,
     private fb: FormBuilder,
   ) { 
     this.mostActiveQuibForm = this.fb.group({
@@ -77,9 +80,19 @@ export class MostActiveComponent implements OnInit {
       this.ngxLoader.stop();
     });
   }
-  markAsActive(id:number,Status:boolean){
+  IsEnabled(id:number,Status:boolean){
     this.ngxLoader.start();
-    this.QuibService.markAsActive(id,Status).subscribe(res => {
+    this.QuibService.IsEnabled(id,Status).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess(" Status change successfully", "Status change")
+        this.getMostActiveQuibList()
+      }
+    })
+  }
+
+  IsBumped(id:number,Status:boolean){
+    this.ngxLoader.start();
+    this.QuibService.IsBumped(id,Status).subscribe(res => {
       if (res) {
         this.toastr.showSuccess(" Status change successfully", "Status change")
         this.getMostActiveQuibList()
@@ -104,5 +117,20 @@ export class MostActiveComponent implements OnInit {
   AddMostActiveQuib() {
     this.mostActiveQuibForm.reset()
     this.display = true
+  }
+  deleteQuib(QuibId) {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete Quib ?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.ngxLoader.start();
+        this.QuibService.deleteQuib(QuibId).subscribe(res => {
+          this.toastr.showSuccess(" Quib deleted successfully", "Quib delete")
+          this.getMostActiveQuibList()
+        })
+      },
+    });
+    
   }
 }

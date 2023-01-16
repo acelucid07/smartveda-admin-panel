@@ -9,7 +9,7 @@
 				<div class="row">
 					<div class="p-input-icon-right ml-5">
 						<i class="pi pi-search"></i>
-						<input pInputText type="text" id="search-box" placeholder="Search by First Name or Last Name "
+						<input pInputText type="text" id="search-box" placeholder="Search by FirstName or LastName "
 							(input)="applyFilterGlobal($event, 'contains')" />
 					</div>
 					<div class="p-input-icon-right ml-5">
@@ -39,20 +39,16 @@
 					<td>{{user.unp}}</td>
 					<td>
 						<div class="btn-grp">
-							<button (click)="markAsActive(user?.id,false)" pTooltip="mark as InActive" pButton
-								type="button" class="p-button-success" *ngIf="user.status =='Active'"
+							<button (click)="markAsActive(user?.id,false)" pTooltip="mark as Pending" pButton
+								type="button" class="p-button-success" *ngIf="user.status =='Approved'"
 								style="height: 30px;">{{user.status}}</button>
 							<button (click)="markAsActive(user?.id,true)" pButton type="button" class="p-button-danger"
-								pTooltip="mark as Active" *ngIf="user.status !='Active'"
+								pTooltip="mark as Approved" *ngIf="user.status !='Approved'"
 								style="height: 30px">{{user.status}}</button>
 						</div>
 					</td>
 					<td>
 						<div class="btn-grp">
-							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
-								disabled="true" pTooltip="edit user" (click)="markAsActive(user?.id,true)"
-								tooltipPosition="bottom" style="margin-right:5px"></button>
-
 							<button class="p-button-danger" pButton type="button" icon="pi pi-trash"
 								pTooltip="Delete user" tooltipPosition="bottom" (click)="deleteUser(user?.id)"></button>
 						</div>

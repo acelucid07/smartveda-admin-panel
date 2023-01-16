@@ -10,12 +10,8 @@
 					<span class="p-input-icon-right ml-5">
 						<i class="pi pi-search"></i>
 						<input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
-							placeholder="Search by title and  length" />
+							placeholder="Search by Title and Length" />
 					</span>
-					<!-- <span class="p-input-icon-right ml-5">
-						<button pButton type="button" label="Add Movie" class="p-button-success"
-							[routerLink]="['/product/addcategory']"></button>
-					</span> -->
 				</div>
 			</ng-template>
 
@@ -39,12 +35,8 @@
 					</td>
 					<td>
 						<div class="btn-grp">
-							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
-								pTooltip="Edit movie" tooltipPosition="bottom" style="margin-right:5px"
-								disabled="true"></button>
 							<button class="p-button-danger" pButton type="button" icon="pi pi-trash"
-								pTooltip="Delete movie" tooltipPosition="bottom" style="margin-right:5px"
-								></button>
+							(click)="deleteMovies(activeMoviesList?.id)"	pTooltip="Delete movie" tooltipPosition="bottom" style="margin-right:5px"></button>
 						</div>
 					</td>
 				</tr>
@@ -153,4 +145,6 @@
 
 	</p-dialog>
 	<!--pop model edit movies  end  from here ------>
+	<p-confirmDialog header="Confirmation" [style]="{width: '40vw'}" position="top" [baseZIndex]="10000"
+		icon="pi pi-exclamation-triangle"></p-confirmDialog>
 </div>

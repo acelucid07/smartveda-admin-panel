@@ -30,10 +30,10 @@ export const SideNaveMenueRoute = [
                 label: 'Most Active',
                 routerLink: ['/Quib/most-active']
             },
-            {
-                label: 'Alpha Betic',
-                routerLink: ['/Quib/alphabetic-quib']
-            }
+            // {
+            //     label: 'Alpha Betic',
+            //     routerLink: ['/Quib/alphabetic-quib']
+            // }
 
         ]
     },

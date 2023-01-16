@@ -6,10 +6,12 @@ import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Quib } from 'src/app/_models/order';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-recent-quib',
   templateUrl: './recent-quib.component.html',
-  styleUrls: ['./recent-quib.component.scss']
+  styleUrls: ['./recent-quib.component.scss'],
+  providers: [ConfirmationService]
 })
 export class RecentQuibComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -24,6 +26,7 @@ export class RecentQuibComponent implements OnInit {
   constructor(private ngxLoader: NgxUiLoaderService,
     private QuibService: QuibService,
     private fb: FormBuilder,
+    private confirmationService: ConfirmationService,
     private toastr: ToastrMsgService) {
       this.recentQuibForm = this.fb.group({
         user: ["", [Validators.required]],
@@ -92,5 +95,40 @@ export class RecentQuibComponent implements OnInit {
   AddRecentQuib() {
     this.recentQuibForm.reset()
     this.display = true
+  }
+  deleteQuib(QuibId) {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete Quib ?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.ngxLoader.start();
+        this.QuibService.deleteQuib(QuibId).subscribe(res => {
+          this.toastr.showSuccess(" Quib deleted successfully", "Quib delete")
+          this.getRecentActiveQuibList()
+        })
+      },
+    });
+    
+  }
+
+  IsEnabled(id:number,Status:boolean){
+    this.ngxLoader.start();
+    this.QuibService.IsEnabled(id,Status).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess(" Status change successfully", "Status change")
+        this.getRecentActiveQuibList()
+      }
+    })
+  }
+
+  IsBumped(id:number,Status:boolean){
+    this.ngxLoader.start();
+    this.QuibService.IsBumped(id,Status).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess(" Status change successfully", "Status change")
+        this.getRecentActiveQuibList()
+      }
+    })
   }
 }

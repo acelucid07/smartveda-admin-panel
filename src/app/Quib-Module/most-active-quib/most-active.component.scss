@@ -29,6 +29,11 @@ td {
 .btn-grp{
   display:flex
 }
-.p-dialog .p-dialog-header{
-background-color: #b54444;
+:host {
+  ::ng-deep {
+    .p-dialog .p-dialog-header {
+      background-color: #c6c7cd94;
+    }
+   
+  }
 }

@@ -27,7 +27,7 @@ export class CommonService {
     }
 
     convertDate(dateFormat) {
-        return moment(dateFormat).format("YYYY-MM-DD");
+        return moment(dateFormat).format("MM-DD-YYYY");
     }
 
     convertTime(timeFormat){

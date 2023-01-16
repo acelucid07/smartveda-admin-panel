@@ -1,22 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
-import {  Movies } from 'src/app/_models/movies';
+import { Movies } from 'src/app/_models/movies';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { MoviesService } from 'src/app/_services/movies.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Table } from 'primeng/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-active-movies',
   templateUrl: './active-movies.component.html',
-  styleUrls: ['./active-movies.component.scss']
+  styleUrls: ['./active-movies.component.scss'],
+  providers: [ConfirmationService]
 })
 export class ActiveMoviesComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
-  moviesList:Movies []= []
+  moviesList: Movies[] = []
   fgsType: any;
   display: boolean = false;
   ActiveMoviesForm: FormGroup
@@ -26,8 +27,9 @@ export class ActiveMoviesComponent implements OnInit {
     private ngxLoader: NgxUiLoaderService,
     private MoviesService: MoviesService,
     private toastr: ToastrMsgService,
+    private confirmationService: ConfirmationService,
     private fb: FormBuilder,
-  ) { 
+  ) {
     this.ActiveMoviesForm = this.fb.group({
       Director: ["", [Validators.required]],
       File: ['', [Validators.required]],
@@ -54,7 +56,7 @@ export class ActiveMoviesComponent implements OnInit {
       { field: 'length', show: true, headers: 'Length' },
       { field: 'isActive', show: true, headers: 'Is Active' },
     ]
-     this.getMovieList()
+    this.getMovieList()
   }
 
   onToggleSidebar(sidebarState: any) {
@@ -67,13 +69,14 @@ export class ActiveMoviesComponent implements OnInit {
 
   getMovieList() {
     this.MoviesService.getMovieList().subscribe((res) => {
-      this.moviesList =  res.filter(item=>item.isActive===true)
+      console.log(res.filter(item => item.isActive === true))
+      this.moviesList = res.filter(item => item.isActive === true)
       console.log(this.moviesList)
       this.ngxLoader.stop();
     })
   }
 
-  
+
   applyFilterGlobal($event, stringVal) {
     this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
@@ -87,7 +90,7 @@ export class ActiveMoviesComponent implements OnInit {
     })
     this.display = true
   }
-  AddMovies(){
+  AddMovies() {
     this.ActiveMoviesForm.reset()
     this.display = true
   }
@@ -98,5 +101,19 @@ export class ActiveMoviesComponent implements OnInit {
     reader.onload = (data) => {
       this.imageUrl = data.target.result;
     }
+  }
+  deleteMovies(moviesId) {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete Active Movies ?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.ngxLoader.start();
+        this.MoviesService.deleteMovies(moviesId).subscribe((res) => {
+          this.getMovieList()
+        })
+      },
+    });
+
   }
 }

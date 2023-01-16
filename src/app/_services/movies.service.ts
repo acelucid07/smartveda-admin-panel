@@ -8,27 +8,53 @@ import { MovieData } from '../DummyData/userData';
 })
 export class MoviesService {
     constructor(private http: HttpClient) { }
-    getMovieList(){
+    getMovieList() {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/product`;
         // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
-       return of(MovieData)  
+        return of(MovieData)
     }
-    getActiveMoviesList(){
+    getActiveMoviesList() {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/product`;
         // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
-       return of(MovieData)  
+        return of(MovieData)
     }
-    markAsActive(id, Status){
+    markAsActive(id, Status) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
         const endpointUrl = `${environment.JSON_SERVER}/product`;
         // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
-        let index =  MovieData.findIndex(item=>item.id===id);
+        let index = MovieData.findIndex(item => item.id === id);
         MovieData[index].isActive = Status
-       return of(MovieData)  
+        return of(MovieData)
+    }
+    deleteMovies(moviesId) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/`;
+        //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+        let index = MovieData.findIndex((item) => item.id == moviesId)
+        MovieData.splice(MovieData.findIndex((index) => index.id == moviesId), 1);
+        return of(MovieData[index])
+    }
+    addMovies(payload) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/`;
+        //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+        MovieData.push(payload);
+        return of(payload)
+    }
+    editMovies(payload, moviesId) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/`;
+        //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+        let index = MovieData.findIndex(item => item.id === moviesId)
+        MovieData[index] = payload;
+        return of(payload)
     }
 }

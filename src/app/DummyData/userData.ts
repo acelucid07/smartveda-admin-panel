@@ -10,7 +10,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Pending"
+    "status": "Approved"
   },
   {
     "id": 24,
@@ -36,7 +36,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 26,
@@ -49,7 +49,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 30,
@@ -62,7 +62,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 50,
@@ -75,7 +75,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 90,
@@ -88,7 +88,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 150,
@@ -101,7 +101,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 120,
@@ -114,7 +114,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 300,
@@ -127,7 +127,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 130,
@@ -140,7 +140,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   },
   {
     "id": 200,
@@ -153,7 +153,7 @@ export let Userdata = [
     "fng": "25",
     "frs": "65",
     "unp": "98",
-    "status": "Active"
+    "status": "Approved"
   }
 ]
 
@@ -211,8 +211,8 @@ export let QuibData = [
     "time": "0:00:15",
     "createdDate": "06/23/2013",
     "postedDate": "07/01/2013",
-    "isEnabled": true,
-    "isBumped": false,
+    "isEnabled": "Approved",
+    "isBumped": "Saved",
     "quibType": "SQ"
   },
   {
@@ -223,8 +223,8 @@ export let QuibData = [
     "time": "0:00:15",
     "createdDate": "06/23/2013",
     "postedDate": "07/01/2013",
-    "isEnabled": true,
-    "isBumped": false,
+    "isEnabled": "Approved",
+    "isBumped": "Decline",
     "quibType": "SQ"
   },
   {
@@ -235,8 +235,8 @@ export let QuibData = [
     "time": "0:00:15",
     "createdDate": "06/23/2013",
     "postedDate": "07/01/2013",
-    "isEnabled": true,
-    "isBumped": false,
+    "isEnabled": "Decline",
+    "isBumped": "Decline",
     "quibType": "SQ"
   },
   {
@@ -247,8 +247,8 @@ export let QuibData = [
     "time": "0:00:15",
     "createdDate": "06/23/2013",
     "postedDate": "07/01/2013",
-    "isEnabled": true,
-    "isBumped": false,
+    "isEnabled": "Approved",
+    "isBumped": "Saved",
     "quibType": "SQ"
   },
   {
@@ -259,8 +259,8 @@ export let QuibData = [
     "time": "0:00:15",
     "createdDate": "06/23/2013",
     "postedDate": "07/01/2013",
-    "isEnabled": true,
-    "isBumped": false,
+    "isEnabled": "Decline",
+    "isBumped": "Decline",
     "quibType": "SQ"
   }
 
