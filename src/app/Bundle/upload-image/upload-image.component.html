@@ -13,14 +13,19 @@
                                     </mat-card-title>
                                 <div class="row gutters">
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group pt-5">
+                                        <div class="form-group pt-4">
                                             <!-- <p-fileUpload name="myfile[]" url="./upload.php"></p-fileUpload> -->
-                                            <input type="File" class="form-control" >
+                                            <input type="File" class="form-control" (change)="OnChangesEvent($event)" >
                                         </div>
                                     </div>
+                                    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group ">
+                                         <img [src]="URL" alt="bundle Image" width="30%" height="100px" >
+                                        </div>
+                                      </div> -->
                                 </div>
                                 <mat-card-actions align="end">
-                                    <button type="submit" class="btn btn-info"> Submit </button>
+                                    <button type="submit" class="btn btn-info" (click)="submitImage()"> Submit </button>
                                 </mat-card-actions>
                             </mat-card>
                         </div>

@@ -44,10 +44,10 @@ const routes: Routes = [
     path: 'bundle',
     loadChildren: () => import('./Bundle/bundle.module').then(mod=>mod.BundleModule)
   },
-  // {
-  //   path: 'influencers',
-  //   loadChildren: () => import('./Bundle/bundle.module').then(mod=>mod.BundleModule)
-  // },
+  {
+    path: 'influencers',
+    loadChildren: () => import('./Influencers/influencer.module').then(mod=>mod.InfluencerModule)
+  },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

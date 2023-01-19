@@ -1,18 +1,18 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
-    <h1 class="header-text-title" style="margin-left: 1%;">Bundles</h1>
+    <h1 class="header-text-title" style="margin-left: 1%;">Bundle</h1>
   </div>
   <div class="card col-sm-12" style="border:none;">
     <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
       [showCurrentPageReport]="true" [value]="categoryList"
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
-      [globalFilterFields]="['id', 'name',]" styleClass="p-datatable-striped">
+      [globalFilterFields]="['categoryName']" styleClass="p-datatable-striped">
       <ng-template pTemplate="caption">
         <div class="row">
           <span class="p-input-icon-right ml-5">
             <i class="pi pi-search"></i>
-            <input pInputText type="text" placeholder="Search keyword" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by bundle name & Id">
+            <input pInputText type="text" placeholder="Search keyword" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by bundle name">
           </span>
           <span class="p-input-icon-right ml-5">
             <button pButton type="button" label="Create Bundle" class="p-button-success"
@@ -29,22 +29,24 @@
       </ng-template>
       <ng-template pTemplate="body" let-i="rowIndex" let-categoryList>
         <tr>
-          <td>{{categoryList.id}}</td>
-          <td>{{categoryList.name}}</td>
-          <td>{{categoryList.image}}</td>
-          <td>{{categoryList.hyperlink}}</td>
+          <td>{{categoryList._id}}</td>
+          <td>{{categoryList.categoryName}}</td>
+          <td>
+            <img src="http://13.234.29.72:4000/uploads/{{categoryList.image}}" style="width: 50px; height: 50px;">
+          </td>
+          <td>{{categoryList.basketInfluencersCount}}</td>
           <td>
             <div class="btn-grp" id="btn-grp">
               <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
             </button> -->
-              <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Bundle"
-                tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/bundle/createbundle']"
-                [queryParams]="{id:categoryList?.id}"></button>
+              <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Add Influencers"
+                tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/bundle/addinfluencers']"
+                [queryParams]="{categoryName:categoryList?.categoryName}"></button>
                 <button class="p-button-info" pButton type="button" icon="pi pi-image" pTooltip="Upload Image"
                 tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/bundle/uploadimage']"
-                [queryParams]="{id:categoryList?.id}"></button>
-                <button class="p-button-secondary" pButton type="button" icon="pi pi-id-card" pTooltip="Add Influencers"
-                tooltipPosition="bottom" style="margin-right:5px" ></button>
+                [queryParams]="{categoryName:categoryList?.categoryName}"></button>
+                <button class="p-button-secondary" pButton type="button" icon="pi pi-id-card" pTooltip="Add Influencers using csv"
+                tooltipPosition="bottom" style="margin-right:5px"[queryParams]="{id:categoryList?._id}" [routerLink]="['/bundle/addinfluencers_csv']" ></button>
             </div>
           </td>
         </tr>

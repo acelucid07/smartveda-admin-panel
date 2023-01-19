@@ -1,0 +1,111 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+  <div class="card col-sm-12">
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #cccfcd; height: 100%;">
+        <form [formGroup]="costForm">
+          <div class="card-body">
+            <mat-card>
+              <mat-card-title>
+                <div class="page-heading">
+                  <h6>Edit Influencer Cost </h6>
+                </div>
+              </mat-card-title>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 pl-0">
+                <div class="form-group pt-3 ">
+                  <label for="image">Enter Influencer Name</label>
+                  <div style="display: block;">
+                    <p-autoComplete formControlName="influencerName" [suggestions]="results"
+                      (completeMethod)="search($event)"></p-autoComplete>
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Minimum Total Cost For Reels</label>
+                    <input type="text" class="form-control" formControlName="minTotalReelCost">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Maximum Total Cost For Reels</label>
+                    <input type="text" class="form-control" formControlName="maxTotalReelCost">
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Minimum Total Cost For Posts</label>
+                    <input type="text" class="form-control" formControlName="minTotalPostCost">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Maximum Total Cost For Posts</label>
+                    <input type="text" class="form-control" formControlName="maxTotalPostCost">
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Minimum Total Cost For Stories</label>
+                    <input type="text" class="form-control" formControlName="minTotalStoryCost">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Maximum Total Cost For Stories</label>
+                    <input type="text" class="form-control" formControlName="maxTotalStoryCost">
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Minimum Total Cost For Igtvs</label>
+                    <input type="text" class="form-control" formControlName="minTotalIgtvCost">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Maximum Total Cost For Igtvs</label>
+                    <input type="text" class="form-control" formControlName="maxTotalIgtvCost">
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Minimum Total Cost For SwipeUps</label>
+                    <input type="text" class="form-control" formControlName="minTotalSwipeUpCost">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Maximum Total Cost For SwipeUps</label>
+                    <input type="text" class="form-control" formControlName="maxTotalSwipeUpCost">
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Minimum Total Cost For Videos</label>
+                    <input type="text" class="form-control" formControlName="minTotalVideoCost">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group pt-3">
+                    <label for="image">Maximum Total Cost For Videos</label>
+                    <input type="text" class="form-control" formControlName="maxTotalVideoCost">
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info" (click)="submitCostForm()"> Submit </button>
+            </mat-card>
+          </div>
+        </form>
+      </div>

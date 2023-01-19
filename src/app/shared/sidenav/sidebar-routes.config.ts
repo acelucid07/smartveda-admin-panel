@@ -124,24 +124,24 @@ export const SideNaveMenueRoute = [
         label: 'Bundle',
         items: [
             {
-                label: 'Create Bundle',
-                icon: 'pi pi-box',
-                routerLink: ['/bundle/createbundle']
-            },
-            {
-                label: 'Add influencers',
-                icon: 'pi pi-users',
-                routerLink: ['/bundle/addinfluencers']
-            },
-            {
-                label: 'Upload Image',
-                icon: 'pi pi-image',
-                routerLink: ['/bundle/uploadimage']
-            },
-            {
                 label: 'Bundle List',
                 icon: 'pi pi-list',
                 routerLink: ['/bundle/bundlelist']
+            },
+        ]
+    },
+    {
+        label: 'Influencers',
+        items: [
+            {
+                label: 'Edit Basic Cost',
+                icon: 'pi pi-user-edit',
+                routerLink: ['/influencers/influencerlist']
+            },
+            {
+                label: 'Edit Influencer Cost',
+                icon: 'pi pi-user-edit',
+                routerLink: ['/influencers/influencercost']
             },
         ]
     }
