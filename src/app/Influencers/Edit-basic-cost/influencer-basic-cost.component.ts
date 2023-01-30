@@ -212,6 +212,10 @@ console.log(this.payload)
       //     this.toastr.showSuccess("Post Cost edited successfully", "Edited Cost")
       //     this.ngxLoader.stop();
       //   }
+      // (error: any) => {
+      //   this.toastr.showError("Somthing wrong Please check", "Error occured")
+      //   this.ngxLoader.stop()
+      // }
       // })
   }
 
@@ -231,6 +235,10 @@ console.log(this.payload)
     //         this.toastr.showSuccess("Post Cost edited successfully", "Edited Cost")
     //         this.ngxLoader.stop();
     //       }
+    // (error: any) => {
+    //   this.toastr.showError("Somthing wrong Please check", "Error occured")
+    //   this.ngxLoader.stop()
+    // }
     //     })
   }
 
@@ -250,6 +258,10 @@ console.log(this.payload)
     //         this.toastr.showSuccess("Story Cost edited successfully", "Edited Story")
     //         this.ngxLoader.stop();
     //       }
+    // (error: any) => {
+    //   this.toastr.showError("Somthing wrong Please check", "Error occured")
+    //   this.ngxLoader.stop()
+    // }
     //     })
   }
 
@@ -268,6 +280,10 @@ console.log(this.payload)
           if (res) {
             this.toastr.showSuccess("Igtv Cost edited successfully", "Edited Igtv")
             this.ngxLoader.stop();
+          }
+          (error: any) => {
+            this.toastr.showError("Somthing wrong Please check", "Error occured")
+            this.ngxLoader.stop()
           }
         })
   }
@@ -288,6 +304,10 @@ console.log(this.payload)
     //         this.toastr.showSuccess("SwipeUp Cost edited successfully", "Edited SwipeUp")
     //         this.ngxLoader.stop();
     //       }
+    // (error: any) => {
+    //   this.toastr.showError("Somthing wrong Please check", "Error occured")
+    //   this.ngxLoader.stop()
+    // }
     //     })
   }
   
@@ -307,6 +327,10 @@ console.log(this.payload)
     //         this.toastr.showSuccess("Video Cost edited successfully", "Edited Video")
     //         this.ngxLoader.stop();
     //       }
+    // (error: any) => {
+    //   this.toastr.showError("Somthing wrong Please check", "Error occured")
+    //   this.ngxLoader.stop()
+    // }
     //     })
   }
 

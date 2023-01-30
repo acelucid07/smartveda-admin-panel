@@ -59,9 +59,10 @@
         </ul> -->
 
         <!-- reusable menu -->
-        <ul class="menu-list">
+        <!-- <ul class="menu-list">
             <li class="menu-list"><p-panelMenu [model]="items"></p-panelMenu></li>
-        </ul>
+        </ul> -->
+        <p-panelMenu [model]="items" [style]="{'width':'230px'}"></p-panelMenu>
     </div>
 </div>
 <div *ngIf="device === 'mobile'" class="sidebar-cont" [@mToggleSidebar]="state">
@@ -139,8 +140,9 @@
     </ul> -->
 
     <!-- reusable menu -->
-    <ul class="menu-list">
+    <!-- <ul class="menu-list">
         <li class="menu-list"><p-panelMenu [model]="items"></p-panelMenu></li>
-    </ul>
+    </ul> -->
+    <p-panelMenu [model]="items" [style]="{'width':'230px'}"></p-panelMenu>
     </div>
 </div>

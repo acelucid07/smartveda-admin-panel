@@ -4,6 +4,8 @@ import { InfluencerService } from '../../_services/influencer.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Bundle } from 'src/app/_models/bundle';
+import { Papa } from 'ngx-papaparse';
+import { csvFileStructure } from 'src/app/_models/influencer';
 @Component({
   selector: 'app-influencer-cost',
   templateUrl: './influencer-cost.component.html',
@@ -15,11 +17,13 @@ export class InfluencerCostComponent implements OnInit {
   fgsType: any;
   payload:any;
   results: String[]=[];
-  costForm:FormGroup
+  costForm:FormGroup;
+  arrayFile:Array<csvFileStructure>;
   constructor(private ngxLoader: NgxUiLoaderService,
     private InfluencerService: InfluencerService,
     private toastr: ToastrMsgService,
     private fb:FormBuilder,
+    private csvConvert: Papa
   ) {
     this.costForm = this.fb.group({
       influencerName:['',Validators.required],
@@ -71,7 +75,7 @@ export class InfluencerCostComponent implements OnInit {
       this.ngxLoader.stop();
     })
   }
-  
+
   submitCostForm() {
     this.payload = {
       username:this.costForm.controls['influencerName'].value,
@@ -95,6 +99,48 @@ console.log(this.payload)
           this.toastr.showSuccess("Cost edited successfully", "Edited Cost")
           this.ngxLoader.stop();
         }
+        (error: any) => {
+          this.toastr.showError("Somthing wrong Please check", "Error occured")
+          this.ngxLoader.stop()
+        }
       })
   }
+
+
+
+  csvInputChange(inputData: any) {
+    if (inputData.target.files[0].type != 'text/csv')
+      this.toastr.showError("file uploaded is not CSV", "Error occured")
+    else {
+      //  let jsondata = getJsonFromCsv(inputData.target.files[0])
+      this.csvConvert.parse(inputData.target.files[0], {
+        header: true,
+        skipEmptyLines: true,
+        dynamicTyping: true,
+        complete: (result) => {
+          console.log(result)
+          this.arrayFile = result.data;
+          console.log('Parsed: ', this.arrayFile);
+        }
+      })
+    }
+  }
+
+  Submit(){ 
+    this.ngxLoader.start();
+    console.log(this.arrayFile)
+    this.arrayFile.map(data => {
+      console.log(data)
+       this.InfluencerService.editInfluencerCost(data).subscribe((res)=>{
+         if (res) {
+           this.toastr.showSuccess("Cost edited successfully", "Edited Cost")
+           this.ngxLoader.stop()
+         }
+         (error: any) => {
+           this.toastr.showError("Somthing wrong Please check", "Error occured")
+           this.ngxLoader.stop()
+         }
+      })
+     })}
+
 }

@@ -8,11 +8,13 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { InfluencerBasicCostComponent } from './Edit-basic-cost/influencer-basic-cost.component' ;
 import { InfluencerCostComponent } from './influencer-cost/influencer-cost.component';
+import { AddInfluencerDetailsCsvComponent } from './add-details-csv/add-details-csv.component';
 
 @NgModule({
   declarations: [
     InfluencerBasicCostComponent,
-    InfluencerCostComponent
+    InfluencerCostComponent,
+    AddInfluencerDetailsCsvComponent
   ],
   imports: [
     SharedModule,

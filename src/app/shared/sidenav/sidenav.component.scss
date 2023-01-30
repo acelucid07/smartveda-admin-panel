@@ -1,3 +1,5 @@
+@import '~primeicons/primeicons.css';
+
 :host {
   ::ng-deep {
     mat-divider {
@@ -95,24 +97,24 @@
   }
 }
 
-.sidebar-cont .sidebar .menu-list {
-  padding: 0 1rem;
-  margin-top: 2rem;
-  list-style: none;
-}
+// .sidebar-cont .sidebar .menu-list {
+//   padding: 0 1rem;
+//   margin-top: 2rem;
+//   list-style: none;
+// }
 
-.menu-list .menu-item {
-  display: flex;
-  align-items: left;
-  padding: 0;
-  margin: 1.5rem 0;
-}
+// .menu-list .menu-item {
+//   display: flex;
+//   align-items: left;
+//   padding: 0;
+//   margin: 1.5rem 0;
+// }
 
-.menu-list .menu-item .menu-link {
-  display: block;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1rem;
-  letter-spacing: .1rem;
-  padding: 0 0 0 1rem;
-}
+// .menu-list .menu-item .menu-link {
+//   display: block;
+//   text-decoration: none;
+//   color: #ffffff;
+//   font-size: 1rem;
+//   letter-spacing: .1rem;
+//   padding: 0 0 0 1rem;
+// }

@@ -1,23 +1,22 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-import { csvstructure } from 'src/app/_models/bundle'
 import { Papa } from 'ngx-papaparse';
 import { BundleService } from 'src/app/_services/bundle.service';
-import { request } from 'http';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
-// import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
-// import { Table } from 'primeng/table';
+import { csvFileStructureDetails } from 'src/app/_models/influencer';
+
 @Component({
-  selector: 'app-add-influencer-csv',
-  templateUrl: './add-influencer-csv.component.html',
-  styleUrls: ['./add-influencer-csv.component.scss']
+  selector: 'app-add-details-csv',
+  templateUrl: './add-details-csv.component.html',
+  styleUrls: ['./add-details-csv.component.scss']
 })
-export class AddInfluencerCsvComponent implements OnInit {
+export class AddInfluencerDetailsCsvComponent implements OnInit {
     sidebarSpacing:String;
     File:any;
+     
     
-    arrayFile:Array<csvstructure>;
+    arrayFile:Array<csvFileStructureDetails>;
     constructor(private toastr: ToastrMsgService,
       private ngxLoader: NgxUiLoaderService,
       private route: Router,
@@ -60,53 +59,48 @@ export class AddInfluencerCsvComponent implements OnInit {
 
   
     Submit(){ 
-    //   this.bundleService.addInfluencers().subscribe((res)=>{
-    //     re
-    //   })
-    //   let requests = ids.map(id => {
-    //     return new Promise((resolve, reject) => {
-    //        request({
-    //        uri: <API url>+'?id=' + id,
-    //        method: 'POST'
-    //        })
-    //     })
-    //  })
     this.ngxLoader.start();
     console.log(this.arrayFile)
-     var productsToReturn = []
-     let requests = this.arrayFile.map(data => {
+
+   this.arrayFile.map(data => {
       console.log(data)
-      //create a promise for each API call
-      return new Promise((resolve, reject) => {
-       this.bundleService.addInfluencersByCsv(data).subscribe((res)=>{
-      if(res)
-      resolve(res)
+      let influencerName:string[] = []
+      if(data.Handle_name ==''|| data.Handle_name == null)
+      {
+        influencerName= data.Handle_link.split('https://www.instagram.com/')
+        influencerName[1]= influencerName[1].slice(0,-1)
+        console.log(influencerName[1])
+      }
+      // return new Promise((resolve, reject) => {
+      //  this.bundleService.addInfluencersByCsv(data).subscribe((res)=>{
+      // if(res)
+      // resolve(res)
       })
-     })})
-     Promise.all(requests).then((resolvedbody) => { 
+    //  })})
+    //  Promise.all(requests).then((resolvedbody) => { 
       // resolvedbody.forEach(res => {
       // if (res)
       //    productsToReturn.push(JSON.parse(res))     
       // })
-       if (resolvedbody) {
-         console.log(resolvedbody)
-         this.bundleService.addInfluencersDetails().subscribe((res) => {
-           console.log(res)
-          if(res)
-          { this.toastr.showSuccess("Influencers added successfully", "Influencers Added")
-        this.ngxLoader.stop()
-        this.route.navigate(['/bundle/bundlelist'])
-         }
-         (error: any) => {
-          this.toastr.showError("Somthing wrong Please check", "Error occured")
-          this.ngxLoader.stop()
-          this.route.navigate(['/'])
-        }
-         })
-       }
-    })
+    //    if (resolvedbody) {
+    //      console.log(resolvedbody)
+    //      this.bundleService.addInfluencersDetails().subscribe((res) => {
+    //        console.log(res)
+    //       if(res)
+    //       { this.toastr.showSuccess("Influencers added successfully", "Influencers Added")
+    //     this.ngxLoader.stop()
+    //     this.route.navigate(['/bundle/bundlelist'])
+    //      }
+    //      (error: any) => {
+    //       this.toastr.showError("Somthing wrong Please check", "Error occured")
+    //       this.ngxLoader.stop()
+    //       this.route.navigate(['/'])
+    //     }
+    //      })
+    //    }
+    // })
        
      
-      console.log(this.arrayFile)
+    //   console.log(this.arrayFile)
     }
 }
