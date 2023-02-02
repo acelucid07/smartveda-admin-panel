@@ -1,0 +1,50 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+  <div class="card col-sm-12">
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #cccfcd; height: 100%;">
+        <form [formGroup]="userForm">
+          <div class="card-body">
+            <mat-card>
+                  <mat-card-title>
+                    <div class="page-heading">
+                      <h6>{{title}}</h6>
+                    </div>
+                  </mat-card-title>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Username</label>
+                      <input type="text" class="form-control" formControlName="username">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Email Name</label>
+                      <input type="text" class="form-control" formControlName="emailname">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Phone Number</label>
+                      <input type="text" class="form-control" formControlName="phonenumber">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Role</label>
+                      <input type="text" class="form-control" formControlName="roleassigned">
+                    </div>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-info" (click)="submitForm()"> Submit </button>
+            </mat-card>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

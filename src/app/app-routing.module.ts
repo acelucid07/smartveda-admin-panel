@@ -48,6 +48,10 @@ const routes: Routes = [
     path: 'influencers',
     loadChildren: () => import('./Influencers/influencer.module').then(mod=>mod.InfluencerModule)
   },
+  {
+    path: 'user',
+    loadChildren: () => import('./user-management/user-management.module').then(mod=>mod.UserModule)
+  },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
