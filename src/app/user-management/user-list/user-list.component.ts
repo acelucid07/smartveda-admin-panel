@@ -51,7 +51,18 @@ export class UserListComponent implements OnInit {
       this.ngxLoader.stop();
     })
   }
-  deleteUser(userList: any) {
+  
+  retrieveUserDetails(userList: any) {
+  this.ngxLoader.start();
+  this.UserService.retrieveUser(userList.id).subscribe(res => {
+if(res){
+  this.toastr.showSuccess("User retrieved successfully", "User retrieved")
+  this.ngxLoader.stop();
+}
+  })
+
+  }
+  deleteUserDetails(userList: any) {
     console.log(userList)
     this.ngxLoader.start();
     this.UserService.deleteUser(userList.id).subscribe(res => {

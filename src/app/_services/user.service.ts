@@ -33,6 +33,19 @@ export class UserService {
         return of(categoryObj)
     }
 
+    retrieveUser(id:number) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl =`${environment.JSON_SERVER}/category/${id}`;
+
+        let categoryObj = users.map(item =>{
+            if(item.id == id)
+            item.status = true
+            return item
+        })
+        return of(categoryObj)
+    }
+
     addUser(data: any) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)

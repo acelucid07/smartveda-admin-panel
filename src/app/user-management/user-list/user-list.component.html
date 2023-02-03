@@ -41,11 +41,13 @@
             <div class="btn-grp" id="btn-grp">
               <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
             </button> -->
-              <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit User"
+              <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit User"
                 tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/user/createuser']" [disabled]="!(usersList?.status)"
                 [queryParams]="{userid:usersList?.id}"></button>
+                <button class="p-button-info" pButton type="button" icon="pi pi-undo" pTooltip="Retrieve User"
+                tooltipPosition="bottom" style="margin-right:5px" (click)="retrieveUserDetails(usersList)" [disabled]="(usersList?.status)"></button>
                 <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete User"
-                tooltipPosition="bottom" style="margin-right:5px" (click)="deleteUser(usersList)" [disabled]="!(usersList?.status)"></button>
+                tooltipPosition="bottom" style="margin-right:5px" (click)="deleteUserDetails(usersList)" [disabled]="!(usersList?.status)"></button>
             </div>
           </td>
         </tr>

@@ -19,6 +19,7 @@ export class CreateUserComponent implements OnInit {
   payload:any
   editMode: boolean = false
   userForm:FormGroup;
+  roles:String[];
   constructor(
     private activateRoute:ActivatedRoute,
     private fb:FormBuilder,
@@ -28,12 +29,16 @@ export class CreateUserComponent implements OnInit {
     private route: Router,
   ) {
     this.userForm = this.fb.group({
-      username: ['', Validators.required],
-      emailname: ['', Validators.required],
-      phonenumber: ['', Validators.required],
-      roleassigned: ['', Validators.required],
+      username: ['', [Validators.required]],
+      emailname: ['', [Validators.required,Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
+      phonenumber: ['', [Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
+      roleassigned: ['', [Validators.required]],
     })
     
+    this.roles = ['admin',
+      'vendor',
+      'retailer'
+    ];
 
    }
 
@@ -41,6 +46,7 @@ export class CreateUserComponent implements OnInit {
     this.fgsType = SPINNER.squareLoader
     this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
+    
     this.activateRoute.queryParamMap.subscribe(params => {
       this.id = params.get('userid');
       if (this.id && this.id != undefined) {
