@@ -6,3 +6,11 @@ phone:String,
 role: String,
 status:Boolean
 }
+
+export interface queryStructure {
+    queryid: Number,
+    user: String,
+    appliedDate: String,
+    resolvedDate: String,
+    status: String
+}

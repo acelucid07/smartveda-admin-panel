@@ -9,14 +9,23 @@ export class ToastrMsgService {
   constructor(private toastrService: ToastrService) { }
 
   showSuccess(message:string, title:string){
-    this.toastrService.success(message, title);
+    this.toastrService.success(message, title,
+      {
+        timeOut: 1000,
+      });
   }
 
   showError(message:string, title:string) {
-    this.toastrService.error(message, title);
+    this.toastrService.error(message, title,
+      {
+        timeOut: 1000,
+      });
   }
 
   showWarning(message:string, title:string) {
-    this.toastrService.warning(message, title);
+    this.toastrService.warning(message, title,
+      {
+        timeOut: 1000,
+      });
   }
 }

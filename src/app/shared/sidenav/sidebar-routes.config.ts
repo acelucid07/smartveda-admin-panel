@@ -128,11 +128,11 @@ export const SideNaveMenueRoute = [
                     icon: 'pi pi-list',
                     routerLink: ['/user/userlist']
                 },
-                // {
-                //                 label: 'Add User',
-                //                 icon: 'pi pi-plus',
-                //                 routerLink: ['/user/createuser']
-                //             },
+                {
+                    label: 'Query List',
+                    icon: 'pi pi-question-circle',
+                    routerLink: ['/user/querylist']
+                },
             ]
         },
     // {

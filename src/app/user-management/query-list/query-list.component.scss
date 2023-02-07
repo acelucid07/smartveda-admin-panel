@@ -1,0 +1,19 @@
+th {
+    background-color: #285d91 !important;
+    color: #fff !important;
+  }
+  td {
+    text-align: center !important;
+    font-size: 200 !important;
+  }
+  .btn-grp{
+    display: flex;
+  }
+  :host ::ng-deep .p-chip.resolved {
+    background: rgb(183, 226, 118);
+    color: rgb(52, 68, 30)
+  }
+  :host ::ng-deep .p-chip.pending {
+    background: rgb(247, 112, 78);
+    color: rgb(255, 255, 255)
+  }

@@ -7,12 +7,14 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { UserListComponent } from './user-list/user-list.component';
 import { UserRoutingModule } from './user-routing.module';
 import { CreateUserComponent } from './create-user/create-edit-user.component';
-
+import { QueryListComponent } from './query-list/query-list.component';
+import { ChipModule } from 'primeng/chip'
 
 @NgModule({
   declarations: [
     UserListComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    QueryListComponent
   ],
   imports: [
     SharedModule,
@@ -20,7 +22,8 @@ import { CreateUserComponent } from './create-user/create-edit-user.component';
     CommonModule,
     MatCardModule,
    FileUploadModule,
-   NgxUiLoaderModule
+   NgxUiLoaderModule,
+   ChipModule
   ]
 })
 export class UserModule { }

@@ -27,9 +27,12 @@
                     <div class="form-group pt-3">
                       <label for="email">Email Name</label>
                       <input type="text" id="email" class="form-control" formControlName="emailname">
-                      <div *ngIf="!userForm.controls['emailname'].valid && (userForm.controls['emailname'].touched)">
+                      <div *ngIf="!userForm.controls['emailname'].valid && (userForm.controls['emailname'].touched || userForm.controls['emailname'].dirty)">
                         <div [hidden]="!userForm.controls['emailname'].errors['pattern']" style="color: rgb(253, 122, 122);">
                           entered email is not valid 
+                        </div>
+                        <div [hidden]="!userForm.controls['emailname'].errors['required']" style="color: rgb(253, 122, 122);">
+                          emailname is required
                         </div>
                       </div>
                     </div>
@@ -40,12 +43,15 @@
                     <div class="form-group pt-3">
                       <label for="phone">Phone Number</label>
                       <input type="text" id="phone" class="form-control" formControlName="phonenumber">
-                      <div *ngIf="!userForm.controls['phonenumber'].valid && ( userForm.controls['phonenumber'].dirty)">
+                      <div *ngIf="!userForm.controls['phonenumber'].valid && (userForm.controls['phonenumber'].touched || userForm.controls['phonenumber'].dirty)">
                         <div [hidden]="!userForm.controls['phonenumber'].errors['maxlength']" style="color: rgb(253, 122, 122);">
                           maxlength exceeded
                         </div>
                         <div [hidden]="!userForm.controls['phonenumber'].errors['minlength']" style="color: rgb(253, 122, 122);">
                           minlength required is 10
+                        </div>
+                        <div [hidden]="!userForm.controls['phonenumber'].errors['required']" style="color: rgb(253, 122, 122);">
+                          phonenumber is required
                         </div>
                       </div>
                     </div>
@@ -54,7 +60,12 @@
                     <div class="form-group pt-3">
                       <label for="role" style="display: block;">Role</label>
                       <!-- <input type="text" id="role" class="form-control" formControlName="roleassigned"> -->
-                      <p-dropdown [options]="roles" id="role" formControlName="roleassigned"></p-dropdown>
+                      <p-dropdown [options]="roles" id="role" formControlName="roleassigned" placeholder="Select a Role"></p-dropdown>
+                      <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                        <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                          role is required
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
