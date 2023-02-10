@@ -9,21 +9,37 @@ import { UserRoutingModule } from './user-routing.module';
 import { CreateUserComponent } from './create-user/create-edit-user.component';
 import { QueryListComponent } from './query-list/query-list.component';
 import { ChipModule } from 'primeng/chip'
+import { QueryContentComponent } from './query-content/query-content.component';
+import {DividerModule} from 'primeng/divider';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import {MenuModule} from 'primeng/menu';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     UserListComponent,
     CreateUserComponent,
-    QueryListComponent
+    QueryListComponent,
+    QueryContentComponent
   ],
   imports: [
     SharedModule,
     UserRoutingModule,
     CommonModule,
     MatCardModule,
-   FileUploadModule,
-   NgxUiLoaderModule,
-   ChipModule
+    FileUploadModule,
+    NgxUiLoaderModule,
+    ChipModule,
+    DividerModule,
+    ContextMenuModule,
+    SplitButtonModule,
+    MenuModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatIconModule
   ]
 })
 export class UserModule { }

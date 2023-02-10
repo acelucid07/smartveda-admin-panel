@@ -71,6 +71,39 @@ export class UserService {
         })
         return of(categoryObj)
     }
+    revertQuery(id:number){
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl =`${environment.JSON_SERVER}/category/${id}`;
+
+        let categoryObj = queryList.map(item =>{
+            if (item.queryid == id) {
+                item.status = "pending";
+                item.resolvedDate ="Null"
+            }
+            return item
+        })
+        return of(categoryObj)
+    }
+    // queryDetails(id: number){
+    //     const token = localStorage.getItem('token') || '';
+    //     let httpOptions = new HttpHeaders().set('x-access-token', token)
+    //     const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+    //     //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+    //     let categoryObj = querycontent.filter(item =>item.queryid == id)
+    //     // users.splice(users.findIndex((index) => index.id == id),1);
+    //     return of(categoryObj[0])
+    // }
+
+    // queryDetailsList(){
+    //     const token = localStorage.getItem('token') || '';
+    //     let httpOptions = new HttpHeaders().set('x-access-token', token)
+    //     const endpointUrl = `${environment.JSON_SERVER}/category/`;
+    //     //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+    //     // let categoryObj = querycontent.filter(item =>item.queryid == id)
+    //     // users.splice(users.findIndex((index) => index.id == id),1);
+    //     return of(querycontent)
+    // }
 
     addUser(data: any) {
         const token = localStorage.getItem('token') || '';

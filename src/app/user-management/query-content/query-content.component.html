@@ -1,0 +1,175 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <form>
+        <div class="card col-sm-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="background-color: #cccfcd; height: 100%">
+                    <!-- <div class="card-body"> -->
+                        
+                            <!-- <mat-card-title> -->
+                                <!-- <div class="page-heading" style="display: flex; justify-content: space-between;"> -->
+                                    <h4 style="color: #283048;padding-top: 20px;">Query </h4>
+                                    
+                                    <!-- <button pButton type="button" class="p-button-raised p-button-text p-button-plain" icon="pi pi-ellipsis-h" (click)="menu.toggle($event)"></button>                                -->
+                                    
+                                    <!-- <p-splitButton  icon="pi pi-check"  [model]="items"></p-splitButton> -->
+                                <!-- </div>
+                            </mat-card-title> -->
+                           <div *ngFor="let query of queryList; let i=index;" class="card-body">
+                            <mat-accordion>
+                                <mat-expansion-panel [expanded]="true">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                          <div class="page-heading">
+                                            <h6 class="mb-0">Query Id: {{query?.queryid}}</h6>
+                                          </div>
+                                        </mat-panel-title>
+                                      </mat-expansion-panel-header>
+                                <!-- <mat-card-title>
+                                    <div class="page-heading" style="display: flex; justify-content:end">
+                                        <button pButton type="button" class="p-button-raised p-button-text p-button-plain" icon="pi pi-ellipsis-h" (click)="menu.toggle($event)"></button></div>
+                                </mat-card-title> -->
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+                                        <div class="form-group pt-3" style="display: flex; align-items: center;">
+                                            <div style="width: 30%;">Query Requestor</div>
+                                            <div>:&nbsp; &nbsp;{{query?.requestorName}}</div>
+                                        </div>
+                                        <div class="form-group " style="display: flex; align-items: center;">
+                                            <div style="width: 30%;">Requestor Email</div>
+                                            :&nbsp; &nbsp;<div style="width: 60%">{{query?.requestorEmail}}</div>
+                                        </div>
+                                        <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Query Content</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 50%">
+                                                {{query?.content}}
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Query Id</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                                1127
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div style="display:flex;   justify-content: center; align-items: center; margin-right: 3rem;" ><div style="display:flex;  border-left:1px solid rgb(190, 189, 189); height:80%; "></div></div>
+                                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="form-group pt-3" style="display: flex; align-items: center;">
+                                            <div style="width: 30%;">Status</div>
+                                            <div>:&nbsp; &nbsp;<p-chip   [styleClass]="queryList[i].status">
+                                                    <div class="px-2">{{query?.status}}</div>
+                                                </p-chip></div>
+                                                <!-- <button pButton type="button" class="p-button-raised p-button-text p-button-plain ml-5" icon="pi pi-ellipsis-h" (click)="[menu.toggle($event), receiveIndex(i)]"></button> -->
+                                                
+                                               <button  mat-icon-button  [matMenuTriggerFor]="menu">
+                                                    <mat-icon >more_vert</mat-icon>
+
+                                                </button>
+                                                <!-- <button mat-icon-button [matMenuTriggerFor]="menu"> 
+                                                    pass local reference of mat-menu to be opened on this click
+                                                    <mat-icon>more_vert</mat-icon>
+                                                  </button> -->
+
+                                                  <mat-menu #menu>
+                                                    <button mat-menu-item [disabled]="queryList[i]?.status == 'resolved'" (click)="markResolved(i)">
+                                                        <mat-icon color="basic">
+                                                            task_alt
+                                                            </mat-icon>
+                                                        <span>Mark as resolved</span>
+                                                    </button>
+                                                    <button mat-menu-item [disabled]="queryList[i]?.status == 'pending'" (click)="revertQueryStatus(i)">
+                                                        <mat-icon color="basic">undo</mat-icon>
+                                                        <span>Revert Query Status</span>
+                                                    </button>
+                                                </mat-menu> 
+                                        
+                                            </div>
+                                         <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Allotted User</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                                {{query?.user}}
+                                            </div>
+                                         </div>
+                                        <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Applied Date</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                                {{query?.appliedDate}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Completed Date</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                                {{query?.resolvedDate}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
+                <!-- </div> -->
+
+
+                <!-- <div class="card-body">
+                            <mat-card >
+                               
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+                                        <div class="form-group pt-3" style="display: flex; align-items: center;">
+                                            <div style="width: 30%;">Query Requestor</div>
+                                            <div>:&nbsp; &nbsp;{{queryContentDetails?.name}}</div>
+                                        </div>
+                                        <div class="form-group " style="display: flex; align-items: center;">
+                                            <div style="width: 30%;">Requestor Email</div>
+                                            :&nbsp; &nbsp;<div style="width: 60%">{{queryContentDetails?.email}}</div>
+                                        </div>
+                                        <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Query Content</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 50%">
+                                                {{queryContentDetails?.content}}
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div style="display:flex;   justify-content: center; align-items: center;" ><p-divider style="height: 80%;"
+                                            layout="vertical"></p-divider></div>
+                                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="form-group pt-3" style="display: flex; align-items: center;">
+                                            <div style="width: 30%;">Status</div>
+                                            <div>:&nbsp; &nbsp;<p-chip styleClass="resolved" >
+                                                    <div class="px-2">resolved</div>
+                                                </p-chip></div>
+                                                <button pButton type="button" class="p-button-raised p-button-text p-button-plain ml-5" icon="pi pi-ellipsis-h" (click)="menu.toggle($event)"></button>
+                                        </div>
+                                         <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Allotted User</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                                Shivam
+                                            </div>
+                                         </div>
+                                        <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Applied Date</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                                2022-07-15
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="display: flex;">
+                                            <label for="name" style="width: 30%;">Completed Date</label>
+                                            :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                                2022-08-01
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-card>
+                        
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    
+    <!-- <p-menu #menu [popup]="true" [model]="items"></p-menu> -->
+</div>

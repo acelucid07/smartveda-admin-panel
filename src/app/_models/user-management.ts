@@ -8,9 +8,16 @@ status:Boolean
 }
 
 export interface queryStructure {
-    queryid: Number,
+    queryid: number,
     user: String,
     appliedDate: String,
     resolvedDate: String,
-    status: String
+    status: string,
+    requestorName: String,
+    requestorEmail:String,
+    content: String
 }
+// export interface queryContentStructure {
+//     queryid: Number,
+    
+// }

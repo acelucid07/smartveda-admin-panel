@@ -34,6 +34,10 @@
             <div class="btn-grp" id="btn-grp">
                 <button class="p-button-secondary" pButton type="button" icon="pi pi-check-square" pTooltip="Mark as resolved"
                 tooltipPosition="bottom" style="margin-right:5px" (click)="markResolved(queriesList)" [disabled]="(queriesList?.status=='resolved')"></button>
+                <button class="p-button-success" pButton type="button" icon="pi pi-eye" pTooltip="Show Query"
+                tooltipPosition="bottom" style="margin-right:5px; background-color:rgb(10, 140, 150);" [routerLink]="['/user/querycontent']" [queryParams]="{queryid:queriesList?.queryid}" ></button>
+                <button  pButton type="button" icon="pi pi-backward" pTooltip="Revert Query Status"
+                tooltipPosition="bottom" style="margin-right:5px ;background-color:rgb(99, 33, 160);"  (click)="revertQueryStatus(queriesList)" [disabled]="(queriesList?.status=='pending')" ></button>
             </div>
           </td>
         </tr>

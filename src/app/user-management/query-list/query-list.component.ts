@@ -60,6 +60,16 @@ export class QueryListComponent implements OnInit {
       }
     })
   }
+
+  revertQueryStatus(queryList: any) {
+    this.ngxLoader.start();
+    this.UserService.revertQuery(queryList.queryid).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("Query reverted successfully", "Query reversed")
+        this.ngxLoader.stop();
+      }
+    })
+  }
   
   //Search functionality start here
   applyFilterGlobal($event, stringVal) {

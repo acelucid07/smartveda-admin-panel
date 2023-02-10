@@ -131,7 +131,7 @@ export const SideNaveMenueRoute = [
                 {
                     label: 'Query List',
                     icon: 'pi pi-question-circle',
-                    routerLink: ['/user/querylist']
+                    routerLink: ['/user/querycontent']
                 },
             ]
         },
@@ -145,24 +145,24 @@ export const SideNaveMenueRoute = [
     //         },
     //     ]
     // },
-    // {
-    //     label: 'Influencers',
-    //     items: [
-    //         {
-    //             label: 'Edit Basic Cost',
-    //             icon: 'pi pi-user-edit',
-    //             routerLink: ['/influencers/influencerlist']
-    //         },
-    //         {
-    //             label: 'Edit Influencer Cost',
-    //             icon: 'pi pi-plus-circle',
-    //             routerLink: ['/influencers/influencercost']
-    //         },
-    //         {
-    //             label: 'Add Influencer Details',
-    //             icon: 'pi pi-plus',
-    //             routerLink: ['/influencers/influencerdetails']
-    //         },
-    //     ]
-    // }
+    {
+        label: 'Influencers',
+        items: [
+            {
+                label: 'Edit Basic Cost',
+                icon: 'pi pi-user-edit',
+                routerLink: ['/influencers/influencerlist']
+            },
+            {
+                label: 'Edit Influencer Cost',
+                icon: 'pi pi-plus-circle',
+                routerLink: ['/influencers/influencercost']
+            },
+            {
+                label: 'Add Influencer Details',
+                icon: 'pi pi-plus',
+                routerLink: ['/influencers/influencerdetails']
+            },
+        ]
+    }
 ]
