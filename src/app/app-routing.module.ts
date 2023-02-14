@@ -52,6 +52,10 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./user-management/user-management.module').then(mod=>mod.UserModule)
   },
+  {
+    path: 'leads',
+    loadChildren: () => import('./leads/leads.module').then(mod=>mod.LeadsModule)
+  },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

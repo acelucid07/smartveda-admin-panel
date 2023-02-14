@@ -164,5 +164,15 @@ export const SideNaveMenueRoute = [
                 routerLink: ['/influencers/influencerdetails']
             },
         ]
-    }
+    },
+    {
+        label: 'Leads',
+        items: [
+            {
+                label: 'Leads List',
+                icon: 'pi pi-list',
+                routerLink: ['/leads/leadslist']
+            },
+        ]
+    },
 ]
