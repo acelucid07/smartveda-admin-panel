@@ -4,7 +4,7 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Table } from 'primeng/table';
 import { queryStructure } from 'src/app/_models/user-management';
-import { UserService } from 'src/app/_services/user.service';
+import { UserService } from 'src/app/_services/user-mgmt.service';
 @Component({
   selector: 'app-query-list',
   templateUrl: './query-list.component.html',

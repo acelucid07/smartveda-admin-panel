@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { userStructure } from 'src/app/_models/user-management';
-import { UserService } from 'src/app/_services/user.service';
+import { UserService } from 'src/app/_services/user-mgmt.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({

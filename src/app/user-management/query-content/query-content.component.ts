@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import {  queryStructure } from 'src/app/_models/user-management'
 import { NgxUiLoaderService } from 'ngx-ui-loader';
-import { UserService } from 'src/app/_services/user.service';
+import { UserService } from 'src/app/_services/user-mgmt.service';
 import {MenuItem} from 'primeng/api';
 
 @Component({
