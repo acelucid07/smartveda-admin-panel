@@ -1,0 +1,193 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <div class="page-heading">
+        <h1 class="header-text-title" style="margin-left: 1%;">Create Lead</h1>
+    </div>
+    <div class="card" style=" height: 100%;">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 " style="background-color: #cccfcd; height: 100%;">
+           <div class="card-body">
+          <form novalidate>
+                <mat-card>
+                    <mat-card-title>
+                      <div class="page-heading">
+                        <h6>Lead Details</h6>
+                      </div>
+                    </mat-card-title>
+              
+                  
+                      <div class="form-group pt-3 row">
+                        <label for="name" class="col-2 col-form-label text-left" >Name*</label>
+                       <div class="col-8">
+                        <input type="text" id="name"class="form-control">
+                        <!-- <div *ngIf="!userForm.controls['username'].valid && (userForm.controls['username'].touched || userForm.controls['username'].dirty)">
+                          <div [hidden]="!userForm.controls['username'].errors['required']" style="color: rgb(253, 122, 122);">
+                            username is required
+                          </div>
+                        </div> -->
+                      </div>
+                      </div>
+                    
+                      <div class="form-group pt-3 row" >
+                        <label for="email"  class="col-2 col-form-label text-left">Contact No</label>
+                        <div class="col-8">
+                        <input type="text" id="email" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['emailname'].valid && (userForm.controls['emailname'].touched || userForm.controls['emailname'].dirty)">
+                          <div [hidden]="!userForm.controls['emailname'].errors['pattern']" style="color: rgb(253, 122, 122);">
+                            entered email is not valid 
+                          </div>
+                          <div [hidden]="!userForm.controls['emailname'].errors['required']" style="color: rgb(253, 122, 122);">
+                            emailname is required
+                          </div>
+                        </div> -->
+                      </div>
+                      </div>                 
+                  
+                 
+                  
+                      <div class="form-group pt-3 row">
+                        <label for="phone" class="col-2 col-form-label text-left">Email Address</label>
+                        <div class="col-8">
+                        <input type="text" id="phone" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['phonenumber'].valid && (userForm.controls['phonenumber'].touched || userForm.controls['phonenumber'].dirty)">
+                          <div [hidden]="!userForm.controls['phonenumber'].errors['maxlength']" style="color: rgb(253, 122, 122);">
+                            maxlength exceeded
+                          </div>
+                          <div [hidden]="!userForm.controls['phonenumber'].errors['minlength']" style="color: rgb(253, 122, 122);">
+                            minlength required is 10
+                          </div>
+                          <div [hidden]="!userForm.controls['phonenumber'].errors['required']" style="color: rgb(253, 122, 122);">
+                            phonenumber is required
+                          </div>
+                        </div> -->
+                      </div>
+                    </div>
+                      <div class="form-group pt-3 row">
+                        <label for="role" class="col-2 col-form-label text-left">Technology</label>
+                        <div class="col-8">
+                        <input type="text" id="role" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                          <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                            role is required
+                          </div>
+                        </div> -->
+                      </div>
+                      </div>
+
+                      <div class="form-group pt-3 row" >
+                        <label for="email"  class="col-2 col-form-label text-left">Budget</label>
+                        <div class="col-8">
+                        <input type="text" id="email" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['emailname'].valid && (userForm.controls['emailname'].touched || userForm.controls['emailname'].dirty)">
+                          <div [hidden]="!userForm.controls['emailname'].errors['pattern']" style="color: rgb(253, 122, 122);">
+                            entered email is not valid 
+                          </div>
+                          <div [hidden]="!userForm.controls['emailname'].errors['required']" style="color: rgb(253, 122, 122);">
+                            emailname is required
+                          </div>
+                        </div> -->
+                      </div>
+                      </div>     
+                    
+                      <div class="form-group pt-3 row">
+                        <label for="role" class="col-2 col-form-label text-left">Reference Source</label>
+                        <div class="col-8">
+                        <input type="text" id="role" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                          <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                            role is required
+                          </div>
+                        </div> -->
+                      </div>
+                      </div>
+                      <div class="row">
+                      <div class=" col-2 form-group pt-3">
+                        <label for="role" >Country*</label>
+                        
+                        <input type="text" id="role" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                          <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                            role is required
+                          </div>
+                        </div> -->
+                      
+                      </div>
+
+                      <div class=" col-2 form-group pt-3">
+                        <label for="role" >Pin Code</label>
+                        
+                        <input type="text" id="role" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                          <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                            role is required
+                          </div>
+                        </div> -->
+                      
+                      </div>
+
+                      <div class=" col-2 form-group pt-3">
+                        <label for="role" >State</label>
+                        
+                        <input type="text" id="role" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                          <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                            role is required
+                          </div>
+                        </div> -->
+                      
+                      </div>
+                      <div class=" col-2 form-group pt-3">
+                        <label for="role" >City</label>
+                        
+                        <input type="text" id="role" class="form-control" >
+                        <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                          <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                            role is required
+                          </div>
+                        </div> -->
+                      
+                      </div>
+                    </div>
+
+                    <div class="form-group pt-3 row">
+                      <label for="role" class="col-2 col-form-label text-left">Follow-up Date</label>
+                      <div class="col-8">
+                      <input type="text" id="role" class="form-control" >
+                      <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                        <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                          role is required
+                        </div>
+                      </div> -->
+                    </div>
+                    </div>
+
+                    <div class="form-group pt-3 row">
+                      <label for="role" class="col-2 col-form-label text-left">Sales</label>
+                      <div class="col-8">
+                      <input type="text" id="role" class="form-control" >
+                      <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                        <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                          role is required
+                        </div>
+                      </div> -->
+                    </div>
+                    </div>
+
+                    
+                    <div class="form-group pt-3 row">
+                      <label for="role" class="col-2 col-form-label text-left">Comment</label>
+                      <div class="col-8">
+                      <textarea cols="80" rows="10" style="border-color: #cccfcd; border-radius: 5px"></textarea>
+                      <!-- <div *ngIf="!userForm.controls['roleassigned'].valid && (userForm.controls['roleassigned'].touched || userForm.controls['roleassigned'].dirty)">
+                        <div [hidden]="!userForm.controls['roleassigned'].errors['required']" style="color: rgb(253, 122, 122);">
+                          role is required
+                        </div>
+                      </div> -->
+                    </div>
+                    </div>
+                  
+                    <button type="submit" class="btn btn-info" > Submit </button>
+              </mat-card>
+            </form>
+          </div>
+        </div>
+    </div>
