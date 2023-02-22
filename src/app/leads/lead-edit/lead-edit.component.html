@@ -1,7 +1,7 @@
 <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
 <div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
-    <h1 class="header-text-title" style="margin-left: 1%;">Create Lead</h1>
+    <h1 class="header-text-title" style="margin-left: 1%;">Edit Lead</h1>
   </div>
   <div class="card" style=" height: 100%;">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center " style="background-color: #cccfcd; height: 100%;">
@@ -40,7 +40,7 @@
 
                   <div class="form-group pt-3 col-3">
                     <label for="tech" style="display: block;" class="col-form-label text-left">Technology</label>
-                    <p-dropdown styleClass="tech-dropdown" [options]="technologies" formControlName="technologyRequested" id="tech"
+                    <p-dropdown styleClass="tech-dropdown" [options]="technologies"  formControlName="technologyRequested" id="tech"
                       placeholder="Select Tech"></p-dropdown>
                   </div>
                 </div>
@@ -60,13 +60,13 @@
                 <div class="row">
                   <div class=" col-3 form-group pt-3">
                     <label for="country" style="display: block;">Country*</label>
-                    <p-dropdown [options]="countries" id="country" optionLabel="text" placeholder="Select Country"
+                    <p-dropdown [options]="countries" id="country" optionLabel="text" formControlName="countryName" placeholder="Select Country"
                       styleClass="country-dropdown"></p-dropdown>
                   </div>
 
 
 
-                  <div class=" col-2 form-group pt-3">
+                  <div class=" col-2 form-group pt-3 ml-4">
                     <label for="state">State</label>
                     <p-dropdown [options]="stateArray" id="state"  formControlName="stateName" placeholder="Select"
                       styleClass="state-dropdown"></p-dropdown>
@@ -79,7 +79,7 @@
 
                   <div class=" col-2 form-group pt-3">
                     <label for="city">City</label>
-                <p-dropdown [options]="cityArray" id="city"  placeholder="Select" formControlName="cityName"
+                    <p-dropdown [options]="cityArray" id="city" formControlName="cityName" placeholder="Select"
                       styleClass="city-dropdown"></p-dropdown>
                   </div>
                 </div>
@@ -99,9 +99,38 @@
                 <div class="form-group pt-3 row">
                   <label for="comment" class="col-2 col-form-label text-left">Comment:</label>
                   <div class="col-8">
-                    <textarea rows="10" formControlName="commentGiven"></textarea>
+                    <textarea [readonly]="leadForm.controls['meetStatus'].value==='Next follow up'" rows="10" formControlName="commentGiven"></textarea>
+                    <ng-template [ngIf]="editCondition">
+                      <div class="text-right editclass">edited</div>
+                       </ng-template>
                   </div>
                 </div>
+
+                <div class="row">  
+                  <div class="form-group pt-3 col-7">
+                    <label for="status" style="display: block;">Status</label>
+                    <p-dropdown [options]="statusArray" id="status"  placeholder="Select"
+                      styleClass="status-dropdown" formControlName="meetStatus"></p-dropdown>
+                  </div>
+
+                  <div  class="form-group pt-2 col-3">
+                    <label class="col-form-label text-left">Next Follow-up Date</label>
+                    <p-calendar [disabled]="!(leadForm.controls['meetStatus'].value==='Next follow up')||leadForm.controls['meetStatus'].value===''" styleClass="date-picker" formControlName="nextFollowUpDate" placeholder="Select Date"></p-calendar>
+                  </div>
+                </div>
+                
+                <ng-template [ngIf]="leadForm.controls['meetStatus'].value==='Next follow up'">
+                  <div class="form-group pt-3 row">
+                  <label for="comment" class="col-2 col-form-label text-left">New Comment:</label>
+                  <div class="col-8">
+                    <textarea rows="10" formControlName="newCommentGiven"></textarea>
+                    <ng-template [ngIf]="!!leadForm.controls['newCommentGiven'].value">
+                   <div class="text-right editclass">edited</div>
+                    </ng-template>
+                  </div>
+                </div>
+                </ng-template>
+              
                 
             </div>
           </div>

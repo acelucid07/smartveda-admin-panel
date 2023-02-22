@@ -11,3 +11,13 @@ export interface leadStructure {
     status: string,
     deal:string
 }
+
+export interface followUpStructure {
+        id: number,
+        clientName: string,
+        currentDate: string,
+        nextFollowUpDate: string,
+        comment:string,
+        status: string,
+        deal: string,
+}

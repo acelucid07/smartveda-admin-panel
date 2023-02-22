@@ -7,15 +7,20 @@ import { SharedModule } from '../shared/shared.module';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {TableModule} from 'primeng/table';
 import { MatCardModule } from '@angular/material/card';
+import { LeadEditComponent } from './lead-edit/lead-edit.component';
+import { LeadViewComponent } from './lead-view/lead-view.component';
+
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 @NgModule({
-  declarations: [LeadsListComponent,LeadCreateComponent],
+  declarations: [LeadsListComponent,LeadCreateComponent,LeadEditComponent, LeadViewComponent],
   imports: [
     CommonModule,
     LeadsRoutingModule,SharedModule,
     MultiSelectModule,
     MatCardModule,
-    TableModule
+    TableModule,
+    InputTextareaModule
   ]
 })
 export class LeadsModule { }

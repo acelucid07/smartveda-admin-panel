@@ -10,24 +10,28 @@ interface country {
   value: string
 }
 @Component({
-  selector: 'app-lead-create',
-  templateUrl: './lead-create.component.html',
-  styleUrls: ['./lead-create.component.scss']
+  selector: 'app-lead-edit',
+  templateUrl: './lead-edit.component.html',
+  styleUrls: ['./lead-edit.component.scss']
 })
-export class LeadCreateComponent implements OnInit {
+export class LeadEditComponent implements OnInit {
   sidebarSpacing:string;
   countries:country[];
   technologies:string[];
   refSource:string[];
-  leadForm:FormGroup;
+  statusArray:string[];
   cityArray:string[];
   stateArray:string[];
+  disablingCondition:boolean=true;
+  editCondition:boolean=false
+  leadForm:FormGroup;
   
   constructor( private fb:FormBuilder,
     private leadService:LeadService,
     private toastr: ToastrMsgService,
     private ngxLoader: NgxUiLoaderService,
-    private route: Router,) {
+    private route: Router,
+    ) {
 
    this.leadForm=fb.group({
     leadName:['',Validators.required],
@@ -35,21 +39,25 @@ export class LeadCreateComponent implements OnInit {
     emailAddress:['',Validators.required],
     technologyRequested:['', Validators.required],
     BudgetAmount:[null,Validators.required],
-    countryName:['',Validators.required],
     reference:['',Validators.required],
     pinCode:['',Validators.required],
     stateName:['',Validators.required],
     cityName:['',Validators.required],
+    countryName:['',Validators.required],
     followUpDate:['',Validators.required],
     salesPersonName:['',Validators.required],
-    commentGiven:['',Validators.required]
+    commentGiven:['',Validators.required],
+    meetStatus:['',Validators.required],
+    nextFollowUpDate:['',Validators.required],
+    newCommentGiven:['',Validators.required]
    })
 
-    this.stateArray =["Uttrakhand","Haryana","Maharashtra"];
-    this.cityArray =["Dehradun","Gurgaon","Mumbai"];
     this.sidebarSpacing = 'contracted';
     this.refSource = ["Site", "Linked In", "Newspaper", "Other"];
     this.technologies = ["Front End", "Back End"];
+    this.statusArray =["Next follow up","Pending","In Progress","Dead","Convert","Office visit"];
+    this.stateArray =["Uttrakhand","Haryana","Maharashtra"];
+    this.cityArray =["Dehradun","Gurgaon","Mumbai"];
     this.countries = [
       { "text": "Afghanistan", "value": "AF" },
       { "text": "Åland Islands", "value": "AX" },
@@ -306,36 +314,46 @@ export class LeadCreateComponent implements OnInit {
   }
   submit(){
     this.ngxLoader.start();
-    let payload= {
-    leadName:this.leadForm.controls["leadName"].value,
-    contactNumber:this.leadForm.controls["contactNumber"].value,
-    emailAddress:this.leadForm.controls["emailAddress"].value,
-    technologyRequested:this.leadForm.controls["technologyRequested"].value,
-    BudgetAmount:this.leadForm.controls["BudgetAmount"].value,
-    reference:this.leadForm.controls["reference"].value,
-    pinCode:this.leadForm.controls["pinCode"].value,
-    stateName:this.leadForm.controls["stateName"].value,
-    cityName:this.leadForm.controls["cityName"].value,
-    followUpDate:this.leadForm.controls["followUpDate"].value,
-    salesPersonName:this.leadForm.controls["salesPersonName"].value,
-    commentGiven:this.leadForm.controls["commentGiven"].value,
+  let payload= {
+  leadName:this.leadForm.controls["leadName"].value,
+  contactNumber:this.leadForm.controls["contactNumber"].value,
+  emailAddress:this.leadForm.controls["emailAddress"].value,
+  technologyRequested:this.leadForm.controls["technologyRequested"].value,
+  BudgetAmount:this.leadForm.controls["BudgetAmount"].value,
+  reference:this.leadForm.controls["reference"].value,
+  pinCode:this.leadForm.controls["pinCode"].value,
+  stateName:this.leadForm.controls["stateName"].value,
+  cityName:this.leadForm.controls["cityName"].value,
+  followUpDate:this.leadForm.controls["followUpDate"].value,
+  salesPersonName:this.leadForm.controls["salesPersonName"].value,
+  commentGiven:this.leadForm.controls["commentGiven"].value,
+  meetStatus:this.leadForm.controls["meetStatus"].value,
+  nextFollowUpDate:this.leadForm.controls["nextFollowUpDate"].value
+}
+console.log(payload);
+this.leadService.submitLeadEditData(payload).subscribe((res)=>{
+  if (res) {
+    this.toastr.showSuccess("User edited successfully", "Edited User")
+    this.ngxLoader.stop();
+    this.route.navigate(['/leads/leadslist'])
   }
-  console.log(payload)
-  this.leadService.submitLeadData(payload).subscribe((res)=>{
-    if (res) {
-      this.toastr.showSuccess("lead created successfully", "Created lead Details")
-      this.ngxLoader.stop();
-      this.route.navigate(['/leads/leadslist'])
-    }
-    (error: any) => {
-      this.toastr.showError("Somthing wrong Please check", "Error occured")
-      this.ngxLoader.stop()
-      this.route.navigate(['/leads/leadslist'])
-    }
-  })
+  (error: any) => {
+    this.toastr.showError("Somthing wrong Please check", "Error occured")
+    this.ngxLoader.stop()
+    this.route.navigate(['/leads/leadslist'])
+  }
+})
   }
   
   ngOnInit(): void {
+    let previous = this.leadForm.controls["commentGiven"].value
+    this.leadForm.controls["commentGiven"].valueChanges.subscribe((val) => {
+      if (previous != val) { this.editCondition = true }
+      else {
+        this.editCondition = false
+      }
+// console.log( this.leadForm.controls["commentGiven"].value)
+  })
   }
 
 }

@@ -6,6 +6,8 @@ import * as FileSaver from 'file-saver';
 import * as xlsxPackage from 'xlsx'
 import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable'
+import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-leads',
@@ -24,7 +26,9 @@ export class LeadsListComponent implements OnInit {
   leadlist:leadStructure[]=[]
   leadDetails:any[];
   
-  constructor(private leadService:LeadService) {
+  constructor(private leadService:LeadService,
+    private toastr: ToastrMsgService,
+    private ngxLoader: NgxUiLoaderService) {
     this.sidebarSpacing = 'contracted';
     this.getleadsdetails();
    }
@@ -95,6 +99,17 @@ export class LeadsListComponent implements OnInit {
             body:this.leadDetails
            });
             doc.save('products.pdf');
+        }
+
+        deleteLeadDetails(leadList: any) {
+          console.log(leadList)
+          this.ngxLoader.start();
+          this.leadService.deleteLeadDetails(leadList.id).subscribe(res => {
+            if (res) {
+              this.toastr.showSuccess("lead deleted successfully", "lead deleted")
+              this.getleadsdetails();
+            }
+          })
         }
 
    //Search functionality start here

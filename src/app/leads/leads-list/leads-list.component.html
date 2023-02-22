@@ -119,14 +119,14 @@
                         <div class="d-flex justify-content-between align-items-center ">
                             <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
                 </button> -->
-                            <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit"
+                            <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit" [routerLink]="['/leads/leadedit']"
                                 pTooltip="Edit lead" tooltipPosition="bottom" style="margin-right:5px"
                                 ></button>
-                            <button class="p-button-info" pButton type="button" icon="pi pi-eye"
+                            <button class="p-button-info" pButton type="button" icon="pi pi-eye"   [routerLink]="['/leads/leadview']" [queryParams]="{leadid:leadsList.id}"
                                 pTooltip="view lead" tooltipPosition="bottom" style="margin-right:5px"
                                 ></button>
                             <button class="p-button-danger" pButton type="button" icon="pi pi-trash"
-                                pTooltip="Delete lead" tooltipPosition="bottom" style="margin-right:5px"
+                                pTooltip="Delete lead" tooltipPosition="bottom" style="margin-right:5px" (click)="deleteLeadDetails(leadsList)"
                                ></button>
                         </div>
                     </td>

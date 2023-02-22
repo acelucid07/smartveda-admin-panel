@@ -13,10 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent,
-  ],
+    AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
