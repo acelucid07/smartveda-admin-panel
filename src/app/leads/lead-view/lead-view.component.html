@@ -13,7 +13,6 @@
 
             <ng-template pTemplate="header" >
                 <tr >
-                    <!-- <th>S.No</th> -->
                     <th>Client Name</th>
                     <th>Current Date</th>
                     <th>Next Follow-up Date</th>
@@ -46,34 +45,11 @@
                             (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by Name">
                     </span>
                 </div>
-                    <!-- <div class="d-flex justify-content-end align-items-end " >
-                        <button type="button" pButton pRipple icon="pi pi-file" class="mr-2" pTooltip="CSV" (click)="dt.exportCSV()"
-                          tooltipPosition="bottom"></button>
-                        <button type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success mr-2" pTooltip="XLSX"  (click)="exportExcel()"
-                          tooltipPosition="bottom" ></button>
-                        <button type="button" pButton pRipple icon="pi pi-file-pdf" class="p-button-warning mr-2" pTooltip="PDF"     (click)="exportPdf()" 
-                          tooltipPosition="bottom" ></button>
-                      </div> -->
                 </div>
-            </ng-template>
-
-
-            <!-- <ng-template pTemplate="body" let-i="rowIndex" let-leadsList>
-                <tr>
-                    <td>{{leadsList.id}}</td>
-                    <td>{{leadsList.clientName}}</td>
-                    <td>{{leadsList.currentDate}}</td>
-                    <td>{{leadsList.nextFollowUpDate}}</td>
-                    <td>{{leadsList.comment}}</td>
-                    <td>{{leadsList.deal}}</td>
-                    <td>{{leadsList.status}}</td>                    
-                </tr>
-            </ng-template> -->
-            
+            </ng-template>    
             <ng-template pTemplate="rowexpansion" let-followUp>
                
-                <tr >
-                    <!-- <td>{{followUp.id}}</td> -->
+                <tr>
                     <td></td>
                     <td>{{followUp.currentDate}}</td>
                     <td>{{followUp.nextFollowUpDate}}</td>

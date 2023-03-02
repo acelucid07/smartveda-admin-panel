@@ -1,4 +1,4 @@
-::ng-deep {
+:host::ng-deep {
 
     .tech-dropdown {
             width: 62%;
@@ -23,7 +23,8 @@
         textarea {
             border: 1px solid #cccfcd;
             border-radius: 5px;
-            width: 100%
+            width: 100%;
+            color:#495057
         }
         textarea:read-only{
             outline: 0px solid#cccfcd;

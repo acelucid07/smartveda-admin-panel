@@ -11,9 +11,24 @@ export interface leadStructure {
     status: string,
     deal:string
 }
+export interface leadExtraDetailsStructure {
+  
+    name:string,
+    email:string,
+    contactNumber:string,
+    createdBy:string,
+    commentGiven:string,
+    technology: string,
+    source: string,
+    followUpDate: string| Date,
+    budget: string,
+    pinCode:string,
+    stateName:string,
+    cityName:string,
+    countryName:{text:string, value:string},
+}
 
 export interface followUpStructure {
-        id: number,
         clientName: string,
         currentDate: string,
         nextFollowUpDate: string,

@@ -12,15 +12,15 @@ import { LeadService } from 'src/app/_services/leads.service';
 export class LeadViewComponent implements OnInit {
   sidebarSpacing:string='contracted';
   @ViewChild('dt') dt: Table|undefined;
-  id:string;
+  name:string;
   cols:any[];
   followUpDetails:followUpStructure[]=[]
   constructor(private leadService:LeadService,
     private ActivatedRoute:ActivatedRoute) {
       this.ActivatedRoute.queryParamMap.subscribe((params)=>{
-        this.id=params.get('leadid')
+        this.name=params.get('leadName')
             })
-    this.getFollowUpDetails(this.id)
+    this.getFollowUpDetails(this.name)
    }
   
   
@@ -33,24 +33,15 @@ export class LeadViewComponent implements OnInit {
   }
   
   ngOnInit(): void {
-  //   this.cols = [
-      
-  //     { field: 'clientName', show: true, headers: 'Name' },
-  //     { field: 'followUpDetails', show: true, headers: 'Email' },
-  //     { field: 'createdBy', show: true, headers: 'Created By' },
-  //     { field: 'technology', show: true, headers: 'Technology' },
-  //     { field: 'source', show: true, headers: 'Lead Source'},
-  //     { field: 'startDate', show: true, headers: 'Start Date'},
-  //     { field: 'followUpDate', show: true, headers: 'Follow-Up Date'},
-  //     { field: 'budget', show: true, headers: 'Budget'},
-  //     { field: 'status', show: true, headers: 'Status'},
-  //     { field: 'deal', show: true, headers: 'Deal'}
-  //   ]
   }
 
   getFollowUpDetails(leadId:string){
-    this.leadService.getFollowUpDetails(this.id).subscribe((res)=>{
-      this.followUpDetails = res;
+    this.leadService.getFollowUpDetails(this.name).subscribe((res)=>{
+      
+      this.followUpDetails = res.filter((val)=>{
+        return val.clientName==this.name
+      })
+      console.log(res)
       console.log(this.followUpDetails)
     })
 

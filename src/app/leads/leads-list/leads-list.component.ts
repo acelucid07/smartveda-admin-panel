@@ -8,11 +8,15 @@ import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable'
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import {ConfirmationService} from 'primeng/api';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-leads',
   templateUrl: './leads-list.component.html',
-  styleUrls: ['./leads-list.component.scss']
+  styleUrls: ['./leads-list.component.scss'],
+  providers: [ConfirmationService]
 })
 
 export class LeadsListComponent implements OnInit {
@@ -28,9 +32,11 @@ export class LeadsListComponent implements OnInit {
   
   constructor(private leadService:LeadService,
     private toastr: ToastrMsgService,
-    private ngxLoader: NgxUiLoaderService) {
+    private ngxLoader: NgxUiLoaderService,
+    private confirmationService:ConfirmationService,
+    public dialog: MatDialog) {
     this.sidebarSpacing = 'contracted';
-    this.getleadsdetails();
+    this.getLeadsDetails();
    }
  
   onToggleSidebar(sidebarState: any) {
@@ -58,19 +64,33 @@ export class LeadsListComponent implements OnInit {
     this.exportColumns = this.cols.map(col => ({title: col.headers,dataKey: col.field}))
     this.sources = [ 'Site' , 'Linked In' , 'Newspaper','Other']
     this.deals = ['Hot','Cold','Not Interested','Dead']
-    this.technologies = ['React','Angular','.Net','Node','React Native']
+    this.technologies = ['Front End','Back End']
     console.log(this.exportColumns)
   }
 
-  getleadsdetails() {
+  getLeadsDetails() {
     this.leadService.getLeadsList().subscribe((res) => {
       this.leadlist = res;
+      // console.log(this.leadlist)
       this.leadlist.forEach(
-        (lead) => {lead.startDate = new Date(lead.startDate)
-          lead.followUpDate = new Date(lead.followUpDate)}
+        (lead) => {
+          console.log(lead.followUpDate)
+          lead.startDate = new Date(lead.startDate)
+          lead.followUpDate = new Date(lead.followUpDate)
+        }
       );
     })
   }
+  
+  openDialog(leadList: any) {
+    const dialogRef = this.dialog.open(DialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == true) {
+        this.deleteLeadDetails(leadList)
+      }
+    });
+  }
+  
   show(data:any){
     console.log(data)
   }
@@ -100,14 +120,14 @@ export class LeadsListComponent implements OnInit {
            });
             doc.save('products.pdf');
         }
-
+       
         deleteLeadDetails(leadList: any) {
           console.log(leadList)
           this.ngxLoader.start();
           this.leadService.deleteLeadDetails(leadList.id).subscribe(res => {
             if (res) {
               this.toastr.showSuccess("lead deleted successfully", "lead deleted")
-              this.getleadsdetails();
+              this.getLeadsDetails();
             }
           })
         }

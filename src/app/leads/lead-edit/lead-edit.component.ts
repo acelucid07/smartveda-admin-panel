@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { leadExtraDetailsStructure, leadStructure } from 'src/app/_models/leads';
 import { LeadService } from 'src/app/_services/leads.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 interface country {
@@ -16,40 +17,45 @@ interface country {
 })
 export class LeadEditComponent implements OnInit {
   sidebarSpacing:string;
+  name:string;
   countries:country[];
   technologies:string[];
   refSource:string[];
   statusArray:string[];
   cityArray:string[];
   stateArray:string[];
+  leadlist:leadStructure[]=[]
   disablingCondition:boolean=true;
   editCondition:boolean=false
   leadForm:FormGroup;
+  DateFieldData=new Date();
+  leadDetails:leadExtraDetailsStructure[]=[];
   
   constructor( private fb:FormBuilder,
     private leadService:LeadService,
     private toastr: ToastrMsgService,
     private ngxLoader: NgxUiLoaderService,
     private route: Router,
+    private ActivatedRoute: ActivatedRoute,
     ) {
 
    this.leadForm=fb.group({
-    leadName:['',Validators.required],
-    contactNumber:[null,Validators.required],
-    emailAddress:['',Validators.required],
-    technologyRequested:['', Validators.required],
-    BudgetAmount:[null,Validators.required],
-    reference:['',Validators.required],
-    pinCode:['',Validators.required],
-    stateName:['',Validators.required],
-    cityName:['',Validators.required],
-    countryName:['',Validators.required],
-    followUpDate:['',Validators.required],
-    salesPersonName:['',Validators.required],
-    commentGiven:['',Validators.required],
-    meetStatus:['',Validators.required],
-    nextFollowUpDate:['',Validators.required],
-    newCommentGiven:['',Validators.required]
+    leadName:['',[Validators.required]],
+    contactNumber:[null,[Validators.required]],
+    emailAddress:['',[Validators.required]],
+    technologyRequested:['', [Validators.required]],
+    BudgetAmount:[null,[Validators.required]],
+    reference:['',[Validators.required]],
+    pinCode:['',[Validators.required]],
+    stateName:['',[Validators.required]],
+    cityName:['',[Validators.required]],
+    countryName:['',[Validators.required]],
+    followUpDate:['',[Validators.required]],
+    salesPersonName:['',[Validators.required]],
+    commentGiven:['',[Validators.required]],
+    meetStatus:['',[Validators.required]],
+    nextFollowUpDate:[''],
+    newCommentGiven:['']
    })
 
     this.sidebarSpacing = 'contracted';
@@ -303,6 +309,10 @@ export class LeadEditComponent implements OnInit {
       { "text": "Zambia", "value": "ZM" },
       { "text": "Zimbabwe", "value": "ZW" }
   ];
+
+  this.ActivatedRoute.queryParamMap.subscribe((params)=>{
+    this.name=params.get('leadName')
+        })
    }
 
    onToggleSidebar(sidebarState: any) {
@@ -328,7 +338,8 @@ export class LeadEditComponent implements OnInit {
   salesPersonName:this.leadForm.controls["salesPersonName"].value,
   commentGiven:this.leadForm.controls["commentGiven"].value,
   meetStatus:this.leadForm.controls["meetStatus"].value,
-  nextFollowUpDate:this.leadForm.controls["nextFollowUpDate"].value
+  nextFollowUpDate:this.leadForm.controls["nextFollowUpDate"].value,
+  countryName:this.leadForm.controls["countryName"].value
 }
 console.log(payload);
 this.leadService.submitLeadEditData(payload).subscribe((res)=>{
@@ -343,17 +354,68 @@ this.leadService.submitLeadEditData(payload).subscribe((res)=>{
     this.route.navigate(['/leads/leadslist'])
   }
 })
+
+    if (this.leadForm.controls["meetStatus"].value == "Next follow up") {
+      let date = new Date()
+      let payloadsecond = {
+        currentDate: date.toISOString().split('T')[0],
+        nextFollowUpDate: this.leadForm.controls["nextFollowUpDate"].value.toISOString().split('T')[0],
+        clientName: this.leadForm.controls["leadName"].value,
+        comment: this.leadForm.controls["newCommentGiven"].value,
+        status: "Active",
+        deal: "cold"
+      }
+
+      this.leadService.submitFollowDetails(payloadsecond).subscribe((res) => {
+        if (res) {
+          console.log(res)
+        }
+        (error: any) => {
+          this.toastr.showError("Somthing wrong while submitting followup", "Error occured")
+        }
+      });
+    }
   }
-  
+
+  getLeadDetails(){
+    this.leadService.getLeadsDetails(this.name).subscribe((res)=>{
+      this.leadDetails=res
+    })
+
+  }
+
   ngOnInit(): void {
+    this.getLeadDetails()
+    console.log(this.leadDetails)
+  
+    this.leadForm.patchValue({
+      leadName: this.leadDetails[0].name,
+      contactNumber: this.leadDetails[0].contactNumber,
+      emailAddress: this.leadDetails[0].email,
+      technologyRequested: this.leadDetails[0].technology,
+      BudgetAmount: this.leadDetails[0].budget,
+      reference: this.leadDetails[0].source,
+      pinCode: this.leadDetails[0].pinCode,
+      stateName: this.leadDetails[0].stateName,
+      cityName: this.leadDetails[0].cityName,
+      followUpDate: new Date(this.leadDetails[0].followUpDate),
+      salesPersonName: this.leadDetails[0].createdBy,
+      commentGiven: this.leadDetails[0].commentGiven,
+      countryName: this.leadDetails[0].countryName
+    })
+
     let previous = this.leadForm.controls["commentGiven"].value
     this.leadForm.controls["commentGiven"].valueChanges.subscribe((val) => {
       if (previous != val) { this.editCondition = true }
       else {
         this.editCondition = false
       }
-// console.log( this.leadForm.controls["commentGiven"].value)
-  })
+      // console.log( this.leadForm.controls["commentGiven"].value)
+    })
+
+    this.leadForm.controls['meetStatus'].valueChanges.subscribe((val) => {
+      if (val!='Next follow Up') {  this.leadForm.controls['nextFollowUpDate'].reset() }
+   })
   }
 
 }

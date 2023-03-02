@@ -22,6 +22,7 @@ export class LeadCreateComponent implements OnInit {
   leadForm:FormGroup;
   cityArray:string[];
   stateArray:string[];
+  dateFieldDate:Date=new Date()
   
   constructor( private fb:FormBuilder,
     private leadService:LeadService,
@@ -29,20 +30,20 @@ export class LeadCreateComponent implements OnInit {
     private ngxLoader: NgxUiLoaderService,
     private route: Router,) {
 
-   this.leadForm=fb.group({
-    leadName:['',Validators.required],
-    contactNumber:[null,Validators.required],
-    emailAddress:['',Validators.required],
-    technologyRequested:['', Validators.required],
-    BudgetAmount:[null,Validators.required],
-    countryName:['',Validators.required],
-    reference:['',Validators.required],
-    pinCode:['',Validators.required],
-    stateName:['',Validators.required],
-    cityName:['',Validators.required],
-    followUpDate:['',Validators.required],
-    salesPersonName:['',Validators.required],
-    commentGiven:['',Validators.required]
+   this.leadForm=this.fb.group({
+    leadName:['',[Validators.required]],
+    contactNumber:['',[Validators.required]],
+    emailAddress:['',[Validators.required]],
+    technologyRequested:['', [Validators.required]],
+    BudgetAmount:['',[Validators.required]],
+    countryName:['',[Validators.required]],
+    reference:['',[Validators.required]],
+    pinCode:['',[Validators.required]],
+    stateName:['',[Validators.required]],
+    cityName:['',[Validators.required]],
+    followUpDate:['',[Validators.required]],
+    salesPersonName:['',[Validators.required]],
+    commentGiven:['',[Validators.required]]
    })
 
     this.stateArray =["Uttrakhand","Haryana","Maharashtra"];
@@ -307,20 +308,21 @@ export class LeadCreateComponent implements OnInit {
   submit(){
     this.ngxLoader.start();
     let payload= {
-    leadName:this.leadForm.controls["leadName"].value,
+    name:this.leadForm.controls["leadName"].value,
     contactNumber:this.leadForm.controls["contactNumber"].value,
-    emailAddress:this.leadForm.controls["emailAddress"].value,
-    technologyRequested:this.leadForm.controls["technologyRequested"].value,
-    BudgetAmount:this.leadForm.controls["BudgetAmount"].value,
-    reference:this.leadForm.controls["reference"].value,
+    email:this.leadForm.controls["emailAddress"].value,
+    technology:this.leadForm.controls["technologyRequested"].value,
+    budget:this.leadForm.controls["BudgetAmount"].value,
+    source:this.leadForm.controls["reference"].value,
     pinCode:this.leadForm.controls["pinCode"].value,
     stateName:this.leadForm.controls["stateName"].value,
     cityName:this.leadForm.controls["cityName"].value,
+    countryName:this.leadForm.controls["countryName"].value,
     followUpDate:this.leadForm.controls["followUpDate"].value,
-    salesPersonName:this.leadForm.controls["salesPersonName"].value,
+    createdBy:this.leadForm.controls["salesPersonName"].value,
     commentGiven:this.leadForm.controls["commentGiven"].value,
   }
-  console.log(payload)
+  // console.log(payload)
   this.leadService.submitLeadData(payload).subscribe((res)=>{
     if (res) {
       this.toastr.showSuccess("lead created successfully", "Created lead Details")
