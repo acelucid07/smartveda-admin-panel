@@ -175,4 +175,14 @@ export const SideNaveMenueRoute = [
             },
         ]
     },
+    {
+        label: 'Rating & Review',
+        items: [
+            {
+                label: 'Rating List',
+                icon: 'pi pi-list',
+                routerLink: ['/rating/ratinglist']
+            },
+        ]
+    },
 ]

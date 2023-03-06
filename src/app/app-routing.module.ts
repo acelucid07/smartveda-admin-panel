@@ -65,6 +65,11 @@ const routes: Routes = [
     loadChildren: () => import('./leads/leads.module').then(mod=>mod.LeadsModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'rating',
+    loadChildren: () => import('./Rating_Review/rating.module').then(mod=>mod.AdminRatingModule),
+    canActivate: [AuthGuard]
+  },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

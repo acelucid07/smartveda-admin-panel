@@ -1,0 +1,79 @@
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+    <div class="d-flex justify-content-center">
+<div class="card d-flex flex-column align-items-center" style=" width:900px;">
+    
+
+    <div class="card-body col-12" style="width:750px;">
+        <div class="page-heading my-4">
+            <h4 class="header-text-title mt-2 text-left">Edit Rating</h4>
+          </div>
+          
+      <form [formGroup]="ratingForm">
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="date" class="col-form-label text-left" >Date</label>
+            <input type="text" class="form-control" id="date" readonly formControlName="date">
+            </div>
+            <div class="form-group col-6">
+                <label for="ipAddress" class="col-form-label text-left"  >IP Address</label>
+            <input type="text" class="form-control" id="ipAddress" readonly formControlName="ipAddress" >
+            </div>
+        </div>   
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="reviewer">Reviewer</label>
+            <div><p-dropdown [options]="reviewerOptions" id="reviewer" placeholder="Select"
+                    styleClass="reviewer-dropdown"
+                 (onChange)="$event.value=='Add New Reviewer'?openExportDialog():null" formControlName="reviewer"></p-dropdown></div>
+        </div>
+        <div class="form-group col-6">
+            <label for="review">Review</label>
+            <div><p-dropdown [options]="reviewOptions" id="review" placeholder="Select" styleClass="review-dropdown" formControlName="review"
+                ></p-dropdown>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-4">
+            <label for="reviewer" class="col-form-label text-left"  >Overall</label>
+            <input type="text" class="form-control" formControlName="overall">
+        </div>
+        <div class="form-group col-4">
+            <label for="reviewer" class="col-form-label text-left">Pros</label>
+            <input type="text" class="form-control" formControlName="pros">
+        </div>
+        <div class="form-group col-4">
+            <label for="reviewer" class="col-form-label text-left">Cons</label>
+            <input type="text" class="form-control" formControlName="cons">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6" formGroupName="ratingType">
+            <label for="ratingType" class="col-form-label text-left">Rating Type</label>
+           <div class="d-flex"><div class="mr-5" style="width: 100px;">Cleaniness</div><div><p-rating [cancel]="true" formControlName="Cleaniness"></p-rating></div></div>
+           <div class="d-flex"><div class="mr-5" style="width: 100px;">Comfort</div><div><p-rating [cancel]="true" formControlName="Comfort" ></p-rating></div></div>
+           <div class="d-flex"><div class="mr-5" style="width: 100px;">Facilities</div><div><p-rating [cancel]="true" formControlName="Facilities"></p-rating></div></div>
+           <div class="d-flex"><div class="mr-5" style="width: 100px;">Location</div><div><p-rating [cancel]="true" formControlName="Location" ></p-rating></div></div>
+           <div class="d-flex"><div class="mr-5" style="width: 100px;">Staff</div><div> <p-rating [cancel]="true" formControlName="Staff"></p-rating></div></div>
+        </div>
+        <div class="form-group col-6">
+            <label for="ratingType" class="col-form-label text-left">User Type</label>
+            <p-dropdown [options]="userTypeOptions" id="ratingType" placeholder="Select" styleClass="userType-dropdown" formControlName="userType"></p-dropdown>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="ratingStatus" class="col-form-label text-left">Status</label>
+            <p-dropdown [options]="statusOptions" id="ratingStatus" placeholder="Select" styleClass="status-dropdown"  formControlName="status"></p-dropdown>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end mt-2"><button type="submit" class="btn btn-info mr-3" [disabled]="!ratingForm.valid" (click)="submitForm()"  >
+       Submit </button>
+        <button type="submit" class="btn btn-info" [routerLink]="['/rating/ratinglist']">
+            Cancel </button></div>
+</form>
+</div>
+</div>
+</div>
+</div>

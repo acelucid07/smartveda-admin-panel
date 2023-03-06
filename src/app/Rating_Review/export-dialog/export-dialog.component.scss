@@ -1,0 +1,26 @@
+mat-dialog-content{
+    // min-height:65vh ;
+    min-height: 25vh;
+    }
+
+:host::ng-deep  {
+
+    .dialog1{
+        background-color: rgb(212, 214, 214);
+        border-radius: 5px;
+        outline: none;
+    }
+.period-dropdown {
+    width: 100%;
+}
+
+.format-dropdown {
+    width: 100%;
+}
+.nameField{
+width: 100%;
+}
+.emailField{
+width: 100%;
+}
+}
