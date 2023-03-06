@@ -33,8 +33,8 @@ export class AllMoviesComponent implements OnInit {
     private toastr: ToastrMsgService,) {
     this.AllMoviesForm = this.fb.group({
       Director: ["", [Validators.required]],
-      IsActive: ['', [Validators.required]],
-      ReleaseYear: ['', [Validators.required]],
+      isActive: ['', [Validators.required]],
+      releaseYear: ['', [Validators.required]],
       Length: ['', [Validators.required]],
       PosterContent: ['', [Validators.required]],
       PosterContentThumb: ['', [Validators.required]],
@@ -54,7 +54,7 @@ export class AllMoviesComponent implements OnInit {
     this.cols = [
       { field: 'title', show: true, headers: 'Title' },
       { field: 'director', show: true, headers: 'Director' },
-      { field: 'releaseyear', show: true, headers: 'Release Year' },
+      { field: 'releaseYear', show: true, headers: 'Release Year' },
       { field: 'length', show: true, headers: 'Length' },
       { field: 'isActive', show: true, headers: 'Status' },
     ]
@@ -82,8 +82,9 @@ export class AllMoviesComponent implements OnInit {
     console.log(moviesData)
     this.AllMoviesForm.patchValue({
       Director: moviesData[0].director,
-      ReleaseYear: moviesData[0].releaseyear,
+      releaseYear:moviesData[0].releaseYear,
       Title: moviesData[0].title,
+      isActive:moviesData[0].isActive,
     })
     this.moviesPoster.pop();
     this.imageBase64.pop();
