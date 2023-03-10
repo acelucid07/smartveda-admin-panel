@@ -1,5 +1,9 @@
 :host::ng-deep  {
 
+    label.starlabel::after{
+        content: "*";
+        color: rgb(228, 28, 28);
+    }
     .reviewer-dropdown{
         width: 100%;
     }

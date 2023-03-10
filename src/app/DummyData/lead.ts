@@ -123,7 +123,7 @@ export const leadDetails =[
     source:"Linked In",
     pinCode:"141426",
     stateName:"Uttrakhand",
-    cityName:"Haryana",
+    cityName:"Dehradun",
     countryName:{text:"India",value:"IN"},
     followUpDate:"2023-02-06",
     createdBy:"Shivam",
