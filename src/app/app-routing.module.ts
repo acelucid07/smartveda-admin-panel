@@ -74,6 +74,18 @@ const routes: Routes = [
     path: 'review',
     loadChildren: () => import('./reviews/review.module').then(mod=>mod.ReviewModule),
   },
+  {
+    path: 'reviewer',
+    loadChildren: () => import('./reviewer/reviewer.module').then(mod=>mod.ReviewerModule),
+  },
+  {
+    path: 'ratesettings',
+    loadChildren: () => import('./setting-rating/setting-rating.module').then(mod=>mod.SettingRatingModule),
+  },
+  {
+    path: 'usertypesettings',
+    loadChildren: () => import('./setting-usertype/setting-usertype.module').then(mod=>mod.SettingUsertypeModule),
+  },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' }

@@ -187,7 +187,29 @@ export const SideNaveMenueRoute = [
                 label: 'Review List',
                 icon: 'pi pi-list',
                 routerLink: ['/review/reviewlist']
+            },
+            {
+                label: 'Reviewer List',
+                icon: 'pi pi-list',
+                routerLink: ['/reviewer/reviewerlist']
+            },
+            {
+                label: 'Settings',
+                items: [
+                    {
+                        label: 'Rating Criteria List',
+                        icon: 'pi pi-list',
+                        routerLink: ['/ratesettings/ratingcriterialist']
+                    },
+                    {
+                        label: 'UserType List',
+                        icon: 'pi pi-list',
+                        routerLink: ['/usertypesettings/usertypelist']
+                    }
+                ]
+               
             }
         ]
     },
+    
 ]

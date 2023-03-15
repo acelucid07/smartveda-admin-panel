@@ -3,7 +3,7 @@
     <div class="page-heading">
         <h1 class="header-text-title" style="margin-left: 1%;">Leads</h1>
     </div>
-    <div class="card col-sm-12" style="border:none;">
+    <div >
         <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
             [showCurrentPageReport]="true" [value]="leadlist"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
@@ -34,10 +34,10 @@
 
             <ng-template pTemplate="header" >
                 <tr >
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Created By</th>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Created By</th>
                     <th><div class="d-flex justify-content-between align-items-center"> Technology 
                         <p-columnFilter class="column-subhead" field="technology" matchMode="in" display="menu"
                         [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
@@ -76,8 +76,8 @@
                     </p-columnFilter></div></th>
                     <th><div class="d-flex justify-content-between align-items-center">Start Date<p-columnFilter class="column-subhead" type="date" field="startDate" display="menu"></p-columnFilter></div></th>
                     <th><div class="d-flex justify-content-between align-items-center">Follow-up Date<p-columnFilter  class="column-subhead" type="date" field="followUpDate" display="menu"></p-columnFilter></div></th>
-                    <th>Budget</th>
-                    <th>Status </th>
+                    <th class="text-center">Budget</th>
+                    <th class="text-center">Status </th>
                     <th>
                         <div class="d-flex justify-content-between align-items-center">Deal 
                             <p-columnFilter class="column-subhead" field="deal" matchMode="in" display="menu"
@@ -100,7 +100,7 @@
                             </p-columnFilter>
                         </div>
                     </th>
-                  <th>Actions</th>
+                  <th class="text-center">Actions</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-i="rowIndex" let-leadsList>

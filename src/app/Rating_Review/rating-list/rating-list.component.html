@@ -1,5 +1,5 @@
-<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing">
+<!-- <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing"> -->
     <div>
         <h3>Ratings</h3>
     </div>
@@ -40,12 +40,12 @@
             </ng-template>
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th>Rating</th>
-                    <th>Review</th>
-                    <th>Reviewer</th>
-                    <th>Status</th>
-                    <th>Date<p-columnFilter class="column-subhead" type="date" field="date" display="menu"></p-columnFilter></th>
-                    <th>Actions</th>
+                    <th class="text-center">Rating</th>
+                    <th class="text-center">Review</th>
+                    <th class="text-center">Reviewer</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Date<p-columnFilter class="column-subhead" type="date" field="date" display="menu"></p-columnFilter></th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-ratingList>
@@ -79,4 +79,4 @@
             </ng-template>
         </p-table>
     </div>
-</div>
+<!-- </div> -->
