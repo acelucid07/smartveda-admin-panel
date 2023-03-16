@@ -1,5 +1,5 @@
-<!-- <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing"> -->
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
     
     <div class="d-flex justify-content-center">
     <div class="card " style="width: 1000px; height: 650px;">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="form-group col-6">
-                    <label for="reviewPage" class="starlabel mb-4">Review Page</label>
+                    <label for="reviewPage" class="starlabel mb-4">Publishing Site Url </label>
                     <input type="text" id="reviewPage" class="form-control" formControlName="reviewPublishPage">
                     <div *ngIf="!editForm.controls['reviewPublishPage'].valid && editForm.controls['reviewPublishPage'].touched ">
                         <div [hidden]="!editForm.controls['reviewPublishPage'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">ReviewPage is required</div>
@@ -63,4 +63,4 @@
         </div>
     </div>
 </div>
-<!-- </div> -->
+</div>

@@ -1,7 +1,7 @@
-<!-- <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing"> -->
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
     <div>
-        <h3>Ratings</h3>
+        <h3>Rating List</h3>
     </div>
     <div class="card">
         <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
@@ -11,7 +11,7 @@
             <ng-template pTemplate="caption">
                 <div class="d-flex justify-content-between">
                     <div class="d-flex align-items-center">
-                        <input #search  pInputText type="text" class="mr-2" placeholder="Search by Review Name" >
+                        <input #search  pInputText type="text" class="mr-2" placeholder="Search by Review Subject" >
                         <button class="p-button-success" pButton type="button"  (click)="applyFilterGlobal(search.value, 'contains')" >Search</button>
                     </div>
                     <div class="d-flex justify-content-center">
@@ -41,7 +41,7 @@
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     <th class="text-center">Rating</th>
-                    <th class="text-center">Review</th>
+                    <th class="text-center">Review Subject</th>
                     <th class="text-center">Reviewer</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Date<p-columnFilter class="column-subhead" type="date" field="date" display="menu"></p-columnFilter></th>
@@ -79,4 +79,4 @@
             </ng-template>
         </p-table>
     </div>
-<!-- </div> -->
+</div>

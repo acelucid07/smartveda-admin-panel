@@ -52,7 +52,7 @@ export class UsertypeService {
   const endpointUrl = `${environment.JSON_SERVER}/edit`;
   usertypeList.map((res)=>{
     if (res.sno == serialno) {
-      res.usertype = payload.name,
+      res.usertype = payload.usertype,
       res.status = payload.status
     }
   }) 

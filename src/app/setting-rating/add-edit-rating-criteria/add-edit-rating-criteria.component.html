@@ -14,7 +14,7 @@
                                     <label for="criteriaName" class=" col-2 col-form-label starlabel">Criteria</label>
                                     <div class="col-8"><input type="text" id="criteriaName" class="form-control" formControlName="name">
                                         <div *ngIf="!criteriaForm.controls['name'].valid && criteriaForm.controls['name'].touched ">
-                                            <div [hidden]="!criteriaForm.controls['name'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic; display:block">Name is required</div>
+                                            <div [hidden]="!criteriaForm.controls['name'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic; display:block">Criteria is required</div>
                                         </div></div>
                                     
                                 </div>
@@ -32,8 +32,8 @@
                             </div>
                             <div class="row mt-5">
                                 <div class="form-group  col-12 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-info mr-3" (click)="submit()">Submit</button>
-                                    <button class="btn btn-info" [routerLink]="['/settings/ratingcriterialist']">Cancel</button>
+                                    <button type="submit" class="btn btn-info mr-3" (click)="submit()" [disabled]="!criteriaForm.valid">Submit</button>
+                                    <button class="btn btn-info" [routerLink]="['/ratesettings/ratingcriterialist']">Cancel</button>
                                 </div>
                             </div>
                         </div>

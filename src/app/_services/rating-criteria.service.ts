@@ -52,7 +52,7 @@ export class RatingCriteriaService {
   const endpointUrl = `${environment.JSON_SERVER}/edit`;
   ratingCriteriaList.map((res)=>{
     if (res.sno == serialno) {
-      res.ratingCriteria = payload.name,
+      res.ratingCriteria = payload.ratingCriteria,
       res.status = payload.status
     }
   }) 

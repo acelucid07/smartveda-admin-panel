@@ -24,13 +24,13 @@
                 </div>
         </div>
         <div class="form-group col-6">
-            <label for="review" class="starlabel">Review</label>
+            <label for="review" class="starlabel">Review Subject</label>
             <div><p-dropdown [options]="reviewOptions" id="review" placeholder="Select" styleClass="review-dropdown" formControlName="review"></p-dropdown>
                 <div
                 *ngIf="!ratingForm.controls['review'].valid && (ratingForm.controls['review'].touched || ratingForm.controls['review'].dirty)">
                 <div [hidden]="!ratingForm.controls['review'].errors['required']"
                   style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
-                  Review is required
+                  Review Subject is required
                 </div>
               </div>
             </div>

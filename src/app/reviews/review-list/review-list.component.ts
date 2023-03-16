@@ -27,8 +27,8 @@ export class ReviewListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cols = [{ field: "id", headers: "Id" },
-    { field: "review", headers: "Review" },
+    this.cols = [{ field: "reviewSubject", headers: "Review Subject" },
+    { field: "publishingsiteurl", headers: "Publishing Site Url" },
     { field: "rating", headers: "Rating" },
     { field: "status", headers: "Status" }]
     this.exportColumns = this.cols.map(col => ({title: col.headers,dataKey: col.field}))
@@ -51,7 +51,7 @@ exportExcel() {
   const worksheet = xlsxPackage.utils.json_to_sheet(this.reviewListValue);
   const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
   const excelBuffer: any = xlsxPackage.write(workbook, { bookType: 'xlsx', type: 'array' });
-  this.saveAsExcelFile(excelBuffer, "ratings");
+  this.saveAsExcelFile(excelBuffer, "reviews");
 }
 
 saveAsExcelFile(buffer: any, fileName: string): void {
@@ -70,10 +70,8 @@ exportPdf() {
           columns:this.exportColumns,
           body:this.reviewDetails
          });
-          doc.save('ratings.pdf');
+          doc.save('reviews.pdf');
       }
-
-
 
       openDialog(name: any) {
         const dialogRef = this.dialog.open(DialogComponent);

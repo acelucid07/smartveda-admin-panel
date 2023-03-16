@@ -43,8 +43,8 @@ export class EditReviewComponent implements OnInit {
 
   submit() {
     let payload = {
-      id: this.editForm.controls['referenceId'].value,
-      review: this.editForm.controls['reviewPublishPage'].value,
+      reviewSubject: this.editForm.controls['referenceId'].value,
+      publishingsiteurl: this.editForm.controls['reviewPublishPage'].value,
       rating: this.editForm.controls['rating'].value,
       status: this.editForm.controls['reviewStatus'].value,
     };
@@ -73,8 +73,8 @@ export class EditReviewComponent implements OnInit {
       this.editForm.patchValue({
         rating:res[0].rating,
         reviewerType: 'Friend',
-        reviewPublishPage: res[0].review,
-        referenceId: res[0].id,
+        reviewPublishPage: res[0].publishingsiteurl,
+        referenceId: res[0].reviewSubject,
         reviewStatus: res[0].status,
       });
     })

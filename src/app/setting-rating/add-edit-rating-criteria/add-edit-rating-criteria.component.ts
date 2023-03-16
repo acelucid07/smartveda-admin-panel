@@ -71,7 +71,7 @@ submitEditedDetails(recievedValue:any){
 let newPayload= Object.assign({},recievedValue)
 this.ratingCriteriaService.submitEditedCriteriaDetail(newPayload,this.id).subscribe((res)=>{
  if(res)
- this.route.navigate(['/settings/ratingcriterialist']);
+ this.route.navigate(['/ratesettings/ratingcriterialist']);
 })
 }
 
@@ -81,7 +81,7 @@ submitDetails(recievedValue:any){
   .submitCriteriaDetail(newPayload)
   .subscribe((res) => {
     if (res) {
-      this.route.navigate(['/settings/ratingcriterialist']);
+      this.route.navigate(['/ratesettings/ratingcriterialist']);
     }
   });
 }

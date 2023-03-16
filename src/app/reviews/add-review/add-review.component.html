@@ -1,5 +1,5 @@
-<!-- <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing"> -->
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
     
     <div class="d-flex justify-content-center">
     <div class="card" style="width: 1000px; height: 520px;">
@@ -12,7 +12,7 @@
             <form [formGroup]="reviewForm" >
             <div class="row mb-4">
                 <div class="form-group  col-6">
-                    <label for="siteUrl" class=" text-center starlabel mb-4">SiteUrl</label>
+                    <label for="siteUrl" class=" text-center starlabel mb-4">Publishing Site Url</label>
                     <input type="text" class="form-control " id="siteUrl" formControlName="publishSiteUrl">
                     <div *ngIf="!reviewForm.controls['publishSiteUrl'].valid && reviewForm.controls['publishSiteUrl'].touched ">
                         <div [hidden]="!reviewForm.controls['publishSiteUrl'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">SiteUrl is required</div>
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="form-group col-6">
-                    <label for="reference" class="text-center starlabel mb-4">ReferenceId</label>
+                    <label for="reference" class="text-center starlabel mb-4">Reference Id</label>
                     <input type="text" class="form-control " id="reference" formControlName="referenceId">
                     <div *ngIf="!reviewForm.controls['referenceId'].valid && reviewForm.controls['referenceId'].touched ">
                         <div [hidden]="!reviewForm.controls['referenceId'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">ReferenceId is required</div>
@@ -46,4 +46,4 @@
     </div>
     </div>
 </div>
-<!-- </div> -->
+</div>

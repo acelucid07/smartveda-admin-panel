@@ -38,7 +38,7 @@ deleteReviewDetails(name:string):Observable<any[]>{
   // })
   // reviewList.splice(reviewList.indexOf(filteredData[0]),1)
   // return of(reviewList)
-  let filteredreview = reviewList.splice(reviewList.findIndex((index) => index.id == name),1);
+  let filteredreview = reviewList.splice(reviewList.findIndex((index) => index.reviewSubject == name),1);
         return of(filteredreview)
 }
 
@@ -48,9 +48,9 @@ submitEditDetail(payload:any,serialno:number){
   const endpointUrl = `${environment.JSON_SERVER}/edit`;
   reviewList.map((res)=>{
     if (res.Sno == serialno) {
-      res.id = payload.id,
+      res.reviewSubject = payload.reviewSubject,
       res.rating = payload.rating,
-      res.review = payload.review,
+      res.publishingsiteurl = payload.publishingsiteurl,
       res.status = payload.status
     }
   }) 

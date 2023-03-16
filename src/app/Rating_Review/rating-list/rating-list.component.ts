@@ -31,7 +31,7 @@ export class RatingListComponent implements OnInit {
     this.sidebarSpacing = 'contracted';
     
     this.cols=[{field:"rating", headers:"Rating"},
-    {field:"review", headers:"Review"},
+    {field:"review", headers:"Review Subject"},
     {field:"reviewer", headers:"Reviewer"},
     {field:"status", headers:"Status"},
     {field:"date", headers:"Date"}]

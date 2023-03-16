@@ -28,8 +28,8 @@ export class AddReviewComponent implements OnInit {
 
   submitForm(){
     let payload={
-      id:this.reviewForm.controls['referenceId'].value,
-      review:this.reviewForm.controls['publishSiteUrl'].value,
+      reviewSubject:this.reviewForm.controls['referenceId'].value,
+      publishingsiteurl:this.reviewForm.controls['publishSiteUrl'].value,
       rating:'4',
       status:this.reviewForm.controls['reviewStatus'].value
     }

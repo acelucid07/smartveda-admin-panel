@@ -1,5 +1,5 @@
-<!-- <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing" > -->
+<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing" >
 <div class="d-flex justify-content-center">
     <div class="card" style="width: 1000px; height: 500px;">
         <div class="p-5">
@@ -36,7 +36,7 @@
         </div>
 <div class="row">
     <div class="d-flex justify-content-end  col-12">
-        <button type="submit" class="btn btn-info mr-3" (click)="submit()">Submit</button>
+        <button type="submit" class="btn btn-info mr-3" (click)="submit()" [disabled]="!reviewerForm.valid">Submit</button>
         <button class="btn btn-info" [routerLink]="['/reviewer/reviewerlist']">Cancel</button>
     </div>
 </div>
@@ -45,4 +45,4 @@
 </div>
 </div>
 </div>
-<!-- </div> -->
+</div>

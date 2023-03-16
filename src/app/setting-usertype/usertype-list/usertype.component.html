@@ -48,8 +48,8 @@ styleClass="p-datatable-striped" [globalFilterFields]="['usertype']">
     <td>{{types.status}}</td>
     <td>
         <div>
-            <button pButton class="p-button-secondary mr-3" icon="pi pi-user-edit" [routerLink]="['/usertypesettings/usertypeform']" [queryParams]="{serialno:types.sno}"></button>
-            <button pButton class="p-button-danger" icon="pi pi-trash" (click)="openDialog(types.usertype)"></button>
+            <button pButton class="p-button-secondary mr-3" icon="pi pi-user-edit" pTooltip="Edit Usertype" tooltipPosition="bottom" [routerLink]="['/usertypesettings/usertypeform']" [queryParams]="{serialno:types.sno}"></button>
+            <button pButton class="p-button-danger" icon="pi pi-trash" pTooltip="Delete Usertype" tooltipPosition="bottom" (click)="openDialog(types.usertype)"></button>
         </div>
     </td>
 </tr>
@@ -59,9 +59,9 @@ styleClass="p-datatable-striped" [globalFilterFields]="['usertype']">
 </tr></ng-template>
 <ng-template pTemplate="summary">
     <div>
-        <button pButton icon="pi pi-file" class="mr-2" (click)="dt.exportCSV()"></button>
-        <button pButton icon="pi pi-file-excel" class="mr-2" (click)="exportExcel()"></button>
-        <button pButton icon="pi pi-file-pdf" (click)=" exportPdf()"></button>
+        <button pButton icon="pi pi-file" pTooltip="CSV" tooltipPosition="bottom" class="mr-2" (click)="dt.exportCSV()"></button>
+        <button pButton icon="pi pi-file-excel"pTooltip="Excel" tooltipPosition="bottom" class="mr-2" (click)="exportExcel()"></button>
+        <button pButton icon="pi pi-file-pdf" pTooltip="Pdf" tooltipPosition="bottom" (click)=" exportPdf()"></button>
     </div>
 </ng-template>
 </p-table>
