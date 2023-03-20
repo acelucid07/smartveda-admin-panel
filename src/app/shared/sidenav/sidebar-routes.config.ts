@@ -10,6 +10,16 @@ export const SideNaveMenueRoute = [
         routerLink: ['/customer']
     },
     {
+        label: 'Roles & Permission',
+        items: [
+            {
+                label: 'Admin List',
+                icon: 'pi pi-list',
+                routerLink: ['/roleandpermission/adminlist']
+            },
+        ]
+    },
+    {
         label: 'Order',
         items: [
             {
@@ -210,6 +220,5 @@ export const SideNaveMenueRoute = [
                
             }
         ]
-    },
-    
+    }
 ]

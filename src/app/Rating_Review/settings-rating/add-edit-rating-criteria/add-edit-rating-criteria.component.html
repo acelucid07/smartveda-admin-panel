@@ -1,0 +1,42 @@
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 1000px; height: 500px;">
+            <div class="p-5">
+                <div class="card-body">
+                    <div class="mt-2 mb-3">
+                        <h3>{{title}} Rating Criteria</h3>
+                    </div>
+                    <form [formGroup]="criteriaForm" class="d-flex justify-content-center">
+                        <div class="w-75">
+                            <div class="row mt-5">
+                                <div class="form-group  col-10 d-flex justify-content-center">
+                                    <label for="criteriaName" class=" col-2 col-form-label starlabel">Criteria</label>
+                                    <div class="col-8"><input type="text" id="criteriaName" class="form-control" formControlName="name">
+                                        <div *ngIf="!criteriaForm.controls['name'].valid && criteriaForm.controls['name'].touched ">
+                                            <div [hidden]="!criteriaForm.controls['name'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic; display:block">Criteria is required</div>
+                                        </div></div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="form-group  col-10 d-flex justify-content-center">
+                                    <label for="status" class=" col-2 col-form-label starlabel">Status</label>
+                                    <div class="col-8"><p-dropdown styleClass="statusDropdown" [options]="statusList"
+                                            placeholder="Select status" formControlName="status"></p-dropdown>
+                                            <div *ngIf="!criteriaForm.controls['status'].valid && criteriaForm.controls['status'].touched ">
+                                                <div [hidden]="!criteriaForm.controls['status'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">Status is required</div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="form-group  col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-info mr-3" (click)="submit()" [disabled]="!criteriaForm.valid">Submit</button>
+                                    <button class="btn btn-info" [routerLink]="['/ratesettings/ratingcriterialist']">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

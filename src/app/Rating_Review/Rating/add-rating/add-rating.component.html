@@ -1,0 +1,101 @@
+    <div class="d-flex justify-content-center">
+<div class="card d-flex flex-column align-items-center" style=" width:900px;">
+    
+<div class="card-body col-12" style="width:750px;">
+    <div class="page-heading my-4">
+        <h4 class="header-text-title mt-2 text-left">Add Rating</h4>
+      </div>
+    <form [formGroup]="ratingForm">
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="reviewer" class="starlabel">Reviewer</label>
+            <div><p-dropdown [options]="reviewerOptions" id="reviewer" placeholder="Select"
+                    styleClass="reviewer-dropdown"
+                    (onChange)="$event.value=='Add New Reviewer'?openExportDialog():null" formControlName="reviewer"></p-dropdown>
+                    <div
+                      *ngIf="!ratingForm.controls['reviewer'].valid && (ratingForm.controls['reviewer'].touched || ratingForm.controls['reviewer'].dirty)">
+                      <div [hidden]="!ratingForm.controls['reviewer'].errors['required']"
+                        style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                        Reviewer is required
+                      </div>
+                    </div>
+                </div>
+        </div>
+        <div class="form-group col-6">
+            <label for="review" class="starlabel">Review Subject</label>
+            <div><p-dropdown [options]="reviewOptions" id="review" placeholder="Select" styleClass="review-dropdown" formControlName="review"></p-dropdown>
+                <div
+                *ngIf="!ratingForm.controls['review'].valid && (ratingForm.controls['review'].touched || ratingForm.controls['review'].dirty)">
+                <div [hidden]="!ratingForm.controls['review'].errors['required']"
+                  style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                  Review Subject is required
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-4">
+            <label for="reviewer" class="col-form-label text-left starlabel"  >Overall</label>
+            <input type="text" class="form-control" formControlName="overall">
+            <div
+                *ngIf="!ratingForm.controls['overall'].valid && (ratingForm.controls['overall'].touched || ratingForm.controls['overall'].dirty)">
+                <div [hidden]="!ratingForm.controls['overall'].errors['required']"
+                  style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                  Overall is required
+                </div>
+              </div>
+        </div>
+        <div class="form-group col-4">
+            <label for="reviewer" class="col-form-label text-left">Pros</label>
+            <input type="text" class="form-control" formControlName="pros">
+        </div>
+        <div class="form-group col-4">
+            <label for="reviewer" class="col-form-label text-left">Cons</label>
+            <input type="text" class="form-control" formControlName="cons">
+        </div>
+    </div>
+    <div class="row" formGroupName="ratingType">
+        <div class="form-group col-6" >
+            <label for="ratingType" class="col-form-label text-left starlabel">Rating Type</label>
+           <div class="d-flex justify-content-between"><div class="mr-5" style="width: 100px;">Cleaniness</div><div ><p-rating [cancel]="false" formControlName="Cleaniness"></p-rating></div></div>
+           <div class="d-flex justify-content-between"><div class="mr-5" style="width: 100px;">Comfort</div><div ><p-rating (onCancel)="show($event)" [cancel]="false" formControlName="Comfort" ></p-rating></div></div>
+           <div class="d-flex justify-content-between"><div class="mr-5" style="width: 100px;">Facilities</div><div ><p-rating [cancel]="false" formControlName="Facilities"></p-rating></div></div>
+        </div>
+        <div class="form-group col-6" style="margin-top:35px">
+            <div class="d-flex justify-content-between"><div class="mr-5" style="width: 100px;">Location</div><div ><p-rating [cancel]="false" formControlName="Location" ></p-rating></div></div>
+           <div class="d-flex justify-content-between"><div class="mr-5" style="width: 100px;">Staff</div><div ><p-rating [cancel]="false" formControlName="Staff"></p-rating></div></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="ratingType" class="col-form-label text-left starlabel">User Type</label>
+            <p-dropdown [options]="userTypeOptions" id="ratingType" placeholder="Select" styleClass="userType-dropdown"  formControlName="userType"></p-dropdown>
+            <div
+            *ngIf="!ratingForm.controls['userType'].valid && (ratingForm.controls['userType'].touched || ratingForm.controls['userType'].dirty)">
+            <div [hidden]="!ratingForm.controls['userType'].errors['required']"
+              style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+             Status is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-6">
+            <label for="ratingStatus" class="col-form-label text-left starlabel">Status</label>
+            <p-dropdown [options]="statusOptions" id="ratingStatus" placeholder="Select" styleClass="status-dropdown"  formControlName="status"></p-dropdown>
+            <div
+            *ngIf="!ratingForm.controls['status'].valid && (ratingForm.controls['status'].touched || ratingForm.controls['status'].dirty)">
+            <div [hidden]="!ratingForm.controls['status'].errors['required']"
+              style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+             Status is required
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end mt-2"><button type="submit" class="btn btn-info mr-3" [disabled]="!ratingForm.valid" (click)="submitForm()">
+        Submit </button>
+        <button type="submit" class="btn btn-info" [routerLink]="['/rating/ratinglist']">
+            Cancel </button></div>
+</form>
+</div>
+</div>
+</div>

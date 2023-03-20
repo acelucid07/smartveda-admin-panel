@@ -1,0 +1,46 @@
+    <div class="d-flex justify-content-center">
+    <div class="card" style="width: 1000px; height: 520px;">
+
+        <div class="card-body" >
+            <div class="p-5">
+            <div class="mt-2 mb-5">
+                <h4 >Add Reviews</h4>
+            </div>
+            <form [formGroup]="reviewForm" >
+            <div class="row mb-4">
+                <div class="form-group  col-6">
+                    <label for="siteUrl" class=" text-center starlabel mb-4">Publishing Site Url</label>
+                    <input type="text" class="form-control " id="siteUrl" formControlName="publishSiteUrl">
+                    <div *ngIf="!reviewForm.controls['publishSiteUrl'].valid && reviewForm.controls['publishSiteUrl'].touched ">
+                        <div [hidden]="!reviewForm.controls['publishSiteUrl'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">SiteUrl is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="reference" class="text-center starlabel mb-4">Reference Id</label>
+                    <input type="text" class="form-control " id="reference" formControlName="referenceId">
+                    <div *ngIf="!reviewForm.controls['referenceId'].valid && reviewForm.controls['referenceId'].touched ">
+                        <div [hidden]="!reviewForm.controls['referenceId'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">ReferenceId is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="form-group col-6">
+                    <label for="reference" class="text-center starlabel mb-4">Status</label>
+                    <p-dropdown styleClass="statusDropdown" [options]="statusList" placeholder="Select status" formControlName="reviewStatus"></p-dropdown>
+                    <div *ngIf="!reviewForm.controls['reviewStatus'].valid && reviewForm.controls['reviewStatus'].touched ">
+                        <div [hidden]="!reviewForm.controls['reviewStatus'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">Status is required</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-end mt-4">
+                <button type="submit" class="btn btn-info mr-3" (click)="submitForm()" [disabled]="!(reviewForm.valid)">Submit</button>
+                <button type="submit" class="btn btn-info" [routerLink]="['/review/reviewlist']">Cancel</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    </div>
+</div>
+

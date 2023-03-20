@@ -67,24 +67,33 @@ const routes: Routes = [
   },
   {
     path: 'rating',
-    loadChildren: () => import('./Rating_Review/rating.module').then(mod=>mod.AdminRatingModule),
+    loadChildren: () => import('./Rating_Review/Rating/rating.module').then(mod=>mod.AdminRatingModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'review',
-    loadChildren: () => import('./reviews/review.module').then(mod=>mod.ReviewModule),
+    loadChildren: () => import('./Rating_Review/reviews/review.module').then(mod=>mod.ReviewModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'reviewer',
-    loadChildren: () => import('./reviewer/reviewer.module').then(mod=>mod.ReviewerModule),
+    loadChildren: () => import('./Rating_Review/reviewer/reviewer.module').then(mod=>mod.ReviewerModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'ratesettings',
-    loadChildren: () => import('./setting-rating/setting-rating.module').then(mod=>mod.SettingRatingModule),
+    loadChildren: () => import('./Rating_Review/settings-rating/setting-rating.module').then(mod=>mod.SettingRatingModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'usertypesettings',
-    loadChildren: () => import('./setting-usertype/setting-usertype.module').then(mod=>mod.SettingUsertypeModule),
+    loadChildren: () => import('./Rating_Review/settings-usertype/setting-usertype.module').then(mod=>mod.SettingUsertypeModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'roleandpermission',
+    loadChildren: () => import('./roles/admin-list.module').then(mod=>mod.AdminListModule),
+    canActivate: [AuthGuard]
   },
   { path: '', component: AuthenticationComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },

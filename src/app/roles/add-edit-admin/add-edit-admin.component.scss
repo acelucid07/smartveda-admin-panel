@@ -1,0 +1,12 @@
+:host::ng-deep{
+    .roledropdown{
+        width:100%
+    }
+    .p-inputnumber{
+        width: 100%;
+    }
+    label.starlabel::after{
+        content: "*";
+        color: rgb(228, 28, 28);
+    }
+}
