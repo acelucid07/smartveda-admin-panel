@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminListRoutingModule } from './admin-list-routing.module';
-import { AdminListComponent } from './admin-list/admin-list.component';
-import { SharedModule } from '../shared/shared.module';
+import { RolesListComponent } from './roles-list/roles-list.component';
+import { SharedModule } from '../../shared/shared.module';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { MatCardModule } from '@angular/material/card';
 import { TableModule } from 'primeng/table';
@@ -10,17 +9,17 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { AddEditAdminComponent } from './add-edit-admin/add-edit-admin.component';
-import { DialogComponent } from './dialog/dialog.component';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { RolesRoutingModule } from './roles-routing.module';
+import { DialogComponent } from './dialog/dialog.component';
+import { AddEditPermissionComponent } from './add-edit-permission/add-edit-permission.component';
 
 
 @NgModule({
-  declarations: [AdminListComponent, AddEditAdminComponent,
-    DialogComponent],
+  declarations: [RolesListComponent,DialogComponent, AddEditPermissionComponent],
   imports: [
     CommonModule,
-    AdminListRoutingModule,
+    RolesRoutingModule,
     SharedModule,
     MultiSelectModule,
     MatCardModule,
@@ -32,4 +31,4 @@ import {InputNumberModule} from 'primeng/inputnumber';
     InputNumberModule
   ]
 })
-export class AdminListModule { }
+export class RolesModule { }

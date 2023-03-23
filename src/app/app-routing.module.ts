@@ -92,7 +92,12 @@ const routes: Routes = [
   },
   {
     path: 'roleandpermission',
-    loadChildren: () => import('./roles/admin-list.module').then(mod=>mod.AdminListModule),
+    loadChildren: () => import('./Roles_permissions/Admin/admin-list.module').then(mod=>mod.AdminListModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'modulepermission',
+    loadChildren: () => import('./Roles_permissions/roles/roles.module').then(mod=>mod.RolesModule),
     canActivate: [AuthGuard]
   },
   { path: '', component: AuthenticationComponent },

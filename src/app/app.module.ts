@@ -14,7 +14,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { AdminListComponent } from './roles/admin-list/admin-list.component';
 
 
 @NgModule({

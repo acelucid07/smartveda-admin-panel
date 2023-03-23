@@ -17,6 +17,11 @@ export const SideNaveMenueRoute = [
                 icon: 'pi pi-list',
                 routerLink: ['/roleandpermission/adminlist']
             },
+            {
+                label: 'Permitted Module List',
+                icon: 'pi pi-list',
+                routerLink: ['/modulepermission/rolelist']
+            },
         ]
     },
     {
