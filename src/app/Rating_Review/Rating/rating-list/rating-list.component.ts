@@ -9,6 +9,8 @@ import * as FileSaver from 'file-saver';
 import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable'
 import { DialogComponent } from '../dialog/dialog.component';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 
 @Component({
   selector: 'app-rating-list',
@@ -22,9 +24,16 @@ export class RatingListComponent implements OnInit {
   cols:Table|any;
   statusList:string[];
   exportColumns:any[];
+  accessPermission:access
   @ViewChild('dt') dt:Table|undefined
 
-  constructor(private ratingService:RatingService, public dialog: MatDialog) { }
+  constructor(private ratingService:RatingService, public dialog: MatDialog, 
+    private permissionService:ModulePermissionService) {
+    this.permissionService.getModulePermission().subscribe(res=>{ 
+      this.accessPermission=res[0].ReviewList
+      console.log( this.accessPermission)
+    })
+  }
 
   ngOnInit(): void {
     this.statusList=['Approved','Not Approved']

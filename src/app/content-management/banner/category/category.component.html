@@ -14,7 +14,7 @@
           </span>
           <span class="p-input-icon-right ml-5">
             <button pButton type="button" label="Add Category" class="p-button-success"
-              [routerLink]="['/cms/addcategory']"></button>
+              [routerLink]="['/cms/addcategory']" [disabled]="!accessPermission.add"></button>
           </span>
         </div>
       </ng-template>
@@ -38,9 +38,9 @@
             </button> -->
               <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Category"
                 tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/cms/editcategory']"
-                [queryParams]="{id:categoryList?.id}"></button>
+                [queryParams]="{id:categoryList?.id}" [disabled]="!accessPermission.edit"></button>
               <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Category"
-                tooltipPosition="bottom" style="margin-right:5px" (click)="deleteCategory(categoryList)"></button>
+                tooltipPosition="bottom" style="margin-right:5px" (click)="deleteCategory(categoryList)" [disabled]="!accessPermission.delete"></button>
             </div>
           </td>
         </tr>

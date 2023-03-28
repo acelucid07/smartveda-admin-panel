@@ -22,14 +22,14 @@ styleClass="p-datatable-striped" [globalFilterFields]="['username']">
     <th class="text-center">Actions</th>
 </tr>
 </ng-template>
-<ng-template pTemplate="body" let-list>
-    <tr><td>{{list.sno}}</td>
+<ng-template pTemplate="body" let-i="rowIndex" let-list>
+    <tr><td>{{i+1}}</td>
     <td>{{list.username}}</td>
-    <td><div *ngFor="let module of list.modules">{{module}}</div></td>
+    <td><div *ngFor="let module of list.moduleList">{{module}}</div></td>
     <td>
         <div>
-        <button pButton class="p-button-secondary mr-2"icon="pi pi-user-edit" ></button>
-        <button pButton class="p-button-danger"icon="pi pi-trash" (click)="openDialog(list.sno)"></button>
+        <button pButton class="p-button-secondary mr-2"icon="pi pi-user-edit" [routerLink]="['/modulepermission/permissionform']" [queryParams]="{user:list.username}"></button>
+        <button pButton class="p-button-danger"icon="pi pi-trash" (click)="openDialog(list.username)"></button>
         </div>   
     </td>
 </tr>

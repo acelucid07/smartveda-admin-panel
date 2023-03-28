@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { RolesListComponent } from './roles-list/roles-list.component';
 import { AddEditPermissionComponent } from './add-edit-permission/add-edit-permission.component';
  const routes:Routes=[{path:'rolelist', component:RolesListComponent},
-{path:'permissionform', component:AddEditPermissionComponent}]
+{path:'permissionform', component:AddEditPermissionComponent}
+]
 
 
 @NgModule({

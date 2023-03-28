@@ -76,6 +76,9 @@
   transition: 300ms ease-in-out;
   background-color: #151D3B;
 }
+.sidebar-cont::-webkit-scrollbar {
+  display: none;
+}
 
 .sidebar-cont .sidebar {
   display: flex;

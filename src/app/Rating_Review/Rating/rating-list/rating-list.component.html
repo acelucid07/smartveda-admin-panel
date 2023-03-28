@@ -10,7 +10,7 @@
                 <div class="d-flex justify-content-between">
                     <div class="d-flex align-items-center">
                         <input #search  pInputText type="text" class="mr-2" placeholder="Search by Review Subject" >
-                        <button class="p-button-success" pButton type="button"  (click)="applyFilterGlobal(search.value, 'contains')" >Search</button>
+                        <button class="p-button-success" pButton type="button"  (click)="applyFilterGlobal(search.value, 'contains')"  >Search</button>
                     </div>
                     <div class="d-flex justify-content-center">
                         <div class="captionFilter">
@@ -32,7 +32,7 @@
                             </ng-template>
                         </p-columnFilter>
                             </div>
-                        <div><button pButton type="button" style="margin-left:5px" [routerLink]="['/rating/addrating']">Add</button></div>
+                        <div><button pButton type="button" style="margin-left:5px" [routerLink]="['/rating/addrating']" [disabled]="!accessPermission.add">Add</button></div>
                     </div>
                 </div>
             </ng-template>
@@ -55,8 +55,8 @@
                     <td>{{ratingList.date | date: 'MM/dd/yyyy'}}</td>
                     <td>
                         <div>
-                            <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Rating" tooltipPosition="bottom" style="margin-right: 10px;"  [routerLink]="['/rating/editrating']" [queryParams]="{reviewerName:ratingList.reviewer}"></button>
-                            <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Rating" tooltipPosition="bottom"  style="margin-right: 10px;" (click)=" openDialog(ratingList.reviewer)"></button>
+                            <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Rating" tooltipPosition="bottom" style="margin-right: 10px;"  [routerLink]="['/rating/editrating']" [queryParams]="{reviewerName:ratingList.reviewer}" [disabled]="!accessPermission.edit"></button>
+                            <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Rating" tooltipPosition="bottom"  style="margin-right: 10px;" (click)=" openDialog(ratingList.reviewer)" [disabled]="!accessPermission.delete"></button>
                         </div>
                     </td>
                 </tr>

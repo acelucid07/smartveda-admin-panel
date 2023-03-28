@@ -15,7 +15,7 @@
                             (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by Name">
                     </span>
                     <span class="p-input-icon-right ml-2">
-                        <button pButton type="button" label="Create lead" class="p-button-success" [routerLink]="['/leads/leadcreate']"
+                        <button pButton type="button" label="Create lead" class="p-button-success" [routerLink]="['/leads/leadcreate']" [disabled]="!accessPermission.add"
                     ></button>
                     </span>
                 </div>
@@ -120,14 +120,14 @@
                 </button> -->
                             <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit" [routerLink]="['/leads/leadedit']" [queryParams]="{leadName:leadsList.name}"
                                 pTooltip="Edit lead" tooltipPosition="bottom" style="margin-right:5px"
-                                ></button>
+                                [disabled]="!accessPermission.edit"></button>
                             <button class="p-button-info" pButton type="button" icon="pi pi-eye"   [routerLink]="['/leads/leadview']" [queryParams]="{leadName:leadsList.name}"
                                 pTooltip="view lead" tooltipPosition="bottom" style="margin-right:5px"
-                                ></button>
+                               ></button>
                               
                                <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog> -->
                                 <button  class="p-button-danger" pButton type="button" icon="pi pi-trash"
-                                pTooltip="Delete lead" tooltipPosition="bottom" style="margin-right:5px" (click)="openDialog(leadsList)"
+                                pTooltip="Delete lead" tooltipPosition="bottom" style="margin-right:5px" (click)="openDialog(leadsList)" [disabled]="!accessPermission.delete"
                                ></button>
                         </div>
                     </td>

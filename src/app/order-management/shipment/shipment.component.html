@@ -40,7 +40,7 @@
 								[queryParams]="{orderId:shippingData?.OrderDetails?.orderId}">
 							</button>
 							<button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Shipment"
-								tooltipPosition="bottom" (click)="deleteOrderShipping(shippingData?.OrderDetails?.orderId)"></button>
+								tooltipPosition="bottom" (click)="deleteOrderShipping(shippingData?.OrderDetails?.orderId)" [disabled]="!accessPermission.delete"></button>
 						</div>
 					</td>
 				</tr>

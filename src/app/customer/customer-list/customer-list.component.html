@@ -1,20 +1,19 @@
 <div class="page-heading">
-  <h1 class="header-text-title" style="margin-left: 1%;">Customers</h1>
+  <h1 class="header-text-title" style="margin-left: 1%;">Admin List</h1>
 </div>
-<div class="card col-sm-12" style="border:none;">
   <p-table id="customerTable" #dt [value]="customerData" [columns]="cols" responsiveLayout="scroll" [paginator]="true"
     [rows]="10" [showCurrentPageReport]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
     [globalFilterFields]="['email', 'phone', 'role', 'status']" styleClass="p-datatable-striped">
 
     <ng-template pTemplate="caption">
-      <div class="row">
-        <span class="p-input-icon-right ml-5">
+      <div class="d-flex justify-content-between" >
+        <span class="p-input-icon-right">
           <i class="pi pi-search"></i>
           <input pInputText type="text" placeholder="Search keyword"  (input)="applyFilterGlobal($event, 'contains')"/>
         </span>
-      </div>
-      <div class="btn-grp flex" style="margin-left:82%">
+      
+      <div class="btn-grp d-flex align-items-center" >
         <button type="button" pButton pRipple icon="pi pi-file" (click)="downloadResource()" class="mr-2" pTooltip="CSV"
           tooltipPosition="bottom"></button>
         <button type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success mr-2" pTooltip="XLSX"
@@ -22,6 +21,7 @@
         <button type="button" pButton pRipple icon="pi pi-file-pdf" class="p-button-warning mr-2" pTooltip="PDF"
           tooltipPosition="bottom" (click)="exportPdf()"></button>
       </div>
+    </div>
     </ng-template>
 
     <ng-template pTemplate="header" let-columns>
@@ -61,4 +61,3 @@
     </ng-template>
   </p-table>
   <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
-</div>

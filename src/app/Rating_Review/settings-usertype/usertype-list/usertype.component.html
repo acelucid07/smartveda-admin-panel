@@ -30,7 +30,7 @@ styleClass="p-datatable-striped" [globalFilterFields]="['usertype']">
             </ng-template>
         </p-columnFilter>
     </div>
-        <button pButton [routerLink]="['/usertypesettings/usertypeform']">Add</button>
+        <button pButton [routerLink]="['/usertypesettings/usertypeform']" [disabled]="!accessPermission.add">Add</button>
     </div>
 </div>
 </ng-template>
@@ -46,8 +46,8 @@ styleClass="p-datatable-striped" [globalFilterFields]="['usertype']">
     <td>{{types.status}}</td>
     <td>
         <div>
-            <button pButton class="p-button-secondary mr-3" icon="pi pi-user-edit" pTooltip="Edit Usertype" tooltipPosition="bottom" [routerLink]="['/usertypesettings/usertypeform']" [queryParams]="{serialno:types.sno}"></button>
-            <button pButton class="p-button-danger" icon="pi pi-trash" pTooltip="Delete Usertype" tooltipPosition="bottom" (click)="openDialog(types.usertype)"></button>
+            <button pButton class="p-button-secondary mr-3" icon="pi pi-user-edit" pTooltip="Edit Usertype" tooltipPosition="bottom" [routerLink]="['/usertypesettings/usertypeform']" [queryParams]="{serialno:types.sno}" [disabled]="!accessPermission.edit"></button>
+            <button pButton class="p-button-danger" icon="pi pi-trash" pTooltip="Delete Usertype" tooltipPosition="bottom" (click)="openDialog(types.usertype)" [disabled]="!accessPermission.delete"></button>
         </div>
     </td>
 </tr>

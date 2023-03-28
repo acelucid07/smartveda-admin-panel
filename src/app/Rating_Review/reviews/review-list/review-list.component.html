@@ -33,7 +33,7 @@
                                 </ng-template>
                             </p-columnFilter>
                         </div>
-                        <button pButton type="button" [routerLink]="['/review/addreview']">Add</button>
+                        <button pButton type="button" [routerLink]="['/review/addreview']" [disabled]="!accessPermission.add">Add</button>
                     </div>
                 </div>
             </ng-template>
@@ -55,10 +55,10 @@
                     <td>
                         <button pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Review"
                             tooltipPosition="bottom" class="mr-2 p-button-secondary"
-                            [routerLink]="['/review/editreview']" [queryParams]="{serialno:reviews.Sno}"></button>
+                            [routerLink]="['/review/editreview']" [queryParams]="{serialno:reviews.Sno}" [disabled]="!accessPermission.edit"></button>
                         <button pButton type="button" icon="pi pi-trash" pTooltip="Delete Review"
                             tooltipPosition="bottom" class="mr-2 p-button-danger"
-                            (click)="openDialog(reviews.id)"></button>
+                            (click)="openDialog(reviews.id)" [disabled]="!accessPermission.delete"></button>
                     </td>
                 </tr>
             </ng-template>

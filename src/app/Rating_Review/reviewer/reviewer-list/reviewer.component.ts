@@ -7,6 +7,8 @@ import * as jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { access } from 'src/app/_models/modulepermission';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
 
 @Component({
   selector: 'app-reviewer',
@@ -20,12 +22,17 @@ export class ReviewerComponent implements OnInit {
   reviewerData:any[]
   reviewerDetails:any[]
   exportColumns:any[]
-  
+  accessPermission:access
 
 statusList=['Active','Inactive']
-  constructor(private reviewerService:ReviewerService,private dialog:MatDialog) {
+  constructor(private reviewerService:ReviewerService,private dialog:MatDialog,private permissionService:ModulePermissionService) {
+    this.permissionService.getModulePermission().subscribe(res=>{ 
+      this.accessPermission=res[0].ReviewerList
+      console.log( this.accessPermission)
+    })
     this.getReviewerData()
-   }
+  }
+
 
   ngOnInit(): void {
     this.cols=[

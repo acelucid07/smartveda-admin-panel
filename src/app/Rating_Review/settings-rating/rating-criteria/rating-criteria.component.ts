@@ -7,6 +7,8 @@ import { RatingCriteriaService } from 'src/app/_services/rating-criteria.service
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Table } from 'primeng/table';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 
 @Component({
   selector: 'app-rating-criteria',
@@ -19,12 +21,18 @@ export class RatingCriteriaComponent implements OnInit {
   ratingData:any[];
   exportColumns:any[];
   ratingSettingData:any[];
+  accessPermission:access
   @ViewChild('dt') dt:Table|undefined
   statusList:string[]=['Active','Inactive']
   constructor( private ratingCriteriaService: RatingCriteriaService,
-    private dialog:MatDialog) {
-    this.getCriteriaList()
-  }
+    private dialog:MatDialog,private permissionService:ModulePermissionService) {
+      this.permissionService.getModulePermission().subscribe(res=>{ 
+        this.accessPermission=res[0].RatingSetting
+        console.log( this.accessPermission)
+        this.getCriteriaList()
+      })
+    }
+  
 
   ngOnInit(): void {
     this.cols=[{field:"ratingCriteria",headers:"Rating Criteria"},

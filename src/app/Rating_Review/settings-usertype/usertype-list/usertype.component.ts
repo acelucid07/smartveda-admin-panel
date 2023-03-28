@@ -8,6 +8,8 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Table } from 'primeng/table';
 import { UsertypeService } from 'src/app/_services/usertype.service';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 
 @Component({
   selector: 'app-usertype',
@@ -20,12 +22,19 @@ export class UserTypeComponent implements OnInit {
   usertypeData:any[];
   exportColumns:any[];
   usertypeSettingData:any[];
+  accessPermission:access
   @ViewChild('dt') dt:Table|undefined
   statusList:string[]=['Active','Inactive']
   constructor( private usertypeService: UsertypeService,
-    private dialog:MatDialog) {
-    this.getUsertypeList()
-  }
+    private dialog:MatDialog,
+    private permissionService:ModulePermissionService) {
+      this.permissionService.getModulePermission().subscribe(res=>{ 
+        this.accessPermission=res[0].RatingSetting
+        console.log( this.accessPermission)
+        this.getUsertypeList()
+      })
+    }
+
 
   ngOnInit(): void {
     this.cols=[{field:"usertype",headers:"User Type"},

@@ -4,11 +4,11 @@ export const SideNaveMenueRoute = [
         icon: 'pi pi-fw pi-cog',
         routerLink: ['/dashboard']
     },
-    {
-        label: 'Profile',
-        icon: 'pi pi-fw pi-user',
-        routerLink: ['/customer']
-    },
+    // {
+    //     label: 'Profile',
+    //     icon: 'pi pi-fw pi-user',
+    //     routerLink: ['/customer']
+    // },
     {
         label: 'Roles & Permission',
         items: [
@@ -70,21 +70,21 @@ export const SideNaveMenueRoute = [
                     }
                 ]
             },
-            {
-                label: 'Slider',
-                items: [
-                    {
-                        label: 'Slider1',
-                        icon: 'pi pi-fw pi-user',
-                        routerLink: ['/cms/slider']
-                    },
-                    {
-                        label: 'Slider2',
-                        icon: 'pi pi-fw pi-shopping-cart',
-                        routerLink: ['/cms/slider']
-                    },
-                ]
-            },
+            // {
+            //     label: 'Slider',
+            //     items: [
+            //         {
+            //             label: 'Slider1',
+            //             icon: 'pi pi-fw pi-user',
+            //             routerLink: ['/cms/slider']
+            //         },
+            //         {
+            //             label: 'Slider2',
+            //             icon: 'pi pi-fw pi-shopping-cart',
+            //             routerLink: ['/cms/slider']
+            //         },
+            //     ]
+            // },
 
         ]
     },
@@ -160,26 +160,26 @@ export const SideNaveMenueRoute = [
     //         },
     //     ]
     // },
-    {
-        label: 'Influencers',
-        items: [
-            {
-                label: 'Edit Basic Cost',
-                icon: 'pi pi-user-edit',
-                routerLink: ['/influencers/influencerlist']
-            },
-            {
-                label: 'Edit Influencer Cost',
-                icon: 'pi pi-plus-circle',
-                routerLink: ['/influencers/influencercost']
-            },
-            {
-                label: 'Add Influencer Details',
-                icon: 'pi pi-plus',
-                routerLink: ['/influencers/influencerdetails']
-            },
-        ]
-    },
+    // {
+    //     label: 'Influencers',
+    //     items: [
+    //         {
+    //             label: 'Edit Basic Cost',
+    //             icon: 'pi pi-user-edit',
+    //             routerLink: ['/influencers/influencerlist']
+    //         },
+    //         {
+    //             label: 'Edit Influencer Cost',
+    //             icon: 'pi pi-plus-circle',
+    //             routerLink: ['/influencers/influencercost']
+    //         },
+    //         {
+    //             label: 'Add Influencer Details',
+    //             icon: 'pi pi-plus',
+    //             routerLink: ['/influencers/influencerdetails']
+    //         },
+    //     ]
+    // },
     {
         label: 'Leads',
         items: [

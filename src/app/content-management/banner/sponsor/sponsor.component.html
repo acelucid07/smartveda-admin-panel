@@ -16,7 +16,7 @@
           </span>
           <span class="p-input-icon-right ml-5">
             <button pButton type="button" label="Add Sponsor" class="p-button-success"
-              [routerLink]="['/cms/addsponsor']"></button>
+              [routerLink]="['/cms/addsponsor']" [disabled]="!accessPermission.add"></button>
           </span>
         </div>
       </ng-template>
@@ -46,9 +46,9 @@
             </button> -->
               <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Sponsor"
                 tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/cms/editsponsor']"
-                [queryParams]="{id:sponsorList?.id}"></button>
+                [queryParams]="{id:sponsorList?.id}" [disabled]="!accessPermission.edit"></button>
               <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Sponsor"
-                (click)="deleteSponsor(sponsorList)" tooltipPosition="bottom" style="margin-right:5px"></button>
+                (click)="deleteSponsor(sponsorList)" tooltipPosition="bottom" style="margin-right:5px" [disabled]="!accessPermission.delete"></button>
             </div>
           </td>
         </tr>

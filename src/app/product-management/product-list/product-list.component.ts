@@ -5,6 +5,8 @@ import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { product } from 'src/app/_models/catalog';
 import { Table } from 'primeng/table';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -16,9 +18,17 @@ export class ProductListComponent implements OnInit {
   cols!: TABLE_HEADING[];
   productList:product []
   fgsType: any;
+  accessPermission:access
   constructor(private ngxLoader: NgxUiLoaderService,
     private ProductService: ProductService,
-    private toastr: ToastrMsgService,) { }
+    private toastr: ToastrMsgService,
+    private permissionService:ModulePermissionService
+       ){
+        this.permissionService.getModulePermission().subscribe(res=>{ 
+          this.accessPermission=res[0].CatalogProduct
+          console.log( this.accessPermission)
+        })
+     }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader

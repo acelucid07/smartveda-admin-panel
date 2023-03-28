@@ -14,58 +14,56 @@ export class PermissionService {
    getPermittedModuleList():Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.JSON_SERVER}/reviewlist`
-    // return this.http.get<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
-    return of(modulePermissionList)
+    const endpointUrl = `${environment.JSON_SERVER}/modulepermission`
+    return this.http.get<any[]>(endpointUrl ,{ 'headers': httpOptions });
+    // return of(modulePermissionList)
   }
 
-//   getAdminDetails(serialno:number):Observable<any[]>{
-//     const token = localStorage.getItem('token') || '';
-//     let httpOptions = new HttpHeaders().set('x-access-token',token);
-//     const endpointUrl = `${environment.JSON_SERVER}/reviewDetail`
-//     // return this.http.get<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
+  getPermissionDetails(user:string):Observable<any[]>{
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token',token);
+    const endpointUrl = `${environment.JSON_SERVER}/modulepermission?user=${user}`
+    return this.http.get<any[]>(endpointUrl,{ 'headers': httpOptions });
     
-//     // console.log(ratingCriteriaList)
-//     let filteredValue=adminlistData.filter(val=>{
-//       return (val.sno == serialno)
-//     })
-//     return of(filteredValue)
-//     }
+    // console.log(ratingCriteriaList)
+    // let filteredValue=adminlistData.filter(val=>{
+    //   return (val.sno == serialno)
+    // })
+    // return of(filteredValue)
+    }
 
   submitPermissionDetail(payload:any):Observable<any[]>{
     const token = localStorage.getItem('token') || '';
-    let httpOption = new HttpHeaders().set('x-access-token', token)
-    const endpointUrl = `${environment.JSON_SERVER}/add`;
-    payload.sno=modulePermissionList.length+1;
+    let httpOptions = new HttpHeaders().set('x-access-token', token)
+    const endpointUrl = `${environment.JSON_SERVER}/modulepermission`;
+    // payload.sno=modulePermissionList.length+1;
+    // payload.image='image'
     // let date = new Date();
     // payload.firstRating = date.toISOString().split('T')[0];
     // payload.rating = '4';
 
-    modulePermissionList.push(payload);
-    console.log(modulePermissionList)
-    return of(modulePermissionList);
+    // modulePermissionList.push(payload);
+    // console.log(modulePermissionList)
+    console.log()
+     return this.http.post<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
+    // return of(modulePermissionList);
   }
 
-//   submitEditedAdminDetail(payload:any,serialno:number)
-// {
-//   const token = localStorage.getItem('token') || '';
-//   let httpOption = new HttpHeaders().set('x-access-token', token)
-//   const endpointUrl = `${environment.JSON_SERVER}/edit`;
-//   adminlistData.map((res)=>{
-//     // if (res.sno == serialno) {
-//     //   res.ratingCriteria = payload.ratingCriteria,
-//     //   res.status = payload.status
-//     // }
-//   }) 
-//   return of(adminlistData)
-// }
+  submitEditedPermissionDetail(payload:any,user:string)
+{
+  const token = localStorage.getItem('token') || '';
+  let httpOptions = new HttpHeaders().set('x-access-token', token)
+  const endpointUrl = `${environment.JSON_SERVER}/modulepermission?user=${user}`;
+  return this.http.put<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
+}
 
-// deleteAdminDetails(name:string):Observable<any[]>{
-//   const token =localStorage.getItem('token') || '';
-//   let httpOptions = new HttpHeaders().set('x-access-token',token)
-//   const endpointUrl = `${environment.JSON_SERVER}/delete`
-//   let filteredreviewer = modulePermissionList.splice(modulePermissionList.findIndex((index) => index.username== name),1);
-//         return of(filteredreviewer)
-// }
+deletePermissionDetails(name:string):Observable<any[]>{
+  const token =localStorage.getItem('token') || '';
+  let httpOptions = new HttpHeaders().set('x-access-token',token)
+  const endpointUrl = `${environment.JSON_SERVER}/modulepermission?user=${name}`
+  // let filteredDetail = modulePermissionList.splice(modulePermissionList.findIndex((index) => index.username== name),1);
+        // return of(filteredDetail)
+        return this.http.delete<any[]>(endpointUrl,{ 'headers': httpOptions });
+}
 
 }

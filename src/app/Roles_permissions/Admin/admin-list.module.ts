@@ -13,11 +13,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { AddEditAdminComponent } from './add-edit-admin/add-edit-admin.component';
 import { DialogComponent } from './dialog/dialog.component';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { CustomerListComponent } from 'src/app/customer/customer-list/customer-list.component';
 
 
 @NgModule({
   declarations: [AdminListComponent, AddEditAdminComponent,
-    DialogComponent],
+    DialogComponent,
+  CustomerListComponent],
   imports: [
     CommonModule,
     AdminListRoutingModule,

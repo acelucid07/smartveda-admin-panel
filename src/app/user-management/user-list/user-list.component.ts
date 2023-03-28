@@ -5,6 +5,9 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Table } from 'primeng/table';
 import { userStructure } from 'src/app/_models/user-management';
 import { UserService } from 'src/app/_services/user-mgmt.service';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -17,10 +20,17 @@ export class UserListComponent implements OnInit {
   userList:userStructure[] = []
   fgsType: any;
   userStatus:Boolean=false;
+  accessPermission:access
   constructor(private ngxLoader: NgxUiLoaderService,
     private UserService: UserService,
     private toastr: ToastrMsgService,
-  ) { }
+    private permissionService: ModulePermissionService
+  ) {
+    this.permissionService.getModulePermission().subscribe(res => {
+      this.accessPermission = res[0].UserList
+      console.log(this.accessPermission)
+    })
+  }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader

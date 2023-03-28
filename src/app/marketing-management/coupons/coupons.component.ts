@@ -5,23 +5,33 @@ import { TABLE_HEADING } from '../../_models/table_heading'
 import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { CouponCode } from 'src/app/_models/marketingModule';
-
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 @Component({
   selector: 'app-coupons',
   templateUrl: './coupons.component.html',
   styleUrls: ['./coupons.component.scss']
 })
+
+
 export class CouponsComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: string;
   fgsType: any;
   cols!: TABLE_HEADING[];
   couponData: CouponCode[] = []
+  accessPermission:access;
 
   constructor(
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrMsgService,
-    private MarketingService: MarketingService) { }
+    private MarketingService: MarketingService,
+    private permissionService:ModulePermissionService) { 
+      this.permissionService.getModulePermission().subscribe(res=>{ 
+        this.accessPermission=res[0].MarketingCoupon
+        console.log( this.accessPermission)
+      })
+    }
 
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';

@@ -31,7 +31,7 @@
                     </ng-template>
                 </p-columnFilter>
                     </div>
-                <button pButton [routerLink]="['/reviewer/reviewerform']">Add</button>
+                <button pButton [routerLink]="['/reviewer/reviewerform']" [disabled]="!accessPermission.add">Add</button>
             </div>
         </div>
         </ng-template>
@@ -52,8 +52,8 @@
                 <td>{{reviewers.firstRating}}</td>
                 <td>{{reviewers.status}}</td>
                 <td>
-                    <button pButton icon="pi pi-user-edit" class="p-button-secondary mr-2" pTooltip="Edit Reviewer" tooltipPosition="bottom" [routerLink]="['/reviewer/reviewerform']" [queryParams]="{serialno:reviewers.sno}"></button>
-                    <button pButton icon="pi pi-trash" class="p-button-danger" pTooltip="Delete Reviewer" tooltipPosition="bottom" (click)="openDialog(reviewers.name)"></button>
+                    <button pButton icon="pi pi-user-edit" class="p-button-secondary mr-2" pTooltip="Edit Reviewer" tooltipPosition="bottom" [routerLink]="['/reviewer/reviewerform']" [queryParams]="{serialno:reviewers.sno}"  [disabled]="!accessPermission.edit"></button>
+                    <button pButton icon="pi pi-trash" class="p-button-danger" pTooltip="Delete Reviewer" tooltipPosition="bottom" (click)="openDialog(reviewers.name)"  [disabled]="!accessPermission.delete"></button>
                 </td>
             </tr>
         </ng-template>

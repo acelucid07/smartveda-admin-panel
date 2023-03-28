@@ -15,7 +15,7 @@
 					</span>
 					<span class="p-input-icon-right ml-5">
 						<button pButton type="button" label="Add SubCategory" class="p-button-success"
-							[routerLink]="['/cms/addsubcategory']"></button>
+							[routerLink]="['/cms/addsubcategory']" [disabled]="!accessPermission.add"></button>
 					</span>
 				</div>
 			</ng-template>
@@ -41,9 +41,9 @@
                         </button> -->
 							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Sub-category"
 								tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/cms/editsubcategory']"
-								[queryParams]="{id:subCategoryList?.id}"></button>
+								[queryParams]="{id:subCategoryList?.id}" [disabled]="!accessPermission.edit"></button>
 							<button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Sub-category"
-								tooltipPosition="bottom" style="margin-right:5px" (click)="deleteSubCategory(subCategoryList)"></button>
+								tooltipPosition="bottom" style="margin-right:5px" (click)="deleteSubCategory(subCategoryList)" [disabled]="!accessPermission.delete"></button>
 						</div>
 					</td>
 				</tr>

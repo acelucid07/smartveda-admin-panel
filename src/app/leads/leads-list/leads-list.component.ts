@@ -11,6 +11,8 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import {ConfirmationService} from 'primeng/api';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 
 @Component({
   selector: 'app-leads',
@@ -29,12 +31,18 @@ export class LeadsListComponent implements OnInit {
   exportColumns: any[];
   leadlist:leadStructure[]=[]
   leadDetails:any[];
+  accessPermission:access
   
   constructor(private leadService:LeadService,
     private toastr: ToastrMsgService,
     private ngxLoader: NgxUiLoaderService,
     private confirmationService:ConfirmationService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private permissionService:ModulePermissionService) {
+      this.permissionService.getModulePermission().subscribe(res=>{ 
+        this.accessPermission=res[0].LeadList
+        console.log( this.accessPermission)
+      })
     this.sidebarSpacing = 'contracted';
     this.getLeadsDetails();
    }

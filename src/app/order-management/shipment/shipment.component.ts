@@ -5,6 +5,8 @@ import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading'
 import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 
 @Component({
   selector: 'app-shipment',
@@ -17,9 +19,16 @@ export class ShipmentComponent implements OnInit {
   cols!: TABLE_HEADING[];
   Shipments: Shipments[] = [];
   fgsType: any;
+  accessPermission:access
   constructor(private orderService: OrdersService,
     private ngxLoader: NgxUiLoaderService,
-    private toastr: ToastrMsgService,) { }
+    private toastr: ToastrMsgService,
+    private permissionService:ModulePermissionService) { 
+      this.permissionService.getModulePermission().subscribe(res=>{ 
+        this.accessPermission=res[0].OrderShipment
+        console.log( this.accessPermission)
+      })
+    }
 
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';

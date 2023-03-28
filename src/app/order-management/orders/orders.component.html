@@ -18,7 +18,7 @@
 							</div>
 							<div class="p-input-icon-right ml-5">
 								<button pButton type="button" label="Create New Order" class="p-button-success"
-									[routerLink]="['/order/createOrder']"></button>
+									[routerLink]="['/order/createOrder']" [disabled]="!accessPermission.add"></button>
 							</div>
 						</div>
 					</ng-template>
@@ -47,9 +47,9 @@
 								<div class="btn-grp">
 									<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Order"
 										tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/order/editOrder']"
-										[queryParams]="{id:order?.orderId}"></button>
+										[queryParams]="{id:order?.orderId}" [disabled]="!accessPermission.edit"></button>
 									<button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Order"
-										tooltipPosition="bottom" (click)="deleteOrder(order?.orderId)"></button>
+										tooltipPosition="bottom" (click)="deleteOrder(order?.orderId)" [disabled]="!accessPermission.delete"></button>
 								</div>
 							</td>
 						</tr>
@@ -66,12 +66,12 @@
 			</div>
 		</mat-tab>
 		<mat-tab label="Delivered">
-			<app-delivered-order></app-delivered-order>
+			<app-delivered-order [deleteAccess]="accessPermission.delete"></app-delivered-order>
 		</mat-tab>
 		<mat-tab label="Cancelled">
-			<app-cancel-order></app-cancel-order>
+			<app-cancel-order [deleteAccess]="accessPermission.delete"></app-cancel-order>
 		</mat-tab>
 		<mat-tab label="Confirmed Order">
-			<app-confirmed-order></app-confirmed-order>
+			<app-confirmed-order [deleteAccess]="accessPermission.delete"></app-confirmed-order>
 		</mat-tab>
 	</mat-tab-group>

@@ -31,17 +31,18 @@ export class RolesListComponent implements OnInit {
   deleteAdminData(name:string) {
     console.log(name)
     // this.ngxLoader.start();
-    // this.permissionService.deleteAdminDetails(name).subscribe(res => {
-    //   if (res) {
-    //     // this.toastr.showSuccess("lead deleted successfully", "lead deleted")
-    //     this.getPermittedModuleList();
-    //   }
-    // })
+    this.permissionService.deletePermissionDetails(name).subscribe(res => {
+      if (res) {
+        // this.toastr.showSuccess("lead deleted successfully", "lead deleted")
+        this.getPermittedModuleList();
+      }
+    })
   }
 
   getPermittedModuleList(){
     this.permissionService.getPermittedModuleList().subscribe(res => {
      this.modulePermissionList=res
+     console.log( this.modulePermissionList)
     })
   }
 

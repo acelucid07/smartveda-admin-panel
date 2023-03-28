@@ -15,7 +15,8 @@
 					</span>
 					<span class="p-input-icon-right ml-5">
 						<button pButton type="button" label="Add Product" class="p-button-success"
-							[routerLink]="['/product/addProduct']"></button>
+							[routerLink]="['/product/addProduct']"
+							[disabled]="!accessPermission.add"></button>
 					</span>
 				</div>
 			</ng-template>
@@ -41,9 +42,9 @@
 						<div class="btn-grp">
 							<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit product"
 								tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/product/editProduct']"
-								[queryParams]="{id:productList?._id}"></button>
+								[queryParams]="{id:productList?._id}" [disabled]="!accessPermission.edit"></button>
 							<button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete product"
-								tooltipPosition="bottom" style="margin-right:5px" (click)="deleteProduct(productList._id)"></button>
+								tooltipPosition="bottom" style="margin-right:5px" (click)="deleteProduct(productList._id)" [disabled]="!accessPermission.delete"></button>
 						</div>
 					</td>
 				</tr>

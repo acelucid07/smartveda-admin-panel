@@ -40,10 +40,10 @@ export class CustomerListComponent implements OnInit {
     this.getCustomerList();
 
     this.cols = [
+      { field: 'username',show:true, headers: 'User' },
       { field: 'email',show:true, headers: 'Email' },
       { field: 'phone', show:true,headers: 'Phone' },
       { field: 'role',show:true, headers: 'Role' },
-      { field: 'status',show:true, headers: 'Status' },
       { field: 'createdAt',show:true, headers: 'Created At' }
     ]
     this.exportColumns = this.cols.map(col => (

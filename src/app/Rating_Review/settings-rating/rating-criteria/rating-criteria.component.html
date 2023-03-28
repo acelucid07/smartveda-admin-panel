@@ -30,7 +30,7 @@ styleClass="p-datatable-striped" [globalFilterFields]="['ratingCriteria']">
             </ng-template>
         </p-columnFilter>
     </div>
-        <button pButton [routerLink]="['/ratesettings/ratingcriteriaform']">Add</button>
+        <button pButton [routerLink]="['/ratesettings/ratingcriteriaform']" [disabled]="!accessPermission.add">Add</button>
     </div>
 </div>
 </ng-template>
@@ -46,8 +46,8 @@ styleClass="p-datatable-striped" [globalFilterFields]="['ratingCriteria']">
     <td>{{criterias.status}}</td>
     <td>
         <div>
-            <button pButton class="p-button-secondary mr-3"  pTooltip="Edit Criteria" tooltipPosition="bottom" icon="pi pi-user-edit" [routerLink]="['/ratesettings/ratingcriteriaform']" [queryParams]="{serialno:criterias.sno}"></button>
-            <button pButton class="p-button-danger" pTooltip="Delete Criteria" tooltipPosition="bottom" icon="pi pi-trash" (click)="openDialog(criterias.ratingCriteria)"></button>
+            <button pButton class="p-button-secondary mr-3"  pTooltip="Edit Criteria" tooltipPosition="bottom" icon="pi pi-user-edit" [routerLink]="['/ratesettings/ratingcriteriaform']" [queryParams]="{serialno:criterias.sno}" [disabled]="!accessPermission.edit"></button>
+            <button pButton class="p-button-danger" pTooltip="Delete Criteria" tooltipPosition="bottom" icon="pi pi-trash" (click)="openDialog(criterias.ratingCriteria)" [disabled]="!accessPermission.delete"></button>
         </div>
     </td>
 </tr>

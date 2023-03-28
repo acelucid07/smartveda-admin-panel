@@ -7,6 +7,8 @@ import autoTable from 'jspdf-autotable'
 import { ReviewsService } from 'src/app/_services/reviews.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 
 @Component({
   selector: 'app-review-list',
@@ -21,10 +23,16 @@ export class ReviewListComponent implements OnInit {
   reviewDetails:any[]
   exportColumns:any[]
   statusList:string[]=['Active','Inactive']
+  accessPermission:access
   constructor(private reviewsService:ReviewsService,
-    public dialog:MatDialog) { 
-    this.getReviewList()
-  }
+    public dialog:MatDialog,private permissionService:ModulePermissionService) {
+      this.permissionService.getModulePermission().subscribe(res=>{ 
+        this.accessPermission=res[0].RatingList
+        console.log( this.accessPermission)
+        this.getReviewList()
+      })
+    }
+   
 
   ngOnInit(): void {
     this.cols = [{ field: "reviewSubject", headers: "Review Subject" },
