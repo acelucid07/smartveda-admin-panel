@@ -15,7 +15,7 @@ export class ModulePermissionService {
     const token = localStorage.getItem('token') || '';
     const user =localStorage.getItem('UserData')
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.JSON_SERVER}/modulepermission?user=${user}`
+    const endpointUrl = `${environment.BASE_URL_NEW}/modulepermission?user=${user}`
     return this.http.get<any[]>(endpointUrl ,{ 'headers': httpOptions });
     // return of([permissionAssigned])
   }

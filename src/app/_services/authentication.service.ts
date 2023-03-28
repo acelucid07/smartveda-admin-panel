@@ -14,7 +14,7 @@ export class AuthenticationService {
     }
 
     login(payload: Login): Observable<any> {
-        const endpointUrl = `${environment.JSON_SERVER}/login`;
+        const endpointUrl = `${environment.BASE_URL_NEW}/login`;
         return this.http.post(endpointUrl, payload);
     }
 

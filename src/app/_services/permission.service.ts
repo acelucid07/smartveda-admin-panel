@@ -14,7 +14,7 @@ export class PermissionService {
    getPermittedModuleList():Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.JSON_SERVER}/modulepermission`
+    const endpointUrl = `${environment.BASE_URL_NEW}/modulepermission`
     return this.http.get<any[]>(endpointUrl ,{ 'headers': httpOptions });
     // return of(modulePermissionList)
   }
@@ -22,7 +22,7 @@ export class PermissionService {
   getPermissionDetails(user:string):Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.JSON_SERVER}/modulepermission?user=${user}`
+    const endpointUrl = `${environment.BASE_URL_NEW}/modulepermission?user=${user}`
     return this.http.get<any[]>(endpointUrl,{ 'headers': httpOptions });
     
     // console.log(ratingCriteriaList)
@@ -35,7 +35,7 @@ export class PermissionService {
   submitPermissionDetail(payload:any):Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token', token)
-    const endpointUrl = `${environment.JSON_SERVER}/modulepermission`;
+    const endpointUrl = `${environment.BASE_URL_NEW}/modulepermission`;
     // payload.sno=modulePermissionList.length+1;
     // payload.image='image'
     // let date = new Date();
@@ -53,14 +53,14 @@ export class PermissionService {
 {
   const token = localStorage.getItem('token') || '';
   let httpOptions = new HttpHeaders().set('x-access-token', token)
-  const endpointUrl = `${environment.JSON_SERVER}/modulepermission?user=${user}`;
+  const endpointUrl = `${environment.BASE_URL_NEW}/modulepermission?user=${user}`;
   return this.http.put<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
 }
 
 deletePermissionDetails(name:string):Observable<any[]>{
   const token =localStorage.getItem('token') || '';
   let httpOptions = new HttpHeaders().set('x-access-token',token)
-  const endpointUrl = `${environment.JSON_SERVER}/modulepermission?user=${name}`
+  const endpointUrl = `${environment.BASE_URL_NEW}/modulepermission?user=${name}`
   // let filteredDetail = modulePermissionList.splice(modulePermissionList.findIndex((index) => index.username== name),1);
         // return of(filteredDetail)
         return this.http.delete<any[]>(endpointUrl,{ 'headers': httpOptions });
