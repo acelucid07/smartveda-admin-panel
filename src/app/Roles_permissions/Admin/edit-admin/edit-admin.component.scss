@@ -1,0 +1,12 @@
+label.starlabel::after{
+    content: "*";
+    color: rgb(228, 28, 28);
+}
+.custom-file-label {
+    overflow: hidden;
+    white-space: nowrap;
+    // For nice text overflow we need also padding-right, problem is
+    // the button width is not constant, but 8em should work for most cases
+    padding-right: 6em;
+    text-overflow: ellipsis;
+}

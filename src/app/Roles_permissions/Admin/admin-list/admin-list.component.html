@@ -26,17 +26,17 @@
             <th class="text-center">Actions</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-list>
+    <ng-template pTemplate="body" let-list let-i="rowIndex">
         <tr>
-            <td>{{list.sno}}</td>
-            <td><img style="width:100px;height: 100px;" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" ></td>
+            <td>{{i+1}}</td>
+            <td><img style="width:100px;height: 100px;" [src]="list.image" ></td>
             <td>{{list.username}}</td>
             <td>{{list.email}}</td>
             <td>{{list.role}}</td>
             <td>
                 <div>
                     <button pButton icon="pi pi-user-edit" pTooltip="Edit" tooltipPosition="bottom"
-                        class="p-button-secondary mr-3" [routerLink]="['/roleandpermission/adminform']" [queryParams]="{serialno:list.sno}"></button>
+                        class="p-button-secondary mr-3" [routerLink]="['/roleandpermission/editAdmin']" [queryParams]="{user:list.username}"></button>
                     <button pButton icon="pi pi-trash" pTooltip="Delete" tooltipPosition="bottom"
                         class="p-button-danger" (click)="openDialog(list.username)"></button>
                 </div>

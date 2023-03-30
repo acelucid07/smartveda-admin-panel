@@ -20,8 +20,9 @@ export class AdminListComponent implements OnInit {
   ngOnInit(): void {}
 
   getAdminListDetail() {
-    this.adminService.getAdminList().subscribe((res) => {
-      this.adminDetails = res;
+    this.adminService.getAdminList().subscribe((res:any) => {
+      this.adminDetails = res.data;
+      console.log(this.adminDetails)
     });
   }
 
@@ -43,6 +44,7 @@ export class AdminListComponent implements OnInit {
     // this.ngxLoader.start();
     this.adminService.deleteAdminDetails(name).subscribe(res => {
       if (res) {
+        console.log("admin data deleted")
         // this.toastr.showSuccess("lead deleted successfully", "lead deleted")
         this.getAdminListDetail();
       }

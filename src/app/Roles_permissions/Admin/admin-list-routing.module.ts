@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { AddEditAdminComponent } from './add-edit-admin/add-edit-admin.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 import { CustomerListComponent } from 'src/app/customer/customer-list/customer-list.component';
+import { EditAdminComponent } from './edit-admin/edit-admin.component';
 
-const routes:Routes=[{path:'adminlist', component:CustomerListComponent},
-{path:'adminform', component:AddEditAdminComponent},
+const routes:Routes=[{path:'adminlist', component:AdminListComponent},
+{path:'adminform', component:AddAdminComponent},
+{path:'editAdmin', component:EditAdminComponent}
 ]
 
 @NgModule({

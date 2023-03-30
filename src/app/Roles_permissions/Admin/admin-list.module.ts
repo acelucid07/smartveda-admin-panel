@@ -10,16 +10,19 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { AddEditAdminComponent } from './add-edit-admin/add-edit-admin.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 import { DialogComponent } from './dialog/dialog.component';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {MatIconModule} from '@angular/material/icon';
 import { CustomerListComponent } from 'src/app/customer/customer-list/customer-list.component';
+import { EditAdminComponent } from './edit-admin/edit-admin.component';
 
 
 @NgModule({
-  declarations: [AdminListComponent, AddEditAdminComponent,
+  declarations: [AdminListComponent, AddAdminComponent,
     DialogComponent,
-  CustomerListComponent],
+  CustomerListComponent,
+  EditAdminComponent],
   imports: [
     CommonModule,
     AdminListRoutingModule,
@@ -31,7 +34,8 @@ import { CustomerListComponent } from 'src/app/customer/customer-list/customer-l
     ConfirmDialogModule,
     MatDialogModule,
     MatButtonModule,
-    InputNumberModule
+    InputNumberModule,
+    MatIconModule
   ]
 })
 export class AdminListModule { }

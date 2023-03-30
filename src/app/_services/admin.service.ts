@@ -14,58 +14,86 @@ export class AdminService {
    getAdminList():Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.JSON_SERVER}/reviewlist`
-    // return this.http.get<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
-    return of(adminlistData)
+    const endpointUrl = `${environment.JSON_SERVER}/registeredusers`
+    return this.http.get<any[]>(endpointUrl,{ 'headers': httpOptions });
+    // return of(adminlistData)
   }
 
-  getAdminDetails(serialno:number):Observable<any[]>{
+  getAdminDetails(user:string):Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.JSON_SERVER}/reviewDetail`
+    const endpointUrl = `${environment.JSON_SERVER}/user?username=${user}`
     // return this.http.get<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
     
     // console.log(ratingCriteriaList)
-    let filteredValue=adminlistData.filter(val=>{
-      return (val.sno == serialno)
-    })
-    return of(filteredValue)
+    // let filteredValue=adminlistData.filter(val=>{
+    //   return (val.sno == serialno)
+    // })
+    // return of(filteredValue)
+    return this.http.get<any[]>(endpointUrl,{ 'headers': httpOptions });
     }
 
   submitAdminDetail(payload:any):Observable<any[]>{
     const token = localStorage.getItem('token') || '';
-    let httpOption = new HttpHeaders().set('x-access-token', token)
-    const endpointUrl = `${environment.JSON_SERVER}/add`;
-    payload.sno=adminlistData.length+1;
-    payload.image="image";
+    let httpOptions = new HttpHeaders().set('x-access-token', token);
+    const formData = new FormData();
+
+  
+      formData.append('username', payload.username);
+      formData.append('password', payload.password);
+      formData.append('phone', payload.phone);
+      formData.append('email', payload.email);
+      formData.append('role', payload.role);
+      formData.append('image', payload.image);
+  
+    // Object.assign(httpOptions, new HttpHeaders())
+    console.log(httpOptions.has('Content-Type'))
+    // Object.assign()
+    const endpointUrl = `${environment.JSON_SERVER}/signup`;
+    // payload.sno=adminlistData.length+1;
+    // payload.image="image";
     // let date = new Date();
     // payload.firstRating = date.toISOString().split('T')[0];
     // payload.rating = '4';
-    adminlistData.push(payload);
-    console.log(adminlistData)
-    return of(adminlistData);
+    // adminlistData.push(payload);
+    // console.log(adminlistData)
+    console.log(formData);
+    return this.http.post<any[]>(endpointUrl,formData ,{ 'headers': httpOptions });
+    // return of(adminlistData);
   }
 
-  submitEditedAdminDetail(payload:any,serialno:number)
+  submitEditedAdminDetail(payload:any):Observable<any[]>
 {
   const token = localStorage.getItem('token') || '';
-  let httpOption = new HttpHeaders().set('x-access-token', token)
-  const endpointUrl = `${environment.JSON_SERVER}/edit`;
-  adminlistData.map((res)=>{
+  let httpOptions = new HttpHeaders().set('x-access-token', token)
+  const endpointUrl = `${environment.JSON_SERVER}/signup`;
+  const formData = new FormData();
+
+  
+      formData.append('username', payload.username);
+      formData.append('phone', payload.phone);
+      formData.append('email', payload.email);
+      formData.append('role', payload.role);
+      formData.append('image', payload.image);
+      formData.append('prevImgName', payload.prevImageName);
+  // adminlistData.map((res)=>{
     // if (res.sno == serialno) {
     //   res.ratingCriteria = payload.ratingCriteria,
     //   res.status = payload.status
     // }
-  }) 
-  return of(adminlistData)
+    console.log(formData.get('email'))
+  // }) 
+  return this.http.put<any[]>(endpointUrl,formData ,{ 'headers': httpOptions });
+  // return of(adminlistData)
 }
 
 deleteAdminDetails(name:string):Observable<any[]>{
   const token =localStorage.getItem('token') || '';
   let httpOptions = new HttpHeaders().set('x-access-token',token)
-  const endpointUrl = `${environment.JSON_SERVER}/delete`
-  let filteredreviewer = adminlistData.splice(adminlistData.findIndex((index) => index.username== name),1);
-        return of(filteredreviewer)
+  const endpointUrl = `${environment.JSON_SERVER}/signup?user=${name}`
+  // let filteredreviewer = adminlistData.splice(adminlistData.findIndex((index) => index.username== name),1);
+  //       return of(filteredreviewer)
+  return this.http.delete<any[]>(endpointUrl,{ 'headers': httpOptions });
 }
 
 }
