@@ -5,6 +5,8 @@ import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { ProductService } from 'src/app/_services/product.service';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { Table } from 'primeng/table';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 
 @Component({
   selector: 'app-category-list',
@@ -17,11 +19,18 @@ export class CategoryListComponent implements OnInit {
   cols!: TABLE_HEADING[];
   categoryList:category []= []
   fgsType: any;
+  accessPermission:access
   constructor(
     private ngxLoader: NgxUiLoaderService,
     private ProductService: ProductService,
     private toastr: ToastrMsgService,
-  ) { }
+    private permissionService:ModulePermissionService
+  ) { 
+    this.permissionService.getModulePermission().subscribe(res=>{ 
+      this.accessPermission=res[0].CatalogCategory
+      console.log( this.accessPermission)
+    })
+  }
 
   ngOnInit(): void {
     this.fgsType = SPINNER.squareLoader

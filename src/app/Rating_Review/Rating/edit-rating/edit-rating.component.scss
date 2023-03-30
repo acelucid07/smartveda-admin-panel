@@ -1,0 +1,19 @@
+:host::ng-deep  {
+
+    label.starlabel::after{
+        content: "*";
+        color: rgb(228, 28, 28);
+    }
+    .reviewer-dropdown{
+        width: 100%;
+    }
+    .review-dropdown{
+        width: 100%;
+    }
+    .status-dropdown{
+        width: 100%;
+    }
+    .userType-dropdown{
+        width: 100%;
+    }
+}

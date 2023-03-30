@@ -1,0 +1,31 @@
+:host ::ng-deep {
+  .p-chip.resolved {
+    background: rgb(183, 226, 118);
+    color: rgb(52, 68, 30);
+  }
+
+  .p-chip.pending {
+    background: rgb(247, 112, 78);
+    color: rgb(255, 255, 255)
+  }
+}
+
+  button.mat-menu-trigger{
+    background-color: white;
+    border: none;
+    outline:none; }
+
+  button.mat-menu-trigger mat-icon{
+    padding-top: 25%;
+    color: gray;
+  }
+    button.mat-menu-item {
+      outline: none;
+    }
+    ::ng-deep .cdk-overlay-container {
+      z-index: 0;
+    }
+    button.mat-menu-trigger:focus {
+      border: none;
+      outline: none;
+    }

@@ -1,0 +1,8 @@
+mat-dialog-content{
+width:600px
+}
+:host::ng-deep  .dialog1{
+        background-color: rgb(212, 214, 214);
+        border-radius: 5px;
+        outline: none;
+    }

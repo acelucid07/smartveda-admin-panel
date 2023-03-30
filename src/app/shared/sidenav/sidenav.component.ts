@@ -5,6 +5,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Router } from '@angular/router';
 import {SideNaveMenueRoute} from './sidebar-routes.config'
 import {MenuItem} from 'primeng/api';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -50,12 +51,29 @@ export class SidenavComponent implements OnInit {
   isShowing: boolean = true;
   iconColor: string = '';
   items!: MenuItem[];
+  moduleList:string[]=[];
+  username:string;
+  itemShow:any[]=[]
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
 
-  constructor(private observer: BreakpointObserver, private router: Router) { 
-    this.items = SideNaveMenueRoute 
+  constructor(private observer: BreakpointObserver, private router: Router,
+    private permissionService:ModulePermissionService) { 
+    this.permissionService.getModulePermission().subscribe(res=>{ 
+      this.moduleList=res[0].moduleList
+      this.username=res[0].username;
+      console.log( res[0].moduleList)
+      this.items = SideNaveMenueRoute 
+      this.items = this.items.filter(val=>{
+        if(this.moduleList.includes(val.label))
+        return val
+        else
+        return null
+      })
+    }) 
+   
+    // console.log(this.itemShow)
   }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { order } from 'src/app/_models/order';
 import { OrdersService } from 'src/app/_services/orders.service';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
@@ -15,6 +15,7 @@ export class DeliveredOrderComponent implements OnInit {
   cols!: TABLE_HEADING[];
   deliveredOrder: order[] = [];
   fgsType: any;
+  @Input() deleteAccess:boolean;
   constructor(
     private orderService: OrdersService,
     private ngxLoader: NgxUiLoaderService,

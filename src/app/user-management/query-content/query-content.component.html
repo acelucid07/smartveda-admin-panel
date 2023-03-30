@@ -1,0 +1,82 @@
+    <div class="card col-sm-12">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #cccfcd; height: 100%">
+                <h4 style="color: #283048;padding-top: 20px;">Query </h4>
+                <div *ngFor="let query of queryList; let i=index;" class="card-body">
+                    <mat-card>
+                        <mat-card-title>
+                            <div class="page-heading">
+                                <h6 class="mb-0">Query Id: {{query?.queryid}}</h6>
+                            </div>
+                        </mat-card-title>
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="form-group pt-3" style="display: flex; align-items: center;">
+                                    <div style="width: 30%;">Query Requestor</div>
+                                    <div>:&nbsp; &nbsp;{{query?.requestorName}}</div>
+                                </div>
+                                <div class="form-group " style="display: flex; align-items: center;">
+                                    <div style="width: 30%;">Requestor Email</div>
+                                    :&nbsp; &nbsp;<div style="width: 60%">{{query?.requestorEmail}}</div>
+                                </div>
+                                <div class="form-group" style="display: flex ;">
+                                    <label for="name" style="width: 30%;">Query Content</label>
+                                    :&nbsp; &nbsp;<div id="name" style="width: 70%">
+                                        {{query?.content}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex;   justify-content: center; align-items: center; margin-right: 3rem;">
+                                <div style="display:flex;  border-left:1px solid rgb(190, 189, 189); height:80%; ">
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
+                                <div class="form-group pt-3" style="display: flex; align-items: center;">
+                                    <div style="width: 30%;">Status</div>
+                                    <div>:&nbsp; &nbsp;<p-chip [styleClass]="queryList[i].status">
+                                            <div class="px-2">{{query?.status}}</div>
+                                        </p-chip></div>
+                                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu>
+                                        <button mat-menu-item [disabled]="queryList[i]?.status == 'resolved'"
+                                            (click)="markResolved(i)">
+                                            <mat-icon color="basic">
+                                                task_alt
+                                            </mat-icon>
+                                            <span>Mark as resolved</span>
+                                        </button>
+                                        <button mat-menu-item [disabled]="queryList[i]?.status == 'pending'"
+                                            (click)="revertQueryStatus(i)">
+                                            <mat-icon color="basic">undo</mat-icon>
+                                            <span>Revert Query Status</span>
+                                        </button>
+                                    </mat-menu>
+                                </div>
+                                <div class="form-group" style="display: flex;">
+                                    <label for="name" style="width: 30%;">Allotted User</label>
+                                    :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                        {{query?.user}}
+                                    </div>
+                                </div>
+                                <div class="form-group" style="display: flex;">
+                                    <label for="name" style="width: 30%;">Applied Date</label>
+                                    :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                        {{query?.appliedDate}}
+                                    </div>
+                                </div>
+                                <div class="form-group" style="display: flex;">
+                                    <label for="name" style="width: 30%;">Completed Date</label>
+                                    :&nbsp; &nbsp;<div id="name" style="width: 60%">
+                                        {{query?.resolvedDate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>

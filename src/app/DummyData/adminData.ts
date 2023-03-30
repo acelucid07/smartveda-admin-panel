@@ -1,0 +1,3 @@
+export const adminlistData=[{sno:1,image:"image",username:"Rojo",email:"rg@gmail.com",role:"Super Admin",contactNumber:"9876564563",password:"saddasas",confirmPassword:"saddasas"},
+{sno:2,image:"image",username:"Mohit",email:"mohit@gmail.com",role:"Admin",contactNumber:"9876564563",password:"saddasas",confirmPassword:"saddasas"},
+{sno:3,image:"image",username:"Rohit",email:"rohit@gmail.com",role:"Admin",contactNumber:"9876564563",password:"saddasas",confirmPassword:"saddasas"}]

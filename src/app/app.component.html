@@ -1,3 +1,15 @@
 <div class="main-wrapper">
-    <router-outlet></router-outlet>
+    <!-- <app-authentication></app-authentication> -->
+    <!-- <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+    <div class="bcard body" [ngClass]="sidebarSpacing"> -->
+        <!-- <router-outlet></router-outlet> -->
+    <!-- </div> -->
+    <div *ngIf="check; else other">
+   <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+    <div class="bcard body" [ngClass]="sidebarSpacing">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+     <ng-template #other>
+        <router-outlet></router-outlet> </ng-template>
 </div>

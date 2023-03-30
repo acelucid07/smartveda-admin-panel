@@ -1,0 +1,85 @@
+:host::ng-deep {
+
+    label.starlabel::after {
+        content: "*";
+        color: rgb(228, 28, 28);
+    }
+
+    // label.imagelabel{
+    //     color: grey;
+    // }
+
+    .tech-dropdown {
+        width: 100%;
+        border-color: #ced4da
+    }
+
+    // .tech-dropdown:hover{
+    // border-color: #ced4da
+    // }
+
+    .country-dropdown {
+        border-color: #ced4da;
+        width: 100%;
+    }
+
+    textarea:focus {
+        outline: 0px solid #007ad9;
+        border: 1px solid #64bcff;
+        box-shadow: 0 0 5px rgb(0, 132, 255);
+    }
+
+    textarea {
+        border: 1px solid #cccfcd;
+        border-radius: 5px;
+        width: 100%
+    }
+
+    .tech-dropdown.p-dropdown:hover {
+        border-color: #ced4da
+    }
+
+    .country-dropdown.p-dropdown:hover {
+        border-color: #ced4da
+    }
+
+    .date-picker .p-inputtext:hover {
+        border-color: #ced4da;
+        // outline:1px solid #ced4da ;
+    }
+
+    .date-picker .p-inputtext {
+        border-color: #ced4da;
+        // outline:1px solid #ced4da ;
+    }
+
+    .date-picker {
+        width: 100%;
+        border-color: #ced4da;
+        // outline:1px solid #ced4da ;
+    }
+
+    // .date-picker .p-calendar:{
+    //     border-color: #ced4da;
+    //     // outline:1px solid #ced4da ;
+    // }
+
+    .state-dropdown {
+        // margin-left: 20%;
+        width: 100%;
+        border-color: #ced4da
+    }
+
+    .state-dropdown.p-dropdown:hover {
+        border-color: #ced4da
+    }
+
+    .city-dropdown {
+        width: 100%;
+        border-color: #ced4da
+    }
+
+    .city-dropdown.p-dropdown:hover {
+        border-color: #ced4da
+    }
+}

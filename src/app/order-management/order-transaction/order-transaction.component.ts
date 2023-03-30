@@ -5,6 +5,8 @@ import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { orderTransactin } from 'src/app/_models/order';
 import { Table } from 'primeng/table';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 
 @Component({
   selector: 'app-order-transaction',
@@ -17,11 +19,17 @@ export class OrderTransactionComponent implements OnInit {
   fgsType: any;
   cols: TABLE_HEADING[];
   orderTransactin: orderTransactin[] = [];
-
+  accessPermission:access
 
   constructor(private ngxLoader: NgxUiLoaderService,
     private orderService: OrdersService,
-    private toastr: ToastrMsgService) { }
+    private toastr: ToastrMsgService,
+    private permissionService:ModulePermissionService) { 
+      this.permissionService.getModulePermission().subscribe(res=>{ 
+        this.accessPermission=res[0].OrderTransaction
+        console.log( this.accessPermission)
+      }) 
+    }
 
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';

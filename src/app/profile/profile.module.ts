@@ -13,8 +13,7 @@ import { CustomerListComponent } from '../customer/customer-list/customer-list.c
   declarations: [
     ProfileComponent,
     ProfileChangePasswordComponent,
-    ProfileBasicInfoComponent,
-    CustomerListComponent
+    ProfileBasicInfoComponent
   ],
   imports: [
     CommonModule,

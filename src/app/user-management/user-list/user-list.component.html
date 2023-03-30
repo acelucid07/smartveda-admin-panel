@@ -1,0 +1,62 @@
+  <div class="page-heading">
+    <h1 class="header-text-title" style="margin-left: 1%;">User</h1>
+  </div>
+  <div class="card col-sm-12" style="border:none;">
+    <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+      [showCurrentPageReport]="true" [value]="userList"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+      [globalFilterFields]="['name']" styleClass="p-datatable-striped">
+      <ng-template pTemplate="caption">
+        <div class="row">
+          <span class="p-input-icon-right ml-5">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" placeholder="Search keyword" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by user name">
+          </span>
+          <span class="p-input-icon-right ml-5">
+            <button pButton type="button" label="Create User" class="p-button-success"
+              [routerLink]="['/user/createuser']"></button>
+          </span>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">{{col.headers}}</th>
+          <th>Options</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-i="rowIndex" let-usersList>
+        <tr>
+          <td>{{usersList.id}}</td>
+          <td>{{usersList.name}}</td>
+          <td>
+            {{usersList.email}}
+          </td>
+          <td>{{usersList.phone}}</td>
+          <td>{{usersList.role}}</td>
+          <td>{{usersList.status}}</td>
+          <td>
+            <div class="btn-grp" id="btn-grp">
+              <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
+            </button> -->
+              <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit User"
+                tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/user/createuser']" [disabled]="!(usersList?.status)||accessPermission.edit"
+                [queryParams]="{userid:usersList?.id}"></button>
+                <button class="p-button-info" pButton type="button" icon="pi pi-undo" pTooltip="Retrieve User"
+                tooltipPosition="bottom" style="margin-right:5px" (click)="retrieveUserDetails(usersList)" [disabled]="(usersList?.status)"></button>
+                <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete User"
+                tooltipPosition="bottom" style="margin-right:5px" (click)="deleteUserDetails(usersList)" [disabled]="!(usersList?.status)||accessPermission.delete"></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td class="text-center text-danger font-weight-700" colspan="10">
+            No Records Found.
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+  </div>

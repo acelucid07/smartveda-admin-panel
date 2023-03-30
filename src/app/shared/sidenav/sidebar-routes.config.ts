@@ -4,10 +4,25 @@ export const SideNaveMenueRoute = [
         icon: 'pi pi-fw pi-cog',
         routerLink: ['/dashboard']
     },
+    // {
+    //     label: 'Profile',
+    //     icon: 'pi pi-fw pi-user',
+    //     routerLink: ['/customer']
+    // },
     {
-        label: 'Profile',
-        icon: 'pi pi-fw pi-user',
-        routerLink: ['/customer']
+        label: 'Roles & Permission',
+        items: [
+            {
+                label: 'Admin List',
+                icon: 'pi pi-list',
+                routerLink: ['/roleandpermission/adminlist']
+            },
+            {
+                label: 'Permitted Module List',
+                icon: 'pi pi-list',
+                routerLink: ['/modulepermission/rolelist']
+            },
+        ]
     },
     {
         label: 'Order',
@@ -55,21 +70,21 @@ export const SideNaveMenueRoute = [
                     }
                 ]
             },
-            {
-                label: 'Slider',
-                items: [
-                    {
-                        label: 'Slider1',
-                        icon: 'pi pi-fw pi-user',
-                        routerLink: ['/cms/slider']
-                    },
-                    {
-                        label: 'Slider2',
-                        icon: 'pi pi-fw pi-shopping-cart',
-                        routerLink: ['/cms/slider']
-                    },
-                ]
-            },
+            // {
+            //     label: 'Slider',
+            //     items: [
+            //         {
+            //             label: 'Slider1',
+            //             icon: 'pi pi-fw pi-user',
+            //             routerLink: ['/cms/slider']
+            //         },
+            //         {
+            //             label: 'Slider2',
+            //             icon: 'pi pi-fw pi-shopping-cart',
+            //             routerLink: ['/cms/slider']
+            //         },
+            //     ]
+            // },
 
         ]
     },
@@ -119,5 +134,96 @@ export const SideNaveMenueRoute = [
             },
             
             ]
+    },
+     {
+            label: 'User',
+            items: [
+                {
+                    label: 'User List',
+                    icon: 'pi pi-list',
+                    routerLink: ['/user/userlist']
+                },
+                {
+                    label: 'Query List',
+                    icon: 'pi pi-question-circle',
+                    routerLink: ['/user/querycontent']
+                },
+            ]
+        },
+    // {
+    //     label: 'Bundle',
+    //     items: [
+    //         {
+    //             label: 'Bundle List',
+    //             icon: 'pi pi-list',
+    //             routerLink: ['/bundle/bundlelist']
+    //         },
+    //     ]
+    // },
+    // {
+    //     label: 'Influencers',
+    //     items: [
+    //         {
+    //             label: 'Edit Basic Cost',
+    //             icon: 'pi pi-user-edit',
+    //             routerLink: ['/influencers/influencerlist']
+    //         },
+    //         {
+    //             label: 'Edit Influencer Cost',
+    //             icon: 'pi pi-plus-circle',
+    //             routerLink: ['/influencers/influencercost']
+    //         },
+    //         {
+    //             label: 'Add Influencer Details',
+    //             icon: 'pi pi-plus',
+    //             routerLink: ['/influencers/influencerdetails']
+    //         },
+    //     ]
+    // },
+    {
+        label: 'Leads',
+        items: [
+            {
+                label: 'Leads List',
+                icon: 'pi pi-list',
+                routerLink: ['/leads/leadslist']
+            },
+        ]
+    },
+    {
+        label: 'Rating & Review',
+        items: [
+            {
+                label: 'Rating List',
+                icon: 'pi pi-list',
+                routerLink: ['/rating/ratinglist']
+            },
+            {
+                label: 'Review List',
+                icon: 'pi pi-list',
+                routerLink: ['/review/reviewlist']
+            },
+            {
+                label: 'Reviewer List',
+                icon: 'pi pi-list',
+                routerLink: ['/reviewer/reviewerlist']
+            },
+            {
+                label: 'Settings',
+                items: [
+                    {
+                        label: 'Rating Criteria List',
+                        icon: 'pi pi-list',
+                        routerLink: ['/ratesettings/ratingcriterialist']
+                    },
+                    {
+                        label: 'UserType List',
+                        icon: 'pi pi-list',
+                        routerLink: ['/usertypesettings/usertypelist']
+                    }
+                ]
+               
+            }
+        ]
     }
 ]

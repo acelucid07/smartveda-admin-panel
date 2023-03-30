@@ -1,0 +1,39 @@
+<form>
+    <div class="card col-sm-12">
+        <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                style="background-color: #cccfcd; height: 100vh;">
+                <div class="card-body">
+                    <mat-card>
+                        <mat-card-title>
+                            <div class="page-heading">
+                                <h6>Add Influencer</h6>
+                            </div>
+                        </mat-card-title>
+                        <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group pt-3">
+                                    <label for="image">Input Influencer Name</label>
+                                    <input type="text" class="form-control" [formControl]="firstname">
+                                </div>
+                            </div>
+                        </div>
+                        <mat-card-actions align="end">
+                            <button type="submit" class="btn btn-info" (click)="submitForm()"> Submit </button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- <div style="justify-content: center; align-items: center;
+    margin: 6rem 0 2rem 25rem ; display: inline-block;">
+        Create Bundle
+    </div>
+    <form style="justify-content: space-between; align-items: center;
+    margin: 6rem 0 2rem 25rem ; display: flex;
+     width: 500px;">
+        <input type="text" placeholder="Name of Bundle">
+        <button type="submit">Submit</button>
+    </form> -->

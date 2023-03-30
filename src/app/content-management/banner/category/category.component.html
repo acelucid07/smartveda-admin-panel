@@ -1,5 +1,3 @@
-<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
     <h1 class="header-text-title" style="margin-left: 1%;">Category</h1>
   </div>
@@ -16,7 +14,7 @@
           </span>
           <span class="p-input-icon-right ml-5">
             <button pButton type="button" label="Add Category" class="p-button-success"
-              [routerLink]="['/cms/addcategory']"></button>
+              [routerLink]="['/cms/addcategory']" [disabled]="!accessPermission.add"></button>
           </span>
         </div>
       </ng-template>
@@ -40,9 +38,9 @@
             </button> -->
               <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Category"
                 tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/cms/editcategory']"
-                [queryParams]="{id:categoryList?.id}"></button>
+                [queryParams]="{id:categoryList?.id}" [disabled]="!accessPermission.edit"></button>
               <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Category"
-                tooltipPosition="bottom" style="margin-right:5px" (click)="deleteCategory(categoryList)"></button>
+                tooltipPosition="bottom" style="margin-right:5px" (click)="deleteCategory(categoryList)" [disabled]="!accessPermission.delete"></button>
             </div>
           </td>
         </tr>
@@ -64,4 +62,3 @@
     </p-table>
     <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
   </div>
-</div>

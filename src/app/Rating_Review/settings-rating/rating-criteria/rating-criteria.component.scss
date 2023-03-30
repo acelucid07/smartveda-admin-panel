@@ -1,0 +1,21 @@
+:host::ng-deep{
+    .captionFilter p-columnFilter .p-column-filter>button::before {
+            content: 'Filter';
+            margin-right: 10px;
+        }
+        .captionFilter p-columnFilter .p-column-filter>button {
+            // border-radius: 0;
+            // width: fit-content;
+            // padding: 17px;
+            // font-size: large;
+            // margin-right: 10px;
+            width: 100px;
+            height: 40.5px;
+            border-radius: 3px;
+            font-size: large;
+            margin: 1px;
+            margin-right: 5px;
+            padding: 15px 20px;
+            border: 1px solid #ced4da;
+        }
+}

@@ -1,0 +1,28 @@
+    <form>
+        <div class="card col-sm-12">
+            <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #cccfcd; height: 100vh;">
+                        <div class="card-body">
+                            <mat-card>
+                                    <mat-card-title>
+                                        <div class="page-heading">
+                                            <h6>Upload Influencer's Details </h6>
+                                        </div>
+                                    </mat-card-title>
+                                <div class="row gutters">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group pt-5">
+                                            <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".csv"/>
+                                            <button mat-flat-button color="primary" (click)="csvInput.click()">Choose Spreadsheet File (CSV)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <mat-card-actions align="end">
+                                    <button type="submit" class="btn btn-info" (click)="Submit()"> Submit </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </form>

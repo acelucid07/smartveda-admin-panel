@@ -5,6 +5,8 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { AppoinmentService } from 'src/app/_services/appoinment';
 import { APPOINTMENT } from '../../_models/appointment';
 import { Table } from 'primeng/table';
+import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { access } from 'src/app/_models/modulepermission';
 @Component({
   selector: 'app-appoinment-list',
   templateUrl: './appoinment-list.component.html',
@@ -16,10 +18,15 @@ export class AppoinmentListComponent implements OnInit {
   cols!: TABLE_HEADING[];
   appoinmentList: APPOINTMENT[] = []
   fgsType: any;
+  accessPermission:access
   constructor(private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrMsgService,
-    private AppoinmentService: AppoinmentService) {
-
+    private AppoinmentService: AppoinmentService,
+    private permissionService:ModulePermissionService) {
+      this.permissionService.getModulePermission().subscribe(res=>{ 
+        this.accessPermission=res[0].AppointmentList
+        // console.log( this.accessPermission)
+      })
   }
 
   ngOnInit(): void {

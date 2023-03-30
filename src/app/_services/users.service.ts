@@ -10,10 +10,11 @@ export class UsersService {
     constructor(private http: HttpClient) {
 
     }
+
     getUsers(): any {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL}/users`;
+        const endpointUrl = `${environment.BASE_URL_NEW}/users`;
         return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     }
 

@@ -1,6 +1,4 @@
-<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing">
-  <div class="page-heading">
+<div class="page-heading">
     <h1 class="header-text-title" style="margin-left: 1%;">Appointment List</h1>
   </div>
   <div class="card col-sm-12" style="border:none;">
@@ -16,7 +14,7 @@
           </span>
           <span class="p-input-icon-right ml-5">
             <button pButton type="button" label="Add New Appoinment" class="p-button-success"
-              [routerLink]="['/appointment/add']"></button>
+              [routerLink]="['/appointment/add']" [disabled]="!accessPermission.add"></button>
           </span>
         </div>
       </ng-template>
@@ -42,10 +40,10 @@
             </button> -->
               <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Appoinment"
                 tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/appointment/edit']"
-                [queryParams]="{id:appoinmentList._id}"></button>
+                [queryParams]="{id:appoinmentList._id}" [disabled]="!accessPermission.edit"></button>
               <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Appoinment"
                 tooltipPosition="bottom" style="margin-right:5px"
-                (click)="deleteAppoinmentById(appoinmentList._id)"></button>
+                (click)="deleteAppoinmentById(appoinmentList._id)" [disabled]="!accessPermission.delete"></button>
             </div>
           </td>
         </tr>
@@ -60,4 +58,3 @@
     </p-table>
     <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
   </div>
-</div>

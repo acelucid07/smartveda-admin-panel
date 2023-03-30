@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MarketingService } from 'src/app/_services/marketing';
 import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { TABLE_HEADING } from '../../_models/table_heading'
@@ -15,6 +15,7 @@ export class ActiveCouponComponent implements OnInit {
   fgsType: any;
   cols!: TABLE_HEADING[];    
   couponData: CouponCode[] = []
+  @Input() deleteAccess:boolean;
 
   constructor(private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrMsgService,

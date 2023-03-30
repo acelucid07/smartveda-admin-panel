@@ -1,0 +1,79 @@
+    <div>
+        <h3>Rating List</h3>
+    </div>
+    <div class="card">
+        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+            [showCurrentPageReport]="true" [value]="ratingData"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+            styleClass="p-datatable-striped" [globalFilterFields]="['review']">
+            <ng-template pTemplate="caption">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <input #search  pInputText type="text" class="mr-2" placeholder="Search by Review Subject" >
+                        <button class="p-button-success" pButton type="button"  (click)="applyFilterGlobal(search.value, 'contains')"  >Search</button>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="captionFilter">
+                            <p-columnFilter class="filterButton" field="status" matchMode="in" display="menu"
+                            [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                            <ng-template pTemplate="header">
+                                <div class="px-3 pt-3 pb-0">
+                                    <span class="font-bold">Status Picker</span>
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                <p-multiSelect [ngModel]="value" [options]="statusList" placeholder="Any" (onChange)="[filter($event.value)]" >
+                                    <ng-template let-option pTemplate="item">
+                                        <div class="p-multiselect-representative-option">
+                                            <span class="ml-1">{{option}}</span>
+                                        </div>
+                                    </ng-template>
+                                </p-multiSelect>
+                            </ng-template>
+                        </p-columnFilter>
+                            </div>
+                        <div><button pButton type="button" style="margin-left:5px" [routerLink]="['/rating/addrating']" [disabled]="!accessPermission.add">Add</button></div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th class="text-center">Rating</th>
+                    <th class="text-center">Review Subject</th>
+                    <th class="text-center">Reviewer</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Date<p-columnFilter class="column-subhead" type="date" field="date" display="menu"></p-columnFilter></th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-ratingList>
+                <tr>
+                    <td>{{ratingList.rating}}</td>
+                    <td>{{ratingList.review}}</td>
+                    <td>{{ratingList.reviewer}}</td>
+                    <td>{{ratingList.status}}</td>
+                    <td>{{ratingList.date | date: 'MM/dd/yyyy'}}</td>
+                    <td>
+                        <div>
+                            <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Rating" tooltipPosition="bottom" style="margin-right: 10px;"  [routerLink]="['/rating/editrating']" [queryParams]="{reviewerName:ratingList.reviewer}" [disabled]="!accessPermission.edit"></button>
+                            <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Rating" tooltipPosition="bottom"  style="margin-right: 10px;" (click)=" openDialog(ratingList.reviewer)" [disabled]="!accessPermission.delete"></button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td class="text-center text-danger font-weight-700" colspan="12">
+                        No Records Found.
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">  
+            <div style="height: 30px;" class="d-flex">
+                <button pButton type="button" icon="pi pi-file"  pTooltip="CSV" tooltipPosition="bottom" style="margin-left:5px" (click)="dt.exportCSV()"></button>
+                <button pButton type="button" icon="pi pi-file-excel"  pTooltip="XLSX" style="margin-left:5px" tooltipPosition="bottom" (click)="exportExcel()"></button>
+                <button pButton type="button" icon="pi pi-file-pdf"  pTooltip="PDF" style="margin-left:5px" tooltipPosition="bottom" (click)=" exportPdf()"></button>
+            </div>
+            </ng-template>
+        </p-table>
+    </div>

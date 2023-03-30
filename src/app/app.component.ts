@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api'
 
 @Component({
@@ -6,12 +6,27 @@ import { PrimeNGConfig } from 'primeng/api'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  constructor(private primeNgConfig:PrimeNGConfig){}
-
+export class AppComponent implements DoCheck {
+  constructor(private primeNgConfig:PrimeNGConfig){
+    this.check = (window.location.href.split('localhost:4200')[1]=='/' || window.location.href.split('localhost:4200')[1]=='/login')?false:true;
+  }
+  sidebarSpacing:string='contracted'
   title = 'Admin_Panel';
-
+  token = window.localStorage.getItem('token');
+  check:boolean
+  
   ngOnInit(){
     this.primeNgConfig.ripple = true;
+    console.log(this.token,this.check)
+  }
+  ngDoCheck(){
+    this.check = (window.location.href.split('localhost:4200')[1]=='/' || window.location.href.split('localhost:4200')[1]=='/login')?false:true;
+  }
+  onToggleSidebar(sidebarState: any) {
+    if (sidebarState === 'open') {
+      this.sidebarSpacing = 'contracted';
+    } else {
+      this.sidebarSpacing = 'expanded';
+    }
   }
 }

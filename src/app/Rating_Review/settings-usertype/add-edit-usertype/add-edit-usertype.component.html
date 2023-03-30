@@ -1,0 +1,42 @@
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 1000px; height: 500px;">
+            <div class="p-5">
+                <div class="card-body">
+                    <div class="mt-2 mb-3">
+                        <h3>{{title}} User Type</h3>
+                    </div>
+                    <form [formGroup]="usertypeForm" class="d-flex justify-content-center">
+                        <div class="w-75">
+                            <div class="row mt-5">
+                                <div class="form-group  col-10 d-flex justify-content-center">
+                                    <label for="criteriaName" class=" col-2 col-form-label px-1 starlabel">Usertype</label>
+                                    <div class="col-8"><input type="text" id="criteriaName" class="form-control" formControlName="usertype">
+                                        <div *ngIf="!usertypeForm.controls['usertype'].valid && usertypeForm.controls['usertype'].touched ">
+                                            <div [hidden]="!usertypeForm.controls['usertype'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic; display:block">Usertype is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="form-group  col-10 d-flex justify-content-center">
+                                    <label for="status" class=" col-2 col-form-label starlabel">Status</label>
+                                    <div class="col-8"><p-dropdown styleClass="statusDropdown" [options]="statusList"
+                                            placeholder="Select status" formControlName="status"></p-dropdown>
+                                            <div *ngIf="!usertypeForm.controls['status'].valid && usertypeForm.controls['status'].touched ">
+                                                <div [hidden]="!usertypeForm.controls['status'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">Status is required</div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="form-group  col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-info mr-3" (click)="submit()" [disabled]="!usertypeForm.valid">Submit</button>
+                                    <button class="btn btn-info" [routerLink]="['/usertypesettings/usertypelist']">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

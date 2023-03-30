@@ -1,0 +1,44 @@
+:host::ng-deep {
+
+    .captionFilter p-columnFilter .p-column-filter>button::before {
+        content: "Filter";
+        margin-right: 10px;
+    }
+
+    .captionFilter p-columnFilter .p-column-filter>button {
+        width: 100px;
+        height: 40px;
+        border-radius: 3px;
+        font-size: large;
+        margin: 1px;
+        margin-right: 5px;
+        padding: 15px 20px;
+        border: 1px solid #ced4da;
+    }
+    
+ .column-subhead {
+        button:hover {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            outline: none;
+        }
+    
+        button:focus {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            outline: none;
+        }
+    
+        button:focus:hover {
+            background-color: transparent;
+        }
+    
+        button:hover {
+            background-color: transparent;
+        }
+
+    }
+    
+}

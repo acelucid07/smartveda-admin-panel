@@ -1,5 +1,3 @@
-<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing">
   <div class="page-heading">
     <h1 class="header-text-title">PROFILE</h1>
   </div>
@@ -71,7 +69,7 @@
         <div class="btn-group">
           <div class="row">
             <div class="col">
-              <button pButton class="p-button-danger" [routerLink]="['/customer']">Back</button>
+              <button pButton class="p-button-danger" [routerLink]="['/roleandpermission/adminlist']">Back</button>
             </div>
           </div>
             <div class="col">
@@ -83,4 +81,3 @@
     </div>
   </div>
   <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
-</div>

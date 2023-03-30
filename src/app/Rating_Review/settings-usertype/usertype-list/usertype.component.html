@@ -1,0 +1,65 @@
+<div>
+    <h4>UserType List</h4>
+</div>
+<p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+[showCurrentPageReport]="true" [value]="usertypeSettingData"
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+styleClass="p-datatable-striped" [globalFilterFields]="['usertype']">
+<ng-template pTemplate="caption">
+    <div class="d-flex justify-content-between">
+    <div>
+        <input #search pInputText type="text" placeholder="Search by Usertype"class="mr-2">
+        <button pButton class="p-button-success" (click)="applyFilterGlobal(search.value,'contains')">Search</button>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="captionFilter"><p-columnFilter class="filterButton" field="status" matchMode="in" display="menu"
+            [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+            <ng-template pTemplate="header">
+                <div class="px-3 pt-3 pb-0">
+                    <span class="font-bold">Status Picker</span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-multiSelect [ngModel]="value" [options]="statusList" placeholder="Any" (onChange)="[filter($event.value)]" >
+                    <ng-template let-option pTemplate="item">
+                        <div class="p-multiselect-representative-option">
+                            <span class="ml-1">{{option}}</span>
+                        </div>
+                    </ng-template>
+                </p-multiSelect>
+            </ng-template>
+        </p-columnFilter>
+    </div>
+        <button pButton [routerLink]="['/usertypesettings/usertypeform']" [disabled]="!accessPermission.add">Add</button>
+    </div>
+</div>
+</ng-template>
+<ng-template pTemplate="header">
+    <tr>
+        <th class="text-center">UserType</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Actions</th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-types>
+    <tr><td>{{types.usertype}}</td>
+    <td>{{types.status}}</td>
+    <td>
+        <div>
+            <button pButton class="p-button-secondary mr-3" icon="pi pi-user-edit" pTooltip="Edit Usertype" tooltipPosition="bottom" [routerLink]="['/usertypesettings/usertypeform']" [queryParams]="{serialno:types.sno}" [disabled]="!accessPermission.edit"></button>
+            <button pButton class="p-button-danger" icon="pi pi-trash" pTooltip="Delete Usertype" tooltipPosition="bottom" (click)="openDialog(types.usertype)" [disabled]="!accessPermission.delete"></button>
+        </div>
+    </td>
+</tr>
+</ng-template>
+<ng-template pTemplate="emptymessage"><tr>
+    <td colspan="12" class="text-danger">No Records to Show</td>
+</tr></ng-template>
+<ng-template pTemplate="summary">
+    <div>
+        <button pButton icon="pi pi-file" pTooltip="CSV" tooltipPosition="bottom" class="mr-2" (click)="dt.exportCSV()"></button>
+        <button pButton icon="pi pi-file-excel"pTooltip="Excel" tooltipPosition="bottom" class="mr-2" (click)="exportExcel()"></button>
+        <button pButton icon="pi pi-file-pdf" pTooltip="Pdf" tooltipPosition="bottom" (click)=" exportPdf()"></button>
+    </div>
+</ng-template>
+</p-table>

@@ -1,0 +1,81 @@
+    <h3>Review List</h3>
+    <div class="card">
+        <p-table id="reviewTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+            [showCurrentPageReport]="true" [value]="reviewListValue"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+            styleClass="p-datatable-striped" [globalFilterFields]="['reviewSubject']">
+            <ng-template pTemplate="caption">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <input #search pInputText type="text" type="text" placeholder='Search By Review Subject'
+                            class="mr-2">
+                        <button pButton type="button" class="p-button-success text-center"
+                            (click)="applyGlobalFilter(search.value,'contains')">Search</button>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <!-- <button pButton type="button" class="mr-2">Filter</button> -->
+                        <div class="captionFilter"><p-columnFilter class="filterButton" field="status" matchMode="in"
+                                display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="px-3 pt-3 pb-0">
+                                        <span class="font-bold">Status Picker</span>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <p-multiSelect [ngModel]="value" [options]="statusList" placeholder="Any"
+                                        (onChange)="[filter($event.value)]">
+                                        <ng-template let-option pTemplate="item">
+                                            <div class="p-multiselect-representative-option">
+                                                <span class="ml-1">{{option}}</span>
+                                            </div>
+                                        </ng-template>
+                                    </p-multiSelect>
+                                </ng-template>
+                            </p-columnFilter>
+                        </div>
+                        <button pButton type="button" [routerLink]="['/review/addreview']" [disabled]="!accessPermission.add">Add</button>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th class="text-center">Review Subject</th>
+                    <th class="text-center">Publishing Site Url</th>
+                    <th class="text-center">Rating</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-reviews>
+                <tr>
+                    <td>{{reviews.reviewSubject}}</td>
+                    <td>{{reviews.publishingsiteurl}}</td>
+                    <td>{{reviews.rating}}</td>
+                    <td>{{reviews.status}}</td>
+                    <td>
+                        <button pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Review"
+                            tooltipPosition="bottom" class="mr-2 p-button-secondary"
+                            [routerLink]="['/review/editreview']" [queryParams]="{serialno:reviews.Sno}" [disabled]="!accessPermission.edit"></button>
+                        <button pButton type="button" icon="pi pi-trash" pTooltip="Delete Review"
+                            tooltipPosition="bottom" class="mr-2 p-button-danger"
+                            (click)="openDialog(reviews.id)" [disabled]="!accessPermission.delete"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td class="text-center text-danger" colspan="12">No records to show</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div>
+                    <button pButton icon="pi pi-file" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"
+                        (click)="dt.exportCSV()"></button>
+                    <button pButton icon="pi pi-file-excel" class="mr-2" pTooltip="Excel" tooltipPosition="bottom"
+                        (click)="exportExcel()"></button>
+                    <button pButton icon="pi pi-file-pdf" class="mr-2" pTooltip="Pdf" tooltipPosition="bottom"
+                        (click)="exportPdf()"></button>
+                </div>
+            </ng-template>
+        </p-table>
+    </div>

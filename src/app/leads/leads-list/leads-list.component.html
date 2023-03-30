@@ -1,0 +1,146 @@
+    <div class="page-heading">
+        <h1 class="header-text-title" style="margin-left: 1%;">Leads</h1>
+    </div>
+    <div >
+        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+            [showCurrentPageReport]="true" [value]="leadlist"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+            [globalFilterFields]="['name']" styleClass="p-datatable-striped">
+            <ng-template pTemplate="caption">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                    <span class="p-input-icon-right ml-3">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" placeholder="Search keyword"
+                            (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by Name">
+                    </span>
+                    <span class="p-input-icon-right ml-2">
+                        <button pButton type="button" label="Create lead" class="p-button-success" [routerLink]="['/leads/leadcreate']" [disabled]="!accessPermission.add"
+                    ></button>
+                    </span>
+                </div>
+                    <div class="d-flex justify-content-end align-items-end " >
+                        <button type="button" pButton pRipple icon="pi pi-file" class="mr-2" pTooltip="CSV" (click)="dt.exportCSV()"
+                          tooltipPosition="bottom"></button>
+                        <button type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success mr-2" pTooltip="XLSX"  (click)="exportExcel()"
+                          tooltipPosition="bottom" ></button>
+                        <button type="button" pButton pRipple icon="pi pi-file-pdf" class="p-button-warning mr-2" pTooltip="PDF"     (click)="exportPdf()" 
+                          tooltipPosition="bottom" ></button>
+                      </div>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header" >
+                <tr >
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Created By</th>
+                    <th><div class="d-flex justify-content-between align-items-center"> Technology 
+                        <p-columnFilter class="column-subhead" field="technology" matchMode="in" display="menu"
+                        [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="header">
+                            <div class="px-3 pt-3 pb-0">
+                                <span class="font-bold">Technology Picker</span>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-multiSelect [ngModel]="value" [options]="technologies" placeholder="Any" (onChange)="[filter($event.value),show($event.value)]" >
+                                <ng-template let-option pTemplate="item">
+                                    <div class="p-multiselect-representative-option">
+                                        <span class="ml-1">{{option}}</span>
+                                    </div>
+                                </ng-template>
+                            </p-multiSelect>
+                        </ng-template>
+                    </p-columnFilter></div></th>
+                    <th><div class="d-flex justify-content-between align-items-center">Lead Source <p-columnFilter class="column-subhead" field="source" matchMode="in" display="menu"
+                        [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="header">
+                            <div class="px-3 pt-3 pb-0">
+                                <span class="font-bold">Source Picker</span>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-multiSelect [ngModel]="value" [options]="sources" placeholder="Any" (onChange)="filter($event.value)"
+                               >
+                                <ng-template let-option pTemplate="item">
+                                    <div class="p-multiselect-representative-option">
+                                        <span class="ml-1">{{option}}</span>
+                                    </div>
+                                </ng-template>
+                            </p-multiSelect>
+                        </ng-template>
+                    </p-columnFilter></div></th>
+                    <th><div class="d-flex justify-content-between align-items-center">Start Date<p-columnFilter class="column-subhead" type="date" field="startDate" display="menu"></p-columnFilter></div></th>
+                    <th><div class="d-flex justify-content-between align-items-center">Follow-up Date<p-columnFilter  class="column-subhead" type="date" field="followUpDate" display="menu"></p-columnFilter></div></th>
+                    <th class="text-center">Budget</th>
+                    <th class="text-center">Status </th>
+                    <th>
+                        <div class="d-flex justify-content-between align-items-center">Deal 
+                            <p-columnFilter class="column-subhead" field="deal" matchMode="in" display="menu"
+                                [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="px-3 pt-3 pb-0">
+                                        <span class="font-bold">Deal Picker</span>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <p-multiSelect [ngModel]="value" [options]="deals" placeholder="Any" (onChange)="filter($event.value)"
+                                       >
+                                        <ng-template let-option pTemplate="item">
+                                            <div class="p-multiselect-representative-option">
+                                                <span class="ml-1">{{option}}</span>
+                                            </div>
+                                        </ng-template>
+                                    </p-multiSelect>
+                                </ng-template>
+                            </p-columnFilter>
+                        </div>
+                    </th>
+                  <th class="text-center">Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-i="rowIndex" let-leadsList>
+                <tr>
+                    <td>{{leadsList.id}}</td>
+                    <td>{{leadsList.name}}</td>
+                    <td>{{leadsList.email}}</td>
+                    <td>{{leadsList.createdBy}}</td>
+                    <td>{{leadsList.technology}}</td>
+                    <td>{{leadsList.source}}</td>
+                    <td>{{leadsList.startDate | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{leadsList.followUpDate | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{leadsList.budget}}</td>
+                    <td>{{leadsList.status}}</td>
+                    <td>{{leadsList.deal}}</td>
+                    <td>
+                        <div class="d-flex justify-content-between align-items-center ">
+                            <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
+                </button> -->
+                            <button class="p-button-secondary" pButton type="button" icon="pi pi-user-edit" [routerLink]="['/leads/leadedit']" [queryParams]="{leadName:leadsList.name}"
+                                pTooltip="Edit lead" tooltipPosition="bottom" style="margin-right:5px"
+                                [disabled]="!accessPermission.edit"></button>
+                            <button class="p-button-info" pButton type="button" icon="pi pi-eye"   [routerLink]="['/leads/leadview']" [queryParams]="{leadName:leadsList.name}"
+                                pTooltip="view lead" tooltipPosition="bottom" style="margin-right:5px"
+                               ></button>
+                              
+                               <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog> -->
+                                <button  class="p-button-danger" pButton type="button" icon="pi pi-trash"
+                                pTooltip="Delete lead" tooltipPosition="bottom" style="margin-right:5px" (click)="openDialog(leadsList)" [disabled]="!accessPermission.delete"
+                               ></button>
+                        </div>
+                    </td>
+                </tr>              
+            </ng-template>
+           
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td class="text-center text-danger font-weight-700" colspan="12">
+                        No Records Found.
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <!-- <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader> -->
+    </div>

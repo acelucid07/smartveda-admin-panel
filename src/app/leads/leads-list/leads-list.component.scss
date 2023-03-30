@@ -1,0 +1,36 @@
+::ng-deep .column-subhead {
+    button:hover {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        outline: none;
+    }
+
+    button:focus {
+        background-color: transparent;
+        // color: rgb(176, 208, 250);
+        border: none;
+        box-shadow: none;
+        outline: none;
+    }
+
+    button:focus:hover {
+        // color:rgb(176, 208, 250);
+        background-color: transparent;
+    }
+
+    button:hover {
+        // color:rgb(176, 208, 250);
+        background-color: transparent;
+    }
+    // button.p-column-filter-menu-button-active{
+    //     background-color: transparent;
+    //     color: #007ad9;
+    //     // padding: 0;
+    // }
+    // button.p-column-filter-menu-button-active:hover{
+    //     background-color: transparent;
+    //     color: #007ad9;
+    //     // padding: 0;
+    // }
+}

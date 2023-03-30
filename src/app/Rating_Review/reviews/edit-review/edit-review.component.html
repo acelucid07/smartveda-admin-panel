@@ -1,0 +1,62 @@
+    <div class="d-flex justify-content-center">
+    <div class="card " style="width: 1000px; height: 650px;">
+       
+        <div class="card-body">
+            <div class="p-5">
+            <div class="mt-2 mb-5">
+                <h4>Edit Reviews</h4>
+            </div>
+            <form [formGroup]="editForm">
+            <div class="row mb-4">
+                <div class="form-group col-2">
+                    <label for="rating" class="mb-4">Rating</label>
+                    <input readonly type="text" id="rating" class="form-control" formControlName="rating">
+                </div>
+
+                <div class="form-group col-10">
+                    <label for="lastRating" class="mb-4">Last Rating</label>
+                    <input readonly type="text" id="lastRating" class="form-control" formControlName="lastRating">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="form-group col-6">
+                    <label for="reviewTypeField" class="starlabel mb-4">Reviewer Type</label>
+                    <p-dropdown styleClass="reviewDropdown" id="reviewTypeField" [options]="reviewList" placeholder="Select" formControlName="reviewerType"></p-dropdown>
+                    <div *ngIf="!editForm.controls['reviewerType'].valid && editForm.controls['reviewerType'].touched ">
+                        <div [hidden]="!editForm.controls['reviewerType'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">ReviewType is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label for="reviewPage" class="starlabel mb-4">Publishing Site Url </label>
+                    <input type="text" id="reviewPage" class="form-control" formControlName="reviewPublishPage">
+                    <div *ngIf="!editForm.controls['reviewPublishPage'].valid && editForm.controls['reviewPublishPage'].touched ">
+                        <div [hidden]="!editForm.controls['reviewPublishPage'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">ReviewPage is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="form-group col-6">
+                    <label for="reference" class="starlabel mb-4">Reference Id</label>
+                    <input type="text" id="reference" class="form-control" formControlName="referenceId">
+                    <div *ngIf="!editForm.controls['referenceId'].valid && editForm.controls['referenceId'].touched ">
+                        <div [hidden]="!editForm.controls['referenceId'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">ReferenceId is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label for="status" class="starlabel mb-4">Status</label>
+                    <p-dropdown id="status" styleClass="reviewDropdown" [options]="statusList" placeholder="Select" formControlName="reviewStatus"></p-dropdown>
+                    <div *ngIf="!editForm.controls['reviewStatus'].valid && editForm.controls['reviewStatus'].touched ">
+                        <div [hidden]="!editForm.controls['reviewStatus'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">Status is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-5">
+                <button type="Submit" class="btn btn-info mr-3" [disabled]="!(editForm.valid)" (click)="submit()">Submit</button>
+                <button  class="btn btn-info" [routerLink]="['/review/reviewlist']">Cancel</button>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

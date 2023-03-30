@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AuthenticationComponent implements OnInit {
 
   currentRoute: any;
+  // @Output() loggedinFlag:EventEmitter<boolean>
   constructor(private route : ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {

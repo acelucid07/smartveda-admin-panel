@@ -1,5 +1,3 @@
-<app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
-<div class="body bcard" [ngClass]="sidebarSpacing">
 	<div class="page-heading">
 		<h1 class="header-text-title" style="margin-left: 1%;">Promo Code Details</h1>
 	</div>
@@ -20,7 +18,7 @@
 							</div>
 							<div class="p-input-icon-right ml-5">
 								<button pButton type="button" label="Add New Promo" class="p-button-success"
-									[routerLink]="['/marketing/addpromo']"></button>
+									[routerLink]="['/marketing/addpromo']" [disabled]="!accessPermission.add"></button>
 							</div>
 						</div>
 					</ng-template>
@@ -45,9 +43,9 @@
 								<div class="btn-grp">
 									<button class="p-button-warning" pButton type="button" icon="pi pi-user-edit"
 										pTooltip="Edit Promotion" tooltipPosition="bottom" style="margin-right:5px"
-										[routerLink]="['/marketing/editpromo']" [queryParams]="{id:coupon?.id}"></button>
+										[routerLink]="['/marketing/editpromo']" [queryParams]="{id:coupon?.id}" [disabled]="!accessPermission.edit"></button>
 									<button class="p-button-danger" pButton type="button" icon="pi pi-trash"
-										pTooltip="In-Active promotion" tooltipPosition="bottom" (click)="InActivate(coupon?.Code)"></button>
+										pTooltip="In-Active promotion" tooltipPosition="bottom" (click)="InActivate(coupon?.Code)" [disabled]="!accessPermission.delete"></button>
 								</div>
 							</td>
 						</tr>
@@ -64,11 +62,9 @@
 			</div>
 		</mat-tab>
 		<mat-tab label="Active">
-			<app-active-coupon></app-active-coupon>
+			<app-active-coupon [deleteAccess]="accessPermission.delete"></app-active-coupon>
 		</mat-tab>
 		<mat-tab label="InActivate">
-			<app-inactive-coupon></app-inactive-coupon>
+			<app-inactive-coupon [deleteAccess]="accessPermission.delete"></app-inactive-coupon>
 		</mat-tab>
 	</mat-tab-group>
-
-</div>

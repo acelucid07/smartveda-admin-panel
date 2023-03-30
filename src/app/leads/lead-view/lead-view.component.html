@@ -1,0 +1,69 @@
+    <div class="page-heading">
+        <h1 class="header-text-title" style="margin-left: 1%;">Enteries</h1>
+    </div>
+    <div class="card col-sm-12" style="border:none;">
+        <p-table  #dt responsiveLayout="scroll" [paginator]="true" [rows]="10"
+            [showCurrentPageReport]="true" [value]="followUpDetails"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+            [globalFilterFields]="['clientName']" styleClass="p-datatable-striped" rowGroupMode="subheader" 
+            sortField="clientName" sortMode="single" 
+            groupRowsBy="clientName" dataKey="clientName">
+
+            <ng-template pTemplate="header" >
+                <tr >
+                    <th>Client Name</th>
+                    <th>Current Date</th>
+                    <th>Next Follow-up Date</th>
+                    <th>Comment</th>
+                    <th>Deal</th>                   
+                    <th>Status</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="groupheader" let-client let-expanded="expanded" let-rowIndex="rowIndex">
+                <tr>
+                    <td colspan="6">
+                        <div class="d-flex justify-content-start">
+                            <button type="button" pButton pRipple [pRowToggler]="client" 
+                                class="p-button-text p-button-rounded p-button-plain mr-2" 
+                                [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                            </button>
+                            <span class="font-bold ml-2">{{client.clientName}}</span>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="caption">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div>
+                    <span class="p-input-icon-right ml-3">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" placeholder="Search keyword"
+                            (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by Name">
+                    </span>
+                </div>
+                </div>
+            </ng-template>    
+            <ng-template pTemplate="rowexpansion" let-followUp>
+               
+                <tr>
+                    <td></td>
+                    <td>{{followUp.currentDate}}</td>
+                    <td>{{followUp.nextFollowUpDate}}</td>
+                    <td>{{followUp.comment}}</td>
+                    <td>{{followUp.deal}}</td>
+                    <td>{{followUp.status}}</td>  
+                </tr>
+            
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td class="text-center text-danger font-weight-700" colspan="12">
+                        No Records Found.
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <!-- <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader> -->
+    </div>

@@ -1,0 +1,9 @@
+:host::ng-deep{
+    .statusDropdown{
+        width: 100%;
+    }
+    label.starlabel::after{
+        content: "*";
+        color: rgb(228, 28, 28);
+    }
+}

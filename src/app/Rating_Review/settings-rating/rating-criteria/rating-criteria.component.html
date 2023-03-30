@@ -1,0 +1,65 @@
+<div>
+    <h4>Rating Criteria List</h4>
+</div>
+<p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+[showCurrentPageReport]="true" [value]=" ratingSettingData"
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+styleClass="p-datatable-striped" [globalFilterFields]="['ratingCriteria']">
+<ng-template pTemplate="caption">
+    <div class="d-flex justify-content-between">
+    <div>
+        <input #search pInputText type="text" placeholder="Search by Criteria"class="mr-2">
+        <button pButton class="p-button-success" (click)="applyFilterGlobal(search.value,'contains')">Search</button>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="captionFilter"><p-columnFilter class="filterButton" field="status" matchMode="in" display="menu"
+            [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+            <ng-template pTemplate="header">
+                <div class="px-3 pt-3 pb-0">
+                    <span class="font-bold">Status Picker</span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-multiSelect [ngModel]="value" [options]="statusList" placeholder="Any" (onChange)="[filter($event.value)]" >
+                    <ng-template let-option pTemplate="item">
+                        <div class="p-multiselect-representative-option">
+                            <span class="ml-1">{{option}}</span>
+                        </div>
+                    </ng-template>
+                </p-multiSelect>
+            </ng-template>
+        </p-columnFilter>
+    </div>
+        <button pButton [routerLink]="['/ratesettings/ratingcriteriaform']" [disabled]="!accessPermission.add">Add</button>
+    </div>
+</div>
+</ng-template>
+<ng-template pTemplate="header">
+    <tr>
+        <th class="text-center">Rating Criteria</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Actions</th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-criterias>
+    <tr><td>{{criterias.ratingCriteria}}</td>
+    <td>{{criterias.status}}</td>
+    <td>
+        <div>
+            <button pButton class="p-button-secondary mr-3"  pTooltip="Edit Criteria" tooltipPosition="bottom" icon="pi pi-user-edit" [routerLink]="['/ratesettings/ratingcriteriaform']" [queryParams]="{serialno:criterias.sno}" [disabled]="!accessPermission.edit"></button>
+            <button pButton class="p-button-danger" pTooltip="Delete Criteria" tooltipPosition="bottom" icon="pi pi-trash" (click)="openDialog(criterias.ratingCriteria)" [disabled]="!accessPermission.delete"></button>
+        </div>
+    </td>
+</tr>
+</ng-template>
+<ng-template pTemplate="emptymessage"><tr>
+    <td colspan="12" class="text-danger">No Records to Show</td>
+</tr></ng-template>
+<ng-template pTemplate="summary">
+    <div>
+        <button pButton icon="pi pi-file" pTooltip="CSV" tooltipPosition="bottom" class="mr-2" (click)="dt.exportCSV()"></button>
+        <button pButton icon="pi pi-file-excel" pTooltip="Excel" tooltipPosition="bottom" class="mr-2" (click)="exportExcel()"></button>
+        <button pButton icon="pi pi-file-pdf" pTooltip="Pdf" tooltipPosition="bottom" (click)=" exportPdf()"></button>
+    </div>
+</ng-template>
+</p-table>

@@ -1,0 +1,490 @@
+<!-- <app-header (toggleSidebar)="onToggleSidebar($event)"></app-header>
+<div class="body bcard" [ngClass]="sidebarSpacing">
+  <div class="page-heading">
+    <h1 class="header-text-title" style="margin-left: 1%;">Bundle</h1>
+  </div>
+  <div class="card col-sm-12" style="border:none;">
+    <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+      [showCurrentPageReport]="true" [value]="categoryList"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+      [globalFilterFields]="['name']" styleClass="p-datatable-striped">
+      <ng-template pTemplate="caption">
+        <div class="row">
+          <span class="p-input-icon-right ml-5">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" placeholder="Search keyword" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by bundle name">
+          </span>
+          <span class="p-input-icon-right ml-5">
+            <button pButton type="button" label="Create Bundle" class="p-button-success"
+              [routerLink]="['/bundle/createbundle']"></button>
+          </span>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">{{col.headers}}</th>
+          <th>Options</th>
+        </tr>
+      </ng-template> -->
+<!-- <ng-template pTemplate="body" let-i="rowIndex" let-categoryList>
+        <tr>
+          <td>{{categoryList._id}}</td>
+          <td>{{categoryList.categoryName}}</td>
+          <td>{{categoryList.image}}</td>
+          <td>{{categoryList.basketInfluencersCount}}</td>
+          <td>
+            <div class="btn-grp" id="btn-grp">
+                <button class="p-button-info" pButton type="button" icon="pi pi-image" pTooltip="Upload Image"
+                tooltipPosition="bottom" style="margin-right:5px" [routerLink]="['/bundle/uploadimage']"
+                [queryParams]="{categoryName:categoryList?.categoryName}"></button>
+                <button class="p-button-secondary" pButton type="button" icon="pi pi-id-card" pTooltip="Add Influencers"
+                tooltipPosition="bottom" style="margin-right:5px"[queryParams]="{id:categoryList?._id}" [routerLink]="['/bundle/addinfluencers']" ></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td class="text-center text-danger font-weight-700" colspan="6">
+            No Records Found.
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td class="text-center text-danger font-weight-700" colspan="10">
+            No Records Found.
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+  </div>
+</div> -->
+
+
+
+  <div class="card col-sm-12">
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #cccfcd; height: 100%;">
+        <form [formGroup]="reelCostForm">
+          <div class="card-body">
+            <mat-accordion>
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <div class="page-heading">
+                      <h6>Edit Cost For Reel</h6>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per 1kFollowers</label>
+                      <input type="text" class="form-control" formControlName="minCostPer1kFollowersForReel">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per 1KFollowers</label>
+                      <input type="text" class="form-control" formControlName="maxCostper1KFollowersForReel">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="minCostPerLikeForReel">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="maxCostperLikeForReel">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="minCostPerCommentForReel">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="maxCostperCommentForReel">
+                    </div>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-info" (click)="submitreelCostForm()"> Submit </button>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </form>
+
+        <form [formGroup]="postCostForm">
+          <div class="card-body">
+            <mat-accordion>
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <div class="page-heading">
+                      <h6>Edit Cost For Post</h6>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per 1kFollowers</label>
+                      <input type="text" class="form-control" formControlName="minCostPer1kFollowersForPosts">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per 1KFollowers</label>
+                      <input type="text" class="form-control" formControlName="maxCostper1KFollowersForPosts">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="minCostPerLikeForPosts">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="maxCostperLikeForPosts">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="minCostPerCommentForPosts">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="maxCostperCommentForPosts">
+                    </div>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-info" (click)="submitpostCostForm()"> Submit </button>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </form>
+
+
+        <form [formGroup]="storyCostForm">
+          <div class="card-body">
+            <mat-accordion>
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <div class="page-heading">
+                      <h6>Edit Cost For Story</h6>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per 1kFollowers</label>
+                      <input type="text" class="form-control" formControlName="minCostPer1kFollowersForStory">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per 1KFollowers</label>
+                      <input type="text" class="form-control" formControlName="maxCostper1KFollowersForStory">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="minCostPerLikeForStory">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="maxCostperLikeForStory">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="minCostPerCommentForStory">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="maxCostperCommentForStory">
+                    </div>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-info" (click)="submitStoryCostForm()"> Submit </button>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </form>
+        <form [formGroup]="igtvCostForm">
+          <div class="card-body">
+            <mat-accordion>
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <div class="page-heading">
+                      <h6>Edit Cost For IGTV</h6>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per 1kFollowers</label>
+                      <input type="text" class="form-control" formControlName="minCostPer1kFollowersForIgtv">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per 1KFollowers</label>
+                      <input type="text" class="form-control" formControlName="maxCostper1KFollowersForIgtv">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="minCostPerLikeForIgtv">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="maxCostperLikeForIgtv">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="minCostPerCommentForIgtv">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="maxCostperCommentForIgtv">
+                    </div>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-info" (click)="submitIgtvCostForm()"> Submit </button>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </form>
+
+        <form [formGroup]="swipeUpCostForm">
+          <div class="card-body">
+            <mat-accordion>
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <div class="page-heading">
+                      <h6>Edit Cost For Swipe Up</h6>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per 1kFollowers</label>
+                      <input type="text" class="form-control" formControlName="minCostPer1kFollowersForSwipeUpStory">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per 1KFollowers</label>
+                      <input type="text" class="form-control" formControlName="maxCostper1KFollowersForSwipeUpStory">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="minCostPerLikeForSwipeUpStory">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="maxCostperLikeForSwipeUpStory">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="minCostPerCommentForSwipeUpStory">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="maxCostperCommentForSwipeUpStory">
+                    </div>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-info" (click)="submitSwipeUpCostForm()"> Submit </button>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </form>
+        <form [formGroup]="videoCostForm">
+          <div class="card-body">
+            <mat-accordion>
+              <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <div class="page-heading">
+                      <h6>Edit Cost For Video</h6>
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per 1kFollowers</label>
+                      <input type="text" class="form-control" formControlName="minCostPer1kFollowersForVideo">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per 1KFollowers</label>
+                      <input type="text" class="form-control" formControlName="maxCostper1KFollowersForVideo">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="minCostPerLikeForVideo">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Like</label>
+                      <input type="text" class="form-control" formControlName="maxCostperLikeForVideo">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Minimum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="minCostPerCommentForVideo">
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group pt-3">
+                      <label for="image">Maximum Cost per Comment</label>
+                      <input type="text" class="form-control" formControlName="maxCostperCommentForVideo">
+                    </div>
+                  </div>
+                </div>
+                  <button type="submit" class="btn btn-info" (click)="submitVideoCostForm()"> Submit </button>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- <form>
+      <div class="card col-sm-12">
+        <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="background-color: #cccfcd; height: 100vh;">
+                    <div class="card-body">
+                        <mat-card>
+                                <mat-card-title>
+                                    <div class="page-heading">
+                                        <h6>Edit Cost For Reel</h6>
+                                    </div>
+                                </mat-card-title>
+                            <div class="row gutters">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group pt-3">
+                                        <label for="image">Minimum Cost per 1kFollowers</label>
+                                        <input type="text" class="form-control"  >
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                  <div class="form-group pt-3">
+                                      <label for="image">Maximum Cost per 1KFollowers</label>
+                                      <input type="text" class="form-control"  >
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="row gutters">
+                              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                  <div class="form-group pt-3">
+                                      <label for="image">Minimum Cost per Like</label>
+                                      <input type="text" class="form-control"  >
+                                  </div>
+                              </div>
+                              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group pt-3">
+                                    <label for="image">Maximum Cost per Like</label>
+                                    <input type="text" class="form-control"  >
+                                </div>
+                            </div>
+                          </div>
+                          <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group pt-3">
+                                    <label for="image">Minimum Cost per Comment</label>
+                                    <input type="text" class="form-control"  >
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                              <div class="form-group pt-3">
+                                  <label for="image">Maximum Cost per Comment</label>
+                                  <input type="text" class="form-control"  >
+                              </div>
+                          </div>
+                        </div>
+                            <mat-card-actions align="end">
+                                <button type="submit" class="btn btn-info" > Submit </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </form> -->
+

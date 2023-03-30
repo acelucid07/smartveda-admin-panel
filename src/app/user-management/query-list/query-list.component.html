@@ -1,0 +1,52 @@
+  <div class="page-heading">
+    <h1 class="header-text-title" style="margin-left: 1%;">Query</h1>
+  </div>
+  <div class="card col-sm-12" style="border:none;">
+    <p-table #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+      [showCurrentPageReport]="true" [value]="queryList"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true"
+      [globalFilterFields]="['user']" styleClass="p-datatable-striped">
+      <ng-template pTemplate="caption">
+        <div class="row">
+          <span class="p-input-icon-right ml-5">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" placeholder="Search keyword" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search by user">
+          </span>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">{{col.headers}}</th>
+          <th>Options</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-i="rowIndex" let-queriesList>
+        <tr>
+          <td>{{queriesList.queryid}}</td>
+          <td>{{queriesList.user}}</td>
+          <td>{{queriesList.appliedDate}}</td>
+          <td>{{queriesList.resolvedDate}}</td>
+          <td><p-chip [styleClass]="queriesList.status" ><div class="px-2">{{queriesList.status}}</div></p-chip></td>
+          <td>
+            <div class="btn-grp" id="btn-grp">
+                <button class="p-button-secondary" pButton type="button" icon="pi pi-check-square" pTooltip="Mark as resolved"
+                tooltipPosition="bottom" style="margin-right:5px" (click)="markResolved(queriesList)" [disabled]="(queriesList?.status=='resolved')"></button>
+                <button class="p-button-success" pButton type="button" icon="pi pi-eye" pTooltip="Show Query"
+                tooltipPosition="bottom" style="margin-right:5px; background-color:rgb(10, 140, 150);" [routerLink]="['/user/querycontent']" [queryParams]="{queryid:queriesList?.queryid}" ></button>
+                <button  pButton type="button" icon="pi pi-backward" pTooltip="Revert Query Status"
+                tooltipPosition="bottom" style="margin-right:5px ;background-color:rgb(99, 33, 160);"  (click)="revertQueryStatus(queriesList)" [disabled]="(queriesList?.status=='pending')" ></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td class="text-center text-danger font-weight-700" colspan="10">
+            No Records Found.
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <ngx-ui-loader [fgsColor]="'#000000'" [fgsType]="fgsType"></ngx-ui-loader>
+  </div>
