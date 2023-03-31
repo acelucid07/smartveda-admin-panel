@@ -18,69 +18,69 @@ export class InfluencerService {
     getInfluencerList(): Observable<Bundle[]> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/getFilteredResults?inputField`;
+        const endpointUrl = `${environment.BASE_URL}/getFilteredResults?inputField`;
         return this.http.get<Bundle[]>(endpointUrl,{ 'headers': httpOptions });
     }
 
     getCostDetails(){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/getFilteredResults?inputField=spo`;
+        const endpointUrl = `${environment.BASE_URL}/getFilteredResults?inputField=spo`;
         return this.http.get<any>(endpointUrl,{ 'headers': httpOptions });
     }
     editReelCost(data:any){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/setCalculateCostForReel`;
+        const endpointUrl = `${environment.BASE_URL}/setCalculateCostForReel`;
         return this.http.post<any>(endpointUrl, data, { 'headers': httpOptions });   
     }
 
     editPostCost(data:any){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/setCalculateCostForPosts`;
+        const endpointUrl = `${environment.BASE_URL}/setCalculateCostForPosts`;
         return this.http.post<any>(endpointUrl, data, { 'headers': httpOptions });   
     }
 
     editStoryCost(data:any){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/setCalculateCostForStories`;
+        const endpointUrl = `${environment.BASE_URL}/setCalculateCostForStories`;
         return this.http.post<any>(endpointUrl, data, { 'headers': httpOptions });   
     }
     
     editIgtvCost(data:any){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/setCalculateCostForIgtv`;
+        const endpointUrl = `${environment.BASE_URL}/setCalculateCostForIgtv`;
         return this.http.post<any>(endpointUrl, data, { 'headers': httpOptions });   
     }
 
     editSwipeUpCost(data:any){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/setCalculateCostForSwipeupStories`;
+        const endpointUrl = `${environment.BASE_URL}/setCalculateCostForSwipeupStories`;
         return this.http.post<any>(endpointUrl, data, { 'headers': httpOptions });   
     }
 
     editVideoCost(data:any){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/setCalculateCostForVideos`;
+        const endpointUrl = `${environment.BASE_URL}/setCalculateCostForVideos`;
         return this.http.post<any>(endpointUrl, data, { 'headers': httpOptions });   
     }
 
     getInfluencersResults(query:String){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/filterUsers?username=${query}`;
+        const endpointUrl = `${environment.BASE_URL}/filterUsers?username=${query}`;
         return this.http.get<any>(endpointUrl, { 'headers': httpOptions });   
     }
 
     editInfluencerCost(data:any){
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/setInfluencerCost`;
+        const endpointUrl = `${environment.BASE_URL}/setInfluencerCost`;
         return this.http.put<any>(endpointUrl,data ,{ 'headers': httpOptions }); 
     }
     // getCategoryById(id: number): Observable<CATEGORY> {
@@ -102,7 +102,7 @@ export class InfluencerService {
 
 //         const options:RequestOptions
 //         = {
-//             hostname: `${environment.BASE_URL_NEW}`,
+//             hostname: `${environment.BASE_URL}`,
 //             path: '/searchbyusername',
 //             method: 'POST',
 //             headers: {
@@ -128,7 +128,7 @@ export class InfluencerService {
 //    })
   
 //    let httpOptions = new HttpHeaders().set('x-access-token', token)
-//    const endpointUrl = `${environment.BASE_URL_NEW}/getInfluencersDetails`;
+//    const endpointUrl = `${environment.BASE_URL}/getInfluencersDetails`;
 //    return this.http.post<any>(endpointUrl, username, { 'headers': httpOptions });
 
 // }).catch(err => console.log(err))

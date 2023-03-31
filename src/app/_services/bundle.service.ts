@@ -18,7 +18,7 @@ export class BundleService {
     getBundleList(): Observable<Bundle[]> {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/showCategorizedBasket`;
+        const endpointUrl = `${environment.BASE_URL}/showCategorizedBasket`;
         return this.http.get<Bundle[]>(endpointUrl);
         // return of(category)
     }
@@ -27,7 +27,7 @@ export class BundleService {
         const token = localStorage.getItem('token') || '';
         console.log(token)
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/createCategorizedBasket`;
+        const endpointUrl = `${environment.BASE_URL}/createCategorizedBasket`;
         return this.http.post<any>(endpointUrl, data, { 'headers': httpOptions });
     }
     // getCategoryById(id: number): Observable<CATEGORY> {
@@ -42,7 +42,7 @@ export class BundleService {
     addInfluencers(data: any) {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/addInfluencersToBasket`;
+        const endpointUrl = `${environment.BASE_URL}/addInfluencersToBasket`;
         return this.http.post<any>(endpointUrl, data, { 'headers': httpOptions });
     }
 
@@ -57,7 +57,7 @@ export class BundleService {
 
 //         const options:RequestOptions
 //         = {
-//             hostname: `${environment.BASE_URL_NEW}`,
+//             hostname: `${environment.BASE_URL}`,
 //             path: '/searchbyusername',
 //             method: 'POST',
 //             headers: {
@@ -83,7 +83,7 @@ export class BundleService {
 //    })
   
 //    let httpOptions = new HttpHeaders().set('x-access-token', token)
-//    const endpointUrl = `${environment.BASE_URL_NEW}/getInfluencersDetails`;
+//    const endpointUrl = `${environment.BASE_URL}/getInfluencersDetails`;
 //    return this.http.post<any>(endpointUrl, username, { 'headers': httpOptions });
 
 // }).catch(err => console.log(err))
@@ -101,7 +101,7 @@ export class BundleService {
         form.append('image',data)
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.BASE_URL_NEW}/addImageToBasket`+'?categoryName='+bundleName;
+        const endpointUrl = `${environment.BASE_URL}/addImageToBasket`+'?categoryName='+bundleName;
         return this.http.post<any>(endpointUrl, form,{ 'headers': httpOptions });
     }
 
