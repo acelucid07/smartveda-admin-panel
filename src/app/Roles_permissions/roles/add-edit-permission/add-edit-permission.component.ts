@@ -435,26 +435,36 @@ export class AddEditPermissionComponent implements OnInit {
 
   getUserList() {
     this.userService.getUsers().subscribe((res: any) => {
+      let userPermitted = []
       this.userData = res.data;
-      this.userData = this.userData.filter(val => {
-        if (val.username && (val.username != '' || val.username != null)&&val.username != 'vipin') {
-          this.userlist.push(val.username)
-          return val.username
-        }
-        else
-          return null
-      })
-      console.log(this.userData, this.userlist)
-      this.activatedRoute.queryParamMap.subscribe((params) => {
-        this.name = params.get('user')
-        if (this.name) {
-          this.title = 'Edit';
-          this.getPermissionDetail()
-        }
-        else {
-          this.title = "Add";
-        }
-      })
+      if (res.data) {
+        this.permissionService.getPermittedModuleList().subscribe((resValue) => {
+          resValue.forEach(dataValue => {
+            userPermitted.push(dataValue.username)
+          })
+
+          // console.log(userPermitted)
+          this.userData = this.userData.filter(val => {
+            if (val.username && (val.username != '' || val.username != null) && val.username != 'vipin' && !userPermitted.includes(val.username)) {
+              this.userlist.push(val.username)
+              return val.username
+            }
+            else
+              return null
+          })
+          // console.log(this.userData, this.userlist)
+          this.activatedRoute.queryParamMap.subscribe((params) => {
+            this.name = params.get('user')
+            if (this.name) {
+              this.title = 'Edit';
+              this.getPermissionDetail()
+            }
+            else {
+              this.title = "Add";
+            }
+          })
+        })
+      }
     });
   }
 
