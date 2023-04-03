@@ -14,7 +14,7 @@
             <button mat-button color="primary">
                 <mat-icon>camera</mat-icon>CHANGE
             </button> -->
-            <label>Profile Image</label>
+            <label class="starlabel">Profile Image</label>
             <div class="d-flex justify-content-start h-75"><img style="height:180px; width:180px" [src]="Image" /></div>
             <!-- <label for="imageUpload" class="col-form-label">Image</label> -->
            <div class="mt-1">
@@ -92,7 +92,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-end ">
-        <button type="submit" class="btn btn-info mr-3" [disabled]="!adminForm.valid"(click)="submit()">Submit</button>
+        <button type="submit" class="btn btn-info mr-3" [disabled]="(!adminForm.valid)||(!(!!imageData))"(click)="submit()">Submit</button>
         <button class="btn btn-info" [routerLink]="['/roleandpermission/adminlist']">Cancel</button>
     </div>
 </form>
