@@ -29,7 +29,8 @@
     <ng-template pTemplate="body" let-list let-i="rowIndex">
         <tr>
             <td>{{i+1}}</td>
-            <td><img style="width:100px;height: 100px;" [src]="list.image" ></td>
+            <td><div *ngIf="!!list.image; else defaultImg"><img style="width:100px;height: 100px;" [src]="list.image" ></div>
+                </td>
             <td>{{list.username}}</td>
             <td>{{list.email}}</td>
             <td>{{list.role}}</td>
@@ -49,3 +50,6 @@
         </tr>
     </ng-template>
 </p-table>
+<ng-template #defaultImg>
+    <div ><img [src]="image" style="width:100px;height: 100px;"></div>
+</ng-template>

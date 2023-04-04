@@ -16,7 +16,7 @@ export class AddAdminComponent implements OnInit {
   title:string;
   adminForm:FormGroup
   Image:any="https://source.unsplash.com/c_GmwfHBDzk/200x200"
-  imageData: any;
+  imageData: any=null;
   
   // private _passData: string;
 

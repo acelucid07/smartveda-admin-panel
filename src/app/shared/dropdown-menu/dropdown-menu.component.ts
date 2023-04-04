@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/_services/admin.service';
 
 @Component({
   selector: 'app-dropdown-menu',
@@ -34,11 +35,15 @@ export class DropdownMenuComponent implements OnInit {
   menuState: string = '';
   myTripsUrl: string = '';
   settingsClass: string = '';
+  user:string=''
   @ViewChild('dropdown', { static: false }) dropdown!: ElementRef;
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private adminService:AdminService
+  ) {
+    this.user =localStorage.getItem('UserData')
+   }
 
   ngOnInit() {
 
@@ -59,6 +64,7 @@ export class DropdownMenuComponent implements OnInit {
       this.menuState = 'close';
     }
   }
+  
 
   onLogout(){
     window.localStorage.removeItem('token');

@@ -16,29 +16,24 @@ export class EditAdminComponent implements OnInit {
   imageData:File=null;
   username:string
   constructor(
-    private adminService:AdminService,
-    private activatedroute:ActivatedRoute,
-    private route:Router
+    private adminService: AdminService,
+    private activatedroute: ActivatedRoute,
+    private route: Router
   ) {
-    this.adminForm=new FormGroup(
-      {
-    userName: new FormControl('',[Validators.required]),
-    userEmail: new FormControl('',[Validators.required]),
-    contactNumber: new FormControl('',[Validators.required]),
-    adminRole: new FormControl('',[Validators.required])
-      })
-      this.activatedroute.queryParamMap.subscribe((params)=>{
-        this.username = params.get('user')
-        if(this.username)
-        {
-         this.getAdmindetails()
-        }
-      })
-
-  
-  this.getAdmindetails()
- 
-}
+    this.adminForm = new FormGroup({
+      userName: new FormControl('', [Validators.required]),
+      userEmail: new FormControl('', [Validators.required]),
+      contactNumber: new FormControl('', [Validators.required]),
+      adminRole: new FormControl('', [Validators.required])
+    })
+    this.activatedroute.queryParamMap.subscribe((params) => {
+      this.username = params.get('user')
+      if (this.username) {
+        this.getAdmindetails()
+      }
+    })
+    this.getAdmindetails()
+  }
 
   ngOnInit(): void {
     bsCustomFileInput.init();
@@ -46,6 +41,7 @@ export class EditAdminComponent implements OnInit {
 
   getAdmindetails(){
     this.adminService.getAdminDetails(this.username).subscribe((res)=>{
+      if(res[0].image)
       this.Image=res[0].image
       this.adminForm.patchValue({
         userName:res[0].username,
@@ -53,10 +49,10 @@ export class EditAdminComponent implements OnInit {
         contactNumber:res[0].phone,
         adminRole:res[0].role
     })
-   
    this.prevImageName=this.Image.toString().split('.com/')[1]
     })
   }
+
   submit() {
     let payload = {
       username: this.adminForm.controls['userName'].value,
