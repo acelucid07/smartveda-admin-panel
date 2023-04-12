@@ -122,50 +122,42 @@ export class AddEditPermissionComponent implements OnInit {
       OrderList: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       OrderTransaction: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       OrderShipment: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       CatalogProduct: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       CatalogCategory: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       MarketingCoupon: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       MarketingRewards: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       CmsBanner: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       // CmsSlider: new FormGroup({
       //   add: new FormControl(false),
@@ -182,50 +174,42 @@ export class AddEditPermissionComponent implements OnInit {
       AppointmentList: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       UserList: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       RatingList: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       ReviewList: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       ReviewerList: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       LeadList: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       RatingSetting: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       }),
       UsertypeSetting: new FormGroup({
         add: new FormControl(false),
         edit: new FormControl(false),
-        delete: new FormControl(false),
-        view: new FormControl(false),
+        delete: new FormControl(false)
       })
 
     });
