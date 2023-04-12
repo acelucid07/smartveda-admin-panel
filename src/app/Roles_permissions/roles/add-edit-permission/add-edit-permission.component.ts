@@ -608,7 +608,7 @@ export class AddEditPermissionComponent implements OnInit {
     }
     if (Object.values(ratingListFormGroup.value).includes(true)||Object.values(reviewListFormGroup.value).includes(true)||Object.values(reviewerListFormGroup.value).includes(true)||Object.values(ratingSettingFormGroup.value).includes(true)||Object.values(usertypeSettingFormGroup.value).includes(true)) {
       // console.log(Object.values(ratingListFormGroup.value).includes(true),)
-      modules.push('Rating&Review')
+      modules.push('Rating & Review')
       // Object.assign(payload, {
       //   RatingList: {
       //     add: ratingListFormGroup.controls['add'].value,
