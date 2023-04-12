@@ -14,7 +14,7 @@ export class AdminService {
    getAdminList():Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.JSON_SERVER}/registeredusers`
+    const endpointUrl = `${environment.BASE_URL}/registeredusers`
     return this.http.get<any[]>(endpointUrl,{ 'headers': httpOptions });
     // return of(adminlistData)
   }
@@ -22,7 +22,7 @@ export class AdminService {
   getAdminDetails(user:string):Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.JSON_SERVER}/user?username=${user}`
+    const endpointUrl = `${environment.BASE_URL}/user?username=${user}`
     // return this.http.get<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
     
     // console.log(ratingCriteriaList)
@@ -49,7 +49,7 @@ export class AdminService {
     // Object.assign(httpOptions, new HttpHeaders())
     console.log(httpOptions.has('Content-Type'))
     // Object.assign()
-    const endpointUrl = `${environment.JSON_SERVER}/signup`;
+    const endpointUrl = `${environment.BASE_URL}/signup`;
     // payload.sno=adminlistData.length+1;
     // payload.image="image";
     // let date = new Date();
@@ -81,7 +81,7 @@ export class AdminService {
     // Object.assign(httpOptions, new HttpHeaders())
     console.log(httpOptions.has('Content-Type'))
     // Object.assign()
-    const endpointUrl = `${environment.JSON_SERVER}/signup`;
+    const endpointUrl = `${environment.BASE_URL}/signup`;
     // payload.sno=adminlistData.length+1;
     // payload.image="image";
     // let date = new Date();
@@ -100,7 +100,7 @@ export class AdminService {
 {
   const token = localStorage.getItem('token') || '';
   let httpOptions = new HttpHeaders().set('x-access-token', token)
-  const endpointUrl = `${environment.JSON_SERVER}/signup`;
+  const endpointUrl = `${environment.BASE_URL}/signup`;
   const formData = new FormData();
 
   
@@ -126,7 +126,7 @@ export class AdminService {
 deleteAdminDetails(name:string):Observable<any[]>{
   const token =localStorage.getItem('token') || '';
   let httpOptions = new HttpHeaders().set('x-access-token',token)
-  const endpointUrl = `${environment.JSON_SERVER}/signup?user=${name}`
+  const endpointUrl = `${environment.BASE_URL}/signup?user=${name}`
   // let filteredreviewer = adminlistData.splice(adminlistData.findIndex((index) => index.username== name),1);
   //       return of(filteredreviewer)
   return this.http.delete<any[]>(endpointUrl,{ 'headers': httpOptions });
