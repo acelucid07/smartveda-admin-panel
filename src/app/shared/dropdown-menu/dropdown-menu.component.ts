@@ -37,12 +37,13 @@ export class DropdownMenuComponent implements OnInit {
   settingsClass: string = '';
   user:string=''
   @ViewChild('dropdown', { static: false }) dropdown!: ElementRef;
+  @ViewChild('submenu', { static: false }) submenu!: ElementRef;
 
   constructor(
     private router: Router,
     private adminService:AdminService
   ) {
-    this.user =localStorage.getItem('UserData')
+    this.user =localStorage.getItem('role')
    }
 
   ngOnInit() {
@@ -60,7 +61,7 @@ export class DropdownMenuComponent implements OnInit {
   }
 
   @HostListener('window:click', ['$event']) onClick($event: MouseEvent) {
-    if (this.dropdown && this.dropdown.nativeElement.contains($event.target) === false) {
+    if ((this.dropdown && this.dropdown.nativeElement.contains($event.target) === false)|| this.submenu.nativeElement.contains($event.target)) {
       this.menuState = 'close';
     }
   }

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import {SideNaveMenueRoute} from './sidebar-routes.config'
 import {MenuItem} from 'primeng/api';
 import { ModulePermissionService } from 'src/app/_services/module-permission.service';
+import { AdminService } from 'src/app/_services/admin.service';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -53,13 +54,15 @@ export class SidenavComponent implements OnInit {
   items!: MenuItem[];
   moduleList:string[]=[];
   username:string;
+  image:string="https://source.unsplash.com/c_GmwfHBDzk/200x200";
   itemShow:any[]=[]
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
 
   constructor(private observer: BreakpointObserver, private router: Router,
-    private permissionService:ModulePermissionService) { 
+    private permissionService:ModulePermissionService,
+    private adminService:AdminService) { 
     this.permissionService.getModulePermission().subscribe(res=>{ 
       this.moduleList=res[0].moduleList
       this.username=res[0].username;
@@ -72,8 +75,22 @@ export class SidenavComponent implements OnInit {
         return null
       })
     }) 
-   
+
+      this.username = localStorage.getItem('UserData')
+    this.getImage()
     // console.log(this.itemShow)
+  }
+
+  // ngDoCheck(){
+  //   this.check = (window.location.href.split(environment.IP_ADDRESS)[1]=='/' || window.location.href.split(environment.IP_ADDRESS)[1]=='/login')?false:true;
+  // }
+  getImage() {
+    this.adminService.getAdminDetails(this.username).subscribe((res) => {
+      if (res[0].image) {
+        this.image = res[0].image
+        console.log(this.image)
+      }
+    })
   }
 
   ngOnInit() {

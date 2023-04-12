@@ -436,6 +436,7 @@ export class AddEditPermissionComponent implements OnInit {
   getUserList() {
     this.userService.getUsers().subscribe((res: any) => {
       let userPermitted = []
+      console.log(res.data)
       this.userData = res.data;
       if (res.data) {
         this.permissionService.getPermittedModuleList().subscribe((resValue) => {
@@ -444,13 +445,11 @@ export class AddEditPermissionComponent implements OnInit {
           })
 
           // console.log(userPermitted)
-          this.userData = this.userData.filter(val => {
-            if (val.username && (val.username != '' || val.username != null) && val.username != 'vipin' && !userPermitted.includes(val.username)) {
+          this.userData = this.userData.map(val => {
+            if (val.username && (val.username != '' || val.username != null) && val.role != 'superAdmin' && !userPermitted.includes(val.username)) {
               this.userlist.push(val.username)
               return val.username
             }
-            else
-              return null
           })
           // console.log(this.userData, this.userlist)
           this.activatedRoute.queryParamMap.subscribe((params) => {
@@ -458,6 +457,7 @@ export class AddEditPermissionComponent implements OnInit {
             if (this.name) {
               this.title = 'Edit';
               this.getPermissionDetail()
+              Object.assign(this.userlist,userPermitted)
             }
             else {
               this.title = "Add";

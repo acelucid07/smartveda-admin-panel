@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
             this.toastr.showError("Login failed", "Login");
           }
           else{
-            localStorage.setItem('UserData', res.username); localStorage.setItem('token', res.token);
+            localStorage.setItem('UserData', res.username); 
+            localStorage.setItem('token', res.token);
+            localStorage.setItem('role', res.role); 
             this.router.navigateByUrl("/dashboard");
             // console.log(res.body.data)
             // localStorage.setItem('UserData', res.username);

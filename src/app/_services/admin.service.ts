@@ -14,7 +14,7 @@ export class AdminService {
    getAdminList():Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.BASE_URL}/registeredusers`
+    const endpointUrl = `${environment.JSON_SERVER}/registeredusers`
     return this.http.get<any[]>(endpointUrl,{ 'headers': httpOptions });
     // return of(adminlistData)
   }
@@ -22,7 +22,7 @@ export class AdminService {
   getAdminDetails(user:string):Observable<any[]>{
     const token = localStorage.getItem('token') || '';
     let httpOptions = new HttpHeaders().set('x-access-token',token);
-    const endpointUrl = `${environment.BASE_URL}/user?username=${user}`
+    const endpointUrl = `${environment.JSON_SERVER}/user?username=${user}`
     // return this.http.get<any[]>(endpointUrl,payload ,{ 'headers': httpOptions });
     
     // console.log(ratingCriteriaList)
@@ -49,7 +49,7 @@ export class AdminService {
     // Object.assign(httpOptions, new HttpHeaders())
     console.log(httpOptions.has('Content-Type'))
     // Object.assign()
-    const endpointUrl = `${environment.BASE_URL}/signup`;
+    const endpointUrl = `${environment.JSON_SERVER}/signup`;
     // payload.sno=adminlistData.length+1;
     // payload.image="image";
     // let date = new Date();
@@ -62,11 +62,45 @@ export class AdminService {
     // return of(adminlistData);
   }
 
+  submitEditedSuperAdminDetail(payload:any):Observable<any[]>{
+    const token = localStorage.getItem('token') || '';
+    let httpOptions = new HttpHeaders().set('x-access-token', token);
+    const formData = new FormData();
+
+    formData.append('username', payload.username);
+    formData.append('phone', payload.phone);
+    formData.append('email', payload.email);
+    formData.append('role', payload.role);
+    if (!!payload.password)
+      formData.append('password', payload.password);
+    if (!!payload.image)
+      formData.append('image', payload.image);
+    if (payload.prevImageName != '')
+      formData.append('prevImgName', payload.prevImageName);
+
+    // Object.assign(httpOptions, new HttpHeaders())
+    console.log(httpOptions.has('Content-Type'))
+    // Object.assign()
+    const endpointUrl = `${environment.JSON_SERVER}/signup`;
+    // payload.sno=adminlistData.length+1;
+    // payload.image="image";
+    // let date = new Date();
+    // payload.firstRating = date.toISOString().split('T')[0];
+    // payload.rating = '4';
+    // adminlistData.push(payload);
+    // console.log(adminlistData)
+    // console.log(formData.get('password'));
+    return this.http.put<any[]>(endpointUrl,formData ,{ 'headers': httpOptions });
+    // return of(adminlistData);
+  }
+
+
+
   submitEditedAdminDetail(payload:any):Observable<any[]>
 {
   const token = localStorage.getItem('token') || '';
   let httpOptions = new HttpHeaders().set('x-access-token', token)
-  const endpointUrl = `${environment.BASE_URL}/signup`;
+  const endpointUrl = `${environment.JSON_SERVER}/signup`;
   const formData = new FormData();
 
   
@@ -74,7 +108,9 @@ export class AdminService {
       formData.append('phone', payload.phone);
       formData.append('email', payload.email);
       formData.append('role', payload.role);
+      console.log(payload.image)
       formData.append('image', payload.image);
+      if(payload.prevImageName!='')
       formData.append('prevImgName', payload.prevImageName);
   // adminlistData.map((res)=>{
     // if (res.sno == serialno) {
@@ -90,7 +126,7 @@ export class AdminService {
 deleteAdminDetails(name:string):Observable<any[]>{
   const token =localStorage.getItem('token') || '';
   let httpOptions = new HttpHeaders().set('x-access-token',token)
-  const endpointUrl = `${environment.BASE_URL}/signup?user=${name}`
+  const endpointUrl = `${environment.JSON_SERVER}/signup?user=${name}`
   // let filteredreviewer = adminlistData.splice(adminlistData.findIndex((index) => index.username== name),1);
   //       return of(filteredreviewer)
   return this.http.delete<any[]>(endpointUrl,{ 'headers': httpOptions });

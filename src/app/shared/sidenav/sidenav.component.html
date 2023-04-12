@@ -1,7 +1,7 @@
 <div *ngIf="device === 'desktop'" class="sidebar-cont" [@toggleSidebar]="state">
     <div class="sidebar">
         <div class="profile-img"><img class="avatar mat-elevation-z8"
-                src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
+                [src]="image" /></div>
 
         <h4 class="name">{{username}}</h4>
 

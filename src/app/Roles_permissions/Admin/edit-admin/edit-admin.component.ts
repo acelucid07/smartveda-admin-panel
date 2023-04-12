@@ -12,7 +12,7 @@ import { AdminService } from 'src/app/_services/admin.service';
 export class EditAdminComponent implements OnInit {
   adminForm:FormGroup;
   Image:string|ArrayBuffer="https://source.unsplash.com/c_GmwfHBDzk/200x200";
-  prevImageName:string
+  prevImageName:string=''
   imageData:File=null;
   username:string
   constructor(
@@ -42,14 +42,15 @@ export class EditAdminComponent implements OnInit {
   getAdmindetails(){
     this.adminService.getAdminDetails(this.username).subscribe((res)=>{
       if(res[0].image)
-      this.Image=res[0].image
+      {this.Image=res[0].image
+      this.prevImageName=this.Image.toString().split('.com/')[1]
+      }
       this.adminForm.patchValue({
         userName:res[0].username,
         userEmail:res[0].email,
         contactNumber:res[0].phone,
         adminRole:res[0].role
     })
-   this.prevImageName=this.Image.toString().split('.com/')[1]
     })
   }
 
@@ -72,7 +73,7 @@ export class EditAdminComponent implements OnInit {
 
   OnChangesEvent(event) {
     this.imageData = event.target.files[0];
-    // console.log(event.target.files)
+    // console.log(event.target.files[0])
     var reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = (data) => {

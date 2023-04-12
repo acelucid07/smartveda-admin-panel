@@ -1,0 +1,136 @@
+<div class="d-flex justify-content-center">
+    <div class="card p-5" style="width:1000px; height: auto;">
+        <div class="card-body">
+            <div class="mt-1 mb-5">
+                <h4>Edit Super Admin Details</h4>
+            </div>
+            <form [formGroup]="adminForm">
+                <div class="row mt-2 mb-4">
+                    <!-- <div class="form-group col-3">
+                <div class="d-flex justify-content-start"><img  src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
+         </div> -->
+                    <div class="form-group col-4">
+                        <!-- div><img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /></div>
+                <button mat-button color="primary">
+                    <mat-icon>camera</mat-icon>CHANGE
+                </button> -->
+                        <label>Profile Image</label>
+                        <div class="d-flex justify-content-start h-75"><img style="height:180px; width:180px"
+                                [src]="Image" /></div>
+                        <!-- <label for="imageUpload" class="col-form-label">Image</label> -->
+                        <div class="mt-1">
+                            <div id="imageUpload" class="custom-file col-8 ">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                    (change)="OnChangesEvent($event)">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-8">
+                        <div class="row " style="margin-top: 40px;"><label for="username"
+                                class="col-form-label starlabel col-3">User Name</label>
+                            <div class="col-9"><input id="username" type="text" class="form-control"
+                                    formControlName="userName">
+                                <div
+                                    *ngIf="!adminForm.controls['userName'].valid && adminForm.controls['userName'].touched ">
+                                    <div [hidden]="!adminForm.controls['userName'].errors['required']"
+                                        style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">
+                                        UserName is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row " style="margin-top: 100px;">
+                            <label for="username" class="col-form-label starlabel col-3">User Email</label>
+                            <div class="col-9"><input id="username" readonly type="text" class="form-control"
+                                    formControlName="userEmail">
+                                <div
+                                    *ngIf="!adminForm.controls['userEmail'].valid && adminForm.controls['userEmail'].touched ">
+                                    <div [hidden]="!adminForm.controls['userEmail'].errors['required']"
+                                        style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">User's
+                                        Email is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group col-6">
+                <label for="username" class="col-form-label starlabel">User Email</label>
+                <input id="username" type="text" class="form-control" formControlName="userEmail">
+                <div *ngIf="!adminForm.controls['userEmail'].valid && adminForm.controls['userEmail'].touched ">
+                    <div [hidden]="!adminForm.controls['userEmail'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">User's Email is required</div>
+                </div>
+            </div> -->
+
+
+                </div>
+                <div class="row mb-4">
+                    <div class="form-group col-6">
+                        <label for="username" class="col-form-label starlabel">Contact Number</label>
+                        <input id="username" type="number" class="form-control" formControlName="contactNumber">
+                        <div
+                            *ngIf="!adminForm.controls['contactNumber'].valid && adminForm.controls['contactNumber'].touched ">
+                            <div [hidden]="!adminForm.controls['contactNumber'].errors['required']"
+                                style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">Contact Number
+                                is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="username" class="col-form-label starlabel">Admin role</label>
+                        <input id="username" readonly type="text" class="form-control" formControlName="adminRole">
+                        <!-- <p-dropdown [options]="roleList" styleClass="roledropdown"  placeholder="Select" formControlName="adminRole"></p-dropdown> -->
+                        <div *ngIf="!adminForm.controls['adminRole'].valid && adminForm.controls['adminRole'].touched ">
+                            <div [hidden]="!adminForm.controls['adminRole'].errors['required']"
+                                style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">Admin role is
+                                required</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div *ngIf="newPassword">
+                    <form [formGroup]="passwordSubForm">
+                        <div class="row mb-5">
+                            <div class="form-group col-6">
+                                <label for="username" class="col-form-label starlabel">New Password</label>
+                                <input id="username" type="password" class="form-control" formControlName="password">
+                                <div
+                                    *ngIf="!passwordSubForm.controls['password'].valid && passwordSubForm.controls['password'].touched ">
+                                    <div [hidden]="!passwordSubForm.controls['password'].errors['required']"
+                                        style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">
+                                        Password is required</div>
+                                </div>
+
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="username" class="col-form-label starlabel">Confirm Password</label>
+                                <input id="username" type="password" class="form-control"
+                                    formControlName="confirmPassword">
+                                <div
+                                    *ngIf="!passwordSubForm.controls['confirmPassword'].valid && passwordSubForm.controls['confirmPassword'].touched ">
+                                    <div [hidden]="!passwordSubForm.controls['confirmPassword'].errors['required']"
+                                        style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">
+                                        Confirm Password is
+                                        required</div>
+                                </div>
+
+                                <div
+                                    *ngIf="!passwordSubForm.valid && passwordSubForm.controls['confirmPassword'].dirty&&passwordSubForm.controls['confirmPassword'].value ">
+                                    <div [hidden]="!passchecker"
+                                        style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">
+                                        Password does not match</div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="d-flex justify-content-end ">
+                    <button [hidden]="newPassword" class="btn btn-info mr-3" (click)="newPassword=true">Add new
+                        Password</button>
+                    <button type="submit" class="btn btn-info mr-3" [disabled]="(!adminForm.valid)||!passwordFormCheck "
+                        (click)="submit()">Submit</button>
+                    <button class="btn btn-info" (click)="navigateBack()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
