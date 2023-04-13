@@ -89,6 +89,9 @@
             <div *ngIf="!adminForm.controls['adminRole'].valid && adminForm.controls['adminRole'].touched ">
                 <div [hidden]="!adminForm.controls['adminRole'].errors['required']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">Admin role is required</div>
             </div>
+            <div *ngIf="!adminForm.controls['adminRole'].valid && adminForm.controls['adminRole'].touched ">
+                <div [hidden]="!adminForm.controls['adminRole'].errors['EnteredValueError']" style="font-size:smaller; color: rgb(253, 122, 122); font-style: italic;">input can be user or admin only</div>
+            </div>
         </div>
     </div>
     <div class="d-flex justify-content-end ">

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators,ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AdminService } from 'src/app/_services/admin.service';
 import { passcheck } from '../password.validator';
@@ -24,6 +24,16 @@ export class AddAdminComponent implements OnInit {
   //   this._passData = v;
   // }
   
+ rolecheck(control: AbstractControl):ValidationErrors| null {
+     let value = control.value
+          let roles=['user','admin']
+  
+          if(!!value && roles.includes(value)==false)
+          {
+              return {EnteredValueError:true}
+          }
+          return null
+  }  
 
    get passchecker() : boolean {
    return this.adminForm.getError('mismatch')
@@ -45,7 +55,7 @@ export class AddAdminComponent implements OnInit {
       contactNumber: new FormControl('',[Validators.required]),
       password: new FormControl('',[Validators.required]),
       confirmPassword: new FormControl('',[Validators.required]),
-      adminRole: new FormControl('',[Validators.required]),
+      adminRole: new FormControl('',[Validators.required,this.rolecheck]),
     },passcheck)
 
     // activatedroute.queryParamMap.subscribe((params)=>{
