@@ -14,7 +14,7 @@ export class UsersService {
     getUsers(): any {
         const token = localStorage.getItem('token') || '';
         let httpOptions = new HttpHeaders().set('x-access-token', token)
-        const endpointUrl = `${environment.JSON_SERVER}/users`;
+        const endpointUrl = `${environment.BASE_URL}/users`;
         return this.http.get(endpointUrl, { 'headers': httpOptions }).pipe(map(res => res));
     }
 
