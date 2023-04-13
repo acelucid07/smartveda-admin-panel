@@ -31,7 +31,7 @@ export class AddBannerSpecialComponent implements OnInit {
     private CmsService: CmsService
     ) {
       this.bannerSpecialForm = this.fb.group({
-        id:['',Validators.required],
+        id:['',],
         url: ['', [Validators.required]],
         sortby: ['', [Validators.required]],
         description: ['', [Validators.required]],
@@ -86,7 +86,7 @@ export class AddBannerSpecialComponent implements OnInit {
    this.payload = {
     id: this.bannerSpecialForm.controls['id'].value,
     url: this.bannerSpecialForm.controls['url'].value,
-    //image: this.image,
+    image: this.image,
     description: this.bannerSpecialForm.controls['description'].value,
     sortby: this.bannerSpecialForm.controls['sortby'].value,
   }

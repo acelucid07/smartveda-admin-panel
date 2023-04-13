@@ -9,6 +9,7 @@ import {AddEditSponsorComponent} from './banner/add-edit-sponsor/add-edit-sponso
 import { Slider1Component } from './slider/slider1/slider1.component';
 import { BannerSpecialComponent } from './banner-special/banner-special/banner-special.component';
 import { AddBannerSpecialComponent } from './banner-special/add-banner-special/add-banner-special.component';
+import { FeatureProductListComponent } from './feature-product/feature-product-list/feature-product-list.component';
 const routes: Routes = [
   {
     path:'category', component: CategoryComponent
@@ -45,7 +46,10 @@ const routes: Routes = [
   },
   {
     path: 'add-special-banner', component: AddBannerSpecialComponent
-  }
+  },
+  {
+    path: 'feature', component: FeatureProductListComponent
+  },
 
  
 ];

@@ -39,7 +39,16 @@ export interface BANNERSPECIAL {
     id: number,
     url: string,
     sortby: string,
-    //image: File|any,
+    image: File|any,
     description: string,
     
+}
+
+export interface FEATURE {
+    id: number,
+    image: File|any,
+    productName: string,
+    modal: string,
+    price: string,
+    quantity: string
 }

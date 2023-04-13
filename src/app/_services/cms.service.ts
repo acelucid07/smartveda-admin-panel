@@ -2,10 +2,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of, Observable, from } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { CATEGORY, SUB_CATEGORY, SPONSOR, BANNERSPECIAL } from '../_models/cms'
+import { CATEGORY, SUB_CATEGORY, SPONSOR, BANNERSPECIAL, FEATURE } from '../_models/cms'
 import { category, sub_category } from '../DummyData/category_subCategory';
 import {sponsors} from '../DummyData/sponsor'
 import { bannerSpecialData } from '../DummyData/bannerSpecial';
+import { featureData } from '../DummyData/feature';
 
 @Injectable({
     providedIn: 'root'
@@ -203,5 +204,15 @@ export class CmsService {
         let indexObj = bannerSpecialData.findIndex((obj)=>obj.id==id);
         //return this.http.get<CATEGORY>(endpointUrl,{ 'headers': httpOptions });
         return of(bannerSpecialData[indexObj])
+    }
+
+    // ----------------FEATURE API----------------
+
+    getFeatureList(): Observable<FEATURE[]> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+       // const endpointUrl = `${environment.JSON_SERVER}/category`;
+        // return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
+        return of(featureData)
     }
 }
