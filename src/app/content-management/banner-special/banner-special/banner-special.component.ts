@@ -7,6 +7,9 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { ModulePermissionService } from 'src/app/_services/module-permission.service';
 import { CmsService } from '../../../_services/cms.service';
 import { access } from 'src/app/_models/modulepermission';
+import { DialogComponent } from 'src/app/leads/dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { BannerDialogComponent } from '../banner-dialog/banner-dialog.component';
 @Component({
   selector: 'app-banner-special',
   templateUrl: './banner-special.component.html',
@@ -23,7 +26,8 @@ export class BannerSpecialComponent implements OnInit {
   constructor(private ngxLoader: NgxUiLoaderService,
     private CmsService: CmsService,
     private toastr: ToastrMsgService,
-    private permissionService:ModulePermissionService) {
+    private permissionService:ModulePermissionService,
+    public dialog: MatDialog) {
       this.permissionService.getModulePermission().subscribe(res=>{ 
         this.accessPermission=res[0].CmsBanner
         console.log( this.accessPermission)
@@ -41,6 +45,10 @@ export class BannerSpecialComponent implements OnInit {
       { field: 'action', show: true, headers: 'Action' },
     ]
     this.getbannerList();
+
+    // $('#myModal').on('shown.bs.modal', function () {
+    //   $('#myInput').trigger('focus')
+    // })
   }
   
   getbannerList() {
@@ -60,6 +68,14 @@ export class BannerSpecialComponent implements OnInit {
       }
     })
   }
+  openDialog(deleteList: any) {
+    const dialogRef = this.dialog.open(BannerDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == true) {
+        this.deleteBanner(deleteList)
+      }
+    });
+  }
 
   onToggleSidebar(sidebarState: any) {
     if (sidebarState === 'open') {
@@ -68,5 +84,7 @@ export class BannerSpecialComponent implements OnInit {
       this.sidebarSpacing = 'expanded';
     }
   }
+
+
 
 }

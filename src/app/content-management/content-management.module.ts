@@ -15,6 +15,10 @@ import { AddBannerSpecialComponent } from './banner-special/add-banner-special/a
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { FeatureProductListComponent } from './feature-product/feature-product-list/feature-product-list.component';
 import { AddFeatureProductComponent } from './feature-product/add-feature-product/add-feature-product.component';
+import { BannerDialogComponent } from './banner-special/banner-dialog/banner-dialog.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button'
 @NgModule({
   declarations: [
     CategoryComponent,
@@ -27,7 +31,8 @@ import { AddFeatureProductComponent } from './feature-product/add-feature-produc
     BannerSpecialComponent,
     AddBannerSpecialComponent,
     FeatureProductListComponent,
-    AddFeatureProductComponent
+    AddFeatureProductComponent,
+    BannerDialogComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +40,9 @@ import { AddFeatureProductComponent } from './feature-product/add-feature-produc
     ContentManagementRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatButtonModule
   ]
 })
 export class ContentManagementModule { }

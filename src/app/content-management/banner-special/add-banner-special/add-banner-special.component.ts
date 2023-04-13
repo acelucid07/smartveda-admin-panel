@@ -24,6 +24,8 @@ export class AddBannerSpecialComponent implements OnInit {
   payload: BANNERSPECIAL
   imageChangedEvent: any = '';
   croppedImage: any = '';
+  reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+
   constructor(private ngxLoader: NgxUiLoaderService, private fb: FormBuilder,
     private route: Router,
     private activateRoute: ActivatedRoute,
@@ -32,8 +34,8 @@ export class AddBannerSpecialComponent implements OnInit {
     ) {
       this.bannerSpecialForm = this.fb.group({
         id:['',],
-        url: ['', [Validators.required]],
-        sortby: ['', [Validators.required]],
+        url: ['', [Validators.required, Validators.pattern(this.reg)]],
+        sortby: ['', [Validators.pattern("^[1-5]\d*$")]],
         description: ['', [Validators.required]],
       })
      }
@@ -55,7 +57,9 @@ export class AddBannerSpecialComponent implements OnInit {
     });
 
   }
- 
+
+  get f() { return this.bannerSpecialForm.controls; }
+
 
   fileChangeEvent(event: any): void {
       this.imageChangedEvent = event;
@@ -81,8 +85,6 @@ export class AddBannerSpecialComponent implements OnInit {
   }
 
   submitForm(){
-   console.log(this.bannerSpecialForm.value);
-  
    this.payload = {
     id: this.bannerSpecialForm.controls['id'].value,
     url: this.bannerSpecialForm.controls['url'].value,
@@ -90,7 +92,8 @@ export class AddBannerSpecialComponent implements OnInit {
     description: this.bannerSpecialForm.controls['description'].value,
     sortby: this.bannerSpecialForm.controls['sortby'].value,
   }
-  console.log("xcvghbnjkml,;");
+  this.status=false
+ 
   this.ngxLoader.start();
   if (this.editMode) {
   this.editBanner();
@@ -98,8 +101,8 @@ export class AddBannerSpecialComponent implements OnInit {
     this.addCategory()
   }
   this.route.navigate[('/cms/banner')]
+  
   }
-
 
   addCategory() {
     this.CmsService.addSpecialBanner(this.bannerSpecialForm.value).subscribe(res => {
