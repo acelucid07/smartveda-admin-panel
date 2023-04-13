@@ -18,6 +18,7 @@ export class AddBannerSpecialComponent implements OnInit {
   bannerSpecialForm: FormGroup;
   fgsType: any;
   image: File;
+  status= false;
   id: any;
   editMode: boolean = false
   payload: BANNERSPECIAL
@@ -81,10 +82,11 @@ export class AddBannerSpecialComponent implements OnInit {
 
   submitForm(){
    console.log(this.bannerSpecialForm.value);
+  
    this.payload = {
     id: this.bannerSpecialForm.controls['id'].value,
     url: this.bannerSpecialForm.controls['url'].value,
-    image: this.image,
+    //image: this.image,
     description: this.bannerSpecialForm.controls['description'].value,
     sortby: this.bannerSpecialForm.controls['sortby'].value,
   }
@@ -97,6 +99,7 @@ export class AddBannerSpecialComponent implements OnInit {
   }
   this.route.navigate[('/cms/banner')]
   }
+
 
   addCategory() {
     this.CmsService.addSpecialBanner(this.bannerSpecialForm.value).subscribe(res => {
@@ -134,7 +137,7 @@ export class AddBannerSpecialComponent implements OnInit {
       this.bannerSpecialForm.patchValue({
         id: res.id,
         url: res.url,
-        image: res.image,
+       // image: res.image,
         sortby: res.sortby,
         description: res.description
       })

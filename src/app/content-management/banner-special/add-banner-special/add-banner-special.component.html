@@ -15,9 +15,9 @@
               <div class="row gutters">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
-                    <label for="name">URL</label>
+                    <label for="name" class="col-form-label text-left starlabel">URL</label>
                     <input type="url" class="form-control" formControlName="url">
-                    <div
+                    <div 
                         *ngIf="!bannerSpecialForm.controls['url'].valid && (bannerSpecialForm.controls['url'].touched || bannerSpecialForm.controls['url'].dirty)">
                         <div [hidden]="!bannerSpecialForm.controls['url'].errors['required']"
                           style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <label for="hyperlink">Sort by</label>
+                        <label for="hyperlink" class="col-form-label text-left starlabel">Sort by</label>
                         <input type="url" class="form-control" formControlName="sortby">
                         <div
                         *ngIf="!bannerSpecialForm.controls['sortby'].valid && (bannerSpecialForm.controls['sortby'].touched || bannerSpecialForm.controls['sortby'].dirty)">
@@ -43,7 +43,7 @@
                
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <div class="form-group">
-                    <label for="Name">Description</label><br>
+                    <label for="Name" class="col-form-label text-left starlabel">Description</label><br>
                     <textarea class="form-control" cols="110" rows="8" formControlName="description"></textarea>
                     <div
                         *ngIf="!bannerSpecialForm.controls['description'].valid && (bannerSpecialForm.controls['description'].touched || bannerSpecialForm.controls['description'].dirty)">
@@ -57,17 +57,15 @@
               </div>
 
               <div class="col-9 form-group pt-3">
-                <label for="imageUpload" class="col-form-label">Uplode Image</label>
+                <label for="imageUpload" class="col-form-label">Image</label>
                 <div id="imageUpload" class="custom-file">
                   <input type="file" class="custom-file-input" id="inputGroupFile01">
-                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  <label class="custom-file-label" for="inputGroupFile01">Upload file</label>
                 </div>
               </div>
 
-              <div class="col-11 form-group mt-5">
-             
+              <div class="col-11 form-group mt-5">        
                     <div class="card">
-                     
                       <div class="card-body">
                         <input type="file" (change)="fileChangeEvent($event)" />
                         <div class="row" style="margin-top: 15px;">
@@ -97,7 +95,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
                   <div class="text-center">
                     <button pButton type="button" id="submit" name="submit" class="p-button-success mr-4"
-                      (click)="submitForm()">Save</button>
+                      (click)="submitForm()" [disabled]="!(bannerSpecialForm.valid)">Save</button>
                     <button pButton type="button" id="submit" name="submit" class="p-button-danger "
                       [routerLink]="['/cms/banner']">Cancel</button>
                     

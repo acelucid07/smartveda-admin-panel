@@ -39,7 +39,7 @@ export interface BANNERSPECIAL {
     id: number,
     url: string,
     sortby: string,
-    image: File|any,
+    //image: File|any,
     description: string,
     
 }
