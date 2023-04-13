@@ -10,7 +10,9 @@ import { AddEditSponsorComponent } from './banner/add-edit-sponsor/add-edit-spon
 import { SharedModule } from '../shared/shared.module';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { Slider1Component } from './slider/slider1/slider1.component';
-
+import { BannerSpecialComponent } from './banner-special/banner-special/banner-special.component';
+import { AddBannerSpecialComponent } from './banner-special/add-banner-special/add-banner-special.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 @NgModule({
   declarations: [
     CategoryComponent,
@@ -19,10 +21,13 @@ import { Slider1Component } from './slider/slider1/slider1.component';
     AddEditCategoryComponent,
     AddEditSubcategoryComponent,
     AddEditSponsorComponent,
-    Slider1Component
+    Slider1Component,
+    BannerSpecialComponent,
+    AddBannerSpecialComponent
   ],
   imports: [
     CommonModule,
+    ImageCropperModule,
     ContentManagementRoutingModule,
     SharedModule,
     FormsModule,

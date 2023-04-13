@@ -34,3 +34,12 @@ export interface ADDRESS {
     zip: number,
     country: string
 }
+
+export interface BANNERSPECIAL {
+    id: number,
+    url: string,
+    sortby: string,
+    image: File|any,
+    description: string,
+    
+}

@@ -7,6 +7,8 @@ import { SubCategoryComponent } from './banner/sub-category/sub-category.compone
 import { SponsorComponent } from './banner/sponsor/sponsor.component';
 import {AddEditSponsorComponent} from './banner/add-edit-sponsor/add-edit-sponsor.component';
 import { Slider1Component } from './slider/slider1/slider1.component';
+import { BannerSpecialComponent } from './banner-special/banner-special/banner-special.component';
+import { AddBannerSpecialComponent } from './banner-special/add-banner-special/add-banner-special.component';
 const routes: Routes = [
   {
     path:'category', component: CategoryComponent
@@ -37,7 +39,15 @@ const routes: Routes = [
   },
   {
     path: 'slider', component: Slider1Component
+  },
+  {
+    path: 'banner', component: BannerSpecialComponent
+  },
+  {
+    path: 'add-special-banner', component: AddBannerSpecialComponent
   }
+
+ 
 ];
 
 @NgModule({

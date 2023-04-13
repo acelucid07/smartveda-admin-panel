@@ -70,6 +70,12 @@ export const SideNaveMenueRoute = [
                     }
                 ]
             },
+            {
+                label: 'Banner Special',
+               
+                        icon: 'pi pi-list',
+                        routerLink: ['/cms/banner']
+            },
             // {
             //     label: 'Slider',
             //     items: [
