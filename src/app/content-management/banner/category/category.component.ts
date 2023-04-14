@@ -50,13 +50,16 @@ export class CategoryComponent implements OnInit {
       this.sidebarSpacing = 'expanded';
     }
   }
+
   getCategoryList() {
     this.CmsService.getCategoryList().subscribe((res: CATEGORY[]) => {
       this.categoryList = res
-      console.log(this.categoryList)
+      console.log(this.categoryList,"--------------------")
       this.ngxLoader.stop();
     })
   }
+
+  
   deleteCategory(categoryList: any) {
     this.ngxLoader.start();
     this.CmsService.deleteCategory(categoryList.id).subscribe(res => {

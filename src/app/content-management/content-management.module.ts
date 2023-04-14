@@ -10,7 +10,15 @@ import { AddEditSponsorComponent } from './banner/add-edit-sponsor/add-edit-spon
 import { SharedModule } from '../shared/shared.module';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { Slider1Component } from './slider/slider1/slider1.component';
+import { BannerSpecialComponent } from './banner-special/banner-special/banner-special.component';
+import { AddBannerSpecialComponent } from './banner-special/add-banner-special/add-banner-special.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { FeatureProductListComponent } from './feature-product/feature-product-list/feature-product-list.component';
+import { AddFeatureProductComponent } from './feature-product/add-feature-product/add-feature-product.component';
+import { BannerDialogComponent } from './banner-special/banner-dialog/banner-dialog.component';
 
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button'
 @NgModule({
   declarations: [
     CategoryComponent,
@@ -19,14 +27,22 @@ import { Slider1Component } from './slider/slider1/slider1.component';
     AddEditCategoryComponent,
     AddEditSubcategoryComponent,
     AddEditSponsorComponent,
-    Slider1Component
+    Slider1Component,
+    BannerSpecialComponent,
+    AddBannerSpecialComponent,
+    FeatureProductListComponent,
+    AddFeatureProductComponent,
+    BannerDialogComponent
   ],
   imports: [
     CommonModule,
+    ImageCropperModule,
     ContentManagementRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatButtonModule
   ]
 })
 export class ContentManagementModule { }

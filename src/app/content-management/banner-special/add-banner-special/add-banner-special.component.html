@@ -1,0 +1,109 @@
+<form [formGroup]="bannerSpecialForm">
+  <div class="page-heading col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <h1 class="header-text-title">
+      <i pButton class="pi pi-arrow-left p-button-text" [routerLink]="['/cms/banner']" pTooltip="Back"
+        tooltipPosition="bottom">
+      </i>{{title}}
+    </h1>
+  </div>
+  <div class="card col-sm-12">
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="h-100 mt-3">
+          <div class="card-body">
+            <div class="row gutters">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="name" class="col-form-label text-left starlabel">URL</label>
+                  <input type="url" class="form-control" placeholder="Enter URL" formControlName="url">
+                  <div
+                    *ngIf="(!bannerSpecialForm.controls['url'].valid) && (bannerSpecialForm.controls['url'].touched || bannerSpecialForm.controls['url'].dirty)">
+                    <div [hidden]="!bannerSpecialForm.controls['url'].errors['required']"
+                      style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                      Url is required
+                    </div>
+                    <div *ngIf="bannerSpecialForm.controls['url'].errors['pattern']"
+                      style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                      Please enter valid Url
+                    </div>
+                  </div>
+                  
+
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="hyperlink" class="col-form-label">Sort by</label>
+                  <input type="text" class="form-control" placeholder="Enter Only Number" formControlName="sortby">
+                  <div
+                  *ngIf="(!bannerSpecialForm.controls['sortby'].valid)">
+                 
+                  <div *ngIf="bannerSpecialForm.controls['sortby'].errors['pattern']"
+                    style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                    Enter number only between 1 to 5
+                  </div>
+                </div>
+                </div>
+
+              </div>
+
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                  <label for="Name" class="col-form-label text-left starlabel">Description</label><br>
+                  <textarea class="form-control" cols="110" rows="8" placeholder="Enter Discription" formControlName="description"></textarea>
+                  <div
+                    *ngIf="(!bannerSpecialForm.controls['description'].valid) && (bannerSpecialForm.controls['description'].touched || bannerSpecialForm.controls['description'].dirty)">
+                    <div [hidden]="!bannerSpecialForm.controls['description'].errors['required']"
+                      style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                      Description is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-9 form-group pt-3">
+              <label for="imageUpload" class="col-form-label">Image</label>
+              <div id="imageUpload" class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01" (change)="fileChangeEvent($event)">
+                <label class="custom-file-label" for="inputGroupFile01">Upload file</label>
+              </div>
+            </div>
+
+            <div class="col-11 form-group mt-5">
+              <div class="card">
+                <div class="card-body"> 
+                  <div class="row" style="margin-top: 15px;">
+                    <div class="text-center col-md-12">
+                      <h5>Image Croppier</h5>
+                      <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                        [aspectRatio]="4 / 3" [resizeToWidth]="400" format="png" (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                        (loadImageFailed)="loadImageFailed()"></image-cropper>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ------------------------------------- -->
+
+            <div class="row gutters mt-4">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+                <div class="text-center">
+                  <button pButton type="button" id="submit" name="submit" class="p-button-success mr-4"
+                    (click)="submitForm()" [disabled]="!(bannerSpecialForm.valid)">Save</button>
+                  <button pButton type="button" id="submit" name="submit" class="p-button-danger "
+                    [routerLink]="['/cms/banner']">Cancel</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

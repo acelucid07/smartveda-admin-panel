@@ -1,0 +1,141 @@
+<form [formGroup]="featureForm">
+    <div class="page-heading col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h1 class="header-text-title">
+            <i pButton class="pi pi-arrow-left p-button-text" [routerLink]="['/cms/feature']" pTooltip="Back"
+                tooltipPosition="bottom">
+            </i>{{title}}
+        </h1>
+    </div>
+    <div class="card col-sm-12">
+        <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="h-100 mt-3">
+                    <div class="card-body">
+                        <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="name" class="col-form-label text-left starlabel">Product Name</label>
+                                    <input type="text" class="form-control" formControlName="productName">
+                                    <div
+                                        *ngIf="!featureForm.controls['productName'].valid && (featureForm.controls['productName'].touched || featureForm.controls['productName'].dirty)">
+                                        <div [hidden]="!featureForm.controls['productName'].errors['required']"
+                                            style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                                            Product Name is required
+                                        </div>
+                                    </div>
+                                    <!-- <div *ngIf="featureForm.controls['productName'].errors['pattern']"
+                                    style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                                    please enter only alphabet and number
+                                  </div> -->
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="hyperlink" class="col-form-label text-left starlabel">Modal</label>
+                                    <input type="text" class="form-control" formControlName="modal">
+                                    <div
+                                        *ngIf="!featureForm.controls['modal'].valid && (featureForm.controls['modal'].touched || featureForm.controls['modal'].dirty)">
+                                        <div [hidden]="!featureForm.controls['modal'].errors['required']"
+                                            style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                                            Modal is required
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row gutters">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="Name" class="col-form-label text-left starlabel">Price</label><br>
+                                    <input type="text" class="form-control" formControlName="price">
+                                      <div
+                                    *ngIf="(!featureForm.controls['price'].valid) && (featureForm.controls['price'].touched || featureForm.controls['price'].dirty)">
+                                    <div [hidden]="!featureForm.controls['price'].errors['required']"
+                                      style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                                      price is required
+                                    </div>
+                                    <div *ngIf="featureForm.controls['price'].errors['pattern']"
+                                      style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                                      Please enter valid price
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <label for="Name" class="col-form-label text-left starlabel">Quantity</label><br>
+                                    <input type="text" class="form-control" formControlName="quantity">
+                                    <div
+                                    *ngIf="(!featureForm.controls['quantity'].valid) && (featureForm.controls['quantity'].touched || featureForm.controls['quantity'].dirty)">
+                                    <div [hidden]="!featureForm.controls['quantity'].errors['required']"
+                                      style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                                      quantity is required
+                                    </div>
+                                    <div *ngIf="featureForm.controls['quantity'].errors['pattern']"
+                                      style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                                      Please enter valid quantity
+                                    </div>
+                                  </div>
+          
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row gutters">
+                            <div class="col-9 form-group pt-3">
+                                <label for="imageUpload" class="col-form-label">Image</label>
+                                <div id="imageUpload" class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                        (change)="fileChangeEvent($event)">
+                                    <label class="custom-file-label" for="inputGroupFile01">Upload file</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row gutters">
+                            <div class="col-11 form-group mt-5">
+                                <div class="card">
+                                  <div class="card-body"> 
+                                    <div class="row" style="margin-top: 15px;">
+                                      <div class="text-center col-md-12">
+                                        <h5>Image Croppier</h5>
+                                        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                                          [aspectRatio]="4 / 3" [resizeToWidth]="400" format="png" (imageCropped)="imageCropped($event)"
+                                          (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                                          (loadImageFailed)="loadImageFailed()"></image-cropper>
+                                      </div>
+                  
+                                    </div>
+                                  </div>
+                                </div>
+                  
+                              </div>
+                        </div>
+                        <!-- ------------------------------------- -->
+
+                        <div class="row gutters mt-4">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+                                <div class="text-center">
+                                    <button pButton type="button" id="submit" name="submit"
+                                        class="p-button-success mr-4" (click)="submitForm()"
+                                        [disabled]="!(featureForm.valid)">Save</button>
+                                    <button pButton type="button" id="submit" name="submit" class="p-button-danger "
+                                        [routerLink]="['/cms/feature']">Cancel</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

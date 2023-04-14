@@ -1,0 +1,41 @@
+
+    <div class="page-heading">
+        <h1 class="header-text-title" style="margin-left: 1%;">Banner Special</h1>
+        <button pButton type="button" label="Add" class="p-button-success"
+        [routerLink]="['/cms/add-special-banner']"></button>
+      </div>
+      <div class="card col-sm-12" style="border:none; margin-top: 10px;">
+        <p-table id="customerTable" #dt [columns]="cols" responsiveLayout="scroll" [paginator]="true" [rows]="10"
+          [showCurrentPageReport]="true" [value]="bannerList"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true" [globalFilterFields]="['id', 'name',]" styleClass="p-datatable-striped">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th style="text-align: center;" *ngFor="let col of columns">{{col.headers}}</th>
+             
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-bannerList>
+            <tr>
+              
+              <td>{{bannerList.image}}</td>
+              <td>{{bannerList.url}}</td>
+              <td>{{bannerList.description}}</td>
+              <td>{{bannerList.sortby}}</td>
+              
+              <td>
+                <div class="btn-grp" id="btn-grp">
+                  <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
+                </button> -->
+                  <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit banner"
+                  [queryParams]="{id:bannerList?.id}" tooltipPosition="bottom" [routerLink]="['/cms/add-special-banner']" style="margin-right:5px"
+                 ></button>
+                  <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Banner"
+                    tooltipPosition="bottom" style="margin-right:5px"  (click)="openDialog(bannerList)"></button>               
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+    </p-table>
+   
+    
+    </div>

@@ -2,9 +2,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of, Observable, from } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { CATEGORY, SUB_CATEGORY, SPONSOR } from '../_models/cms'
+import { CATEGORY, SUB_CATEGORY, SPONSOR, BANNERSPECIAL, FEATURE } from '../_models/cms'
 import { category, sub_category } from '../DummyData/category_subCategory';
 import {sponsors} from '../DummyData/sponsor'
+import { bannerSpecialData } from '../DummyData/bannerSpecial';
+import { featureData } from '../DummyData/feature';
 
 @Injectable({
     providedIn: 'root'
@@ -153,4 +155,93 @@ export class CmsService {
         sponsors.splice(sponsors.findIndex((index) => index.id == id), 1)
         return of(sponsorObj)
     }
+
+    addSpecialBanner(specialData: any) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/bannerSpecialData`;
+        // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
+        specialData.id = bannerSpecialData.length + 1
+        bannerSpecialData.push(specialData);
+        return of(specialData)
+    }
+
+    getSpecialBannerList(): Observable<BANNERSPECIAL[]> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+       // const endpointUrl = `${environment.JSON_SERVER}/category`;
+        // return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
+        return of(bannerSpecialData)
+    }
+
+    deleteSpecialBanner(id: number) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+        let bannerObj = bannerSpecialData.map(item => {
+            item.id == id;
+            return item;
+        })
+        bannerSpecialData.splice(bannerSpecialData.findIndex((index) => index.id == id),1);
+        return of(bannerObj)
+    }
+
+    editSpecialBanner(bannerData: BANNERSPECIAL, id: number) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        // return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
+        let bannerObj = bannerSpecialData.findIndex((obj) => obj.id == id);
+        bannerSpecialData[bannerObj] = bannerData
+        return of(bannerData)
+    }
+
+    getBannerById(id: number): Observable<BANNERSPECIAL> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        let indexObj = bannerSpecialData.findIndex((obj)=>obj.id==id);
+        //return this.http.get<CATEGORY>(endpointUrl,{ 'headers': httpOptions });
+        return of(bannerSpecialData[indexObj])
+    }
+
+    // ----------------FEATURE API----------------
+
+    getFeatureList(): Observable<FEATURE[]> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+       // const endpointUrl = `${environment.JSON_SERVER}/category`;
+        // return this.http.get<CATEGORY[]>(endpointUrl, { 'headers': httpOptions });
+        return of(featureData)
+    }
+
+    addFeatureProduct(feature: any) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/feature`;
+        // return this.http.post<any>(endpointUrl, categoryData, { 'headers': httpOptions });
+        feature.id = featureData.length + 1
+        featureData.push(feature);
+        return of(feature)
+    }
+    editFeature(featuresData: FEATURE, id: number) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        // return this.http.put<CATEGORY>(endpointUrl, categoryData, { 'headers': httpOptions });
+        let featureObj = featureData.findIndex((obj) => obj.id == id);
+        featureData[featureObj] = featuresData
+        return of(featuresData)
+    }
+
+    getFeatureById(id: number): Observable<FEATURE> {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        let indexObj = featureData.findIndex((obj)=>obj.id==id);
+        //return this.http.get<CATEGORY>(endpointUrl,{ 'headers': httpOptions });
+        return of(featureData[indexObj])
+    }
+
 }
