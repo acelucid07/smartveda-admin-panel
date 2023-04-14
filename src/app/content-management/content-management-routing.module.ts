@@ -10,6 +10,7 @@ import { Slider1Component } from './slider/slider1/slider1.component';
 import { BannerSpecialComponent } from './banner-special/banner-special/banner-special.component';
 import { AddBannerSpecialComponent } from './banner-special/add-banner-special/add-banner-special.component';
 import { FeatureProductListComponent } from './feature-product/feature-product-list/feature-product-list.component';
+import { AddFeatureProductComponent } from './feature-product/add-feature-product/add-feature-product.component';
 const routes: Routes = [
   {
     path:'category', component: CategoryComponent
@@ -50,7 +51,9 @@ const routes: Routes = [
   {
     path: 'feature', component: FeatureProductListComponent
   },
-
+  {
+    path: 'add-featured-product', component: AddFeatureProductComponent
+  },
  
 ];
 

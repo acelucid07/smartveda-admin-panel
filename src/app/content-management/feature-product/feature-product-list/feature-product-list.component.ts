@@ -15,7 +15,7 @@ import { access } from 'src/app/_models/modulepermission';
 })
 export class FeatureProductListComponent implements OnInit {
 
- 
+  @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
   featureList : FEATURE[]=[]
@@ -33,7 +33,8 @@ export class FeatureProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.sidebarSpacing = 'contracted';
-   
+    this.ngxLoader.start();
+    this.sidebarSpacing = 'contracted';
     this.cols = [
       { field: 'sr.no', show: true, headers: 'Sr.no' },
       { field: 'image', show: true, headers: 'Image' },

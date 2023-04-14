@@ -58,7 +58,6 @@ export class AddBannerSpecialComponent implements OnInit {
 
   }
 
-  get f() { return this.bannerSpecialForm.controls; }
 
 
   fileChangeEvent(event: any): void {
@@ -92,7 +91,6 @@ export class AddBannerSpecialComponent implements OnInit {
     description: this.bannerSpecialForm.controls['description'].value,
     sortby: this.bannerSpecialForm.controls['sortby'].value,
   }
-  this.status=false
  
   this.ngxLoader.start();
   if (this.editMode) {
@@ -107,14 +105,14 @@ export class AddBannerSpecialComponent implements OnInit {
   addCategory() {
     this.CmsService.addSpecialBanner(this.bannerSpecialForm.value).subscribe(res => {
        if (res) {
-         this.toastr.showSuccess("Special abnner added successfully", "banner Added")
+         this.toastr.showSuccess("Special banner added successfully", "banner Added")
          this.ngxLoader.stop()
          this.route.navigate(['/cms/banner'])
        }
        (error: any) => {
          this.toastr.showError("Somthing wrong Please check", "Error occured")
          this.ngxLoader.stop()
-        // this.route.navigate(['/'])
+        this.route.navigate(['/'])
        }
      })
    }

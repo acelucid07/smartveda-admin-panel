@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BANNERSPECIAL } from 'src/app/_models/cms';
 import { TABLE_HEADING } from 'src/app/_models/table_heading';
 import { Table } from 'primeng/table';
-import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { NgxUiLoaderService, SPINNER } from 'ngx-ui-loader';
 import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { ModulePermissionService } from 'src/app/_services/module-permission.service';
 import { CmsService } from '../../../_services/cms.service';
@@ -19,7 +19,7 @@ export class BannerSpecialComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
   sidebarSpacing: any;
   cols!: TABLE_HEADING[];
-  
+  fgsType: any;
   bannerList: BANNERSPECIAL[]=[]
   accessPermission:access
 
@@ -30,11 +30,13 @@ export class BannerSpecialComponent implements OnInit {
     public dialog: MatDialog) {
       this.permissionService.getModulePermission().subscribe(res=>{ 
         this.accessPermission=res[0].CmsBanner
-        console.log( this.accessPermission)
+       
       })
      }
 
   ngOnInit(): void {
+    this.fgsType = SPINNER.squareLoader
+    this.ngxLoader.start();
     this.sidebarSpacing = 'contracted';
    
     this.cols = [

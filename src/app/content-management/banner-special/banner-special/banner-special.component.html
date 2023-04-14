@@ -26,13 +26,11 @@
                 <div class="btn-grp" id="btn-grp">
                   <!-- <button class="p-button-primary" pButton type="button" icon="pi pi-eye" style="margin-right:5px">
                 </button> -->
-                  <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit Category"
+                  <button class="p-button-warning" pButton type="button" icon="pi pi-user-edit" pTooltip="Edit banner"
                   [queryParams]="{id:bannerList?.id}" tooltipPosition="bottom" [routerLink]="['/cms/add-special-banner']" style="margin-right:5px"
                  ></button>
-                  <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Category"
-                    tooltipPosition="bottom" style="margin-right:5px"  (click)="openDialog(bannerList)" ></button>
-                   
-
+                  <button class="p-button-danger" pButton type="button" icon="pi pi-trash" pTooltip="Delete Banner"
+                    tooltipPosition="bottom" style="margin-right:5px"  (click)="openDialog(bannerList)"></button>               
                 </div>
               </td>
             </tr>
