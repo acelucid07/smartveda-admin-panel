@@ -7,6 +7,9 @@ import { ToastrMsgService } from 'src/app/_services/toastr-msg.service';
 import { ModulePermissionService } from 'src/app/_services/module-permission.service';
 import { CmsService } from '../../../_services/cms.service';
 import { access } from 'src/app/_models/modulepermission';
+import { MatDialog } from '@angular/material/dialog';
+import { BannerDialogComponent } from '../../banner-special/banner-dialog/banner-dialog.component';
+import { DialogFeatureComponent } from '../dialog-feature/dialog-feature.component';
 
 @Component({
   selector: 'app-feature-product-list',
@@ -24,7 +27,8 @@ export class FeatureProductListComponent implements OnInit {
   constructor(private ngxLoader: NgxUiLoaderService,
     private CmsService: CmsService,
     private toastr: ToastrMsgService,
-    private permissionService:ModulePermissionService) {
+    private permissionService:ModulePermissionService,
+    public dialog: MatDialog) {
       this.permissionService.getModulePermission().subscribe(res=>{ 
         this.accessPermission=res[0].CmsBanner
         console.log( this.accessPermission)
@@ -53,6 +57,26 @@ export class FeatureProductListComponent implements OnInit {
       //console.log(this.bannerList,"--------------------")
       this.ngxLoader.stop();
     })
+  }
+
+  
+  deleteProduct(featureList: any) {
+    this.ngxLoader.start();
+    this.CmsService.deleteProduct(featureList.id).subscribe(res => {
+      if (res) {
+        this.toastr.showSuccess("Feature Product deleted successfully", "Feature Product delete")
+        this.getFeatureList()
+      }
+    })
+  }
+
+  openDialog(deleteList: any) {
+    const dialogRef = this.dialog.open(DialogFeatureComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == true) {
+        this.deleteProduct(deleteList)
+      }
+    });
   }
   
   onToggleSidebar(sidebarState: any) {

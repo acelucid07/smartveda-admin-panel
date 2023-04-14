@@ -22,11 +22,12 @@
                                             style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
                                             Product Name is required
                                         </div>
-                                    </div>
-                                    <!-- <div *ngIf="featureForm.controls['productName'].errors['pattern']"
+                                   
+                                    <div *ngIf="featureForm.controls['productName'].errors['pattern']"
                                     style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
                                     please enter only alphabet and number
-                                  </div> -->
+                                  </div>
+                                </div>
                                 </div>
                             </div>
 
@@ -41,6 +42,10 @@
                                             style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
                                             Modal is required
                                         </div>
+                                        <div *ngIf="featureForm.controls['modal'].errors['pattern']"
+                                        style="color: rgb(253, 122, 122); font-size:small; font-style: italic;">
+                                        please enter only alphabet and number
+                                      </div>
                                     </div>
                                 </div>
 

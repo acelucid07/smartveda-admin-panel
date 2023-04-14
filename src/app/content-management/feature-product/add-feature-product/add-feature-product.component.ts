@@ -32,7 +32,7 @@ export class AddFeatureProductComponent implements OnInit {
     this.featureForm = this.fb.group({
       id:[''],
       productName: ['', [Validators.required, Validators.pattern(this.reg)]],
-      modal: ['', [Validators.required]],
+      modal: ['', [Validators.required,Validators.pattern(this.reg)]],
       price: ['', [Validators.required,Validators.pattern("(\.[0-9]{0,9})?")]],
       quantity: ['', [Validators.required,Validators.pattern("(\[0-9]{0,9})?")]],
     })
@@ -47,8 +47,8 @@ export class AddFeatureProductComponent implements OnInit {
       this.id = params.get('id');
       if (this.id && this.id != undefined) {
         this.editMode = true
-        this.title = "Edit Feature product"
-        this.getFeatureById()
+        this.title = "Edit Feature product";
+        this.getFeatureById();
       } else {
         this.editMode = false
         this.title = "Add New Product Name"

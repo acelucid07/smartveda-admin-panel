@@ -244,4 +244,17 @@ export class CmsService {
         return of(featureData[indexObj])
     }
 
+    deleteProduct(id: number) {
+        const token = localStorage.getItem('token') || '';
+        let httpOptions = new HttpHeaders().set('x-access-token', token)
+        const endpointUrl = `${environment.JSON_SERVER}/category/${id}`;
+        //return this.http.delete<CATEGORY>(endpointUrl, { 'headers': httpOptions });
+        let productObj = featureData.map(item => {
+            item.id == id;
+            return item;
+        })
+        featureData.splice(featureData.findIndex((index) => index.id == id),1);
+        return of(productObj)
+    }
+
 }

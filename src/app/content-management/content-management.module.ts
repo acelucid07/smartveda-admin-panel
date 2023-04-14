@@ -18,7 +18,8 @@ import { AddFeatureProductComponent } from './feature-product/add-feature-produc
 import { BannerDialogComponent } from './banner-special/banner-dialog/banner-dialog.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
+import { DialogFeatureComponent } from './feature-product/dialog-feature/dialog-feature.component'
 @NgModule({
   declarations: [
     CategoryComponent,
@@ -32,7 +33,8 @@ import { MatButtonModule } from '@angular/material/button'
     AddBannerSpecialComponent,
     FeatureProductListComponent,
     AddFeatureProductComponent,
-    BannerDialogComponent
+    BannerDialogComponent,
+    DialogFeatureComponent
   ],
   imports: [
     CommonModule,
